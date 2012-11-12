@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -56,7 +57,20 @@ namespace GrouponDesktop.Sql
 
         public DataRow Single(SqlCommand command)
         {
-            return this.Select(command).Rows[0];
+            try
+            {
+                return this.Select(command).Rows[0];
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                throw new NoResultsException(e);
+            }
+            
         }
+    }
+
+    public class NoResultsException : ApplicationException
+    {
+        public NoResultsException(Exception innerException) : base("La consulta no retorno resultados", innerException) {}
     }
 }
