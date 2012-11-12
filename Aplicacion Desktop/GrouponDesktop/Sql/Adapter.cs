@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace GrouponDesktop.Test.Sql
+namespace GrouponDesktop.Sql
 {
     public class Adapter
     {

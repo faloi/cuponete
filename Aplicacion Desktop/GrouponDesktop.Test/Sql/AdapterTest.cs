@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Linq;
+using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
 using GrouponDesktop.Test.Helpers;
 using Xunit;
