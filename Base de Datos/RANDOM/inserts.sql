@@ -147,6 +147,18 @@ OUTER    APPLY (SELECT TOP 1 *
 WHERE Groupon_Entregado_Fecha is not null
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 /** INSERT CUPON DEVUELTO **/
 
 INSERT INTO RANDOM.Cupon_Devuelto (fecha_devolucion, id_compra, id_cliente, motivo_devolucion )
@@ -163,4 +175,8 @@ WHERE ma.Groupon_Devolucion_Fecha is not null
 
 
 
+UPDATE RANDOM.Cupon SET max_compra_por_usuario = cc.cant FROM
+(SELECT id_cupon,COUNT(*) cant FROM RANDOM.Cupon_Comprado 
+GROUP BY id_cupon, id_cliente) cc
+WHERE RANDOM.Cupon.id_cupon = cc.id_cupon 
 
