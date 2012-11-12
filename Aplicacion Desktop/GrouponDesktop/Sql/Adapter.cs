@@ -4,6 +4,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace GrouponDesktop.Sql
 {
@@ -20,7 +21,10 @@ namespace GrouponDesktop.Sql
         {
             var entity = Activator.CreateInstance<T>();
 
-            var properties = typeof (T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var properties = typeof (T)
+                .GetProperties()
+                .Where(p => (p.GetGetMethod() ?? p.GetSetMethod()).IsDefined(typeof(CompilerGeneratedAttribute), false));
+
             foreach (var property in properties)
                 property.SetValue(entity, this.ConvertValue(dataRow, property), null);
 
