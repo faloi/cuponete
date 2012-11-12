@@ -7,8 +7,8 @@ namespace GrouponDesktop.ManagementUsuario
 {
     public partial class LoginView : Form
     {
-        private UserRepository repository;
-        private Usuario model;
+        private readonly UserRepository repository;
+        private readonly Usuario model;
 
         public LoginView()
         {
