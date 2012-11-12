@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
 using GrouponDesktop.DTOs;
+using GrouponDesktop.Sql;
 
-namespace GrouponDesktop.Sql
+namespace GrouponDesktop.Repositories
 {
     public class UserRepository
     {

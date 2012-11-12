@@ -166,7 +166,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Sql\Adapter.cs" />
-    <Compile Include="Sql\UserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Sql\Runnable.cs" />
     <Compile Include="Sql\SqlRunner.cs" />
     <Compile Include="DTOs\Usuario.cs" />
