@@ -87,7 +87,16 @@
     <Compile Include="DTOs\Ciudad.cs" />
     <Compile Include="DTOs\Cliente.cs" />
     <Compile Include="DTOs\Cupon.cs" />
+    <Compile Include="DTOs\Cupon_canjeado.cs" />
+    <Compile Include="DTOs\Cupon_comprado.cs" />
+    <Compile Include="DTOs\Cupon_devuelto.cs" />
+    <Compile Include="DTOs\Factura.cs" />
+    <Compile Include="DTOs\Funcionalidad.cs" />
+    <Compile Include="DTOs\Gift_card.cs" />
+    <Compile Include="DTOs\Proveedor.cs" />
+    <Compile Include="DTOs\Renglon_factura.cs" />
     <Compile Include="DTOs\Rol.cs" />
+    <Compile Include="DTOs\Rubro.cs" />
     <Compile Include="FacturarProveedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

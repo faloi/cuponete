@@ -5,9 +5,9 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Ciudad
+    class Renglon_factura
     {
-        public long id_ciudad { set; get; }
-        public string descripcion { set; get; }
+        public long id_cupon_canjeado { set; get; }
+        public long id_factura { set; get; }
     }
 }

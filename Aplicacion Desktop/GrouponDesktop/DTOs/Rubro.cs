@@ -5,9 +5,9 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Ciudad
+    class Rubro
     {
-        public long id_ciudad { set; get; }
-        public string descripcion { set; get; }
+        public long id_rubro { set; get; }
+        public string desc_rubro { set; get; }
     }
 }

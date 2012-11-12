@@ -7,7 +7,7 @@ namespace GrouponDesktop.DTOs
 {
     class Cupon
     {
-        public long id { set; get; }
+        public long id_cupon { set; get; }
         public string codigo_cupon { set; get; }
         public string descripcion { set; get; }
         public DateTime fec_publicacion { set; get; }
