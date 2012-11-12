@@ -35,6 +35,8 @@ namespace GrouponDesktop.ManagementUsuario
         protected override void ExecSubmit()
         {
             this.repository.Login(this.model);
+            UsuarioHome homeUsuarios = UsuarioHome.Instance;
+            homeUsuarios.usuario.Fill(model);
         }
     }
 }

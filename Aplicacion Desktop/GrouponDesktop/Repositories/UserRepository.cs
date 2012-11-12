@@ -14,7 +14,7 @@ namespace GrouponDesktop.Repositories
             try
             {
                 var result = this.sqlRunner
-                    .Single("SELECT username, password, dni_cuit, fallas FROM RANDOM.Usuario WHERE username = '{0}'", usuario.username);
+                    .Single("SELECT * FROM RANDOM.Usuario WHERE username = '{0}'", usuario.username);
 
                 var userFromDb = new Adapter().Transform<Usuario>(result);
 
