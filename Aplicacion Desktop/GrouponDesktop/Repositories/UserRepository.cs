@@ -5,19 +5,14 @@ using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Repositories
 {
-    public class UserRepository
+    public class UserRepository : Repository
     {
-        private readonly SqlRunner sqlRunner;
-
-        public UserRepository(string connectionString)
-        {
-            this.sqlRunner = new SqlRunner(connectionString);
-        }
+        public UserRepository(string connectionString) : base(connectionString) {}
 
         public void Login(Usuario usuario)
         {
             var result = 
-                this.sqlRunner.Single("SELECT username, password, fallas FROM RANDOM.Usuario WHERE username = {0}", usuario.username);
+                this.sqlRunner.Single("SELECT username, password, dni_cuit, fallas FROM RANDOM.Usuario WHERE username = '{0}'", usuario.username);
 
             if (result == null)    
                 throw new ApplicationException("El usuario no existe");

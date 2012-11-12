@@ -165,6 +165,8 @@
     <Compile Include="RegistroConsumoCupon\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\RepoFactory.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Sql\Adapter.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Sql\Runnable.cs" />
