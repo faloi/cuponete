@@ -15,7 +15,7 @@ namespace GrouponDesktop.DTOs
         public int telefono { set; get; }
         public string direccion { set; get; }
         public int cod_postal { set; get; }
-        public datetime fecha_nac { set; get; }
+        public DateTime fecha_nac { set; get; }
         public int saldo_actual { set; get; }
     }
 }
