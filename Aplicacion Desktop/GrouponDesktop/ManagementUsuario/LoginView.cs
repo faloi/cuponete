@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Repositories;
@@ -26,7 +27,19 @@ namespace GrouponDesktop.ManagementUsuario
             this.passwordTextBox.BindTextTo(this.model, "password");
 
             this.loginButton.Click +=
-                (sender, args) => this.repository.Login(this.model);
+                (sender, args) => this.Login();
+        }
+
+        private void Login()
+        {
+            try
+            {
+                this.repository.Login(this.model);
+            }
+            catch (ApplicationException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }
