@@ -6,7 +6,7 @@ using GrouponDesktop.Repositories;
 
 namespace GrouponDesktop.ManagementUsuario
 {
-    public partial class LoginView : Form
+    public partial class LoginView : DefaultView
     {
         private readonly UserRepository repository;
         private readonly Usuario model;
@@ -27,19 +27,14 @@ namespace GrouponDesktop.ManagementUsuario
             this.passwordTextBox.BindTextTo(this.model, "password");
 
             this.loginButton.Click +=
-                (sender, args) => this.Login();
+                (sender, args) => this.Submit();
         }
 
-        private void Login()
+
+
+        protected override void ExecSubmit()
         {
-            try
-            {
-                this.repository.Login(this.model);
-            }
-            catch (ApplicationException e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            this.repository.Login(this.model);
         }
     }
 }
