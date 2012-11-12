@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrouponDesktop", "GrouponDesktop\GrouponDesktop.csproj", "{4DE32818-79B7-4459-8E2B-39D796EF0505}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrouponDesktop.Test", "GrouponDesktop.Test\GrouponDesktop.Test.csproj", "{4F495D54-56FF-4F4B-B97A-45649F85C017}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76E8857C-0D05-4D52-838D-845731830F47}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = GrouponDesktop.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -13,6 +20,10 @@ Global
 		{4DE32818-79B7-4459-8E2B-39D796EF0505}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DE32818-79B7-4459-8E2B-39D796EF0505}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DE32818-79B7-4459-8E2B-39D796EF0505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F495D54-56FF-4F4B-B97A-45649F85C017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F495D54-56FF-4F4B-B97A-45649F85C017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F495D54-56FF-4F4B-B97A-45649F85C017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F495D54-56FF-4F4B-B97A-45649F85C017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
