@@ -11,22 +11,26 @@ namespace GrouponDesktop.Repositories
 
         public void Login(Usuario usuario)
         {
-            var result = 
-                this.sqlRunner.Single("SELECT username, password, dni_cuit, fallas FROM RANDOM.Usuario WHERE username = '{0}'", usuario.username);
-
-            if (result == null)    
-                throw new ApplicationException("El usuario no existe");
-
-            var userFromDb = new Adapter().Transform<Usuario>(result);
-
-            if (userFromDb.EstaBloqueado)
-                throw new ApplicationException("El usuario se encuentra bloqueado");
-
-            if (userFromDb.password != usuario.password)
+            try
             {
-                this.IncrementarFallas(usuario);
-                throw new ApplicationException("Password incorrecto");
+                var result = this.sqlRunner
+                    .Single("SELECT username, password, dni_cuit, fallas FROM RANDOM.Usuario WHERE username = '{0}'", usuario.username);
+
+                var userFromDb = new Adapter().Transform<Usuario>(result);
+
+                if (userFromDb.EstaBloqueado)
+                    throw new ApplicationException("El usuario se encuentra bloqueado");
+
+                if (userFromDb.password != usuario.password)
+                {
+                    this.IncrementarFallas(usuario);
+                    throw new ApplicationException("Password incorrecto");
+                }
             }
+            catch (NoResultsException e)
+            {
+                throw new ApplicationException("El usuario no existe", e);
+            }            
         }
 
         private void IncrementarFallas(Usuario usuario)
