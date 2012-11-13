@@ -70,6 +70,10 @@
     <Compile Include="Helpers\ControlBindingHelpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -100,6 +104,12 @@
     <Compile Include="Sql\SqlRunner.cs" />
     <Compile Include="DTOs\Usuario.cs" />
     <Compile Include="Helpers\FormCreator.cs" />
+    <Compile Include="Views\HomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>

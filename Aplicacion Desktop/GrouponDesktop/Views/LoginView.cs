@@ -38,9 +38,9 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             this.home.Login(this.model);
+            this.Hide();
+
             new HomeView().Show();
-            
-            this.Close();
         }
     }
 }
