@@ -4,7 +4,7 @@
     {
         private static string ConnectionString
         {
-            get { return @"Data Source=localhost\SQLSERVER2008;Initial Catalog=GD2C2012;User ID=gd;Password=gd2012"; }
+            get { return Properties.Settings.Default.ConnectionString; }
         }
 
         private static UsuarioHome usuarioHome;
