@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace GrouponDesktop.DTOs
 {
     public class Usuario
@@ -16,16 +18,15 @@ namespace GrouponDesktop.DTOs
             get { return this.fallas >= 3; }
         }
 
-        public void Fill(Usuario usuario)
+        public Dictionary<string, string> Forms
         {
-            this.id_usuario = usuario.id_usuario;
-            this.username = usuario.username;
-            this.password = usuario.password;
-            this.id_rol = usuario.id_rol;
-            this.tipo = usuario.tipo;
-            this.estado = usuario.estado;
-            this.dni_cuit = usuario.dni_cuit;
-            this.fallas = usuario.fallas;
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                   { "Iniciar sesión", "LoginView" }
+                };
+            }
         }
     }
 }
