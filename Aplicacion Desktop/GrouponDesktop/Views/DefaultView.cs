@@ -5,6 +5,21 @@ namespace GrouponDesktop.Views
 {
     public abstract class DefaultView : Form
     {
+        protected void CreateBindings(Button submitButton)
+        {
+            submitButton.Click +=
+                (sender, args) => this.Submit();
+
+            this.KeyPreview = true;
+            this.KeyDown += (sender, args) => { if (args.KeyCode == Keys.Escape) this.Close(); };
+            
+            this.AcceptButton = submitButton;
+
+            this.CreateSpecificBindings();
+        }
+
+        protected abstract void CreateSpecificBindings();
+
         protected void Submit()
         {
             try

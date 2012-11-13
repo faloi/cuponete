@@ -1,4 +1,5 @@
-﻿using GrouponDesktop.DTOs;
+﻿using System.Windows.Forms;
+using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 
@@ -16,21 +17,30 @@ namespace GrouponDesktop.Views
             this.home = HomeFactory.Usuario;
             this.model = this.home.UsuarioActual;
 
-            this.CreateBindings();
+            this.Setup();
+            this.CreateBindings(this.loginButton);
         }
 
-        private void CreateBindings()
+        private void Setup()
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            
+            this.Text = "Bienvenido a Cuponete";
+        }
+
+        protected override void CreateSpecificBindings()
         {
             this.usernameTextBox.BindTextTo(this.model, "username");
             this.passwordTextBox.BindTextTo(this.model, "password");
-
-            this.loginButton.Click +=
-                (sender, args) => this.Submit();
-        }
+        }        
 
         protected override void ExecSubmit()
         {
             this.home.Login(this.model);
+            new HomeView().Show();
+            
+            this.Close();
         }
     }
 }
