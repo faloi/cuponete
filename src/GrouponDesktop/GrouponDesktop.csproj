@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4DE32818-79B7-4459-8E2B-39D796EF0505}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GrouponDesktop</RootNamespace>
+    <AssemblyName>GrouponDesktop</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\MessageFactory.cs" />
+    <Compile Include="Views\DefaultView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTOs\Ciudad.cs" />
+    <Compile Include="DTOs\Cliente.cs" />
+    <Compile Include="DTOs\Credito.cs" />
+    <Compile Include="DTOs\Cupon.cs" />
+    <Compile Include="DTOs\Cupon_canjeado.cs" />
+    <Compile Include="DTOs\Cupon_comprado.cs" />
+    <Compile Include="DTOs\Cupon_devuelto.cs" />
+    <Compile Include="DTOs\Factura.cs" />
+    <Compile Include="DTOs\Forma_de_pago.cs" />
+    <Compile Include="DTOs\Funcionalidad.cs" />
+    <Compile Include="DTOs\Gift_card.cs" />
+    <Compile Include="DTOs\Proveedor.cs" />
+    <Compile Include="DTOs\Renglon_factura.cs" />
+    <Compile Include="DTOs\Rol.cs" />
+    <Compile Include="DTOs\Rubro.cs" />
+    <Compile Include="Helpers\ControlBindingHelpers.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\HomeView.resx">
+      <DependentUpon>HomeView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Homes\HomeFactory.cs" />
+    <Compile Include="Homes\Home.cs" />
+    <Compile Include="Sql\Adapter.cs" />
+    <Compile Include="Homes\UsuarioHome.cs" />
+    <Compile Include="Sql\Runnable.cs" />
+    <Compile Include="Sql\SqlRunner.cs" />
+    <Compile Include="DTOs\Usuario.cs" />
+    <Compile Include="Helpers\FormCreator.cs" />
+    <Compile Include="Views\HomeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HomeView.Designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ManagementUsuario\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
