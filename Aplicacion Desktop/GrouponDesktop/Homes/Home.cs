@@ -1,12 +1,12 @@
 using GrouponDesktop.Sql;
 
-namespace GrouponDesktop.Repositories
+namespace GrouponDesktop.Homes
 {
-    public abstract class Repository
+    public abstract class Home
     {
         protected readonly SqlRunner sqlRunner;
 
-        protected Repository(string connectionString)
+        protected Home(string connectionString)
         {
             this.sqlRunner = new SqlRunner(connectionString);
         }

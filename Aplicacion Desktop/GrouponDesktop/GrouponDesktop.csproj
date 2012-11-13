@@ -121,7 +121,6 @@
     <Compile Include="ListadoEstadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagementUsuario\UsuarioHome.cs" />
     <Compile Include="PedirDevolucion\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,10 +167,10 @@
     <Compile Include="RegistroConsumoCupon\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\RepoFactory.cs" />
-    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Homes\HomeFactory.cs" />
+    <Compile Include="Homes\Home.cs" />
     <Compile Include="Sql\Adapter.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Homes\UsuarioHome.cs" />
     <Compile Include="Sql\Runnable.cs" />
     <Compile Include="Sql\SqlRunner.cs" />
     <Compile Include="DTOs\Usuario.cs" />

@@ -1,22 +1,20 @@
-﻿using System;
-using System.Windows.Forms;
-using GrouponDesktop.DTOs;
+﻿using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
-using GrouponDesktop.Repositories;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.ManagementUsuario
 {
     public partial class LoginView : DefaultView
     {
-        private readonly UserRepository repository;
+        private readonly UsuarioHome home;
         private readonly Usuario model;
 
         public LoginView()
         {
             InitializeComponent();
             
-            this.repository = RepoFactory.User;
-            this.model = new Usuario();
+            this.home = HomeFactory.Usuario;
+            this.model = this.home.UsuarioActual;
 
             this.CreateBindings();
         }
@@ -30,13 +28,9 @@ namespace GrouponDesktop.ManagementUsuario
                 (sender, args) => this.Submit();
         }
 
-
-
         protected override void ExecSubmit()
         {
-            this.repository.Login(this.model);
-            UsuarioHome homeUsuarios = UsuarioHome.Instance;
-            homeUsuarios.usuario.Fill(model);
+            this.home.Login(this.model);
         }
     }
 }

@@ -3,11 +3,16 @@ using System.Data.SqlClient;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
 
-namespace GrouponDesktop.Repositories
+namespace GrouponDesktop.Homes
 {
-    public class UserRepository : Repository
+    public class UsuarioHome : Home
     {
-        public UserRepository(string connectionString) : base(connectionString) {}
+        public Usuario UsuarioActual;
+        
+        public UsuarioHome(string connectionString) : base(connectionString)
+        {
+            this.UsuarioActual = new Usuario();
+        }
 
         public void Login(Usuario usuario)
         {
@@ -26,6 +31,8 @@ namespace GrouponDesktop.Repositories
                     this.IncrementarFallas(usuario);
                     throw new ApplicationException("Password incorrecto");
                 }
+
+                this.UsuarioActual = userFromDb;
             }
             catch (NoResultsException e)
             {

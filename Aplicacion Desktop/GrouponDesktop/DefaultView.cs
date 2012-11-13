@@ -5,8 +5,6 @@ namespace GrouponDesktop
 {
     public abstract class DefaultView : Form
     {
-
-    
         protected void Submit()
         {
             try
