@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Views
 {
@@ -28,7 +29,7 @@ namespace GrouponDesktop.Views
             }
             catch (ApplicationException e)
             {
-                MessageBox.Show(e.Message);
+                MessageFactory.Alert(e.Message);
             }
         }
 

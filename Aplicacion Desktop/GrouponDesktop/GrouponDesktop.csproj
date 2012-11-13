@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\MessageFactory.cs" />
     <Compile Include="Views\DefaultView.cs">
       <SubType>Form</SubType>
     </Compile>
