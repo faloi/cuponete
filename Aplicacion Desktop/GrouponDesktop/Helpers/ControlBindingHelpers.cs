@@ -17,6 +17,11 @@ namespace GrouponDesktop.Helpers
 
             control.DataBindings.Add(binding);
         }
+
+        public static void AddItem(this MenuStrip menu, string text, EventHandler onClick)
+        {
+            menu.Items.Add(text, null, onClick);
+        }
     }
 }
 
