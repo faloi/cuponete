@@ -99,6 +99,7 @@
     <Compile Include="Sql\Runnable.cs" />
     <Compile Include="Sql\SqlRunner.cs" />
     <Compile Include="DTOs\Usuario.cs" />
+    <Compile Include="Helpers\FormCreator.cs" />
     <Compile Include="Views\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
