@@ -2,7 +2,7 @@
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 
-namespace GrouponDesktop.ManagementUsuario
+namespace GrouponDesktop.Views
 {
     public partial class LoginView : DefaultView
     {

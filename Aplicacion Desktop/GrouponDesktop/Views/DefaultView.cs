@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GrouponDesktop
+namespace GrouponDesktop.Views
 {
     public abstract class DefaultView : Form
     {

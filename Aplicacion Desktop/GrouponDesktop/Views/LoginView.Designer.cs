@@ -1,4 +1,4 @@
-﻿namespace GrouponDesktop.ManagementUsuario
+﻿namespace GrouponDesktop.Views
 {
     partial class LoginView
     {
