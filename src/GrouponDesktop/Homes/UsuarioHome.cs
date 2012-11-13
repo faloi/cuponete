@@ -28,7 +28,7 @@ namespace GrouponDesktop.Homes
 
                 if (userFromDb.password != usuario.password)
                 {
-                    this.IncrementarFallas(usuario);
+                    this.IncrementarFallas(userFromDb);
                     throw new ApplicationException("Password incorrecto");
                 }
 
@@ -49,7 +49,7 @@ namespace GrouponDesktop.Homes
         {
             public static Runnable IncrementarFallas(Usuario usuario)
             {
-                return Runnable.StoreProcedure("IncrementarFallas", new[] { new SqlParameter("@username", usuario.username) });
+                return Runnable.StoreProcedure("RANDOM.IncrementarFallas", new[] { new SqlParameter("@userId", usuario.id_usuario) });
             }
         }
     }
