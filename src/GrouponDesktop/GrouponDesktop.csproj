@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4DE32818-79B7-4459-8E2B-39D796EF0505}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -83,6 +83,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegistroView.resx">
+      <DependentUpon>RegistroView.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -105,6 +108,12 @@
     <Compile Include="Sql\SqlRunner.cs" />
     <Compile Include="DTOs\Usuario.cs" />
     <Compile Include="Helpers\FormCreator.cs" />
+    <Compile Include="Views\RegistroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RegistroView.Designer.cs">
+      <DependentUpon>RegistroView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.cs">
       <SubType>Form</SubType>
     </Compile>

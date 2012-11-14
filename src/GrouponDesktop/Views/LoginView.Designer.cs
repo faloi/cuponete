@@ -33,6 +33,8 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.registrarButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -77,11 +79,31 @@
             this.loginButton.Text = "Iniciar sesion";
             this.loginButton.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(328, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "No tenes usuario? Registrate!";
+            // 
+            // registrarButton
+            // 
+            this.registrarButton.Location = new System.Drawing.Point(357, 94);
+            this.registrarButton.Name = "registrarButton";
+            this.registrarButton.Size = new System.Drawing.Size(75, 23);
+            this.registrarButton.TabIndex = 6;
+            this.registrarButton.Text = "Registrarse";
+            this.registrarButton.UseVisualStyleBackColor = true;
+            // 
             // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 152);
+            this.ClientSize = new System.Drawing.Size(511, 152);
+            this.Controls.Add(this.registrarButton);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
@@ -101,5 +123,7 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button registrarButton;
     }
 }
