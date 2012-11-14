@@ -147,18 +147,6 @@ OUTER    APPLY (SELECT TOP 1 *
 WHERE Groupon_Entregado_Fecha is not null
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /** INSERT CUPON DEVUELTO **/
 
 INSERT INTO RANDOM.Cupon_Devuelto (fecha_devolucion, id_compra, id_cliente, motivo_devolucion )
@@ -185,12 +173,3 @@ WHERE RANDOM.Cupon.id_cupon = cc.id_cupon
 INSERT INTO RANDOM.Usuario (username, [password], id_rol, tipo, estado, fallas)
 VALUES ('admin','w23e',1,'ADMINISTRADOR', 1, 0)
 
-
-/** CREACION DE VISTA DE CUPONES PARA CLIENTE**/
-CREATE VIEW RANDOM.Cupones_Para_Cliente
-AS
-SELECT cu.id_cupon,cu.descripcion,cu.fec_publicacion,cu.precio_ficticio, cu.precio_real,cpc.id_cliente
-FROM RANDOM.Cupon cu 
-LEFT JOIN RANDOM.Cupon_x_ciudad cupc ON (cUpc.id_cupon = cu.id_cupon)
-LEFT JOIN RANDOM.Cliente_x_Ciudad cpc ON (cpc.id_ciudad = cupc.id_ciudad)
-WHERE cu.publicados = 1
