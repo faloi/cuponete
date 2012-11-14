@@ -33,6 +33,12 @@ namespace GrouponDesktop.Views
             }
         }
 
+        protected void Redirect(Form form)
+        {
+            this.Hide();
+            form.Show();
+        }
+
         protected abstract void ExecSubmit();
     }
 }

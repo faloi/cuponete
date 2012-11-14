@@ -33,14 +33,15 @@ namespace GrouponDesktop.Views
         {
             this.usernameTextBox.BindTextTo(this.model, "username");
             this.passwordTextBox.BindTextTo(this.model, "password");
-        }        
+            this.registrarButton.Click+=
+                (sender, args) => this.Redirect(new RegistroView());
+        }
 
         protected override void ExecSubmit()
         {
             this.home.Login(this.model);
-            this.Hide();
-
-            new HomeView().Show();
+            this.Redirect(new HomeView());
         }
+
     }
 }
