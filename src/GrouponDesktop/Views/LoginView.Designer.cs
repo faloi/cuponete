@@ -1,6 +1,6 @@
 ﻿namespace GrouponDesktop.Views
 {
-    partial class LoginView
+    partial class LoginView : DefaultView
     {
         /// <summary>
         /// Required designer variable.

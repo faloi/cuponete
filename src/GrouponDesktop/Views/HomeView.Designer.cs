@@ -38,6 +38,7 @@
             this.mainMenu.Size = new System.Drawing.Size(284, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
+            this.mainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.mainMenu_ItemClicked);
             // 
             // HomeView
             // 

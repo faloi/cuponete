@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4DE32818-79B7-4459-8E2B-39D796EF0505}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -35,6 +35,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -49,6 +50,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MessageFactory.cs" />
+    <Compile Include="Views\ABMCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMCliente.Designer.cs">
+      <DependentUpon>ABMCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ABMProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMProveedor.Designer.cs">
+      <DependentUpon>ABMProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ABMRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMRol.Designer.cs">
+      <DependentUpon>ABMRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CargarCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CargarCredito.Designer.cs">
+      <DependentUpon>CargarCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComprarGiftCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ComprarGiftCard.Designer.cs">
+      <DependentUpon>ComprarGiftCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DefaultView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +101,21 @@
     <Compile Include="Helpers\ControlBindingHelpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\ABMCliente.resx">
+      <DependentUpon>ABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ABMProveedor.resx">
+      <DependentUpon>ABMProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ABMRol.resx">
+      <DependentUpon>ABMRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CargarCredito.resx">
+      <DependentUpon>CargarCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ComprarGiftCard.resx">
+      <DependentUpon>ComprarGiftCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -5,7 +5,7 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class LoginView : DefaultView
+    public partial class LoginView
     {
         private readonly UsuarioHome home;
         private readonly Usuario model;
