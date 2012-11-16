@@ -33,10 +33,6 @@
             this.labelUsrDestino = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelApellido = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.labelDNI = new System.Windows.Forms.Label();
             this.buttonComprar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -79,50 +75,16 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(13, 109);
+            this.labelNombre.Location = new System.Drawing.Point(34, 109);
             this.labelNombre.Name = "labelNombre";
-            this.labelNombre.Size = new System.Drawing.Size(65, 21);
+            this.labelNombre.Size = new System.Drawing.Size(140, 21);
             this.labelNombre.TabIndex = 4;
-            this.labelNombre.Text = "Nombre";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(17, 180);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 20);
-            this.textBox2.TabIndex = 5;
-            // 
-            // labelApellido
-            // 
-            this.labelApellido.AutoSize = true;
-            this.labelApellido.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApellido.Location = new System.Drawing.Point(14, 156);
-            this.labelApellido.Name = "labelApellido";
-            this.labelApellido.Size = new System.Drawing.Size(64, 21);
-            this.labelApellido.TabIndex = 6;
-            this.labelApellido.Text = "Apellido";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(18, 227);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 20);
-            this.textBox3.TabIndex = 7;
-            // 
-            // labelDNI
-            // 
-            this.labelDNI.AutoSize = true;
-            this.labelDNI.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDNI.Location = new System.Drawing.Point(14, 203);
-            this.labelDNI.Name = "labelDNI";
-            this.labelDNI.Size = new System.Drawing.Size(36, 21);
-            this.labelDNI.TabIndex = 8;
-            this.labelDNI.Text = "DNI";
+            this.labelNombre.Text = "Nombre de Usuario";
             // 
             // buttonComprar
             // 
             this.buttonComprar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComprar.Location = new System.Drawing.Point(16, 272);
+            this.buttonComprar.Location = new System.Drawing.Point(16, 180);
             this.buttonComprar.Name = "buttonComprar";
             this.buttonComprar.Size = new System.Drawing.Size(176, 36);
             this.buttonComprar.TabIndex = 9;
@@ -133,12 +95,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(210, 320);
+            this.ClientSize = new System.Drawing.Size(210, 227);
             this.Controls.Add(this.buttonComprar);
-            this.Controls.Add(this.labelDNI);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.labelApellido);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelUsrDestino);
@@ -158,10 +116,6 @@
         private System.Windows.Forms.Label labelUsrDestino;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelNombre;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label labelApellido;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label labelDNI;
         private System.Windows.Forms.Button buttonComprar;
     }
 }
