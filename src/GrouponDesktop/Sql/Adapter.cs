@@ -10,24 +10,27 @@ namespace GrouponDesktop.Sql
 {
     public class Adapter
     {
-        public IEnumerable<T> TransformMany<T>(DataTable dataTable)
+        public IList<T> TransformMany<T>(DataTable dataTable)
         {
             return dataTable.Rows
                 .Cast<DataRow>()
-                .Select(row => this.Transform<T>(row));
+                .Select(row => this.Transform<T>(row))
+                .ToList();
         }
 
         public T Transform<T>(DataRow dataRow)
         {
             var entity = Activator.CreateInstance<T>();
 
-            var properties = typeof (T)
-                .GetProperties()
-                .Where(p => (p.GetGetMethod() ?? p.GetSetMethod()).IsDefined(typeof(CompilerGeneratedAttribute), false));
+            var columnNames = dataRow.Table.Columns
+                .Cast<DataColumn>()
+                .Select(c => c.ColumnName);
 
-            foreach (var property in properties)
+            var properties = typeof (T).GetProperties();
+
+            foreach (var property in columnNames.Select(columnName => properties.Single(p => p.Name == columnName)))
                 property.SetValue(entity, this.ConvertValue(dataRow, property), null);
-
+ 
             return entity;
         }
 
