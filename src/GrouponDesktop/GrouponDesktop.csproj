@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MessageFactory.cs" />
+    <Compile Include="Homes\CiudadHome.cs" />
+    <Compile Include="Homes\RolHome.cs" />
     <Compile Include="Views\ABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>

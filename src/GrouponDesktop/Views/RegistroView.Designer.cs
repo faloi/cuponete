@@ -55,9 +55,9 @@
             this.direccionClienteLabel = new System.Windows.Forms.Label();
             this.telefonoCliente = new System.Windows.Forms.TextBox();
             this.telefonoClienteLabel = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.emailCliente = new System.Windows.Forms.TextBox();
             this.emailClienteLabel = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dniCliente = new System.Windows.Forms.TextBox();
             this.dniLabel = new System.Windows.Forms.Label();
             this.apellidoCliente = new System.Windows.Forms.TextBox();
             this.apellidoClienteLabel = new System.Windows.Forms.Label();
@@ -93,6 +93,7 @@
             this.razonSocialProveedorLabel = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
+            this.fechaNacCliente = new System.Windows.Forms.DateTimePicker();
             this.usuarioGroupBox.SuspendLayout();
             this.clienteGroupBox.SuspendLayout();
             this.proveedorGroupBox.SuspendLayout();
@@ -154,6 +155,7 @@
             this.comboRol.Name = "comboRol";
             this.comboRol.Size = new System.Drawing.Size(155, 21);
             this.comboRol.TabIndex = 5;
+            this.comboRol.SelectedIndexChanged += new System.EventHandler(this.ComboRolSelectedIndexChanged);
             // 
             // rolLabel
             // 
@@ -182,6 +184,7 @@
             // 
             // clienteGroupBox
             // 
+            this.clienteGroupBox.Controls.Add(this.fechaNacCliente);
             this.clienteGroupBox.Controls.Add(this.ciuPrefClienteBox);
             this.clienteGroupBox.Controls.Add(this.ciuPrefClienteLabel);
             this.clienteGroupBox.Controls.Add(this.cpostalCliente);
@@ -199,9 +202,9 @@
             this.clienteGroupBox.Controls.Add(this.direccionClienteLabel);
             this.clienteGroupBox.Controls.Add(this.telefonoCliente);
             this.clienteGroupBox.Controls.Add(this.telefonoClienteLabel);
-            this.clienteGroupBox.Controls.Add(this.textBox4);
+            this.clienteGroupBox.Controls.Add(this.emailCliente);
             this.clienteGroupBox.Controls.Add(this.emailClienteLabel);
-            this.clienteGroupBox.Controls.Add(this.textBox3);
+            this.clienteGroupBox.Controls.Add(this.dniCliente);
             this.clienteGroupBox.Controls.Add(this.dniLabel);
             this.clienteGroupBox.Controls.Add(this.apellidoCliente);
             this.clienteGroupBox.Controls.Add(this.apellidoClienteLabel);
@@ -213,7 +216,6 @@
             this.clienteGroupBox.TabIndex = 3;
             this.clienteGroupBox.TabStop = false;
             this.clienteGroupBox.Text = "Datos Cliente";
-            this.clienteGroupBox.Visible = false;
             // 
             // ciuPrefClienteBox
             // 
@@ -355,12 +357,12 @@
             this.telefonoClienteLabel.TabIndex = 11;
             this.telefonoClienteLabel.Text = "Telefono";
             // 
-            // textBox4
+            // emailCliente
             // 
-            this.textBox4.Location = new System.Drawing.Point(322, 77);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(158, 20);
-            this.textBox4.TabIndex = 10;
+            this.emailCliente.Location = new System.Drawing.Point(322, 77);
+            this.emailCliente.Name = "emailCliente";
+            this.emailCliente.Size = new System.Drawing.Size(158, 20);
+            this.emailCliente.TabIndex = 10;
             // 
             // emailClienteLabel
             // 
@@ -371,12 +373,12 @@
             this.emailClienteLabel.TabIndex = 9;
             this.emailClienteLabel.Text = "Email";
             // 
-            // textBox3
+            // dniCliente
             // 
-            this.textBox3.Location = new System.Drawing.Point(95, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(158, 20);
-            this.textBox3.TabIndex = 8;
+            this.dniCliente.Location = new System.Drawing.Point(95, 77);
+            this.dniCliente.Name = "dniCliente";
+            this.dniCliente.Size = new System.Drawing.Size(158, 20);
+            this.dniCliente.TabIndex = 8;
             // 
             // dniLabel
             // 
@@ -554,7 +556,7 @@
             this.proveedorGroupBox.Controls.Add(this.emailProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedor);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedorLabel);
-            this.proveedorGroupBox.Location = new System.Drawing.Point(12, 145);
+            this.proveedorGroupBox.Location = new System.Drawing.Point(824, 64);
             this.proveedorGroupBox.Name = "proveedorGroupBox";
             this.proveedorGroupBox.Size = new System.Drawing.Size(797, 325);
             this.proveedorGroupBox.TabIndex = 4;
@@ -693,6 +695,14 @@
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
+            // fechaNacCliente
+            // 
+            this.fechaNacCliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaNacCliente.Location = new System.Drawing.Point(542, 30);
+            this.fechaNacCliente.Name = "fechaNacCliente";
+            this.fechaNacCliente.Size = new System.Drawing.Size(200, 20);
+            this.fechaNacCliente.TabIndex = 28;
+            // 
             // RegistroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,9 +737,9 @@
         private System.Windows.Forms.Label repitaPasswordLabel;
         private System.Windows.Forms.GroupBox clienteGroupBox;
         private System.Windows.Forms.Label nombreClienteLabel;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox emailCliente;
         private System.Windows.Forms.Label emailClienteLabel;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox dniCliente;
         private System.Windows.Forms.Label dniLabel;
         private System.Windows.Forms.TextBox apellidoCliente;
         private System.Windows.Forms.Label apellidoClienteLabel;
@@ -781,5 +791,6 @@
         private System.Windows.Forms.Label rubroProveedorLabel;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button guardarButton;
+        private System.Windows.Forms.DateTimePicker fechaNacCliente;
     }
 }

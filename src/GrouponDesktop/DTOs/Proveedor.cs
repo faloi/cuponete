@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Proveedor
+    class Proveedor:Usuario
     {
-        public long id_usuario { set; get; }
         public string razon_social { set; get; }
         public string mail { set; get; }
         public long telefono { set; get; }

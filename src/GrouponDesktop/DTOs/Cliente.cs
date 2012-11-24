@@ -5,14 +5,18 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Cliente
+    class Cliente:Usuario
     {
-        public long id_usuario { set; get; }
         public string nombre { set; get; }
         public string apellido { set; get; }
         public int dni { set; get; }
         public string mail { set; get; }
         public int telefono { set; get; }
+        public string direccionCalle { set; get; }
+        public string direccionNumero { set; get; }
+        public string direccionPiso { set; get; }
+        public string direccionDto { set; get; }
+        public string direccionLocalidad { set; get; }
         public string direccion { set; get; }
         public int cod_postal { set; get; }
         public DateTime fecha_nac { set; get; }
