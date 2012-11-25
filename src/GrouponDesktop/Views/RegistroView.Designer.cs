@@ -38,6 +38,7 @@
             this.password = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.clienteGroupBox = new System.Windows.Forms.GroupBox();
+            this.fechaNacCliente = new System.Windows.Forms.DateTimePicker();
             this.ciuPrefClienteBox = new System.Windows.Forms.CheckedListBox();
             this.ciuPrefClienteLabel = new System.Windows.Forms.Label();
             this.cpostalCliente = new System.Windows.Forms.TextBox();
@@ -93,7 +94,6 @@
             this.razonSocialProveedorLabel = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
-            this.fechaNacCliente = new System.Windows.Forms.DateTimePicker();
             this.usuarioGroupBox.SuspendLayout();
             this.clienteGroupBox.SuspendLayout();
             this.proveedorGroupBox.SuspendLayout();
@@ -102,17 +102,18 @@
             // nombreLabel
             // 
             this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(92, 25);
+            this.nombreLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreLabel.Location = new System.Drawing.Point(26, 16);
             this.nombreLabel.Name = "nombreLabel";
-            this.nombreLabel.Size = new System.Drawing.Size(83, 13);
+            this.nombreLabel.Size = new System.Drawing.Size(119, 21);
             this.nombreLabel.TabIndex = 0;
             this.nombreLabel.Text = "Nombre Usuario";
             // 
             // username
             // 
-            this.username.Location = new System.Drawing.Point(95, 41);
+            this.username.Location = new System.Drawing.Point(30, 40);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(158, 20);
+            this.username.Size = new System.Drawing.Size(232, 20);
             this.username.TabIndex = 1;
             // 
             // usuarioGroupBox
@@ -134,7 +135,7 @@
             // 
             // repitaPassword
             // 
-            this.repitaPassword.Location = new System.Drawing.Point(322, 89);
+            this.repitaPassword.Location = new System.Drawing.Point(350, 89);
             this.repitaPassword.Name = "repitaPassword";
             this.repitaPassword.Size = new System.Drawing.Size(155, 20);
             this.repitaPassword.TabIndex = 7;
@@ -142,16 +143,17 @@
             // repitaPasswordLabel
             // 
             this.repitaPasswordLabel.AutoSize = true;
-            this.repitaPasswordLabel.Location = new System.Drawing.Point(319, 73);
+            this.repitaPasswordLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repitaPasswordLabel.Location = new System.Drawing.Point(346, 68);
             this.repitaPasswordLabel.Name = "repitaPasswordLabel";
-            this.repitaPasswordLabel.Size = new System.Drawing.Size(97, 13);
+            this.repitaPasswordLabel.Size = new System.Drawing.Size(134, 21);
             this.repitaPasswordLabel.TabIndex = 6;
             this.repitaPasswordLabel.Text = "Repita el password";
             // 
             // comboRol
             // 
             this.comboRol.FormattingEnabled = true;
-            this.comboRol.Location = new System.Drawing.Point(322, 40);
+            this.comboRol.Location = new System.Drawing.Point(350, 39);
             this.comboRol.Name = "comboRol";
             this.comboRol.Size = new System.Drawing.Size(155, 21);
             this.comboRol.TabIndex = 5;
@@ -160,25 +162,27 @@
             // rolLabel
             // 
             this.rolLabel.AutoSize = true;
-            this.rolLabel.Location = new System.Drawing.Point(319, 24);
+            this.rolLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rolLabel.Location = new System.Drawing.Point(346, 16);
             this.rolLabel.Name = "rolLabel";
-            this.rolLabel.Size = new System.Drawing.Size(23, 13);
+            this.rolLabel.Size = new System.Drawing.Size(31, 21);
             this.rolLabel.TabIndex = 4;
             this.rolLabel.Text = "Rol";
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(95, 89);
+            this.password.Location = new System.Drawing.Point(30, 89);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(158, 20);
+            this.password.Size = new System.Drawing.Size(232, 20);
             this.password.TabIndex = 3;
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(92, 73);
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.Location = new System.Drawing.Point(26, 68);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(53, 13);
+            this.passwordLabel.Size = new System.Drawing.Size(73, 21);
             this.passwordLabel.TabIndex = 2;
             this.passwordLabel.Text = "Password";
             // 
@@ -217,43 +221,52 @@
             this.clienteGroupBox.TabStop = false;
             this.clienteGroupBox.Text = "Datos Cliente";
             // 
+            // fechaNacCliente
+            // 
+            this.fechaNacCliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fechaNacCliente.Location = new System.Drawing.Point(477, 42);
+            this.fechaNacCliente.Name = "fechaNacCliente";
+            this.fechaNacCliente.Size = new System.Drawing.Size(200, 20);
+            this.fechaNacCliente.TabIndex = 28;
+            // 
             // ciuPrefClienteBox
             // 
             this.ciuPrefClienteBox.FormattingEnabled = true;
-            this.ciuPrefClienteBox.Location = new System.Drawing.Point(95, 278);
+            this.ciuPrefClienteBox.Location = new System.Drawing.Point(30, 280);
             this.ciuPrefClienteBox.Name = "ciuPrefClienteBox";
-            this.ciuPrefClienteBox.Size = new System.Drawing.Size(548, 94);
+            this.ciuPrefClienteBox.Size = new System.Drawing.Size(647, 94);
             this.ciuPrefClienteBox.TabIndex = 27;
             // 
             // ciuPrefClienteLabel
             // 
             this.ciuPrefClienteLabel.AutoSize = true;
-            this.ciuPrefClienteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ciuPrefClienteLabel.Location = new System.Drawing.Point(92, 241);
+            this.ciuPrefClienteLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ciuPrefClienteLabel.Location = new System.Drawing.Point(27, 259);
             this.ciuPrefClienteLabel.Name = "ciuPrefClienteLabel";
-            this.ciuPrefClienteLabel.Size = new System.Drawing.Size(169, 18);
+            this.ciuPrefClienteLabel.Size = new System.Drawing.Size(178, 21);
             this.ciuPrefClienteLabel.TabIndex = 26;
             this.ciuPrefClienteLabel.Text = "Ciudades de Preferencia";
             // 
             // cpostalCliente
             // 
-            this.cpostalCliente.Location = new System.Drawing.Point(286, 204);
+            this.cpostalCliente.Location = new System.Drawing.Point(221, 223);
             this.cpostalCliente.Name = "cpostalCliente";
-            this.cpostalCliente.Size = new System.Drawing.Size(74, 20);
+            this.cpostalCliente.Size = new System.Drawing.Size(96, 20);
             this.cpostalCliente.TabIndex = 25;
             // 
             // cpostalClienteLabel
             // 
             this.cpostalClienteLabel.AutoSize = true;
-            this.cpostalClienteLabel.Location = new System.Drawing.Point(283, 188);
+            this.cpostalClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpostalClienteLabel.Location = new System.Drawing.Point(217, 200);
             this.cpostalClienteLabel.Name = "cpostalClienteLabel";
-            this.cpostalClienteLabel.Size = new System.Drawing.Size(72, 13);
+            this.cpostalClienteLabel.Size = new System.Drawing.Size(103, 21);
             this.cpostalClienteLabel.TabIndex = 24;
             this.cpostalClienteLabel.Text = "Codigo Postal";
             // 
             // localidadCliente
             // 
-            this.localidadCliente.Location = new System.Drawing.Point(95, 204);
+            this.localidadCliente.Location = new System.Drawing.Point(30, 223);
             this.localidadCliente.Name = "localidadCliente";
             this.localidadCliente.Size = new System.Drawing.Size(158, 20);
             this.localidadCliente.TabIndex = 23;
@@ -261,15 +274,16 @@
             // localidadClienteLabel
             // 
             this.localidadClienteLabel.AutoSize = true;
-            this.localidadClienteLabel.Location = new System.Drawing.Point(92, 188);
+            this.localidadClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.localidadClienteLabel.Location = new System.Drawing.Point(26, 200);
             this.localidadClienteLabel.Name = "localidadClienteLabel";
-            this.localidadClienteLabel.Size = new System.Drawing.Size(53, 13);
+            this.localidadClienteLabel.Size = new System.Drawing.Size(73, 21);
             this.localidadClienteLabel.TabIndex = 22;
             this.localidadClienteLabel.Text = "Localidad";
             // 
             // dptoDirCliente
             // 
-            this.dptoDirCliente.Location = new System.Drawing.Point(625, 158);
+            this.dptoDirCliente.Location = new System.Drawing.Point(560, 177);
             this.dptoDirCliente.Name = "dptoDirCliente";
             this.dptoDirCliente.Size = new System.Drawing.Size(74, 20);
             this.dptoDirCliente.TabIndex = 21;
@@ -277,15 +291,16 @@
             // dptoDirClienteLabel
             // 
             this.dptoDirClienteLabel.AutoSize = true;
-            this.dptoDirClienteLabel.Location = new System.Drawing.Point(622, 142);
+            this.dptoDirClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dptoDirClienteLabel.Location = new System.Drawing.Point(556, 153);
             this.dptoDirClienteLabel.Name = "dptoDirClienteLabel";
-            this.dptoDirClienteLabel.Size = new System.Drawing.Size(33, 13);
+            this.dptoDirClienteLabel.Size = new System.Drawing.Size(48, 21);
             this.dptoDirClienteLabel.TabIndex = 20;
             this.dptoDirClienteLabel.Text = "Dpto.";
             // 
             // pisoDirCliente
             // 
-            this.pisoDirCliente.Location = new System.Drawing.Point(450, 158);
+            this.pisoDirCliente.Location = new System.Drawing.Point(385, 177);
             this.pisoDirCliente.Name = "pisoDirCliente";
             this.pisoDirCliente.Size = new System.Drawing.Size(158, 20);
             this.pisoDirCliente.TabIndex = 19;
@@ -293,15 +308,16 @@
             // pisoDirClienteLabel
             // 
             this.pisoDirClienteLabel.AutoSize = true;
-            this.pisoDirClienteLabel.Location = new System.Drawing.Point(447, 142);
+            this.pisoDirClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pisoDirClienteLabel.Location = new System.Drawing.Point(381, 153);
             this.pisoDirClienteLabel.Name = "pisoDirClienteLabel";
-            this.pisoDirClienteLabel.Size = new System.Drawing.Size(27, 13);
+            this.pisoDirClienteLabel.Size = new System.Drawing.Size(37, 21);
             this.pisoDirClienteLabel.TabIndex = 18;
             this.pisoDirClienteLabel.Text = "Piso";
             // 
             // numeroDirCliente
             // 
-            this.numeroDirCliente.Location = new System.Drawing.Point(286, 158);
+            this.numeroDirCliente.Location = new System.Drawing.Point(221, 177);
             this.numeroDirCliente.Name = "numeroDirCliente";
             this.numeroDirCliente.Size = new System.Drawing.Size(158, 20);
             this.numeroDirCliente.TabIndex = 17;
@@ -309,15 +325,16 @@
             // numeroDirClienteLabel
             // 
             this.numeroDirClienteLabel.AutoSize = true;
-            this.numeroDirClienteLabel.Location = new System.Drawing.Point(283, 142);
+            this.numeroDirClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numeroDirClienteLabel.Location = new System.Drawing.Point(217, 153);
             this.numeroDirClienteLabel.Name = "numeroDirClienteLabel";
-            this.numeroDirClienteLabel.Size = new System.Drawing.Size(44, 13);
+            this.numeroDirClienteLabel.Size = new System.Drawing.Size(65, 21);
             this.numeroDirClienteLabel.TabIndex = 16;
             this.numeroDirClienteLabel.Text = "Número";
             // 
             // calleCliente
             // 
-            this.calleCliente.Location = new System.Drawing.Point(95, 158);
+            this.calleCliente.Location = new System.Drawing.Point(30, 177);
             this.calleCliente.Name = "calleCliente";
             this.calleCliente.Size = new System.Drawing.Size(158, 20);
             this.calleCliente.TabIndex = 15;
@@ -325,41 +342,43 @@
             // calleClienteLabel
             // 
             this.calleClienteLabel.AutoSize = true;
-            this.calleClienteLabel.Location = new System.Drawing.Point(92, 142);
+            this.calleClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calleClienteLabel.Location = new System.Drawing.Point(27, 155);
             this.calleClienteLabel.Name = "calleClienteLabel";
-            this.calleClienteLabel.Size = new System.Drawing.Size(30, 13);
+            this.calleClienteLabel.Size = new System.Drawing.Size(42, 21);
             this.calleClienteLabel.TabIndex = 14;
             this.calleClienteLabel.Text = "Calle";
             // 
             // direccionClienteLabel
             // 
             this.direccionClienteLabel.AutoSize = true;
-            this.direccionClienteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccionClienteLabel.Location = new System.Drawing.Point(92, 115);
+            this.direccionClienteLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccionClienteLabel.Location = new System.Drawing.Point(27, 122);
             this.direccionClienteLabel.Name = "direccionClienteLabel";
-            this.direccionClienteLabel.Size = new System.Drawing.Size(71, 18);
+            this.direccionClienteLabel.Size = new System.Drawing.Size(75, 21);
             this.direccionClienteLabel.TabIndex = 13;
             this.direccionClienteLabel.Text = "Direccion";
             // 
             // telefonoCliente
             // 
-            this.telefonoCliente.Location = new System.Drawing.Point(542, 77);
+            this.telefonoCliente.Location = new System.Drawing.Point(477, 90);
             this.telefonoCliente.Name = "telefonoCliente";
-            this.telefonoCliente.Size = new System.Drawing.Size(158, 20);
+            this.telefonoCliente.Size = new System.Drawing.Size(200, 20);
             this.telefonoCliente.TabIndex = 12;
             // 
             // telefonoClienteLabel
             // 
             this.telefonoClienteLabel.AutoSize = true;
-            this.telefonoClienteLabel.Location = new System.Drawing.Point(539, 61);
+            this.telefonoClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoClienteLabel.Location = new System.Drawing.Point(475, 68);
             this.telefonoClienteLabel.Name = "telefonoClienteLabel";
-            this.telefonoClienteLabel.Size = new System.Drawing.Size(49, 13);
+            this.telefonoClienteLabel.Size = new System.Drawing.Size(68, 21);
             this.telefonoClienteLabel.TabIndex = 11;
             this.telefonoClienteLabel.Text = "Telefono";
             // 
             // emailCliente
             // 
-            this.emailCliente.Location = new System.Drawing.Point(322, 77);
+            this.emailCliente.Location = new System.Drawing.Point(257, 90);
             this.emailCliente.Name = "emailCliente";
             this.emailCliente.Size = new System.Drawing.Size(158, 20);
             this.emailCliente.TabIndex = 10;
@@ -367,15 +386,16 @@
             // emailClienteLabel
             // 
             this.emailClienteLabel.AutoSize = true;
-            this.emailClienteLabel.Location = new System.Drawing.Point(319, 61);
+            this.emailClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailClienteLabel.Location = new System.Drawing.Point(253, 68);
             this.emailClienteLabel.Name = "emailClienteLabel";
-            this.emailClienteLabel.Size = new System.Drawing.Size(32, 13);
+            this.emailClienteLabel.Size = new System.Drawing.Size(45, 21);
             this.emailClienteLabel.TabIndex = 9;
             this.emailClienteLabel.Text = "Email";
             // 
             // dniCliente
             // 
-            this.dniCliente.Location = new System.Drawing.Point(95, 77);
+            this.dniCliente.Location = new System.Drawing.Point(30, 90);
             this.dniCliente.Name = "dniCliente";
             this.dniCliente.Size = new System.Drawing.Size(158, 20);
             this.dniCliente.TabIndex = 8;
@@ -383,15 +403,16 @@
             // dniLabel
             // 
             this.dniLabel.AutoSize = true;
-            this.dniLabel.Location = new System.Drawing.Point(92, 61);
+            this.dniLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dniLabel.Location = new System.Drawing.Point(27, 68);
             this.dniLabel.Name = "dniLabel";
-            this.dniLabel.Size = new System.Drawing.Size(26, 13);
+            this.dniLabel.Size = new System.Drawing.Size(36, 21);
             this.dniLabel.TabIndex = 7;
             this.dniLabel.Text = "DNI";
             // 
             // apellidoCliente
             // 
-            this.apellidoCliente.Location = new System.Drawing.Point(322, 32);
+            this.apellidoCliente.Location = new System.Drawing.Point(257, 42);
             this.apellidoCliente.Name = "apellidoCliente";
             this.apellidoCliente.Size = new System.Drawing.Size(158, 20);
             this.apellidoCliente.TabIndex = 6;
@@ -399,15 +420,16 @@
             // apellidoClienteLabel
             // 
             this.apellidoClienteLabel.AutoSize = true;
-            this.apellidoClienteLabel.Location = new System.Drawing.Point(319, 16);
+            this.apellidoClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidoClienteLabel.Location = new System.Drawing.Point(253, 18);
             this.apellidoClienteLabel.Name = "apellidoClienteLabel";
-            this.apellidoClienteLabel.Size = new System.Drawing.Size(44, 13);
+            this.apellidoClienteLabel.Size = new System.Drawing.Size(64, 21);
             this.apellidoClienteLabel.TabIndex = 5;
             this.apellidoClienteLabel.Text = "Apellido";
             // 
             // nombreCliente
             // 
-            this.nombreCliente.Location = new System.Drawing.Point(95, 30);
+            this.nombreCliente.Location = new System.Drawing.Point(30, 37);
             this.nombreCliente.Name = "nombreCliente";
             this.nombreCliente.Size = new System.Drawing.Size(158, 20);
             this.nombreCliente.TabIndex = 4;
@@ -415,9 +437,10 @@
             // nombreClienteLabel
             // 
             this.nombreClienteLabel.AutoSize = true;
-            this.nombreClienteLabel.Location = new System.Drawing.Point(92, 14);
+            this.nombreClienteLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreClienteLabel.Location = new System.Drawing.Point(27, 18);
             this.nombreClienteLabel.Name = "nombreClienteLabel";
-            this.nombreClienteLabel.Size = new System.Drawing.Size(44, 13);
+            this.nombreClienteLabel.Size = new System.Drawing.Size(65, 21);
             this.nombreClienteLabel.TabIndex = 3;
             this.nombreClienteLabel.Text = "Nombre";
             // 
@@ -679,29 +702,21 @@
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(55, 537);
+            this.limpiarButton.Location = new System.Drawing.Point(42, 537);
             this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(75, 23);
+            this.limpiarButton.Size = new System.Drawing.Size(145, 23);
             this.limpiarButton.TabIndex = 5;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
             // guardarButton
             // 
-            this.guardarButton.Location = new System.Drawing.Point(682, 537);
+            this.guardarButton.Location = new System.Drawing.Point(565, 537);
             this.guardarButton.Name = "guardarButton";
-            this.guardarButton.Size = new System.Drawing.Size(75, 23);
+            this.guardarButton.Size = new System.Drawing.Size(124, 23);
             this.guardarButton.TabIndex = 6;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
-            // 
-            // fechaNacCliente
-            // 
-            this.fechaNacCliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.fechaNacCliente.Location = new System.Drawing.Point(542, 30);
-            this.fechaNacCliente.Name = "fechaNacCliente";
-            this.fechaNacCliente.Size = new System.Drawing.Size(200, 20);
-            this.fechaNacCliente.TabIndex = 28;
             // 
             // RegistroView
             // 
