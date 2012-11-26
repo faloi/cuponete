@@ -13,7 +13,7 @@ namespace GrouponDesktop.Views
 
             this.KeyPreview = true;
             this.KeyDown += (sender, args) => { if (args.KeyCode == Keys.Escape) this.Close(); };
-            
+
             this.AcceptButton = submitButton;
 
             this.CreateSpecificBindings();
@@ -25,7 +25,7 @@ namespace GrouponDesktop.Views
         {
             try
             {
-               this.ExecSubmit();
+                this.ExecSubmit();
             }
             catch (ApplicationException e)
             {

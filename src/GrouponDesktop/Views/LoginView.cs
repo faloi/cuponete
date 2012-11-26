@@ -13,7 +13,7 @@ namespace GrouponDesktop.Views
         public LoginView()
         {
             InitializeComponent();
-            
+
             this.home = HomeFactory.Usuario;
             this.model = this.home.UsuarioActual;
 
@@ -25,7 +25,7 @@ namespace GrouponDesktop.Views
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            
+
             this.Text = "Bienvenido a Cuponete";
         }
 
@@ -33,7 +33,7 @@ namespace GrouponDesktop.Views
         {
             this.usernameTextBox.BindTextTo(this.model, "username");
             this.passwordTextBox.BindTextTo(this.model, "password");
-            this.registrarButton.Click+=
+            this.registrarButton.Click +=
                 (sender, args) => this.Redirect(new RegistroView());
         }
 
