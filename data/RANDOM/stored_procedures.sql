@@ -49,8 +49,8 @@ begin transaction
 			
 	insert into RANDOM.Usuario(username, password, id_rol, dni_cuit, tipo, estado, fallas)
 	values(@username, @password, (select id_rol from RANDOM.rol where descripcion = 'Cliente'), @dni, 'Cliente', 1, 0)
-	insert into RANDOM.Cliente(nombre, apellido, dni, mail, telefono, direccion, cod_postal, fecha_nac, saldo_actual)
-	values(@nombre, @apellidos, @dni, @mail, @telefono, @direccion, @cod_postal, @fecha_nac, 10)
+	insert into RANDOM.Cliente(id_usuario, nombre, apellido, dni, mail, telefono, direccion, cod_postal, fecha_nac, saldo_actual)
+	values((select id_usuario from RANDOM.Usuario where username = @username), @nombre, @apellidos, @dni, @mail, @telefono, @direccion, @cod_postal, @fecha_nac, 10)
 commit
 go
 
@@ -98,8 +98,8 @@ begin transaction
 
 	insert into RANDOM.Usuario(username, password, id_rol, dni_cuit, tipo, estado, fallas)
 	values(@username, @password, (select id_rol from RANDOM.rol where descripcion = 'Proveedor'), @cuit, 'Proveedor', 1, 0)
-	insert into RANDOM.Proveedor(razon_social, mail, telefono, direccion, cod_postal, id_ciudad, cuit, id_rubro, contacto_nombre)
-	values(@razon_social, @mail, @telefono, @direccion, @cod_postal, @id_ciudad, @cuit, @id_rubro, @contacto_nombre)
+	insert into RANDOM.Proveedor(id_usuario, razon_social, mail, telefono, direccion, cod_postal, id_ciudad, cuit, id_rubro, contacto_nombre)
+	values((select id_usuario from RANDOM.Usuario where username = @username), @razon_social, @mail, @telefono, @direccion, @cod_postal, @id_ciudad, @cuit, @id_rubro, @contacto_nombre)
 commit
 go
 
