@@ -54,6 +54,15 @@ begin transaction
 commit
 go
 
+--Agregar cliente x ciudad
+create procedure RANDOM.AgregarClientePorCiudad @DNI numeric(18,0), @id_ciudad bigint
+as
+begin
+	insert into RANDOM.Cliente_x_Ciudad(id_cliente, id_cliente)
+	values((select id_usuario from RANDOM.Cliente where dni = @DNI), @id_ciudad)
+end
+go
+
 --Registro de un proveedor
 create procedure RANDOM.RegistrarProveedor @username nvarchar(255), @password nvarchar(255), @razon_social nvarchar(255), @mail nvarchar(100), @telefono numeric (18,0), @direccion nvarchar(255), @cod_postal numeric(18,0), @id_ciudad bigint, @cuit nvarchar(20), @id_rubro bigint, @contacto_nombre nvarchar(100)
 as
@@ -176,3 +185,4 @@ begin
 	set estado = 0 where @nombre_rol = descripcion
 end
 go
+
