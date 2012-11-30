@@ -579,7 +579,7 @@
             this.proveedorGroupBox.Controls.Add(this.emailProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedor);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedorLabel);
-            this.proveedorGroupBox.Location = new System.Drawing.Point(824, 64);
+            this.proveedorGroupBox.Location = new System.Drawing.Point(12, 146);
             this.proveedorGroupBox.Name = "proveedorGroupBox";
             this.proveedorGroupBox.Size = new System.Drawing.Size(797, 325);
             this.proveedorGroupBox.TabIndex = 4;
@@ -722,7 +722,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 572);
+            this.ClientSize = new System.Drawing.Size(834, 572);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.proveedorGroupBox);
