@@ -20,28 +20,28 @@ begin transaction
 	if exists (select username from RANDOM.Usuario where @username = username)
 	begin
 		rollback
-		raiserror('El nombre de usuario ya existe', 0, 0)
+		raiserror('El nombre de usuario ya existe', 16, 1)
 	end	
 	else
 	begin
 		if exists (select dni from RANDOM.Cliente where dni = @dni)
 		begin
 			rollback
-			raiserror('El DNI ya esta registrado para otro cliente', 0, 0)
+			raiserror('El DNI ya esta registrado para otro cliente', 16, 1)
 		end	
 		else
 		begin
 			if exists (select telefono from RANDOM.Cliente where telefono = @telefono)
 			begin
 				rollback
-				raiserror('El telefono ya esta registrado para otro cliente', 0, 0)
+				raiserror('El telefono ya esta registrado para otro cliente', 16, 1)
 			end
 			else
 			begin
 				if exists (select mail from RANDOM.Cliente where mail = @mail)
 				begin
 				rollback
-				raiserror('El mail ya está registrado para otro cliente', 0, 0)
+				raiserror('El mail ya está registrado para otro cliente', 16, 1)
 				end
 			end
 		end	
@@ -61,35 +61,35 @@ begin transaction
 	if exists (select username from RANDOM.Usuario where @username = username)
 	begin
 		rollback
-		raiserror('El nombre de usuario ya existe', 0, 0)
+		raiserror('El nombre de usuario ya existe', 16, 1)
 	end	
 	else
 	begin
 		if exists (select razon_social from RANDOM.Proveedor where razon_social = @razon_social)
 		begin
 			rollback
-			raiserror('La razon social ya esta registrada para otro proveedor', 0, 0)
+			raiserror('La razon social ya esta registrada para otro proveedor', 16, 1)
 		end	
 		else
 		begin
 			if exists (select cuit from RANDOM.Proveedor where cuit = @cuit)
 			begin
 				rollback
-				raiserror('El CUIT ya esta registrado para otro proveedor', 0, 0)
+				raiserror('El CUIT ya esta registrado para otro proveedor', 16, 1)
 			end
 			else
 			begin
 				if exists (select telefono from RANDOM.Proveedor where telefono = @telefono)
 				begin
 					rollback
-					raiserror('El telefono ya esta registrado para otro proveedor', 0, 0)
+					raiserror('El telefono ya esta registrado para otro proveedor', 16, 1)
 				end
 				else
 				begin
 					if exists (select mail from RANDOM.Proveedor where mail = @mail)
 					begin
 						rollback
-						raiserror('El mail ya está registrado para otro proveedor', 0, 0)
+						raiserror('El mail ya está registrado para otro proveedor', 16, 1)
 					end
 				end
 			end
@@ -103,3 +103,76 @@ begin transaction
 commit
 go
 
+
+--Habilitar usuario
+create procedure RANDOM.HabilitarUsuario @username nvarchar(255)
+as
+begin
+	update RANDOM.Usuario
+	set estado = 1 where @username = username
+end
+go
+
+--Deshabilitar usuario
+create procedure RANDOM.DeshabilitarUsuario @username nvarchar(255)
+as
+begin
+	update RANDOM.Usuario
+	set estado = 0 where @username = username
+end
+go
+
+
+--Agregar un rol
+create procedure RANDOM.AgregarRol @descripcion nvarchar(50)
+as
+begin transaction
+	if exists (select descripcion from RANDOM.Rol where @descripcion = descripcion)
+	begin
+		rollback
+		raiserror('El nombre de rol ya existe', 16, 1)
+	end	
+
+	insert into RANDOM.Rol(descripcion, estado)
+	values(@descripcion, 1)
+commit
+go
+
+
+--Agregar funcionalidades por rol
+create procedure RANDOM.AgregarFuncionalidadPorRol @id_funcionalidad bigint, @nombre_rol nvarchar(50)
+as
+begin
+	insert into RANDOM.Funcionalidad_x_Rol(id_rol, id_funcionalidad)
+	values((select id_rol from RANDOM.Rol where descripcion = @nombre_rol), @id_funcionalidad)
+end
+go
+
+
+--Quitar funcionalidades por rol
+create procedure RANDOM.QuitarFuncionalidadPorRol @id_funcionalidad bigint, @nombre_rol nvarchar(50)
+as
+begin
+	delete from RANDOM.Funcionalidad_x_Rol
+	where id_rol = (select id_rol from RANDOM.Rol where descripcion = @nombre_rol) and id_funcionalidad = @id_funcionalidad
+end
+go
+
+
+--Habilitar rol
+create procedure RANDOM.HabilitarRol @nombre_rol nvarchar(50)
+as
+begin
+	update RANDOM.Rol
+	set estado = 1 where @nombre_rol = descripcion
+end
+go
+
+--Deshabilitar rol
+create procedure RANDOM.DeshabilitarRol @nombre_rol nvarchar(50)
+as
+begin
+	update RANDOM.Rol
+	set estado = 0 where @nombre_rol = descripcion
+end
+go
