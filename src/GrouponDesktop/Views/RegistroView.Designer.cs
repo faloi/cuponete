@@ -40,6 +40,34 @@
             this.clienteGroupBox = new System.Windows.Forms.GroupBox();
             this.fechaNacCliente = new System.Windows.Forms.DateTimePicker();
             this.ciuPrefClienteBox = new System.Windows.Forms.CheckedListBox();
+            this.proveedorGroupBox = new System.Windows.Forms.GroupBox();
+            this.contactoProveedor = new System.Windows.Forms.TextBox();
+            this.contactoProveedorLabel = new System.Windows.Forms.Label();
+            this.comboRubro = new System.Windows.Forms.ComboBox();
+            this.rubroProveedorLabel = new System.Windows.Forms.Label();
+            this.cuitProveedor = new System.Windows.Forms.TextBox();
+            this.cuitProveedorLabel = new System.Windows.Forms.Label();
+            this.ciudadProveedor = new System.Windows.Forms.TextBox();
+            this.ciudadProveedorLabel = new System.Windows.Forms.Label();
+            this.cPostalProveedor = new System.Windows.Forms.TextBox();
+            this.cPostalProveedorLabel = new System.Windows.Forms.Label();
+            this.localidadProveedor = new System.Windows.Forms.TextBox();
+            this.localidadProveedorLabel = new System.Windows.Forms.Label();
+            this.dptoDirProveedor = new System.Windows.Forms.TextBox();
+            this.dptoDirProveedorLabel = new System.Windows.Forms.Label();
+            this.pisoDirProveedor = new System.Windows.Forms.TextBox();
+            this.pisoDirProveedorLabel = new System.Windows.Forms.Label();
+            this.numeroDirProveedor = new System.Windows.Forms.TextBox();
+            this.numeroDirProveedorLabel = new System.Windows.Forms.Label();
+            this.calleProveedor = new System.Windows.Forms.TextBox();
+            this.calleProveedorLabel = new System.Windows.Forms.Label();
+            this.direccionProveedorLabel = new System.Windows.Forms.Label();
+            this.telefonoProveedor = new System.Windows.Forms.TextBox();
+            this.telefonoProveedorLabel = new System.Windows.Forms.Label();
+            this.emailProveedor = new System.Windows.Forms.TextBox();
+            this.emailProveedorLabel = new System.Windows.Forms.Label();
+            this.razonSocialProveedor = new System.Windows.Forms.TextBox();
+            this.razonSocialProveedorLabel = new System.Windows.Forms.Label();
             this.ciuPrefClienteLabel = new System.Windows.Forms.Label();
             this.cpostalCliente = new System.Windows.Forms.TextBox();
             this.cpostalClienteLabel = new System.Windows.Forms.Label();
@@ -64,34 +92,6 @@
             this.apellidoClienteLabel = new System.Windows.Forms.Label();
             this.nombreCliente = new System.Windows.Forms.TextBox();
             this.nombreClienteLabel = new System.Windows.Forms.Label();
-            this.cPostalProveedor = new System.Windows.Forms.TextBox();
-            this.cPostalProveedorLabel = new System.Windows.Forms.Label();
-            this.localidadProveedor = new System.Windows.Forms.TextBox();
-            this.localidadProveedorLabel = new System.Windows.Forms.Label();
-            this.dptoDirProveedor = new System.Windows.Forms.TextBox();
-            this.dptoDirProveedorLabel = new System.Windows.Forms.Label();
-            this.pisoDirProveedor = new System.Windows.Forms.TextBox();
-            this.pisoDirProveedorLabel = new System.Windows.Forms.Label();
-            this.numeroDirProveedor = new System.Windows.Forms.TextBox();
-            this.numeroDirProveedorLabel = new System.Windows.Forms.Label();
-            this.calleProveedor = new System.Windows.Forms.TextBox();
-            this.calleProveedorLabel = new System.Windows.Forms.Label();
-            this.direccionProveedorLabel = new System.Windows.Forms.Label();
-            this.proveedorGroupBox = new System.Windows.Forms.GroupBox();
-            this.contactoProveedor = new System.Windows.Forms.TextBox();
-            this.contactoProveedorLabel = new System.Windows.Forms.Label();
-            this.comboRubro = new System.Windows.Forms.ComboBox();
-            this.rubroProveedorLabel = new System.Windows.Forms.Label();
-            this.cuitProveedor = new System.Windows.Forms.TextBox();
-            this.cuitProveedorLabel = new System.Windows.Forms.Label();
-            this.ciudadProveedor = new System.Windows.Forms.TextBox();
-            this.ciudadProveedorLabel = new System.Windows.Forms.Label();
-            this.telefonoProveedor = new System.Windows.Forms.TextBox();
-            this.telefonoProveedorLabel = new System.Windows.Forms.Label();
-            this.emailProveedor = new System.Windows.Forms.TextBox();
-            this.emailProveedorLabel = new System.Windows.Forms.Label();
-            this.razonSocialProveedor = new System.Windows.Forms.TextBox();
-            this.razonSocialProveedorLabel = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
             this.usuarioGroupBox.SuspendLayout();
@@ -236,6 +236,274 @@
             this.ciuPrefClienteBox.Name = "ciuPrefClienteBox";
             this.ciuPrefClienteBox.Size = new System.Drawing.Size(647, 94);
             this.ciuPrefClienteBox.TabIndex = 27;
+            // 
+            // proveedorGroupBox
+            // 
+            this.proveedorGroupBox.Controls.Add(this.contactoProveedor);
+            this.proveedorGroupBox.Controls.Add(this.contactoProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.comboRubro);
+            this.proveedorGroupBox.Controls.Add(this.rubroProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.cuitProveedor);
+            this.proveedorGroupBox.Controls.Add(this.cuitProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.ciudadProveedor);
+            this.proveedorGroupBox.Controls.Add(this.ciudadProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.cPostalProveedor);
+            this.proveedorGroupBox.Controls.Add(this.cPostalProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.localidadProveedor);
+            this.proveedorGroupBox.Controls.Add(this.localidadProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.dptoDirProveedor);
+            this.proveedorGroupBox.Controls.Add(this.dptoDirProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.pisoDirProveedor);
+            this.proveedorGroupBox.Controls.Add(this.pisoDirProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.numeroDirProveedor);
+            this.proveedorGroupBox.Controls.Add(this.numeroDirProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.calleProveedor);
+            this.proveedorGroupBox.Controls.Add(this.calleProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.direccionProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.telefonoProveedor);
+            this.proveedorGroupBox.Controls.Add(this.telefonoProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.emailProveedor);
+            this.proveedorGroupBox.Controls.Add(this.emailProveedorLabel);
+            this.proveedorGroupBox.Controls.Add(this.razonSocialProveedor);
+            this.proveedorGroupBox.Controls.Add(this.razonSocialProveedorLabel);
+            this.proveedorGroupBox.Location = new System.Drawing.Point(6, 146);
+            this.proveedorGroupBox.Name = "proveedorGroupBox";
+            this.proveedorGroupBox.Size = new System.Drawing.Size(803, 380);
+            this.proveedorGroupBox.TabIndex = 4;
+            this.proveedorGroupBox.TabStop = false;
+            this.proveedorGroupBox.Text = "Datos Proveedor";
+            // 
+            // contactoProveedor
+            // 
+            this.contactoProveedor.Location = new System.Drawing.Point(221, 282);
+            this.contactoProveedor.Name = "contactoProveedor";
+            this.contactoProveedor.Size = new System.Drawing.Size(158, 20);
+            this.contactoProveedor.TabIndex = 33;
+            // 
+            // contactoProveedorLabel
+            // 
+            this.contactoProveedorLabel.AutoSize = true;
+            this.contactoProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactoProveedorLabel.Location = new System.Drawing.Point(218, 259);
+            this.contactoProveedorLabel.Name = "contactoProveedorLabel";
+            this.contactoProveedorLabel.Size = new System.Drawing.Size(149, 21);
+            this.contactoProveedorLabel.TabIndex = 32;
+            this.contactoProveedorLabel.Text = "Nombre de contacto";
+            // 
+            // comboRubro
+            // 
+            this.comboRubro.FormattingEnabled = true;
+            this.comboRubro.Location = new System.Drawing.Point(479, 39);
+            this.comboRubro.Name = "comboRubro";
+            this.comboRubro.Size = new System.Drawing.Size(155, 21);
+            this.comboRubro.TabIndex = 31;
+            // 
+            // rubroProveedorLabel
+            // 
+            this.rubroProveedorLabel.AutoSize = true;
+            this.rubroProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rubroProveedorLabel.Location = new System.Drawing.Point(475, 15);
+            this.rubroProveedorLabel.Name = "rubroProveedorLabel";
+            this.rubroProveedorLabel.Size = new System.Drawing.Size(51, 21);
+            this.rubroProveedorLabel.TabIndex = 30;
+            this.rubroProveedorLabel.Text = "Rubro";
+            // 
+            // cuitProveedor
+            // 
+            this.cuitProveedor.Location = new System.Drawing.Point(257, 40);
+            this.cuitProveedor.Name = "cuitProveedor";
+            this.cuitProveedor.Size = new System.Drawing.Size(158, 20);
+            this.cuitProveedor.TabIndex = 29;
+            // 
+            // cuitProveedorLabel
+            // 
+            this.cuitProveedorLabel.AutoSize = true;
+            this.cuitProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuitProveedorLabel.Location = new System.Drawing.Point(253, 16);
+            this.cuitProveedorLabel.Name = "cuitProveedorLabel";
+            this.cuitProveedorLabel.Size = new System.Drawing.Size(42, 21);
+            this.cuitProveedorLabel.TabIndex = 28;
+            this.cuitProveedorLabel.Text = "CUIT";
+            // 
+            // ciudadProveedor
+            // 
+            this.ciudadProveedor.Location = new System.Drawing.Point(30, 282);
+            this.ciudadProveedor.Name = "ciudadProveedor";
+            this.ciudadProveedor.Size = new System.Drawing.Size(158, 20);
+            this.ciudadProveedor.TabIndex = 27;
+            // 
+            // ciudadProveedorLabel
+            // 
+            this.ciudadProveedorLabel.AutoSize = true;
+            this.ciudadProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ciudadProveedorLabel.Location = new System.Drawing.Point(27, 259);
+            this.ciudadProveedorLabel.Name = "ciudadProveedorLabel";
+            this.ciudadProveedorLabel.Size = new System.Drawing.Size(58, 21);
+            this.ciudadProveedorLabel.TabIndex = 26;
+            this.ciudadProveedorLabel.Text = "Ciudad";
+            // 
+            // cPostalProveedor
+            // 
+            this.cPostalProveedor.Location = new System.Drawing.Point(221, 224);
+            this.cPostalProveedor.Name = "cPostalProveedor";
+            this.cPostalProveedor.Size = new System.Drawing.Size(96, 20);
+            this.cPostalProveedor.TabIndex = 25;
+            // 
+            // cPostalProveedorLabel
+            // 
+            this.cPostalProveedorLabel.AutoSize = true;
+            this.cPostalProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cPostalProveedorLabel.Location = new System.Drawing.Point(218, 201);
+            this.cPostalProveedorLabel.Name = "cPostalProveedorLabel";
+            this.cPostalProveedorLabel.Size = new System.Drawing.Size(103, 21);
+            this.cPostalProveedorLabel.TabIndex = 24;
+            this.cPostalProveedorLabel.Text = "Codigo Postal";
+            // 
+            // localidadProveedor
+            // 
+            this.localidadProveedor.Location = new System.Drawing.Point(30, 224);
+            this.localidadProveedor.Name = "localidadProveedor";
+            this.localidadProveedor.Size = new System.Drawing.Size(158, 20);
+            this.localidadProveedor.TabIndex = 23;
+            // 
+            // localidadProveedorLabel
+            // 
+            this.localidadProveedorLabel.AutoSize = true;
+            this.localidadProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.localidadProveedorLabel.Location = new System.Drawing.Point(27, 201);
+            this.localidadProveedorLabel.Name = "localidadProveedorLabel";
+            this.localidadProveedorLabel.Size = new System.Drawing.Size(73, 21);
+            this.localidadProveedorLabel.TabIndex = 22;
+            this.localidadProveedorLabel.Text = "Localidad";
+            // 
+            // dptoDirProveedor
+            // 
+            this.dptoDirProveedor.Location = new System.Drawing.Point(560, 178);
+            this.dptoDirProveedor.Name = "dptoDirProveedor";
+            this.dptoDirProveedor.Size = new System.Drawing.Size(74, 20);
+            this.dptoDirProveedor.TabIndex = 21;
+            // 
+            // dptoDirProveedorLabel
+            // 
+            this.dptoDirProveedorLabel.AutoSize = true;
+            this.dptoDirProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dptoDirProveedorLabel.Location = new System.Drawing.Point(556, 154);
+            this.dptoDirProveedorLabel.Name = "dptoDirProveedorLabel";
+            this.dptoDirProveedorLabel.Size = new System.Drawing.Size(48, 21);
+            this.dptoDirProveedorLabel.TabIndex = 20;
+            this.dptoDirProveedorLabel.Text = "Dpto.";
+            // 
+            // pisoDirProveedor
+            // 
+            this.pisoDirProveedor.Location = new System.Drawing.Point(385, 177);
+            this.pisoDirProveedor.Name = "pisoDirProveedor";
+            this.pisoDirProveedor.Size = new System.Drawing.Size(158, 20);
+            this.pisoDirProveedor.TabIndex = 19;
+            // 
+            // pisoDirProveedorLabel
+            // 
+            this.pisoDirProveedorLabel.AutoSize = true;
+            this.pisoDirProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pisoDirProveedorLabel.Location = new System.Drawing.Point(381, 155);
+            this.pisoDirProveedorLabel.Name = "pisoDirProveedorLabel";
+            this.pisoDirProveedorLabel.Size = new System.Drawing.Size(37, 21);
+            this.pisoDirProveedorLabel.TabIndex = 18;
+            this.pisoDirProveedorLabel.Text = "Piso";
+            // 
+            // numeroDirProveedor
+            // 
+            this.numeroDirProveedor.Location = new System.Drawing.Point(221, 177);
+            this.numeroDirProveedor.Name = "numeroDirProveedor";
+            this.numeroDirProveedor.Size = new System.Drawing.Size(158, 20);
+            this.numeroDirProveedor.TabIndex = 17;
+            // 
+            // numeroDirProveedorLabel
+            // 
+            this.numeroDirProveedorLabel.AutoSize = true;
+            this.numeroDirProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numeroDirProveedorLabel.Location = new System.Drawing.Point(217, 155);
+            this.numeroDirProveedorLabel.Name = "numeroDirProveedorLabel";
+            this.numeroDirProveedorLabel.Size = new System.Drawing.Size(65, 21);
+            this.numeroDirProveedorLabel.TabIndex = 16;
+            this.numeroDirProveedorLabel.Text = "Número";
+            // 
+            // calleProveedor
+            // 
+            this.calleProveedor.Location = new System.Drawing.Point(30, 178);
+            this.calleProveedor.Name = "calleProveedor";
+            this.calleProveedor.Size = new System.Drawing.Size(158, 20);
+            this.calleProveedor.TabIndex = 15;
+            // 
+            // calleProveedorLabel
+            // 
+            this.calleProveedorLabel.AutoSize = true;
+            this.calleProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calleProveedorLabel.Location = new System.Drawing.Point(27, 155);
+            this.calleProveedorLabel.Name = "calleProveedorLabel";
+            this.calleProveedorLabel.Size = new System.Drawing.Size(42, 21);
+            this.calleProveedorLabel.TabIndex = 14;
+            this.calleProveedorLabel.Text = "Calle";
+            // 
+            // direccionProveedorLabel
+            // 
+            this.direccionProveedorLabel.AutoSize = true;
+            this.direccionProveedorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccionProveedorLabel.Location = new System.Drawing.Point(27, 122);
+            this.direccionProveedorLabel.Name = "direccionProveedorLabel";
+            this.direccionProveedorLabel.Size = new System.Drawing.Size(75, 21);
+            this.direccionProveedorLabel.TabIndex = 13;
+            this.direccionProveedorLabel.Text = "Direccion";
+            // 
+            // telefonoProveedor
+            // 
+            this.telefonoProveedor.Location = new System.Drawing.Point(257, 85);
+            this.telefonoProveedor.Name = "telefonoProveedor";
+            this.telefonoProveedor.Size = new System.Drawing.Size(158, 20);
+            this.telefonoProveedor.TabIndex = 12;
+            // 
+            // telefonoProveedorLabel
+            // 
+            this.telefonoProveedorLabel.AutoSize = true;
+            this.telefonoProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoProveedorLabel.Location = new System.Drawing.Point(253, 63);
+            this.telefonoProveedorLabel.Name = "telefonoProveedorLabel";
+            this.telefonoProveedorLabel.Size = new System.Drawing.Size(68, 21);
+            this.telefonoProveedorLabel.TabIndex = 11;
+            this.telefonoProveedorLabel.Text = "Telefono";
+            // 
+            // emailProveedor
+            // 
+            this.emailProveedor.Location = new System.Drawing.Point(27, 85);
+            this.emailProveedor.Name = "emailProveedor";
+            this.emailProveedor.Size = new System.Drawing.Size(158, 20);
+            this.emailProveedor.TabIndex = 6;
+            // 
+            // emailProveedorLabel
+            // 
+            this.emailProveedorLabel.AutoSize = true;
+            this.emailProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailProveedorLabel.Location = new System.Drawing.Point(27, 63);
+            this.emailProveedorLabel.Name = "emailProveedorLabel";
+            this.emailProveedorLabel.Size = new System.Drawing.Size(45, 21);
+            this.emailProveedorLabel.TabIndex = 5;
+            this.emailProveedorLabel.Text = "Email";
+            // 
+            // razonSocialProveedor
+            // 
+            this.razonSocialProveedor.Location = new System.Drawing.Point(30, 40);
+            this.razonSocialProveedor.Name = "razonSocialProveedor";
+            this.razonSocialProveedor.Size = new System.Drawing.Size(158, 20);
+            this.razonSocialProveedor.TabIndex = 4;
+            // 
+            // razonSocialProveedorLabel
+            // 
+            this.razonSocialProveedorLabel.AutoSize = true;
+            this.razonSocialProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.razonSocialProveedorLabel.Location = new System.Drawing.Point(27, 16);
+            this.razonSocialProveedorLabel.Name = "razonSocialProveedorLabel";
+            this.razonSocialProveedorLabel.Size = new System.Drawing.Size(94, 21);
+            this.razonSocialProveedorLabel.TabIndex = 3;
+            this.razonSocialProveedorLabel.Text = "Razon Social";
             // 
             // ciuPrefClienteLabel
             // 
@@ -444,262 +712,6 @@
             this.nombreClienteLabel.TabIndex = 3;
             this.nombreClienteLabel.Text = "Nombre";
             // 
-            // cPostalProveedor
-            // 
-            this.cPostalProveedor.Location = new System.Drawing.Point(286, 204);
-            this.cPostalProveedor.Name = "cPostalProveedor";
-            this.cPostalProveedor.Size = new System.Drawing.Size(74, 20);
-            this.cPostalProveedor.TabIndex = 25;
-            // 
-            // cPostalProveedorLabel
-            // 
-            this.cPostalProveedorLabel.AutoSize = true;
-            this.cPostalProveedorLabel.Location = new System.Drawing.Point(283, 188);
-            this.cPostalProveedorLabel.Name = "cPostalProveedorLabel";
-            this.cPostalProveedorLabel.Size = new System.Drawing.Size(72, 13);
-            this.cPostalProveedorLabel.TabIndex = 24;
-            this.cPostalProveedorLabel.Text = "Codigo Postal";
-            // 
-            // localidadProveedor
-            // 
-            this.localidadProveedor.Location = new System.Drawing.Point(95, 204);
-            this.localidadProveedor.Name = "localidadProveedor";
-            this.localidadProveedor.Size = new System.Drawing.Size(158, 20);
-            this.localidadProveedor.TabIndex = 23;
-            // 
-            // localidadProveedorLabel
-            // 
-            this.localidadProveedorLabel.AutoSize = true;
-            this.localidadProveedorLabel.Location = new System.Drawing.Point(92, 188);
-            this.localidadProveedorLabel.Name = "localidadProveedorLabel";
-            this.localidadProveedorLabel.Size = new System.Drawing.Size(53, 13);
-            this.localidadProveedorLabel.TabIndex = 22;
-            this.localidadProveedorLabel.Text = "Localidad";
-            // 
-            // dptoDirProveedor
-            // 
-            this.dptoDirProveedor.Location = new System.Drawing.Point(625, 158);
-            this.dptoDirProveedor.Name = "dptoDirProveedor";
-            this.dptoDirProveedor.Size = new System.Drawing.Size(74, 20);
-            this.dptoDirProveedor.TabIndex = 21;
-            // 
-            // dptoDirProveedorLabel
-            // 
-            this.dptoDirProveedorLabel.AutoSize = true;
-            this.dptoDirProveedorLabel.Location = new System.Drawing.Point(622, 142);
-            this.dptoDirProveedorLabel.Name = "dptoDirProveedorLabel";
-            this.dptoDirProveedorLabel.Size = new System.Drawing.Size(33, 13);
-            this.dptoDirProveedorLabel.TabIndex = 20;
-            this.dptoDirProveedorLabel.Text = "Dpto.";
-            // 
-            // pisoDirProveedor
-            // 
-            this.pisoDirProveedor.Location = new System.Drawing.Point(450, 158);
-            this.pisoDirProveedor.Name = "pisoDirProveedor";
-            this.pisoDirProveedor.Size = new System.Drawing.Size(158, 20);
-            this.pisoDirProveedor.TabIndex = 19;
-            // 
-            // pisoDirProveedorLabel
-            // 
-            this.pisoDirProveedorLabel.AutoSize = true;
-            this.pisoDirProveedorLabel.Location = new System.Drawing.Point(447, 142);
-            this.pisoDirProveedorLabel.Name = "pisoDirProveedorLabel";
-            this.pisoDirProveedorLabel.Size = new System.Drawing.Size(27, 13);
-            this.pisoDirProveedorLabel.TabIndex = 18;
-            this.pisoDirProveedorLabel.Text = "Piso";
-            // 
-            // numeroDirProveedor
-            // 
-            this.numeroDirProveedor.Location = new System.Drawing.Point(286, 158);
-            this.numeroDirProveedor.Name = "numeroDirProveedor";
-            this.numeroDirProveedor.Size = new System.Drawing.Size(158, 20);
-            this.numeroDirProveedor.TabIndex = 17;
-            // 
-            // numeroDirProveedorLabel
-            // 
-            this.numeroDirProveedorLabel.AutoSize = true;
-            this.numeroDirProveedorLabel.Location = new System.Drawing.Point(283, 142);
-            this.numeroDirProveedorLabel.Name = "numeroDirProveedorLabel";
-            this.numeroDirProveedorLabel.Size = new System.Drawing.Size(44, 13);
-            this.numeroDirProveedorLabel.TabIndex = 16;
-            this.numeroDirProveedorLabel.Text = "Número";
-            // 
-            // calleProveedor
-            // 
-            this.calleProveedor.Location = new System.Drawing.Point(95, 158);
-            this.calleProveedor.Name = "calleProveedor";
-            this.calleProveedor.Size = new System.Drawing.Size(158, 20);
-            this.calleProveedor.TabIndex = 15;
-            // 
-            // calleProveedorLabel
-            // 
-            this.calleProveedorLabel.AutoSize = true;
-            this.calleProveedorLabel.Location = new System.Drawing.Point(92, 142);
-            this.calleProveedorLabel.Name = "calleProveedorLabel";
-            this.calleProveedorLabel.Size = new System.Drawing.Size(30, 13);
-            this.calleProveedorLabel.TabIndex = 14;
-            this.calleProveedorLabel.Text = "Calle";
-            // 
-            // direccionProveedorLabel
-            // 
-            this.direccionProveedorLabel.AutoSize = true;
-            this.direccionProveedorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccionProveedorLabel.Location = new System.Drawing.Point(92, 115);
-            this.direccionProveedorLabel.Name = "direccionProveedorLabel";
-            this.direccionProveedorLabel.Size = new System.Drawing.Size(71, 18);
-            this.direccionProveedorLabel.TabIndex = 13;
-            this.direccionProveedorLabel.Text = "Direccion";
-            // 
-            // proveedorGroupBox
-            // 
-            this.proveedorGroupBox.Controls.Add(this.contactoProveedor);
-            this.proveedorGroupBox.Controls.Add(this.contactoProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.comboRubro);
-            this.proveedorGroupBox.Controls.Add(this.rubroProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.cuitProveedor);
-            this.proveedorGroupBox.Controls.Add(this.cuitProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.ciudadProveedor);
-            this.proveedorGroupBox.Controls.Add(this.ciudadProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.cPostalProveedor);
-            this.proveedorGroupBox.Controls.Add(this.cPostalProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.localidadProveedor);
-            this.proveedorGroupBox.Controls.Add(this.localidadProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.dptoDirProveedor);
-            this.proveedorGroupBox.Controls.Add(this.dptoDirProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.pisoDirProveedor);
-            this.proveedorGroupBox.Controls.Add(this.pisoDirProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.numeroDirProveedor);
-            this.proveedorGroupBox.Controls.Add(this.numeroDirProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.calleProveedor);
-            this.proveedorGroupBox.Controls.Add(this.calleProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.direccionProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.telefonoProveedor);
-            this.proveedorGroupBox.Controls.Add(this.telefonoProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.emailProveedor);
-            this.proveedorGroupBox.Controls.Add(this.emailProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.razonSocialProveedor);
-            this.proveedorGroupBox.Controls.Add(this.razonSocialProveedorLabel);
-            this.proveedorGroupBox.Location = new System.Drawing.Point(12, 146);
-            this.proveedorGroupBox.Name = "proveedorGroupBox";
-            this.proveedorGroupBox.Size = new System.Drawing.Size(797, 325);
-            this.proveedorGroupBox.TabIndex = 4;
-            this.proveedorGroupBox.TabStop = false;
-            this.proveedorGroupBox.Text = "Datos Proveedor";
-            this.proveedorGroupBox.Visible = false;
-            // 
-            // contactoProveedor
-            // 
-            this.contactoProveedor.Location = new System.Drawing.Point(286, 263);
-            this.contactoProveedor.Name = "contactoProveedor";
-            this.contactoProveedor.Size = new System.Drawing.Size(158, 20);
-            this.contactoProveedor.TabIndex = 33;
-            // 
-            // contactoProveedorLabel
-            // 
-            this.contactoProveedorLabel.AutoSize = true;
-            this.contactoProveedorLabel.Location = new System.Drawing.Point(283, 247);
-            this.contactoProveedorLabel.Name = "contactoProveedorLabel";
-            this.contactoProveedorLabel.Size = new System.Drawing.Size(104, 13);
-            this.contactoProveedorLabel.TabIndex = 32;
-            this.contactoProveedorLabel.Text = "Nombre de contacto";
-            // 
-            // comboRubro
-            // 
-            this.comboRubro.FormattingEnabled = true;
-            this.comboRubro.Location = new System.Drawing.Point(542, 32);
-            this.comboRubro.Name = "comboRubro";
-            this.comboRubro.Size = new System.Drawing.Size(155, 21);
-            this.comboRubro.TabIndex = 31;
-            // 
-            // rubroProveedorLabel
-            // 
-            this.rubroProveedorLabel.AutoSize = true;
-            this.rubroProveedorLabel.Location = new System.Drawing.Point(539, 16);
-            this.rubroProveedorLabel.Name = "rubroProveedorLabel";
-            this.rubroProveedorLabel.Size = new System.Drawing.Size(36, 13);
-            this.rubroProveedorLabel.TabIndex = 30;
-            this.rubroProveedorLabel.Text = "Rubro";
-            // 
-            // cuitProveedor
-            // 
-            this.cuitProveedor.Location = new System.Drawing.Point(323, 30);
-            this.cuitProveedor.Name = "cuitProveedor";
-            this.cuitProveedor.Size = new System.Drawing.Size(158, 20);
-            this.cuitProveedor.TabIndex = 29;
-            // 
-            // cuitProveedorLabel
-            // 
-            this.cuitProveedorLabel.AutoSize = true;
-            this.cuitProveedorLabel.Location = new System.Drawing.Point(320, 14);
-            this.cuitProveedorLabel.Name = "cuitProveedorLabel";
-            this.cuitProveedorLabel.Size = new System.Drawing.Size(32, 13);
-            this.cuitProveedorLabel.TabIndex = 28;
-            this.cuitProveedorLabel.Text = "CUIT";
-            // 
-            // ciudadProveedor
-            // 
-            this.ciudadProveedor.Location = new System.Drawing.Point(95, 263);
-            this.ciudadProveedor.Name = "ciudadProveedor";
-            this.ciudadProveedor.Size = new System.Drawing.Size(158, 20);
-            this.ciudadProveedor.TabIndex = 27;
-            // 
-            // ciudadProveedorLabel
-            // 
-            this.ciudadProveedorLabel.AutoSize = true;
-            this.ciudadProveedorLabel.Location = new System.Drawing.Point(92, 247);
-            this.ciudadProveedorLabel.Name = "ciudadProveedorLabel";
-            this.ciudadProveedorLabel.Size = new System.Drawing.Size(40, 13);
-            this.ciudadProveedorLabel.TabIndex = 26;
-            this.ciudadProveedorLabel.Text = "Ciudad";
-            // 
-            // telefonoProveedor
-            // 
-            this.telefonoProveedor.Location = new System.Drawing.Point(322, 78);
-            this.telefonoProveedor.Name = "telefonoProveedor";
-            this.telefonoProveedor.Size = new System.Drawing.Size(158, 20);
-            this.telefonoProveedor.TabIndex = 12;
-            // 
-            // telefonoProveedorLabel
-            // 
-            this.telefonoProveedorLabel.AutoSize = true;
-            this.telefonoProveedorLabel.Location = new System.Drawing.Point(319, 62);
-            this.telefonoProveedorLabel.Name = "telefonoProveedorLabel";
-            this.telefonoProveedorLabel.Size = new System.Drawing.Size(49, 13);
-            this.telefonoProveedorLabel.TabIndex = 11;
-            this.telefonoProveedorLabel.Text = "Telefono";
-            // 
-            // emailProveedor
-            // 
-            this.emailProveedor.Location = new System.Drawing.Point(95, 78);
-            this.emailProveedor.Name = "emailProveedor";
-            this.emailProveedor.Size = new System.Drawing.Size(158, 20);
-            this.emailProveedor.TabIndex = 6;
-            // 
-            // emailProveedorLabel
-            // 
-            this.emailProveedorLabel.AutoSize = true;
-            this.emailProveedorLabel.Location = new System.Drawing.Point(92, 62);
-            this.emailProveedorLabel.Name = "emailProveedorLabel";
-            this.emailProveedorLabel.Size = new System.Drawing.Size(32, 13);
-            this.emailProveedorLabel.TabIndex = 5;
-            this.emailProveedorLabel.Text = "Email";
-            // 
-            // razonSocialProveedor
-            // 
-            this.razonSocialProveedor.Location = new System.Drawing.Point(95, 30);
-            this.razonSocialProveedor.Name = "razonSocialProveedor";
-            this.razonSocialProveedor.Size = new System.Drawing.Size(158, 20);
-            this.razonSocialProveedor.TabIndex = 4;
-            // 
-            // razonSocialProveedorLabel
-            // 
-            this.razonSocialProveedorLabel.AutoSize = true;
-            this.razonSocialProveedorLabel.Location = new System.Drawing.Point(92, 14);
-            this.razonSocialProveedorLabel.Name = "razonSocialProveedorLabel";
-            this.razonSocialProveedorLabel.Size = new System.Drawing.Size(70, 13);
-            this.razonSocialProveedorLabel.TabIndex = 3;
-            this.razonSocialProveedorLabel.Text = "Razon Social";
-            // 
             // limpiarButton
             // 
             this.limpiarButton.Location = new System.Drawing.Point(42, 537);
@@ -722,7 +734,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 572);
+            this.ClientSize = new System.Drawing.Size(836, 572);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.proveedorGroupBox);
