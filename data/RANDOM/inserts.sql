@@ -79,11 +79,14 @@ direccion,id_ciudad, cuit, id_rubro)
  
  
  /** INSERT CUPONES**/
- INSERT INTO RANDOM.Cupon (descripcion, codigo_cupon, fec_publicacion, fec_venc_consumo, precio_real, precio_ficticio, id_proveedor, cant_disp, publicados)
-(SELECT DISTINCT Groupon_Descripcion, Groupon_Codigo, Groupon_Fecha, Groupon_Fecha_Venc, Groupon_Precio, Groupon_Precio_Ficticio, prov.id_usuario, Groupon_Cantidad,0 
+INSERT INTO RANDOM.Cupon (descripcion,fec_publicacion, fec_venc_consumo, precio_real, precio_ficticio, id_proveedor, cant_disp, publicados)
+SELECT Groupon_Descripcion descripcion, Groupon_Fecha fec_publicacion, Groupon_Fecha_Venc fec_venc_consumo, Groupon_Precio precio_real, Groupon_Precio_Ficticio precio_ficticio, prov.id_usuario id_proveedor, Groupon_Cantidad cant_disp,0 publicado
 FROM gd_esquema.Maestra ma
 LEFT JOIN RANDOM.Proveedor prov ON (prov.cuit = ma.Provee_CUIT)
-WHERE Groupon_Descripcion IS NOT NULL);
+WHERE Groupon_Descripcion IS NOT NULL
+GROUP BY Groupon_Descripcion, Groupon_Fecha, Groupon_Fecha_Venc, Groupon_Precio, Groupon_Precio_Ficticio, prov.id_usuario, Groupon_Cantidad
+
+
  
 /** INSERT CLIENTE X CIUDAD **/
 INSERT INTO RANDOM.Cliente_x_Ciudad (id_cliente, id_ciudad)
@@ -103,18 +106,55 @@ WHERE Tipo_Pago_Desc IS NOT NULL
 INSERT INTO RANDOM.Cupon_x_ciudad (id_cupon, id_ciudad)
 SELECT DISTINCT cup.id_cupon, ciu.id_ciudad
 FROM gd_esquema.Maestra ma
-LEFT JOIN RANDOM.Cupon cup ON (cup.codigo_cupon = ma.Groupon_Codigo)
-LEFT JOIN RANDOM.Ciudad ciu ON (ciu.descripcion = ma.Cli_Ciudad)
+LEFT JOIN RANDOM.Proveedor prov ON (prov.razon_social = ma.Provee_RS)
+LEFT JOIN RANDOM.Cupon cup ON (cup.descripcion = ma.Groupon_Descripcion AND cup.fec_publicacion = ma.Groupon_Fecha AND cup.fec_venc_consumo = ma.Groupon_Fecha_Venc
+AND cup.precio_real = ma.Groupon_Precio AND cup.precio_ficticio = ma.Groupon_Precio_Ficticio AND cup.id_proveedor = prov.id_usuario 
+AND cup.cant_disp = ma.Groupon_Cantidad)LEFT JOIN RANDOM.Ciudad ciu ON (ciu.descripcion = ma.Cli_Ciudad)
 WHERE ma.Groupon_Fecha_Compra is not null
 
 /** INSERT CUPON COMPRADO**/
-INSERT INTO RANDOM.Cupon_Comprado (fecha_compra, id_cupon, id_cliente)
-(SELECT ma.Groupon_Fecha_Compra, cup.id_cupon, cli.id_usuario
+INSERT INTO RANDOM.Cupon_Comprado (codigo_compra,fecha_compra, id_cupon, id_cliente)
+SELECT ma.Groupon_Codigo,ma.Groupon_Fecha_Compra,cup.id_cupon,cli.id_usuario
 FROM gd_esquema.Maestra ma
-LEFT JOIN RANDOM.Cupon cup ON (cup.codigo_cupon = ma.Groupon_Codigo)
 LEFT JOIN RANDOM.Cliente cli ON (cli.dni = ma.Cli_Dni)
-WHERE ma.Groupon_Fecha_Compra is not null)
+LEFT JOIN RANDOM.Proveedor prov ON (prov.razon_social = ma.Provee_RS)
+LEFT JOIN RANDOM.Cupon cup ON (cup.descripcion = ma.Groupon_Descripcion AND cup.fec_publicacion = ma.Groupon_Fecha AND cup.fec_venc_consumo = ma.Groupon_Fecha_Venc
+AND cup.precio_real = ma.Groupon_Precio AND cup.precio_ficticio = ma.Groupon_Precio_Ficticio AND cup.id_proveedor = prov.id_usuario 
+AND cup.cant_disp = ma.Groupon_Cantidad)
+WHERE ma.Groupon_Fecha_Compra is not null AND ma.Groupon_Entregado_Fecha IS NULL AND ma.Groupon_Devolucion_Fecha IS NULL AND ma.Factura_Nro IS NULL
+group by ma.Groupon_Codigo, ma.Groupon_Fecha_Compra, cup.id_cupon, cli.id_usuario;
 
+--PARA ARREGLAR LOS CODIGOS DE COMPRA REPETIDOS
+WITH duplicates AS (
+  SELECT
+    ROW_NUMBER() OVER (PARTITION BY cc.codigo_compra ORDER BY codigo_compra) AS duplicate_id,
+    *
+  FROM
+     RANDOM.Cupon_Comprado cc
+)
+
+UPDATE
+  duplicates
+SET
+  codigo_compra = codigo_compra+'/1'
+WHERE
+  duplicate_id > 1;
+
+WITH duplicates AS (
+  SELECT
+    ROW_NUMBER() OVER (PARTITION BY cc.codigo_compra ORDER BY codigo_compra) AS duplicate_id,
+    *
+  FROM
+     RANDOM.Cupon_Comprado cc
+)
+
+UPDATE
+  duplicates
+SET
+  codigo_compra = SUBSTRING(codigo_compra,0,LEN(codigo_compra)-1)+'/2'
+WHERE
+  duplicate_id > 1
+  
 
 /** INSERT CREDITO**/
 INSERT INTO RANDOM.Credito (id_cliente, carga_credito, fecha, id_forma_pago)
@@ -137,29 +177,27 @@ WHERE ma.GiftCard_Monto is not null
 INSERT INTO RANDOM.Cupon_Canjeado ( fecha_canje, id_compra, id_cliente, facturado)
 SELECT ma.Groupon_Entregado_Fecha, cc.id_compra, cli.id_usuario,0
 FROM gd_esquema.Maestra ma
-LEFT JOIN RANDOM.Cupon cup ON (cup.codigo_cupon = ma.Groupon_Codigo)
+LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra = ma.Groupon_Codigo)
+LEFT JOIN RANDOM.Cupon cup ON (cup.id_cupon = cc.id_cupon)
 LEFT JOIN RANDOM.Cliente cli ON (cli.dni = ma.Cli_Dni)
-OUTER    APPLY (SELECT TOP 1 *
-                            FROM     RANDOM.Cupon_Comprado cc
-                            WHERE    cc.fecha_compra = ma.Groupon_Fecha_Compra 
-                            AND cc.id_cupon = cup.id_cupon 
-                            AND cc.id_cliente = cli.id_usuario) AS cc
 WHERE Groupon_Entregado_Fecha is not null
 
-
 /** INSERT CUPON DEVUELTO **/
+
 
 INSERT INTO RANDOM.Cupon_Devuelto (fecha_devolucion, id_compra, id_cliente, motivo_devolucion )
 SELECT ma.Groupon_Devolucion_Fecha, cc.id_compra, cli.id_usuario,' '
 FROM gd_esquema.Maestra ma
-LEFT JOIN RANDOM.Cupon cup ON (cup.codigo_cupon = ma.Groupon_Codigo)
+LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra = ma.Groupon_Codigo)
+LEFT JOIN RANDOM.Cupon cup ON (cup.id_cupon = cc.id_cupon)
 LEFT JOIN RANDOM.Cliente cli ON (cli.dni = ma.Cli_Dni)
-OUTER    APPLY (SELECT TOP 1 *
-                            FROM     RANDOM.Cupon_Comprado cc
-                            WHERE    cc.fecha_compra = ma.Groupon_Fecha_Compra 
-                            AND cc.id_cupon = cup.id_cupon 
-                            AND cc.id_cliente = cli.id_usuario) AS cc
 WHERE ma.Groupon_Devolucion_Fecha is not null
+
+/** INSERT FACTURA **/
+INSERT INTO RANDOM.Factura(id_proveedor, nro_factura, fecha)
+SELECT distinct pr.id_usuario, ma.Factura_Nro, ma.Factura_Fecha  FROM gd_esquema.Maestra ma
+LEFT JOIN RANDOM.Proveedor pr ON (ma.Provee_CUIT = pr.cuit)
+WHERE Factura_Nro IS NOT NULL
 
 
 
