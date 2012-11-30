@@ -58,7 +58,7 @@ go
 create procedure RANDOM.AgregarClientePorCiudad @DNI numeric(18,0), @id_ciudad bigint
 as
 begin
-	insert into RANDOM.Cliente_x_Ciudad(id_cliente, id_cliente)
+	insert into RANDOM.Cliente_x_Ciudad(id_cliente, id_ciudad)
 	values((select id_usuario from RANDOM.Cliente where dni = @DNI), @id_ciudad)
 end
 go
