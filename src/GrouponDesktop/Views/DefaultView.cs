@@ -6,6 +6,13 @@ namespace GrouponDesktop.Views
 {
     public class DefaultView : Form
     {
+        protected readonly BindingSource model;
+
+        protected DefaultView()
+        {
+            this.model = new BindingSource();
+        }
+
         protected void CreateBindings(Button submitButton)
         {
             submitButton.Click +=
@@ -40,5 +47,10 @@ namespace GrouponDesktop.Views
         }
 
         protected virtual void ExecSubmit() {}
+
+        protected void SetBindingSource(object source)
+        {
+            this.model.DataSource = source;
+        }
     }
 }
