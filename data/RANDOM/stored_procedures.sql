@@ -55,11 +55,20 @@ commit
 go
 
 --Agregar cliente x ciudad
-create procedure RANDOM.AgregarClientePorCiudad @DNI numeric(18,0), @id_ciudad bigint
+create procedure RANDOM.AgregarClientePorCiudad @id_cliente bigint, @id_ciudad bigint
 as
 begin
 	insert into RANDOM.Cliente_x_Ciudad(id_cliente, id_ciudad)
-	values((select id_usuario from RANDOM.Cliente where dni = @DNI), @id_ciudad)
+	values(@id_cliente , @id_ciudad)
+end
+go
+
+--Quitar cliente x ciudad
+create procedure RANDOM.QuitarClientePorCiudad @id_cliente bigint, @id_ciudad bigint
+as
+begin
+	delete from RANDOM.Cliente_x_Ciudad
+	where id_cliente = @id_cliente and id_ciudad = @id_ciudad
 end
 go
 
@@ -149,21 +158,21 @@ go
 
 
 --Agregar funcionalidades por rol
-create procedure RANDOM.AgregarFuncionalidadPorRol @id_funcionalidad bigint, @nombre_rol nvarchar(50)
+create procedure RANDOM.AgregarFuncionalidadPorRol @id_funcionalidad bigint, @id_rol bigint
 as
 begin
 	insert into RANDOM.Funcionalidad_x_Rol(id_rol, id_funcionalidad)
-	values((select id_rol from RANDOM.Rol where descripcion = @nombre_rol), @id_funcionalidad)
+	values(@id_rol, @id_funcionalidad)
 end
 go
 
 
 --Quitar funcionalidades por rol
-create procedure RANDOM.QuitarFuncionalidadPorRol @id_funcionalidad bigint, @nombre_rol nvarchar(50)
+create procedure RANDOM.QuitarFuncionalidadPorRol @id_funcionalidad bigint, @id_rol bigint
 as
 begin
 	delete from RANDOM.Funcionalidad_x_Rol
-	where id_rol = (select id_rol from RANDOM.Rol where descripcion = @nombre_rol) and id_funcionalidad = @id_funcionalidad
+	where id_rol = @id_rol and id_funcionalidad = @id_funcionalidad
 end
 go
 
