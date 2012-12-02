@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace GrouponDesktop.Sql
 {
@@ -32,6 +32,12 @@ namespace GrouponDesktop.Sql
                 property.SetValue(entity, this.ConvertValue(dataRow, property), null);
  
             return entity;
+        }
+
+        public IEnumerable<SqlParameter> CreateParametersFrom(object model)
+        {
+            var properties = model.GetType().GetProperties();
+            return properties.Select(property => new SqlParameter(property.Name, property.GetValue(model, null)));
         }
 
         private object ConvertValue(DataRow dataRow, PropertyInfo property)

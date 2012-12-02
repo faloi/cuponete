@@ -1,4 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
@@ -31,6 +34,41 @@ namespace GrouponDesktop.Test.Sql
             var expectedUser = new Usuario {username = "faloi", password = "12345", dni_cuit = "36528600", fallas = 2};
 
             UnitTestingHelper.AssertPublicPropertiesEqual(expectedUser, adaptedUser);
+        }
+
+        [Fact]
+        public void Can_correctly_create_sql_parameters_from_typed_object()
+        {
+            var usuario = new Cliente {dni_cuit = "36528600", fallas = 1, username = "faloi", fecha_nac = new DateTime(2000, 10, 25)};
+            var parameters = new Adapter().CreateParametersFrom(usuario);
+
+            parameters.AssertContains("dni_cuit", "36528600");
+            parameters.AssertContains("fallas", 1);
+            parameters.AssertContains("username", "faloi");
+            parameters.AssertContains("fecha_nac", new DateTime(2000, 10, 25));
+        }
+        
+        [Fact]
+        public void Can_correctly_create_sql_parameters_from_dynamic_object()
+        {
+            var values = new {dni_cuit = "36528600", fallas = 1};
+            var parameters = new Adapter().CreateParametersFrom(values);
+
+            parameters.AssertContains("dni_cuit", "36528600");
+            parameters.AssertContains("fallas", 1);
+        }
+    }
+
+    public static class TestingHelpers
+    {
+        public static void AssertContains<T>(this IEnumerable<SqlParameter> parameters, string name, T value)
+        {
+            Assert.True(parameters.Any(p => p.ParameterName == name && (ChangeType<T>(p)).Equals(value)));
+        }
+
+        private static object ChangeType<T>(SqlParameter p)
+        {
+            return Convert.ChangeType(p.Value, typeof(T));
         }
     }
 }
