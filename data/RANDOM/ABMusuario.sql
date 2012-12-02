@@ -2,16 +2,16 @@
 create procedure RANDOM.ModificarUsuario @id_usuario bigint, @username nvarchar(255), @password nvarchar(255)
 as
 begin transaction
-	if (exists (select username from RANDOM.Usuario where @username = username)) and ((select username from RANDOM.Usuario where id_usuario = @id_usuario) != @username)
+	if exists (select username from RANDOM.Usuario where @username = username and id_usuario != @id_usuario)
 	begin
 		rollback
 		raiserror('El nombre de usuario ya existe', 16, 1)
 	end	
 				
 	update RANDOM.Usuario
-	set username = @username where id_usuario = @id_usuario
-	update RANDOM.Usuario
-	set password = @password where id_usuario = @id_usuario
+	set username = @username,
+	password = @password 
+	where id_usuario = @id_usuario
 commit
 go
 
@@ -21,7 +21,8 @@ create procedure RANDOM.HabilitarUsuario @username nvarchar(255)
 as
 begin
 	update RANDOM.Usuario
-	set estado = 1 where @username = username
+	set estado = 1 
+	where @username = username
 end
 go
 
@@ -30,7 +31,8 @@ create procedure RANDOM.DeshabilitarUsuario @username nvarchar(255)
 as
 begin
 	update RANDOM.Usuario
-	set estado = 0 where @username = username
+	set estado = 0 
+	where @username = username
 end
 go
 
