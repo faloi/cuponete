@@ -10,8 +10,6 @@ namespace GrouponDesktop.Views
     public partial class RegistroView : DefaultView
     {
         private readonly UsuarioHome home;
-        private readonly Usuario model;
-        private readonly Cliente cliente;
         private readonly Proveedor proveedor;
 
         public RegistroView()
@@ -19,8 +17,7 @@ namespace GrouponDesktop.Views
             InitializeComponent();
 
             this.home = HomeFactory.Usuario;
-            this.model = this.home.UsuarioActual;
-            this.cliente = new Cliente();
+            this.SetBindingSource(new Cliente());
 
             this.Setup();
         }
@@ -33,20 +30,23 @@ namespace GrouponDesktop.Views
 
         protected override void CreateSpecificBindings()
         {
-            this.username.BindTextTo(this.cliente, "username");
-            this.password.BindTextTo(this.cliente, "password");
-            this.comboRol.BindTextTo(this.cliente,"id_rol");
-            this.apellidoCliente.BindTextTo(this.cliente,"apellido");
-            this.nombreCliente.BindTextTo(this.cliente, "nombre");
-            this.dniCliente.BindTextTo(this.cliente,"dni");
-            this.emailCliente.BindTextTo(this.cliente, "mail");
-            this.telefonoCliente.BindTextTo(this.cliente, "telefono");
-            this.calleCliente.BindTextTo(this.cliente, "direccionCalle");
-            this.numeroDirCliente.BindTextTo(this.cliente, "direccionNumero");
-            this.dptoDirCliente.BindTextTo(this.cliente, "direccionDto");
-            this.localidadCliente.BindTextTo(this.cliente, "direccionLocalidad");
-            this.cpostalCliente.BindTextTo(this.cliente, "cod_postal");
-            this.fechaNacCliente.BindTextToDate(this.cliente, "fecha_nac", "dd/MM/yyyy");
+            this.username.BindTextTo(this.model, "username");
+            this.password.BindTextTo(this.model, "password");
+            this.comboRol.BindTextTo(this.model,"id_rol");
+            this.apellidoCliente.BindTextTo(this.model,"apellido");
+            this.nombreCliente.BindTextTo(this.model, "nombre");
+            this.dniCliente.BindTextTo(this.model,"dni");
+            this.emailCliente.BindTextTo(this.model, "mail");
+            this.telefonoCliente.BindTextTo(this.model, "telefono");
+            this.calleCliente.BindTextTo(this.model, "direccionCalle");
+            this.numeroDirCliente.BindTextTo(this.model, "direccionNumero");
+            this.dptoDirCliente.BindTextTo(this.model, "direccionDto");
+            this.localidadCliente.BindTextTo(this.model, "direccionLocalidad");
+            this.cpostalCliente.BindTextTo(this.model, "cod_postal");
+            this.fechaNacCliente.BindTextToDate(this.model, "fecha_nac", "dd/MM/yyyy");
+
+            this.limpiarButton.Click +=
+                (sender, args) => this.model.DataSource = new Cliente();
 
             this.CargarRoles(); 
             this.CargarCiudades();
@@ -54,7 +54,10 @@ namespace GrouponDesktop.Views
 
         protected override void ExecSubmit()
         {
-            throw new NotImplementedException();
+            if (this.EsCliente)
+                this.home.RegistrarCliente(this.model.DataSource as Cliente, new [] { new Ciudad() });
+            else
+                this.home.RegistrarProveedor(this.model.DataSource as Proveedor);
         }
 
         private void CargarRoles()
@@ -71,9 +74,7 @@ namespace GrouponDesktop.Views
 
         private void ComboRolSelectedIndexChanged(object sender, EventArgs e)
         {
-            var comboBox = (ComboBox) sender;
-            var rolSeleccionado = (Rol) comboBox.SelectedItem;
-            if (rolSeleccionado.descripcion.Equals("Cliente"))
+            if (this.EsCliente)
             {
                 this.proveedorGroupBox.Visible = false;
                 this.clienteGroupBox.Visible = true;
@@ -86,5 +87,9 @@ namespace GrouponDesktop.Views
                 
         }
 
+        private bool EsCliente
+        {
+            get { return ((Rol) this.comboRol.SelectedItem).descripcion.Equals("Cliente"); }
+        }
     }
 }
