@@ -13,7 +13,7 @@ go
 
 
 --Registro de una compra de gift card
-create procedure RANDOM.ComprarGiftCarg @id_usuario_origen bigint, @id_usuario_destino bigint, @fecha datetime, @monto bigint
+create procedure RANDOM.ComprarGiftCard @id_usuario_origen bigint, @id_usuario_destino bigint, @fecha datetime, @monto bigint
 as
 begin
 	insert into RANDOM.Gift_Card(id_usuario_origen, id_usuario_destino, fecha, monto)
@@ -27,7 +27,7 @@ go
 
 
 --Comprar cupon
-create procedure RANDOM.ComprarCupon @id_cliente bigint, @id_cupon bigint, @fecha datetime
+create procedure RANDOM.ComprarCupon @id_cliente bigint, @id_cupon bigint, @fecha datetime, @codigo_compra nvarchar(50) output
 as
 begin transaction
 	if (select cant_disp from RANDOM.Cupon where id_cupon = @id_cupon) <= 0
@@ -65,7 +65,52 @@ begin transaction
 	update RANDOM.Cliente
 	set saldo_actual = saldo_actual - (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
 	
-	print (select codigo_compra from RANDOM.Cupon_Comprado where id_cupon = @id_cupon and id_cliente = @id_cliente)
+	select @codigo_compra = codigo_compra from RANDOM.Cupon_Comprado where id_cupon = @id_cupon and id_cliente = @id_cliente
+	
+commit
+go
+
+
+--Pedir devolucion
+create procedure RANDOM.DevolverCupon @id_cliente bigint, @id_cupon bigint, @fecha_devolucion datetime, @codigo_compra nvarchar(50)
+as
+begin transaction
+	if (select cant_disp from RANDOM.Cupon where id_cupon = @id_cupon) <= 0
+	begin
+		rollback
+		raiserror('No hay suficiente stock', 16, 1)
+	end
+	else
+	begin
+		if (select saldo_actual from RANDOM.Cliente where id_usuario = @id_cliente) < (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
+		begin
+			rollback
+			raiserror('No posee credito suficiente para realizar la compra', 16, 1)
+		end
+		else
+		begin
+			if (select COUNT(*) from RANDOM.Cupon_Comprado where id_cliente = @id_cliente and id_cupon = @id_cupon) >= (select max_compra_por_usuario from RANDOM.Cupon where id_cupon = @id_cupon)
+			begin
+				rollback
+				raiserror('Ya ha comprado el maximo permitido de este cupon', 16, 1)			
+			end
+		end
+	end	
+	
+	insert into RANDOM.Cupon_Comprado(fecha_compra, id_cliente, id_cupon, codigo_compra)
+	values (@fecha, @id_cliente, @id_cupon, 0)
+	
+	update RANDOM.Cupon_Comprado
+	set codigo_compra = id_compra
+	where id_cupon = @id_cupon and id_cliente = @id_cliente
+	
+	update RANDOM.Cupon
+	set cant_disp = cant_disp - 1
+	
+	update RANDOM.Cliente
+	set saldo_actual = saldo_actual - (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
+	
+	select @codigo_compra = codigo_compra from RANDOM.Cupon_Comprado where id_cupon = @id_cupon and id_cliente = @id_cliente
 	
 commit
 go
