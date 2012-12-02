@@ -16,9 +16,9 @@ create trigger tres_fallas ON RANDOM.Usuario
 after update
 as
 begin
-       if exists(select 1 from inserted i where i.fallas = 3)
-       update RANDOM.Usuario
-       set estado = case when exists(select 1 from inserted i, RANDOM.Usuario u where i.id_usuario = u.id_usuario AND u.fallas = 3) then 1
-       end
+	if exists(select 1 FROM inserted i where i.fallas = 3)
+		update RANDOM.Usuario
+		set estado = 0
+		where fallas = 3	
 end
 go
