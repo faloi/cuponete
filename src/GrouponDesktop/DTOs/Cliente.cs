@@ -21,5 +21,10 @@ namespace GrouponDesktop.DTOs
         public int cod_postal { set; get; }
         public DateTime fecha_nac { set; get; }
         public int saldo_actual { set; get; }
+
+        public Cliente()
+        {
+            this.fecha_nac = DateTime.Now;
+        }
     }
 }

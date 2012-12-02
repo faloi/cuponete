@@ -22,6 +22,13 @@ namespace GrouponDesktop.Helpers
         {
             menu.Items.Add(text, null, onClick);
         }
+
+        public static void BindSourceTo(this ListControl control, object model, string valueMember, string displayMember)
+        {
+            control.DataSource = model;
+            control.ValueMember = valueMember;
+            control.DisplayMember = displayMember;
+        }
     }
 }
 

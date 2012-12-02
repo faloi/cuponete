@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -14,7 +7,7 @@ using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Views
 {
-    public partial class RegistroView : Form
+    public partial class RegistroView : DefaultView
     {
         private readonly UsuarioHome home;
         private readonly Usuario model;
@@ -27,6 +20,7 @@ namespace GrouponDesktop.Views
 
             this.home = HomeFactory.Usuario;
             this.model = this.home.UsuarioActual;
+            this.cliente = new Cliente();
 
             this.Setup();
         }
@@ -34,10 +28,10 @@ namespace GrouponDesktop.Views
         private void Setup()
         {
             this.Text = "Registro de Usuario";
-            this.CargarRoles();
+            this.CreateBindings(this.guardarButton);
         }
 
-        protected void CreateSpecificBindings()
+        protected override void CreateSpecificBindings()
         {
             this.username.BindTextTo(this.cliente, "username");
             this.password.BindTextTo(this.cliente, "password");
@@ -45,7 +39,7 @@ namespace GrouponDesktop.Views
             this.apellidoCliente.BindTextTo(this.cliente,"apellido");
             this.nombreCliente.BindTextTo(this.cliente, "nombre");
             this.dniCliente.BindTextTo(this.cliente,"dni");
-            this.emailCliente.BindTextTo(this.cliente, "email");
+            this.emailCliente.BindTextTo(this.cliente, "mail");
             this.telefonoCliente.BindTextTo(this.cliente, "telefono");
             this.calleCliente.BindTextTo(this.cliente, "direccionCalle");
             this.numeroDirCliente.BindTextTo(this.cliente, "direccionNumero");
@@ -53,33 +47,32 @@ namespace GrouponDesktop.Views
             this.localidadCliente.BindTextTo(this.cliente, "direccionLocalidad");
             this.cpostalCliente.BindTextTo(this.cliente, "cod_postal");
             this.fechaNacCliente.BindTextToDate(this.cliente, "fecha_nac", "dd/MM/yyyy");
+
             this.CargarRoles(); 
             this.CargarCiudades();
         }
 
+        protected override void ExecSubmit()
+        {
+            throw new NotImplementedException();
+        }
+
         private void CargarRoles()
         {
-            IList<Rol>  roles = new Adapter().TransformMany<Rol>(HomeFactory.Rol.RolesDisponibles());
-            this.comboRol.DataSource = roles;
-    
-            comboRol.DisplayMember = "descripcion";
-            comboRol.ValueMember = "id_rol";
-        
-
+            var roles = new Adapter().TransformMany<Rol>(HomeFactory.Rol.RolesDisponibles());
+            this.comboRol.BindSourceTo(roles, "id_rol", "descripcion");
         }
 
         private void CargarCiudades()
         {
-            IList<Ciudad> ciudades = new Adapter().TransformMany<Ciudad>(HomeFactory.Ciudad.CiudadesDisponibles());
-
-
-
+            var ciudades = new Adapter().TransformMany<Ciudad>(HomeFactory.Ciudad.CiudadesDisponibles());
+            ciuPrefClienteBox.BindSourceTo(ciudades, "id_ciudad", "descripcion");
         }
 
         private void ComboRolSelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox comboBox = (ComboBox) sender;
-            Rol rolSeleccionado = (Rol) comboBox.SelectedItem;
+            var comboBox = (ComboBox) sender;
+            var rolSeleccionado = (Rol) comboBox.SelectedItem;
             if (rolSeleccionado.descripcion.Equals("Cliente"))
             {
                 this.proveedorGroupBox.Visible = false;

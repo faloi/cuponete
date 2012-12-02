@@ -4,7 +4,7 @@ using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Views
 {
-    public abstract class DefaultView : Form
+    public class DefaultView : Form
     {
         protected void CreateBindings(Button submitButton)
         {
@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
             this.CreateSpecificBindings();
         }
 
-        protected abstract void CreateSpecificBindings();
+        protected virtual void CreateSpecificBindings() {}
 
         protected void Submit()
         {
@@ -39,6 +39,6 @@ namespace GrouponDesktop.Views
             form.Show();
         }
 
-        protected abstract void ExecSubmit();
+        protected virtual void ExecSubmit() {}
     }
 }
