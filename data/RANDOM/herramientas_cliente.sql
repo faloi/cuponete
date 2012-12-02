@@ -12,7 +12,7 @@ end
 go
 
 
---Registro de una gift card
+--Registro de una compra de gift card
 create procedure RANDOM.ComprarGiftCarg @id_usuario_origen bigint, @id_usuario_destino bigint, @fecha datetime, @monto bigint
 as
 begin
@@ -57,7 +57,15 @@ begin transaction
 	
 	update RANDOM.Cupon_Comprado
 	set codigo_compra = id_compra
-	where id_cupon = @id_cupon	
+	where id_cupon = @id_cupon and id_cliente = @id_cliente
+	
+	update RANDOM.Cupon
+	set cant_disp = cant_disp - 1
+	
+	update RANDOM.Cliente
+	set saldo_actual = saldo_actual - (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
+	
+	print (select codigo_compra from RANDOM.Cupon_Comprado where id_cupon = @id_cupon and id_cliente = @id_cliente)
 	
 commit
 go
