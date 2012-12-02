@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
@@ -51,6 +52,19 @@ namespace GrouponDesktop.Homes
             {
                 return Runnable.StoreProcedure("RANDOM.IncrementarFallas", new[] { new SqlParameter("@userId", usuario.id_usuario) });
             }
+        }
+
+        public void RegistrarCliente(Cliente cliente, IEnumerable<Ciudad> ciudades)
+        {
+            this.RunProcedure("RegistrarCliente", cliente);
+
+            foreach (var ciudad in ciudades)
+                this.RunProcedure("AgregarClientePorCiudad", new { id_cliente = cliente.id_usuario, id_ciudad = ciudad.id_ciudad });
+        }
+
+        public void RegistrarProveedor(Proveedor proveedor)
+        {
+            this.RunProcedure("RegistrarProveedor", proveedor);
         }
     }
 }
