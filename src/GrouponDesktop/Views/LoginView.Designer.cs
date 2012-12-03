@@ -36,13 +36,14 @@ namespace GrouponDesktop.Views
              this.loginButton = new System.Windows.Forms.Button();
              this.label3 = new System.Windows.Forms.Label();
              this.registrarButton = new System.Windows.Forms.Button();
+             this.label4 = new System.Windows.Forms.Label();
              this.SuspendLayout();
              // 
              // label1
              // 
              this.label1.AutoSize = true;
              this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-             this.label1.Location = new System.Drawing.Point(28, 14);
+             this.label1.Location = new System.Drawing.Point(27, 86);
              this.label1.Name = "label1";
              this.label1.Size = new System.Drawing.Size(64, 21);
              this.label1.TabIndex = 0;
@@ -52,7 +53,7 @@ namespace GrouponDesktop.Views
              // 
              this.label2.AutoSize = true;
              this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-             this.label2.Location = new System.Drawing.Point(15, 41);
+             this.label2.Location = new System.Drawing.Point(14, 113);
              this.label2.Name = "label2";
              this.label2.Size = new System.Drawing.Size(77, 21);
              this.label2.TabIndex = 1;
@@ -60,14 +61,14 @@ namespace GrouponDesktop.Views
              // 
              // usernameTextBox
              // 
-             this.usernameTextBox.Location = new System.Drawing.Point(97, 17);
+             this.usernameTextBox.Location = new System.Drawing.Point(96, 89);
              this.usernameTextBox.Name = "usernameTextBox";
              this.usernameTextBox.Size = new System.Drawing.Size(158, 20);
              this.usernameTextBox.TabIndex = 2;
              // 
              // passwordTextBox
              // 
-             this.passwordTextBox.Location = new System.Drawing.Point(97, 44);
+             this.passwordTextBox.Location = new System.Drawing.Point(96, 116);
              this.passwordTextBox.Name = "passwordTextBox";
              this.passwordTextBox.Size = new System.Drawing.Size(158, 20);
              this.passwordTextBox.TabIndex = 3;
@@ -76,7 +77,7 @@ namespace GrouponDesktop.Views
              // loginButton
              // 
              this.loginButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-             this.loginButton.Location = new System.Drawing.Point(32, 86);
+             this.loginButton.Location = new System.Drawing.Point(31, 158);
              this.loginButton.Name = "loginButton";
              this.loginButton.Size = new System.Drawing.Size(223, 38);
              this.loginButton.TabIndex = 4;
@@ -87,7 +88,7 @@ namespace GrouponDesktop.Views
              // 
              this.label3.AutoSize = true;
              this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-             this.label3.Location = new System.Drawing.Point(321, 14);
+             this.label3.Location = new System.Drawing.Point(320, 86);
              this.label3.Name = "label3";
              this.label3.Size = new System.Drawing.Size(169, 50);
              this.label3.TabIndex = 5;
@@ -97,18 +98,29 @@ namespace GrouponDesktop.Views
              // registrarButton
              // 
              this.registrarButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-             this.registrarButton.Location = new System.Drawing.Point(306, 86);
+             this.registrarButton.Location = new System.Drawing.Point(305, 158);
              this.registrarButton.Name = "registrarButton";
              this.registrarButton.Size = new System.Drawing.Size(184, 38);
              this.registrarButton.TabIndex = 6;
              this.registrarButton.Text = "Registrarse";
              this.registrarButton.UseVisualStyleBackColor = true;
              // 
+             // label4
+             // 
+             this.label4.AutoSize = true;
+             this.label4.Font = new System.Drawing.Font("Segoe UI", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+             this.label4.Location = new System.Drawing.Point(21, 9);
+             this.label4.Name = "label4";
+             this.label4.Size = new System.Drawing.Size(478, 65);
+             this.label4.TabIndex = 7;
+             this.label4.Text = "CUPONES RANDOM";
+             // 
              // LoginView
              // 
              this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
              this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-             this.ClientSize = new System.Drawing.Size(511, 152);
+             this.ClientSize = new System.Drawing.Size(511, 208);
+             this.Controls.Add(this.label4);
              this.Controls.Add(this.registrarButton);
              this.Controls.Add(this.label3);
              this.Controls.Add(this.loginButton);
@@ -132,5 +144,6 @@ namespace GrouponDesktop.Views
          private System.Windows.Forms.Button loginButton;
          private System.Windows.Forms.Label label3;
          private System.Windows.Forms.Button registrarButton;
+         private Label label4;
      }
  }
