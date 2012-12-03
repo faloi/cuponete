@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Homes
@@ -14,10 +16,22 @@ namespace GrouponDesktop.Homes
 
         protected void RunProcedure(string name, object model, params string[] parametersNames)
         {
-            var procedureName = string.Format("RANDOM.{0}", name);
-            var parameters = new Adapter().CreateParametersFrom(model, parametersNames);
+            try
+            {
+                var procedureName = string.Format("RANDOM.{0}", name);
+                var parameters = new Adapter().CreateParametersFrom(model, parametersNames);
+
+                this.sqlRunner.Run(Runnable.StoreProcedure(procedureName, parameters));
+
+            }
+            catch (SqlException e)
+            {
+                if (e.Class >= 16)
+                    throw new ApplicationException(e.Message);
+                else
+                    throw; 
+            }
             
-            this.sqlRunner.Run(Runnable.StoreProcedure(procedureName, parameters));
         }
 
         protected void RunProcedure(string name, Dictionary<string, object> values)
