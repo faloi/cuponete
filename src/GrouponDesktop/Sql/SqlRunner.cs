@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Sql
 {
@@ -38,6 +39,21 @@ namespace GrouponDesktop.Sql
                 }
             }
         }
+
+        public DataTable Select(string query, Filters filters)
+        {
+            using (var connection = new SqlConnection(this.connectionString))
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand { Connection = connection })
+                {
+                    var queryWithParameters = query + " " + filters.Build();
+                    return Runnable.Query(queryWithParameters).Select(command);
+                }
+            }
+        }
+
 
         public DataRow Single(string query, params string[] parameters)
         {
