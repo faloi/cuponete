@@ -35,12 +35,20 @@ namespace GrouponDesktop.Sql
             return entity;
         }
 
-        public IEnumerable<SqlParameter> CreateParametersFrom(object model)
+        public IEnumerable<SqlParameter> CreateParametersFrom(Dictionary<string, object> values)
+        {
+            return values.Select(x => new SqlParameter(x.Key, x.Value));
+        }
+
+        public IEnumerable<SqlParameter> CreateParametersFrom(object model, params string[] parameterNames)
         {
             var properties = model.GetType().GetProperties();
-            return properties
-                .Where(p => p.IsAutomaticProperty())
+            var parameters = properties
                 .Select(property => new SqlParameter(property.Name, property.GetValue(model, null)));
+            
+            return parameterNames.Length == 0
+                ? parameters 
+                : parameters.Where(p => parameterNames.Contains(p.ParameterName));
         }
 
         private object ConvertValue(DataRow dataRow, PropertyInfo property)

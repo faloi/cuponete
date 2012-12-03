@@ -49,13 +49,24 @@ namespace GrouponDesktop.Test.Sql
         }
         
         [Fact]
-        public void Can_correctly_create_sql_parameters_from_dynamic_object()
+        public void Can_correctly_create_sql_parameters_from_dictionary()
         {
-            var values = new {dni_cuit = "36528600", fallas = 1};
-            var parameters = new Adapter().CreateParametersFrom(values);
+            var parameters = new Adapter().CreateParametersFrom(new Dictionary<string, object> { { "id", 3 }, { "description", "Nuevo" } });
 
-            parameters.AssertContains("dni_cuit", "36528600");
-            parameters.AssertContains("fallas", 1);
+            Assert.Equal(2, parameters.Count());
+
+            parameters.AssertContains("id", 3);
+            parameters.AssertContains("description", "Nuevo");
+        }
+
+        [Fact]
+        public void Creating_parameters_should_only_include_the_specified_parameters()
+        {
+            var proveedor = new Proveedor {cod_postal = 55, mail = "fafaf@a.com", fallas = 3};
+            var parameters = new Adapter().CreateParametersFrom(proveedor, "cod_postal", "mail");
+
+            Assert.Equal(2, parameters.Count());
+            Assert.False(parameters.Any(p => p.ParameterName == "fallas"));
         }
     }
 
