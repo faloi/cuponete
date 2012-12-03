@@ -61,7 +61,7 @@ namespace GrouponDesktop.Homes
 
             foreach (var ciudad in ciudades)
                 this.RunProcedure("AgregarClientePorCiudad", new Dictionary<string, object>
-                                      {{"id_cliente", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}});
+                                      {{"dni", cliente.dni}, {"id_ciudad", ciudad.id_ciudad}});
         }
 
         public void RegistrarProveedor(Proveedor proveedor)
