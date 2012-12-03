@@ -36,20 +36,20 @@ go
 
 
 --Habilitar rol
-create procedure RANDOM.HabilitarRol @nombre_rol nvarchar(50)
+create procedure RANDOM.HabilitarRol @descripcion nvarchar(50)
 as
 begin
 	update RANDOM.Rol
-	set estado = 1 where @nombre_rol = descripcion
+	set estado = 1 where @descripcion = descripcion
 end
 go
 
 --Deshabilitar rol
-create procedure RANDOM.DeshabilitarRol @nombre_rol nvarchar(50)
+create procedure RANDOM.DeshabilitarRol @descripcion nvarchar(50)
 as
 begin
 	update RANDOM.Rol
-	set estado = 0 where @nombre_rol = descripcion
+	set estado = 0 where @descripcion = descripcion
 end
 go
 

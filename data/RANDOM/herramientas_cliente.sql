@@ -1,13 +1,13 @@
 --Registro de una carga de credito
-create procedure RANDOM.CargarCredito @id_cliente bigint, @carga_credito bigint, @fecha datetime, @id_forma_pago bigint, @nro_tarjeta numeric(15,0), @cod_seguridad_tarjeta numeric(3,0), @fecha_vto_tarjeta nvarchar(5)
+create procedure RANDOM.CargarCredito @id_usuario bigint, @carga_credito bigint, @fecha datetime, @id_forma_pago bigint, @nro_tarjeta numeric(15,0), @cod_seguridad_tarjeta numeric(3,0), @fecha_vto_tarjeta nvarchar(5)
 as
 begin
 	insert into RANDOM.Credito(id_cliente, carga_credito, fecha,id_forma_pago, nro_tarjeta, cod_seguridad_tarjeta, fecha_vto_tarjeta)
-	values(@id_cliente, @carga_credito, @fecha, @id_forma_pago, @nro_tarjeta, @cod_seguridad_tarjeta, @fecha_vto_tarjeta)
+	values(@id_usuario, @carga_credito, @fecha, @id_forma_pago, @nro_tarjeta, @cod_seguridad_tarjeta, @fecha_vto_tarjeta)
 	
 	update RANDOM.Cliente
 	set saldo_actual = saldo_actual + @carga_credito
-	where id_usuario = @id_cliente
+	where id_usuario = @id_usuario
 end
 go
 
@@ -95,7 +95,7 @@ go
 
 
 --Pedir devolucion
-create procedure RANDOM.PedirDevolucionCupon @id_cliente bigint, @fecha_devolucion datetime, @codigo_compra nvarchar(50), @descripcion nvarchar(255) output, @fecha_venc datetime output, @precio numeric(18,2) output
+create procedure RANDOM.PedirDevolucionCupon @id_cliente bigint, @fecha_devolucion datetime, @codigo_compra nvarchar(50), @descripcion nvarchar(255) output, @fecha_venc_consumo datetime output, @precio_real numeric(18,2) output
 as
 begin transaction
 	if not exists (select 1 from RANDOM.Cupon_Comprado where codigo_compra = @codigo_compra)
@@ -120,7 +120,7 @@ begin transaction
 		end
 	end	
 	
-	select @fecha_venc = fec_venc_consumo, @descripcion = descripcion, @precio = precio_real 
+	select @fecha_venc_consumo = fec_venc_consumo, @descripcion = descripcion, @precio_real = precio_real 
 	from RANDOM.Cupon c inner join RANDOM.Cupon_Comprado cc on cc.id_cupon = c.id_cupon 
 	where codigo_compra = @codigo_compra	
 	
