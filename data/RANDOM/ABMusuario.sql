@@ -38,8 +38,7 @@ go
 
 
 --Incrementar las fallas que tiene un usuario
-CREATE PROCEDURE RANDOM.IncrementarFallas
-       @userId bigint
+CREATE PROCEDURE RANDOM.IncrementarFallas @id_usuario bigint
 AS
 BEGIN 
       UPDATE RANDOM.Usuario
@@ -47,7 +46,7 @@ BEGIN
              fallas    = fallas+1
       FROM   RANDOM.Usuario
       WHERE  
-      id_usuario    = @userId                   
+      id_usuario    = @id_usuario                   
 
 END
 GO
