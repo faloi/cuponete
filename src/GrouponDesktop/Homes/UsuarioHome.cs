@@ -56,10 +56,12 @@ namespace GrouponDesktop.Homes
 
         public void RegistrarCliente(Cliente cliente, IEnumerable<Ciudad> ciudades)
         {
-            this.RunProcedure("RegistrarCliente", cliente);
+            this.RunProcedure("RegistrarCliente", cliente, 
+                "username", "password", "nombre", "apellido", "mail", "dni", "telefono", "direccion_completa", "cod_postal", "fecha_nac");
 
             foreach (var ciudad in ciudades)
-                this.RunProcedure("AgregarClientePorCiudad", new { id_cliente = cliente.id_usuario, id_ciudad = ciudad.id_ciudad });
+                this.RunProcedure("AgregarClientePorCiudad", new Dictionary<string, object>
+                                      {{"id_cliente", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}});
         }
 
         public void RegistrarProveedor(Proveedor proveedor)
