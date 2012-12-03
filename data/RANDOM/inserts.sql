@@ -32,8 +32,8 @@ INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (7,3);
 
 /** INSERT DE USUARIOS_CLIENTES**/
 
-INSERT INTO  RANDOM.Usuario(username,password,id_rol,tipo,estado,dni_cuit,fallas)
-(SELECT DISTINCT ('u'+CONVERT(nvarchar,Cli_Dni)), 'pass123',2, 'CLIENTE',1,CONVERT(nvarchar,Cli_Dni),0
+INSERT INTO  RANDOM.Usuario(username,password,id_rol,estado,dni_cuit,fallas)
+(SELECT DISTINCT ('u'+CONVERT(nvarchar,Cli_Dni)), 'pass123',2,1,CONVERT(nvarchar,Cli_Dni),0
 FROM gd_esquema.Maestra
 WHERE Cli_Dni IS not null)
 
@@ -51,8 +51,8 @@ FROM gd_esquema.Maestra ma
 WHERE ma.Provee_Rubro IS NOT NULL);
 
 /** INSERT DE USUARIO_PROVEEDOR**/
-INSERT INTO RANDOM.Usuario (username, password, dni_cuit, tipo, id_rol, estado, fallas)
-(SELECT DISTINCT ('u'+Provee_Cuit), 'pass123', Provee_Cuit, 'PROVEEDOR', 3, 1, 0  FROM gd_esquema.Maestra
+INSERT INTO RANDOM.Usuario (username, password, dni_cuit, id_rol, estado, fallas)
+(SELECT DISTINCT ('u'+Provee_Cuit), 'pass123', Provee_Cuit, 3, 1, 0  FROM gd_esquema.Maestra
 WHERE Provee_RS IS NOT NULL);
 
 /** INSERT DE CIUDAD**/
@@ -208,6 +208,6 @@ WHERE RANDOM.Cupon.id_cupon = cc.id_cupon
 
 
 /** INSERT DEL USUARIO ADMINISTRADOR**/
-INSERT INTO RANDOM.Usuario (username, [password], id_rol, tipo, estado, fallas)
-VALUES ('admin','w23e',1,'ADMINISTRADOR', 1, 0)
+INSERT INTO RANDOM.Usuario (username, [password], id_rol, estado, fallas)
+VALUES ('admin','w23e',1, 1, 0)
 
