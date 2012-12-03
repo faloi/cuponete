@@ -68,5 +68,11 @@ namespace GrouponDesktop.Homes
         {
             this.RunProcedure("RegistrarProveedor", proveedor);
         }
+
+        public IList<Cliente> ListarClientes()
+        {
+            const string QUERY = "SELECT nombre, apellido, dni, mail FROM RANDOM.Cliente";
+            return new Adapter().TransformMany<Cliente>(this.sqlRunner.Select(QUERY));
+        }
     }
 }
