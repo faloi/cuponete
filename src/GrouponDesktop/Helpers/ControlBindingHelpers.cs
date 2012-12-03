@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GrouponDesktop.Helpers
@@ -28,6 +30,11 @@ namespace GrouponDesktop.Helpers
             control.DataSource = model;
             control.ValueMember = valueMember;
             control.DisplayMember = displayMember;
+        }
+
+        public static IEnumerable<T> GetCheckedItems<T>(this CheckedListBox list)
+        {
+            return list.CheckedItems.Cast<T>();
         }
     }
 }

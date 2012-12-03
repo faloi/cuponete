@@ -55,7 +55,7 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             if (this.EsCliente)
-                this.home.RegistrarCliente(this.model.DataSource as Cliente, new [] { new Ciudad() });
+                this.home.RegistrarCliente(this.model.DataSource as Cliente, this.ciuPrefClienteBox.GetCheckedItems<Ciudad>());
             else
                 this.home.RegistrarProveedor(this.model.DataSource as Proveedor);
         }
