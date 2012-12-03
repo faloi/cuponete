@@ -53,7 +53,7 @@
     <Compile Include="Helpers\MessageFactory.cs" />
     <Compile Include="Homes\CiudadHome.cs" />
     <Compile Include="Homes\RolHome.cs" />
-    <Compile Include="Sql\ReflectionHelpers.cs" />
+    <Compile Include="Helpers\ReflectionHelpers.cs" />
     <Compile Include="Views\ABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>

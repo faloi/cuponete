@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Sql
 {
