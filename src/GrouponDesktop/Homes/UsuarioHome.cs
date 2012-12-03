@@ -85,5 +85,20 @@ namespace GrouponDesktop.Homes
 
             return new Adapter().TransformMany<Cliente>(this.sqlRunner.Select(QUERY, filtros));
         }
+
+        public IList<Proveedor> ListarProveedores(Proveedor ejemplo)
+        {
+            const string QUERY = "SELECT razon_social, cuit,mail FROM RANDOM.Proveedor";
+
+            var filtros = new Filters();
+            if (ejemplo.razon_social != null)
+                filtros.AddLike("razon_social", ejemplo.razon_social);
+            if (ejemplo.cuit != null)
+                filtros.AddEqual("cuit", ejemplo.cuit);
+            if (ejemplo.mail != null)
+                filtros.AddLike("mail", ejemplo.mail);
+
+            return new Adapter().TransformMany<Proveedor>(this.sqlRunner.Select(QUERY, filtros));
+        }
     }
 }

@@ -7,6 +7,8 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        protected System.Windows.Forms.DataGridView listDataGrid;
+
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>

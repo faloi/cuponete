@@ -71,7 +71,7 @@
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(9, 47);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(191, 381);
+            this.menuStrip1.Size = new System.Drawing.Size(191, 400);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -134,6 +134,7 @@
             this.administrarClientesToolStripMenuItem.Name = "administrarClientesToolStripMenuItem";
             this.administrarClientesToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.administrarClientesToolStripMenuItem.Text = "Administrar Clientes";
+            this.administrarClientesToolStripMenuItem.Click += new System.EventHandler(this.administrarClientesToolStripMenuItem_Click);
             // 
             // facturarProveedorToolStripMenuItem
             // 
@@ -146,6 +147,7 @@
             this.administrarProveedoresToolStripMenuItem.Name = "administrarProveedoresToolStripMenuItem";
             this.administrarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.administrarProveedoresToolStripMenuItem.Text = "Administrar Proveedores";
+            this.administrarProveedoresToolStripMenuItem.Click += new System.EventHandler(this.administrarProveedoresToolStripMenuItem_Click);
             // 
             // listadoEstadisticoToolStripMenuItem
             // 
