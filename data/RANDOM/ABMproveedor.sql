@@ -41,7 +41,7 @@ begin transaction
 	end
 
 	insert into RANDOM.Usuario(username, password, id_rol, estado, fallas)
-	values(@username, @password, (select id_rol from RANDOM.rol where descripcion = 'Proveedor'), 1, 0)
+	values(@username, @password, 1, 1, 0)
 	insert into RANDOM.Proveedor(id_usuario, razon_social, mail, telefono, direccion, cod_postal, id_ciudad, cuit, id_rubro, contacto_nombre)
 	values((select id_usuario from RANDOM.Usuario where username = @username), @razon_social, @mail, @telefono, @direccion, @cod_postal, @id_ciudad, @cuit, @id_rubro, @contacto_nombre)
 commit

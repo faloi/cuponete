@@ -38,6 +38,7 @@
             this.textBoxFechaVto = new System.Windows.Forms.TextBox();
             this.textBoxMonto = new System.Windows.Forms.TextBox();
             this.labelMonto = new System.Windows.Forms.Label();
+            this.buttonCargar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxFormaPago
@@ -126,11 +127,22 @@
             this.labelMonto.TabIndex = 9;
             this.labelMonto.Text = "Monto";
             // 
+            // buttonCargar
+            // 
+            this.buttonCargar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCargar.Location = new System.Drawing.Point(16, 286);
+            this.buttonCargar.Name = "buttonCargar";
+            this.buttonCargar.Size = new System.Drawing.Size(207, 36);
+            this.buttonCargar.TabIndex = 10;
+            this.buttonCargar.Text = "Cargar";
+            this.buttonCargar.UseVisualStyleBackColor = true;
+            // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 291);
+            this.ClientSize = new System.Drawing.Size(234, 334);
+            this.Controls.Add(this.buttonCargar);
             this.Controls.Add(this.labelMonto);
             this.Controls.Add(this.textBoxMonto);
             this.Controls.Add(this.textBoxFechaVto);
@@ -160,5 +172,6 @@
         private System.Windows.Forms.TextBox textBoxFechaVto;
         private System.Windows.Forms.TextBox textBoxMonto;
         private System.Windows.Forms.Label labelMonto;
+        private System.Windows.Forms.Button buttonCargar;
     }
 }
