@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace GrouponDesktop.Sql
 {
@@ -37,12 +38,22 @@ namespace GrouponDesktop.Sql
         public IEnumerable<SqlParameter> CreateParametersFrom(object model)
         {
             var properties = model.GetType().GetProperties();
-            return properties.Select(property => new SqlParameter(property.Name, property.GetValue(model, null)));
+            return properties
+                .Where(p => p.IsAutomaticProperty())
+                .Select(property => new SqlParameter(property.Name, property.GetValue(model, null)));
         }
 
         private object ConvertValue(DataRow dataRow, PropertyInfo property)
         {
             return Convert.ChangeType(dataRow[property.Name], property.PropertyType, CultureInfo.InvariantCulture);
+        }
+    }
+
+    public static class ReflectionHelpers
+    {
+        public static bool IsAutomaticProperty(this PropertyInfo property)
+        {
+            return (property.GetGetMethod() ?? property.GetSetMethod()).IsDefined(typeof (CompilerGeneratedAttribute), false);
         }
     }
 }
