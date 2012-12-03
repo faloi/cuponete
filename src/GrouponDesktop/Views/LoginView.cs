@@ -40,7 +40,7 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             this.home.Login(this.model);
-            this.Redirect(new HomeView());
+            this.Redirect(new Menu());
         }
 
     }
