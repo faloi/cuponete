@@ -56,6 +56,29 @@ namespace GrouponDesktop.Helpers
             control.DisplayMember = displayMember;
         }
 
+        public static void BindSourceTo(this DataGridView dataGrid, object model, Dictionary<string, string> columns)
+        {
+            dataGrid.AutoGenerateColumns = false;
+            dataGrid.DataSource = model;
+            dataGrid.Columns.Clear();
+
+            var dataGridColumns = columns
+                .Select(x => CreateDataGridViewColumn(x))
+                .ToArray();
+            
+            dataGrid.Columns.AddRange(dataGridColumns);
+        }
+
+        private static DataGridViewColumn CreateDataGridViewColumn(KeyValuePair<string, string> x)
+        {
+            return new DataGridViewTextBoxColumn
+            {
+                CellTemplate = new DataGridViewTextBoxCell(),
+                DataPropertyName = x.Value, 
+                HeaderText = x.Key, 
+            };
+        }
+
         public static IEnumerable<T> GetCheckedItems<T>(this CheckedListBox list)
         {
             return list.CheckedItems.Cast<T>();
