@@ -19,6 +19,14 @@ namespace GrouponDesktop.DTOs
         public DateTime fecha_nac { set; get; }
         public int saldo_actual { set; get; }
 
+        public string direccion_completa
+        {
+            get
+            {
+                return string.Format("{0} {1} {2} {3} {4}", direccionCalle, direccionNumero, direccionPiso, direccionDto, direccionLocalidad);
+            }
+        }
+
         public Cliente()
         {
             this.fecha_nac = DateTime.Now;
