@@ -36,7 +36,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -53,7 +52,6 @@
     <Compile Include="Helpers\MessageFactory.cs" />
     <Compile Include="Homes\CiudadHome.cs" />
     <Compile Include="Homes\RolHome.cs" />
-    <Compile Include="Helpers\ReflectionHelpers.cs" />
     <Compile Include="Views\ABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +75,12 @@
     </Compile>
     <Compile Include="Views\CargarCredito.Designer.cs">
       <DependentUpon>CargarCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComprarCupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ComprarCupon.Designer.cs">
+      <DependentUpon>ComprarCupon.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ComprarGiftCard.cs">
       <SubType>Form</SubType>
@@ -117,8 +121,14 @@
     <EmbeddedResource Include="Views\CargarCredito.resx">
       <DependentUpon>CargarCredito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ComprarCupon.resx">
+      <DependentUpon>ComprarCupon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ComprarGiftCard.resx">
       <DependentUpon>ComprarGiftCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form1.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
@@ -132,6 +142,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModificarABMRol.resx">
+      <DependentUpon>ModificarABMRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegistroView.resx">
       <DependentUpon>RegistroView.cs</DependentUpon>
@@ -158,6 +171,24 @@
     <Compile Include="Sql\SqlRunner.cs" />
     <Compile Include="DTOs\Usuario.cs" />
     <Compile Include="Helpers\FormCreator.cs" />
+    <Compile Include="Views\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form1.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModificarABMRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModificarABMRol.Designer.cs">
+      <DependentUpon>ModificarABMRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PedirDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PedirDevolucion.Designer.cs">
+      <DependentUpon>PedirDevolucion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegistroView.cs">
       <SubType>Form</SubType>
     </Compile>
