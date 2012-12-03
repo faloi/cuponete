@@ -108,7 +108,6 @@
             // textBoxEmail
             // 
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxEmail.Location = new System.Drawing.Point(232, 93);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(158, 20);

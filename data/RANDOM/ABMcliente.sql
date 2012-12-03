@@ -1,5 +1,5 @@
 --Registro de cliente
-create procedure RANDOM.RegistrarCliente @username nvarchar(255), @password nvarchar(255), @nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @mail nvarchar(100), @telefono numeric (18,0), @direccion nvarchar(255), @cod_postal numeric(18,0), @fecha_nac datetime
+create procedure RANDOM.RegistrarCliente @username nvarchar(255), @password nvarchar(255), @nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @mail nvarchar(100), @telefono numeric (18,0), @direccion_completa nvarchar(255), @cod_postal numeric(18,0), @fecha_nac datetime
 as
 begin transaction
 	if exists (select username from RANDOM.Usuario where @username = username)
@@ -39,7 +39,7 @@ begin transaction
 	insert into RANDOM.Usuario(username, password, id_rol, estado, fallas)
 	values(@username, @password, 2, 1, 0)
 	insert into RANDOM.Cliente(id_usuario, nombre, apellido, dni, mail, telefono, direccion, cod_postal, fecha_nac, saldo_actual)
-	values((select id_usuario from RANDOM.Usuario where username = @username), @nombre, @apellido, @dni, @mail, @telefono, @direccion, @cod_postal, @fecha_nac, 10)
+	values((select id_usuario from RANDOM.Usuario where username = @username), @nombre, @apellido, @dni, @mail, @telefono, @direccion_completa, @cod_postal, @fecha_nac, 10)
 commit
 go
 
