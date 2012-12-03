@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxApellido = new System.Windows.Forms.TextBox();
@@ -36,7 +37,6 @@
             this.labelDNI = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.buttonBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +45,8 @@
             this.buttonNuevoCliente = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonBajaRestaurar = new System.Windows.Forms.Button();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,21 +123,19 @@
             this.labelEmail.TabIndex = 7;
             this.labelEmail.Text = "Email";
             // 
-            // buttonBuscar
-            // 
-            this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(450, 46);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(119, 44);
-            this.buttonBuscar.TabIndex = 8;
-            this.buttonBuscar.Text = "BUSCAR";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNombre,
@@ -197,16 +197,37 @@
             this.buttonBajaRestaurar.Text = "Baja / Restaurar";
             this.buttonBajaRestaurar.UseVisualStyleBackColor = true;
             // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.Location = new System.Drawing.Point(418, 78);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(163, 44);
+            this.buttonBuscar.TabIndex = 22;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(418, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 32);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ABMCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 464);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.buttonBajaRestaurar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonNuevoCliente);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.labelDNI);
@@ -233,7 +254,6 @@
         private System.Windows.Forms.Label labelDNI;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnApellido;
@@ -242,5 +262,7 @@
         private System.Windows.Forms.Button buttonNuevoCliente;
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.Button buttonBajaRestaurar;
+        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Button button1;
     }
 }

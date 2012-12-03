@@ -30,10 +30,10 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.labelMonto = new System.Windows.Forms.Label();
+            this.buttonComprar = new System.Windows.Forms.Button();
             this.labelUsrDestino = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
-            this.buttonComprar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -53,6 +53,16 @@
             this.labelMonto.Size = new System.Drawing.Size(55, 21);
             this.labelMonto.TabIndex = 1;
             this.labelMonto.Text = "Monto";
+            // 
+            // buttonComprar
+            // 
+            this.buttonComprar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComprar.Location = new System.Drawing.Point(16, 180);
+            this.buttonComprar.Name = "buttonComprar";
+            this.buttonComprar.Size = new System.Drawing.Size(176, 36);
+            this.buttonComprar.TabIndex = 9;
+            this.buttonComprar.Text = "Comprar";
+            this.buttonComprar.UseVisualStyleBackColor = true;
             // 
             // labelUsrDestino
             // 
@@ -81,16 +91,6 @@
             this.labelNombre.TabIndex = 4;
             this.labelNombre.Text = "Nombre de Usuario";
             // 
-            // buttonComprar
-            // 
-            this.buttonComprar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComprar.Location = new System.Drawing.Point(16, 180);
-            this.buttonComprar.Name = "buttonComprar";
-            this.buttonComprar.Size = new System.Drawing.Size(176, 36);
-            this.buttonComprar.TabIndex = 9;
-            this.buttonComprar.Text = "Comprar";
-            this.buttonComprar.UseVisualStyleBackColor = true;
-            // 
             // ComprarGiftCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -113,9 +113,9 @@
 
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label labelMonto;
+        private System.Windows.Forms.Button buttonComprar;
         private System.Windows.Forms.Label labelUsrDestino;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelNombre;
-        private System.Windows.Forms.Button buttonComprar;
     }
 }

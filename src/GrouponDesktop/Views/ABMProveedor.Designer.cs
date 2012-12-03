@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonBajaRestaurar = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonNuevoProveedor = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.ColumnRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxDNI = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelRazonSocial = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelCUIT = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.ColumnRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +82,14 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnRazonSocial,
@@ -90,15 +100,20 @@
             this.dataGridView1.Size = new System.Drawing.Size(568, 234);
             this.dataGridView1.TabIndex = 22;
             // 
-            // buttonBuscar
+            // ColumnRazonSocial
             // 
-            this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(466, 49);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(119, 44);
-            this.buttonBuscar.TabIndex = 21;
-            this.buttonBuscar.Text = "BUSCAR";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.ColumnRazonSocial.HeaderText = "Razon Social";
+            this.ColumnRazonSocial.Name = "ColumnRazonSocial";
+            // 
+            // ColumnCUIT
+            // 
+            this.ColumnCUIT.HeaderText = "CUIT";
+            this.ColumnCUIT.Name = "ColumnCUIT";
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
             // 
             // textBoxDNI
             // 
@@ -154,26 +169,33 @@
             this.labelEmail.TabIndex = 29;
             this.labelEmail.Text = "Email";
             // 
-            // ColumnRazonSocial
+            // buttonBuscar
             // 
-            this.ColumnRazonSocial.HeaderText = "Razon Social";
-            this.ColumnRazonSocial.Name = "ColumnRazonSocial";
+            this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.Location = new System.Drawing.Point(422, 72);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(163, 44);
+            this.buttonBuscar.TabIndex = 30;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
-            // ColumnCUIT
+            // buttonLimpiar
             // 
-            this.ColumnCUIT.HeaderText = "CUIT";
-            this.ColumnCUIT.Name = "ColumnCUIT";
-            // 
-            // ColumnEmail
-            // 
-            this.ColumnEmail.HeaderText = "Email";
-            this.ColumnEmail.Name = "ColumnEmail";
+            this.buttonLimpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpiar.Location = new System.Drawing.Point(422, 30);
+            this.buttonLimpiar.Name = "buttonLimpiar";
+            this.buttonLimpiar.Size = new System.Drawing.Size(163, 25);
+            this.buttonLimpiar.TabIndex = 31;
+            this.buttonLimpiar.Text = "Limpiar";
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
             // 
             // ABMProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 453);
+            this.Controls.Add(this.buttonLimpiar);
+            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.labelCUIT);
             this.Controls.Add(this.textBox1);
@@ -182,7 +204,6 @@
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonNuevoProveedor);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBoxDNI);
             this.Controls.Add(this.textBoxNombre);
             this.Name = "ABMProveedor";
@@ -199,7 +220,6 @@
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.Button buttonNuevoProveedor;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.TextBox textBoxDNI;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label labelRazonSocial;
@@ -209,5 +229,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCUIT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
+        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Button buttonLimpiar;
     }
 }
