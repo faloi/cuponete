@@ -32,8 +32,8 @@ begin transaction
 		end	
 	end
 			
-	insert into RANDOM.Usuario(username, password, id_rol, estado, fallas)
-	values(@username, @password, (select id_rol from RANDOM.rol where descripcion = 'Cliente'), 1, 0)
+	insert into RANDOM.Usuario(username, password, id_rol, estado, fallas, tipo)
+	values(@username, @password, 2, 1, 0, 'Cliente')
 	insert into RANDOM.Cliente(id_usuario, nombre, apellido, dni, mail, telefono, direccion, cod_postal, fecha_nac, saldo_actual)
 	values((select id_usuario from RANDOM.Usuario where username = @username), @nombre, @apellido, @dni, @mail, @telefono, @direccion_completa, @cod_postal, @fecha_nac, 10)
 commit
