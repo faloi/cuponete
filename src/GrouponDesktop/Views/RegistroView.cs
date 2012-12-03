@@ -7,7 +7,7 @@ using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Views
 {
-    public partial class RegistroView : Form
+    public partial class RegistroView : DefaultView
     {
         private readonly UsuarioHome home;
         private readonly Proveedor proveedor;
