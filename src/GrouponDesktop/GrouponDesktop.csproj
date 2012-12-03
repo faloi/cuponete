@@ -205,6 +205,12 @@
     <Compile Include="Views\HistorialDeCompra.Designer.cs">
       <DependentUpon>HistorialDeCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListadoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListadoView.Designer.cs">
+      <DependentUpon>ListadoView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
