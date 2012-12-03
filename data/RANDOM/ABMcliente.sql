@@ -1,5 +1,5 @@
 --Registro de cliente
-create procedure RANDOM.RegistrarCliente @username nvarchar(255), @password nvarchar(255), @nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @mail nvarchar(100), @telefono numeric (18,0), @direccion_completa nvarchar(255), @cod_postal numeric(18,0), @fecha_nac datetime
+create procedure RANDOM.RegistrarCliente @username nvarchar(255), @password nvarchar(255), @nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @mail nvarchar(100), @telefono numeric (18,0), @direccion nvarchar(255), @cod_postal numeric(18,0), @fecha_nac datetime
 as
 begin transaction
 	if exists (select username from RANDOM.Usuario where @username = username)
@@ -32,16 +32,16 @@ begin transaction
 		end	
 	end
 			
-	insert into RANDOM.Usuario(username, password, id_rol, estado, fallas, tipo)
-	values(@username, @password, 2, 1, 0, 'Cliente')
+	insert into RANDOM.Usuario(username, password, id_rol, estado, fallas)
+	values(@username, @password, 2, 1, 0)
 	insert into RANDOM.Cliente(id_usuario, nombre, apellido, dni, mail, telefono, direccion, cod_postal, fecha_nac, saldo_actual)
-	values((select id_usuario from RANDOM.Usuario where username = @username), @nombre, @apellido, @dni, @mail, @telefono, @direccion_completa, @cod_postal, @fecha_nac, 10)
+	values((select id_usuario from RANDOM.Usuario where username = @username), @nombre, @apellido, @dni, @mail, @telefono, @direccion, @cod_postal, @fecha_nac, 10)
 commit
 go
 
 
 --Modificacion de cliente
-create procedure RANDOM.ModificarCliente @id_usuario bigint, @nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @mail nvarchar(100), @telefono numeric (18,0), @direccion_completa nvarchar(255), @cod_postal numeric(18,0), @fecha_nac datetime
+create procedure RANDOM.ModificarCliente @id_usuario bigint, @nombre nvarchar(255), @apellido nvarchar(255), @dni numeric(18,0), @mail nvarchar(100), @telefono numeric (18,0), @direccion nvarchar(255), @cod_postal numeric(18,0), @fecha_nac datetime
 as
 begin transaction
 	if exists (select dni from RANDOM.Cliente where dni = @dni and id_usuario != @id_usuario)
@@ -72,7 +72,7 @@ begin transaction
 	dni = @dni,
 	mail = @mail,
 	telefono = @telefono,
-	direccion = @direccion_completa,
+	direccion = @direccion,
 	cod_postal = @cod_postal,
 	fecha_nac = @fecha_nac 
 	where id_usuario = @id_usuario
