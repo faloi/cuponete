@@ -6,6 +6,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('El nombre de usuario ya existe', 16, 1)
+		return
 	end	
 	else
 	begin
@@ -13,6 +14,7 @@ begin transaction
 		begin
 			rollback
 			raiserror('El DNI ya esta registrado para otro cliente', 16, 1)
+			return
 		end	
 		else
 		begin
@@ -20,6 +22,7 @@ begin transaction
 			begin
 				rollback
 				raiserror('El telefono ya esta registrado para otro cliente', 16, 1)
+				return
 			end
 			else
 			begin
@@ -27,6 +30,7 @@ begin transaction
 				begin
 				rollback
 				raiserror('El mail ya está registrado para otro cliente', 16, 1)
+				return
 				end
 			end
 		end	
