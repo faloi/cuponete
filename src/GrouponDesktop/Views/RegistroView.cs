@@ -58,6 +58,8 @@ namespace GrouponDesktop.Views
                 this.home.RegistrarCliente(this.model.DataSource as Cliente, this.ciuPrefClienteBox.GetCheckedItems<Ciudad>());
             else
                 this.home.RegistrarProveedor(this.model.DataSource as Proveedor);
+            this.Redirect(new LoginView());
+
         }
 
         private void CargarRoles()
