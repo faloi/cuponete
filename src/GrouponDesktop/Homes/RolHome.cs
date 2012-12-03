@@ -23,7 +23,7 @@ namespace GrouponDesktop.Homes
             }
             catch (NoResultsException e)
             {
-                throw new ApplicationException("El usuario no existe", e);
+                throw new ApplicationException("No hay roles Disponibles", e);
             }
             
         }
