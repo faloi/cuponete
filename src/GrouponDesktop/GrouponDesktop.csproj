@@ -139,9 +139,6 @@
     <EmbeddedResource Include="Views\DevolverCupon.resx">
       <DependentUpon>DevolverCupon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Form1.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\HistorialDeCompra.resx">
       <DependentUpon>HistorialDeCompra.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +154,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModificarABMRol.resx">
       <DependentUpon>ModificarABMRol.cs</DependentUpon>
