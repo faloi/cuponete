@@ -70,6 +70,12 @@
     <Compile Include="Views\ABMRol.Designer.cs">
       <DependentUpon>ABMRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ArmarCupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ArmarCupon.Designer.cs">
+      <DependentUpon>ArmarCupon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CargarCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <EmbeddedResource Include="Views\ABMRol.resx">
       <DependentUpon>ABMRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ArmarCupon.resx">
+      <DependentUpon>ArmarCupon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CargarCredito.resx">
       <DependentUpon>CargarCredito.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HistorialDeCompra.resx">
+      <DependentUpon>HistorialDeCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
@@ -148,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModificarABMRol.resx">
       <DependentUpon>ModificarABMRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PopUpCuponComprado.resx">
+      <DependentUpon>PopUpCuponComprado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RegistroConsumo.resx">
+      <DependentUpon>RegistroConsumo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegistroView.resx">
       <DependentUpon>RegistroView.cs</DependentUpon>
@@ -180,6 +198,12 @@
     <Compile Include="Views\DevolverCupon.Designer.cs">
       <DependentUpon>DevolverCupon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\HistorialDeCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HistorialDeCompra.Designer.cs">
+      <DependentUpon>HistorialDeCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +221,18 @@
     </Compile>
     <Compile Include="Views\PedirDevolucion.Designer.cs">
       <DependentUpon>PedirDevolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopUpCuponComprado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PopUpCuponComprado.Designer.cs">
+      <DependentUpon>PopUpCuponComprado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegistroConsumo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RegistroConsumo.Designer.cs">
+      <DependentUpon>RegistroConsumo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistroView.cs">
       <SubType>Form</SubType>
