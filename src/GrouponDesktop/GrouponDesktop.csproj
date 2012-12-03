@@ -158,6 +158,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ModificarABMRol.resx">
       <DependentUpon>ModificarABMRol.cs</DependentUpon>
     </EmbeddedResource>

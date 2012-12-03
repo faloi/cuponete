@@ -111,9 +111,10 @@
             // 
             // username
             // 
+            this.username.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.username.Location = new System.Drawing.Point(30, 40);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(232, 20);
+            this.username.Size = new System.Drawing.Size(232, 25);
             this.username.TabIndex = 1;
             // 
             // usuarioGroupBox
@@ -135,9 +136,10 @@
             // 
             // repitaPassword
             // 
+            this.repitaPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repitaPassword.Location = new System.Drawing.Point(350, 89);
             this.repitaPassword.Name = "repitaPassword";
-            this.repitaPassword.Size = new System.Drawing.Size(155, 20);
+            this.repitaPassword.Size = new System.Drawing.Size(155, 25);
             this.repitaPassword.TabIndex = 7;
             // 
             // repitaPasswordLabel
@@ -152,10 +154,11 @@
             // 
             // comboRol
             // 
+            this.comboRol.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRol.FormattingEnabled = true;
             this.comboRol.Location = new System.Drawing.Point(350, 39);
             this.comboRol.Name = "comboRol";
-            this.comboRol.Size = new System.Drawing.Size(155, 21);
+            this.comboRol.Size = new System.Drawing.Size(155, 25);
             this.comboRol.TabIndex = 5;
             this.comboRol.SelectedIndexChanged += new System.EventHandler(this.ComboRolSelectedIndexChanged);
             // 
@@ -171,9 +174,10 @@
             // 
             // password
             // 
+            this.password.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password.Location = new System.Drawing.Point(30, 89);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(232, 20);
+            this.password.Size = new System.Drawing.Size(232, 25);
             this.password.TabIndex = 3;
             // 
             // passwordLabel
@@ -216,21 +220,23 @@
             this.clienteGroupBox.Controls.Add(this.nombreClienteLabel);
             this.clienteGroupBox.Location = new System.Drawing.Point(12, 146);
             this.clienteGroupBox.Name = "clienteGroupBox";
-            this.clienteGroupBox.Size = new System.Drawing.Size(797, 380);
+            this.clienteGroupBox.Size = new System.Drawing.Size(690, 380);
             this.clienteGroupBox.TabIndex = 3;
             this.clienteGroupBox.TabStop = false;
             this.clienteGroupBox.Text = "Datos Cliente";
             // 
             // fechaNacCliente
             // 
+            this.fechaNacCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaNacCliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaNacCliente.Location = new System.Drawing.Point(477, 42);
             this.fechaNacCliente.Name = "fechaNacCliente";
-            this.fechaNacCliente.Size = new System.Drawing.Size(200, 20);
+            this.fechaNacCliente.Size = new System.Drawing.Size(200, 25);
             this.fechaNacCliente.TabIndex = 28;
             // 
             // ciuPrefClienteBox
             // 
+            this.ciuPrefClienteBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ciuPrefClienteBox.FormattingEnabled = true;
             this.ciuPrefClienteBox.Location = new System.Drawing.Point(30, 280);
             this.ciuPrefClienteBox.Name = "ciuPrefClienteBox";
@@ -249,9 +255,10 @@
             // 
             // cpostalCliente
             // 
+            this.cpostalCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpostalCliente.Location = new System.Drawing.Point(221, 223);
             this.cpostalCliente.Name = "cpostalCliente";
-            this.cpostalCliente.Size = new System.Drawing.Size(96, 20);
+            this.cpostalCliente.Size = new System.Drawing.Size(96, 25);
             this.cpostalCliente.TabIndex = 25;
             // 
             // cpostalClienteLabel
@@ -266,9 +273,10 @@
             // 
             // localidadCliente
             // 
+            this.localidadCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.localidadCliente.Location = new System.Drawing.Point(30, 223);
             this.localidadCliente.Name = "localidadCliente";
-            this.localidadCliente.Size = new System.Drawing.Size(158, 20);
+            this.localidadCliente.Size = new System.Drawing.Size(158, 25);
             this.localidadCliente.TabIndex = 23;
             // 
             // localidadClienteLabel
@@ -283,9 +291,10 @@
             // 
             // dptoDirCliente
             // 
+            this.dptoDirCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dptoDirCliente.Location = new System.Drawing.Point(560, 177);
             this.dptoDirCliente.Name = "dptoDirCliente";
-            this.dptoDirCliente.Size = new System.Drawing.Size(74, 20);
+            this.dptoDirCliente.Size = new System.Drawing.Size(74, 25);
             this.dptoDirCliente.TabIndex = 21;
             // 
             // dptoDirClienteLabel
@@ -300,9 +309,10 @@
             // 
             // pisoDirCliente
             // 
+            this.pisoDirCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pisoDirCliente.Location = new System.Drawing.Point(385, 177);
             this.pisoDirCliente.Name = "pisoDirCliente";
-            this.pisoDirCliente.Size = new System.Drawing.Size(158, 20);
+            this.pisoDirCliente.Size = new System.Drawing.Size(158, 25);
             this.pisoDirCliente.TabIndex = 19;
             // 
             // pisoDirClienteLabel
@@ -317,9 +327,10 @@
             // 
             // numeroDirCliente
             // 
+            this.numeroDirCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numeroDirCliente.Location = new System.Drawing.Point(221, 177);
             this.numeroDirCliente.Name = "numeroDirCliente";
-            this.numeroDirCliente.Size = new System.Drawing.Size(158, 20);
+            this.numeroDirCliente.Size = new System.Drawing.Size(158, 25);
             this.numeroDirCliente.TabIndex = 17;
             // 
             // numeroDirClienteLabel
@@ -334,9 +345,10 @@
             // 
             // calleCliente
             // 
+            this.calleCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calleCliente.Location = new System.Drawing.Point(30, 177);
             this.calleCliente.Name = "calleCliente";
-            this.calleCliente.Size = new System.Drawing.Size(158, 20);
+            this.calleCliente.Size = new System.Drawing.Size(158, 25);
             this.calleCliente.TabIndex = 15;
             // 
             // calleClienteLabel
@@ -361,9 +373,10 @@
             // 
             // telefonoCliente
             // 
+            this.telefonoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telefonoCliente.Location = new System.Drawing.Point(477, 90);
             this.telefonoCliente.Name = "telefonoCliente";
-            this.telefonoCliente.Size = new System.Drawing.Size(200, 20);
+            this.telefonoCliente.Size = new System.Drawing.Size(200, 25);
             this.telefonoCliente.TabIndex = 12;
             // 
             // telefonoClienteLabel
@@ -378,9 +391,10 @@
             // 
             // emailCliente
             // 
+            this.emailCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailCliente.Location = new System.Drawing.Point(257, 90);
             this.emailCliente.Name = "emailCliente";
-            this.emailCliente.Size = new System.Drawing.Size(158, 20);
+            this.emailCliente.Size = new System.Drawing.Size(158, 25);
             this.emailCliente.TabIndex = 10;
             // 
             // emailClienteLabel
@@ -395,9 +409,10 @@
             // 
             // dniCliente
             // 
+            this.dniCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dniCliente.Location = new System.Drawing.Point(30, 90);
             this.dniCliente.Name = "dniCliente";
-            this.dniCliente.Size = new System.Drawing.Size(158, 20);
+            this.dniCliente.Size = new System.Drawing.Size(158, 25);
             this.dniCliente.TabIndex = 8;
             // 
             // dniLabel
@@ -412,9 +427,10 @@
             // 
             // apellidoCliente
             // 
+            this.apellidoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.apellidoCliente.Location = new System.Drawing.Point(257, 42);
             this.apellidoCliente.Name = "apellidoCliente";
-            this.apellidoCliente.Size = new System.Drawing.Size(158, 20);
+            this.apellidoCliente.Size = new System.Drawing.Size(158, 25);
             this.apellidoCliente.TabIndex = 6;
             // 
             // apellidoClienteLabel
@@ -429,9 +445,10 @@
             // 
             // nombreCliente
             // 
+            this.nombreCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombreCliente.Location = new System.Drawing.Point(30, 37);
             this.nombreCliente.Name = "nombreCliente";
-            this.nombreCliente.Size = new System.Drawing.Size(158, 20);
+            this.nombreCliente.Size = new System.Drawing.Size(158, 25);
             this.nombreCliente.TabIndex = 4;
             // 
             // nombreClienteLabel
@@ -473,18 +490,19 @@
             this.proveedorGroupBox.Controls.Add(this.emailProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedor);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedorLabel);
-            this.proveedorGroupBox.Location = new System.Drawing.Point(6, 146);
+            this.proveedorGroupBox.Location = new System.Drawing.Point(12, 146);
             this.proveedorGroupBox.Name = "proveedorGroupBox";
-            this.proveedorGroupBox.Size = new System.Drawing.Size(803, 380);
+            this.proveedorGroupBox.Size = new System.Drawing.Size(696, 380);
             this.proveedorGroupBox.TabIndex = 4;
             this.proveedorGroupBox.TabStop = false;
             this.proveedorGroupBox.Text = "Datos Proveedor";
             // 
             // contactoProveedor
             // 
+            this.contactoProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactoProveedor.Location = new System.Drawing.Point(221, 282);
             this.contactoProveedor.Name = "contactoProveedor";
-            this.contactoProveedor.Size = new System.Drawing.Size(158, 20);
+            this.contactoProveedor.Size = new System.Drawing.Size(158, 25);
             this.contactoProveedor.TabIndex = 33;
             // 
             // contactoProveedorLabel
@@ -499,10 +517,11 @@
             // 
             // comboRubro
             // 
+            this.comboRubro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRubro.FormattingEnabled = true;
             this.comboRubro.Location = new System.Drawing.Point(479, 39);
             this.comboRubro.Name = "comboRubro";
-            this.comboRubro.Size = new System.Drawing.Size(155, 21);
+            this.comboRubro.Size = new System.Drawing.Size(155, 25);
             this.comboRubro.TabIndex = 31;
             // 
             // rubroProveedorLabel
@@ -517,9 +536,10 @@
             // 
             // cuitProveedor
             // 
+            this.cuitProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuitProveedor.Location = new System.Drawing.Point(257, 40);
             this.cuitProveedor.Name = "cuitProveedor";
-            this.cuitProveedor.Size = new System.Drawing.Size(158, 20);
+            this.cuitProveedor.Size = new System.Drawing.Size(158, 25);
             this.cuitProveedor.TabIndex = 29;
             // 
             // cuitProveedorLabel
@@ -534,9 +554,10 @@
             // 
             // ciudadProveedor
             // 
+            this.ciudadProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ciudadProveedor.Location = new System.Drawing.Point(30, 282);
             this.ciudadProveedor.Name = "ciudadProveedor";
-            this.ciudadProveedor.Size = new System.Drawing.Size(158, 20);
+            this.ciudadProveedor.Size = new System.Drawing.Size(158, 25);
             this.ciudadProveedor.TabIndex = 27;
             // 
             // ciudadProveedorLabel
@@ -551,9 +572,10 @@
             // 
             // cPostalProveedor
             // 
+            this.cPostalProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cPostalProveedor.Location = new System.Drawing.Point(221, 224);
             this.cPostalProveedor.Name = "cPostalProveedor";
-            this.cPostalProveedor.Size = new System.Drawing.Size(96, 20);
+            this.cPostalProveedor.Size = new System.Drawing.Size(96, 25);
             this.cPostalProveedor.TabIndex = 25;
             // 
             // cPostalProveedorLabel
@@ -568,9 +590,10 @@
             // 
             // localidadProveedor
             // 
+            this.localidadProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.localidadProveedor.Location = new System.Drawing.Point(30, 224);
             this.localidadProveedor.Name = "localidadProveedor";
-            this.localidadProveedor.Size = new System.Drawing.Size(158, 20);
+            this.localidadProveedor.Size = new System.Drawing.Size(158, 25);
             this.localidadProveedor.TabIndex = 23;
             // 
             // localidadProveedorLabel
@@ -585,9 +608,10 @@
             // 
             // dptoDirProveedor
             // 
+            this.dptoDirProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dptoDirProveedor.Location = new System.Drawing.Point(560, 178);
             this.dptoDirProveedor.Name = "dptoDirProveedor";
-            this.dptoDirProveedor.Size = new System.Drawing.Size(74, 20);
+            this.dptoDirProveedor.Size = new System.Drawing.Size(74, 25);
             this.dptoDirProveedor.TabIndex = 21;
             // 
             // dptoDirProveedorLabel
@@ -602,9 +626,10 @@
             // 
             // pisoDirProveedor
             // 
+            this.pisoDirProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pisoDirProveedor.Location = new System.Drawing.Point(385, 177);
             this.pisoDirProveedor.Name = "pisoDirProveedor";
-            this.pisoDirProveedor.Size = new System.Drawing.Size(158, 20);
+            this.pisoDirProveedor.Size = new System.Drawing.Size(158, 25);
             this.pisoDirProveedor.TabIndex = 19;
             // 
             // pisoDirProveedorLabel
@@ -619,9 +644,10 @@
             // 
             // numeroDirProveedor
             // 
+            this.numeroDirProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numeroDirProveedor.Location = new System.Drawing.Point(221, 177);
             this.numeroDirProveedor.Name = "numeroDirProveedor";
-            this.numeroDirProveedor.Size = new System.Drawing.Size(158, 20);
+            this.numeroDirProveedor.Size = new System.Drawing.Size(158, 25);
             this.numeroDirProveedor.TabIndex = 17;
             // 
             // numeroDirProveedorLabel
@@ -636,9 +662,10 @@
             // 
             // calleProveedor
             // 
+            this.calleProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calleProveedor.Location = new System.Drawing.Point(30, 178);
             this.calleProveedor.Name = "calleProveedor";
-            this.calleProveedor.Size = new System.Drawing.Size(158, 20);
+            this.calleProveedor.Size = new System.Drawing.Size(158, 25);
             this.calleProveedor.TabIndex = 15;
             // 
             // calleProveedorLabel
@@ -663,9 +690,10 @@
             // 
             // telefonoProveedor
             // 
+            this.telefonoProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telefonoProveedor.Location = new System.Drawing.Point(257, 85);
             this.telefonoProveedor.Name = "telefonoProveedor";
-            this.telefonoProveedor.Size = new System.Drawing.Size(158, 20);
+            this.telefonoProveedor.Size = new System.Drawing.Size(158, 25);
             this.telefonoProveedor.TabIndex = 12;
             // 
             // telefonoProveedorLabel
@@ -680,9 +708,10 @@
             // 
             // emailProveedor
             // 
-            this.emailProveedor.Location = new System.Drawing.Point(27, 85);
+            this.emailProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailProveedor.Location = new System.Drawing.Point(31, 87);
             this.emailProveedor.Name = "emailProveedor";
-            this.emailProveedor.Size = new System.Drawing.Size(158, 20);
+            this.emailProveedor.Size = new System.Drawing.Size(158, 25);
             this.emailProveedor.TabIndex = 6;
             // 
             // emailProveedorLabel
@@ -697,9 +726,10 @@
             // 
             // razonSocialProveedor
             // 
+            this.razonSocialProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.razonSocialProveedor.Location = new System.Drawing.Point(30, 40);
             this.razonSocialProveedor.Name = "razonSocialProveedor";
-            this.razonSocialProveedor.Size = new System.Drawing.Size(158, 20);
+            this.razonSocialProveedor.Size = new System.Drawing.Size(158, 25);
             this.razonSocialProveedor.TabIndex = 4;
             // 
             // razonSocialProveedorLabel
@@ -714,18 +744,20 @@
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(42, 537);
+            this.limpiarButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.limpiarButton.Location = new System.Drawing.Point(33, 532);
             this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(145, 23);
+            this.limpiarButton.Size = new System.Drawing.Size(161, 28);
             this.limpiarButton.TabIndex = 5;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
             // guardarButton
             // 
-            this.guardarButton.Location = new System.Drawing.Point(565, 537);
+            this.guardarButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarButton.Location = new System.Drawing.Point(533, 532);
             this.guardarButton.Name = "guardarButton";
-            this.guardarButton.Size = new System.Drawing.Size(124, 23);
+            this.guardarButton.Size = new System.Drawing.Size(135, 28);
             this.guardarButton.TabIndex = 6;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
@@ -734,7 +766,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 572);
+            this.ClientSize = new System.Drawing.Size(720, 572);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.proveedorGroupBox);
