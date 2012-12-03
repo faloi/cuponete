@@ -5,11 +5,35 @@ using System.Windows.Forms;
 
 namespace GrouponDesktop.Helpers
 {
+    public sealed class DataType
+    {
+        private readonly string format;
+
+        public static DataType INTEGER = new DataType("N0");
+        public static DataType NUMBER = new DataType("N2");
+        public static DataType CURRENCY = new DataType("C2");
+
+        private DataType(string format)
+        {
+            this.format = format;
+        }
+
+        public override String ToString()
+        {
+            return this.format;
+        }
+    }
+
     public static class ControlBindingHelpers
     {
         public static void BindTextTo(this Control control, object model, string propertyName)
         {
             control.DataBindings.Add("Text", model, propertyName);
+        }
+
+        public static void BindTextTo(this Control control, object model, string propertyName, DataType dataType)
+        {
+            control.DataBindings.Add("Text", model, propertyName, true, DataSourceUpdateMode.OnPropertyChanged, null, dataType.ToString());
         }
 
         public static void BindTextToDate(this Control control, object model, string propertyName, string format)
