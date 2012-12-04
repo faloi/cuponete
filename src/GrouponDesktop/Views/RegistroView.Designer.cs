@@ -94,6 +94,7 @@
             this.razonSocialProveedorLabel = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             this.usuarioGroupBox.SuspendLayout();
             this.clienteGroupBox.SuspendLayout();
             this.proveedorGroupBox.SuspendLayout();
@@ -129,7 +130,7 @@
             this.usuarioGroupBox.Controls.Add(this.username);
             this.usuarioGroupBox.Location = new System.Drawing.Point(12, 12);
             this.usuarioGroupBox.Name = "usuarioGroupBox";
-            this.usuarioGroupBox.Size = new System.Drawing.Size(797, 128);
+            this.usuarioGroupBox.Size = new System.Drawing.Size(696, 128);
             this.usuarioGroupBox.TabIndex = 2;
             this.usuarioGroupBox.TabStop = false;
             this.usuarioGroupBox.Text = "Datos usuario";
@@ -139,7 +140,7 @@
             this.repitaPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repitaPassword.Location = new System.Drawing.Point(350, 89);
             this.repitaPassword.Name = "repitaPassword";
-            this.repitaPassword.Size = new System.Drawing.Size(155, 25);
+            this.repitaPassword.Size = new System.Drawing.Size(232, 25);
             this.repitaPassword.TabIndex = 7;
             // 
             // repitaPasswordLabel
@@ -158,7 +159,7 @@
             this.comboRol.FormattingEnabled = true;
             this.comboRol.Location = new System.Drawing.Point(350, 39);
             this.comboRol.Name = "comboRol";
-            this.comboRol.Size = new System.Drawing.Size(155, 25);
+            this.comboRol.Size = new System.Drawing.Size(176, 25);
             this.comboRol.TabIndex = 5;
             this.comboRol.SelectedIndexChanged += new System.EventHandler(this.ComboRolSelectedIndexChanged);
             // 
@@ -773,6 +774,7 @@
             this.Controls.Add(this.clienteGroupBox);
             this.Controls.Add(this.usuarioGroupBox);
             this.Name = "RegistroView";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             this.usuarioGroupBox.ResumeLayout(false);
             this.usuarioGroupBox.PerformLayout();
             this.clienteGroupBox.ResumeLayout(false);

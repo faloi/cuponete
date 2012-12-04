@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMCliente : DefaultView
+    public partial class ABMCliente : ListadoView
     {
         private readonly UsuarioHome home;
 
@@ -12,6 +13,7 @@ namespace GrouponDesktop.Views
         {
             InitializeComponent();
             this.home = HomeFactory.Usuario;
+            this.Example = new Cliente();
 
             this.Setup();
         }
@@ -24,19 +26,26 @@ namespace GrouponDesktop.Views
 
         protected override void CreateSpecificBindings()
         {
-            this.dataGridView1.BindSourceTo(this.model, new Dictionary<string, string>()
+            this.textBoxNombre.BindTextTo(this.Example, "nombre");
+            this.textBoxApellido.BindTextTo(this.Example, "apellido");
+            this.textBoxEmail.BindTextTo(this.Example, "mail");
+            this.textBoxDNI.BindTextTo(this.Example, "dni", DataType.INTEGER);
+
+            this.clientesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
             {
                 {"Nombre", "nombre"},
                 {"Apellido", "apellido"},
                 {"DNI", "dni"},
                 {"Email", "mail"}
             });
+
+            this.limpiarButton.Click += 
+                (sender, args) => this.Example = new Cliente();
         }
 
         protected override void ExecSubmit()
         {
-            var clientes = this.home.ListarClientes();
-            this.SetBindingSource(clientes);
+            this.Data = this.home.ListarClientes(this.Filter as Cliente);
         }
     }
 }

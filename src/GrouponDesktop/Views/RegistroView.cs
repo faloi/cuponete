@@ -10,7 +10,7 @@ namespace GrouponDesktop.Views
     public partial class RegistroView : DefaultView
     {
         private readonly UsuarioHome home;
-        private readonly Proveedor proveedor;
+      
 
         public RegistroView()
         {
@@ -66,6 +66,7 @@ namespace GrouponDesktop.Views
         {
             var roles = new Adapter().TransformMany<Rol>(HomeFactory.Rol.RolesDisponibles());
             this.comboRol.BindSourceTo(roles, "id_rol", "descripcion");
+
         }
 
         private void CargarCiudades()

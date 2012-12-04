@@ -69,10 +69,36 @@ namespace GrouponDesktop.Homes
             this.RunProcedure("RegistrarProveedor", proveedor);
         }
 
-        public IList<Cliente> ListarClientes()
+        public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
             const string QUERY = "SELECT nombre, apellido, dni, mail FROM RANDOM.Cliente";
-            return new Adapter().TransformMany<Cliente>(this.sqlRunner.Select(QUERY));
+
+            var filtros = new Filters();
+            if (ejemplo.nombre != null)
+                filtros.AddLike("nombre", ejemplo.nombre);
+            if (ejemplo.apellido != null)
+                filtros.AddLike("apellido", ejemplo.apellido);
+            if (ejemplo.mail != null)
+                filtros.AddLike("mail", ejemplo.mail);
+            if (ejemplo.dni != 0)
+                filtros.AddEqual("dni", ejemplo.dni.ToString());
+
+            return new Adapter().TransformMany<Cliente>(this.sqlRunner.Select(QUERY, filtros));
+        }
+
+        public IList<Proveedor> ListarProveedores(Proveedor ejemplo)
+        {
+            const string QUERY = "SELECT razon_social, cuit,mail FROM RANDOM.Proveedor";
+
+            var filtros = new Filters();
+            if (ejemplo.razon_social != null)
+                filtros.AddLike("razon_social", ejemplo.razon_social);
+            if (ejemplo.cuit != null)
+                filtros.AddEqual("cuit", ejemplo.cuit);
+            if (ejemplo.mail != null)
+                filtros.AddLike("mail", ejemplo.mail);
+
+            return new Adapter().TransformMany<Proveedor>(this.sqlRunner.Select(QUERY, filtros));
         }
     }
 }
