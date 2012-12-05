@@ -11,35 +11,38 @@ namespace GrouponDesktop.Homes
 
         protected Home(string connectionString)
         {
-            this.sqlRunner = new SqlRunner(connectionString);
+            this.sqlRunner = new TransactionalSqlRunner(connectionString);
         }
 
-        protected void RunProcedure(string name, object model, params string[] parametersNames)
+        protected Runnable CreateProcedureFrom(string name, object model, params string[] parametersNames)
         {
-            try
-            {
-                var procedureName = string.Format("RANDOM.{0}", name);
-                var parameters = new Adapter().CreateParametersFrom(model, parametersNames);
+            var procedureName = string.Format("RANDOM.{0}", name);
+            var parameters = new Adapter().CreateParametersFrom(model, parametersNames);
 
-                this.sqlRunner.Run(Runnable.StoreProcedure(procedureName, parameters));
-
-            }
-            catch (SqlException e)
-            {
-                if (e.Class >= 16)
-                    throw new ApplicationException(e.Message);
-                else
-                    throw; 
-            }
-            
+            return Runnable.StoreProcedure(procedureName, parameters);
         }
 
-        protected void RunProcedure(string name, Dictionary<string, object> values)
+        protected Runnable CreateProcedureFrom(string name, Dictionary<string, object> values)
         {
             var procedureName = string.Format("RANDOM.{0}", name);
             var parameters = new Adapter().CreateParametersFrom(values);
 
-            this.sqlRunner.Run(Runnable.StoreProcedure(procedureName, parameters));
+            return Runnable.StoreProcedure(procedureName, parameters);
+        }
+
+        protected void RunProcedures(IEnumerable<Runnable> procedures)
+        {
+            try
+            {
+                this.sqlRunner.Run(procedures);
+            }
+            catch (SqlException e)
+            {
+                if (e.Class < 16)
+                    throw;
+
+                throw new ApplicationException(e.Message, e);
+            }
         }
     }
 }

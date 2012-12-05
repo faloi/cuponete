@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using GrouponDesktop.Homes;
+using System.Linq;
 
 namespace GrouponDesktop.Sql
 {
@@ -12,6 +12,11 @@ namespace GrouponDesktop.Sql
         public SqlRunner(string connectionString)
         {
             this.connectionString = connectionString;
+        }
+
+        public void Run(IEnumerable<Runnable> runnables)
+        {
+            this.Run(runnables.ToArray());
         }
 
         public void Run(params Runnable[] runnables)

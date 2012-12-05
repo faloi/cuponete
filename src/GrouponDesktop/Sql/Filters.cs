@@ -27,8 +27,9 @@ namespace GrouponDesktop.Sql
             if (!this.filters.Any())
                 return string.Empty;
 
-            var aggregate = this.filters.Aggregate("WHERE", (acum, filter) => acum + " " + filter + " AND");
-            return aggregate.Substring(0, aggregate.Length - 4);
+            return this.filters
+                .Aggregate("WHERE", (acum, filter) => acum + " " + filter + " AND")
+                .Substring(0, this.filters.Aggregate("WHERE", (acum, filter) => acum + " " + filter + " AND").Length - 4);
         }
     }
 }

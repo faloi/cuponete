@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
 
@@ -56,17 +57,28 @@ namespace GrouponDesktop.Homes
 
         public void RegistrarCliente(Cliente cliente, IEnumerable<Ciudad> ciudades)
         {
-            this.RunProcedure("RegistrarCliente", cliente, 
-                "username", "password", "nombre", "apellido", "mail", "dni", "telefono", "direccion_completa", "cod_postal", "fecha_nac");
 
-            foreach (var ciudad in ciudades)
-                this.RunProcedure("AgregarClientePorCiudad", new Dictionary<string, object>
-                                      {{"dni", cliente.dni}, {"id_ciudad", ciudad.id_ciudad}});
+            var procedures = new List<Runnable>
+            {
+                this.CreateProcedureFrom("RegistrarCliente", cliente,
+                    "username", "password", "nombre", "apellido", "mail",
+                    "dni", "telefono", "direccion_completa", "cod_postal",
+                    "fecha_nac")
+            };
+
+            var relacionCiudades = ciudades
+                .Select(ciudad => 
+                    this.CreateProcedureFrom("AgregarClientePorCiudad", 
+                    new Dictionary<string, object> {{"dni", cliente.dni}, {"id_ciudad", ciudad.id_ciudad}}));
+            
+            procedures.AddRange(relacionCiudades);
+
+            this.RunProcedures(procedures);
         }
 
         public void RegistrarProveedor(Proveedor proveedor)
         {
-            this.RunProcedure("RegistrarProveedor", proveedor);
+            this.CreateProcedureFrom("RegistrarProveedor", proveedor);
         }
 
         public IList<Cliente> ListarClientes(Cliente ejemplo)

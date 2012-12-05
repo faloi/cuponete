@@ -53,6 +53,7 @@
     <Compile Include="Homes\CiudadHome.cs" />
     <Compile Include="Sql\Filters.cs" />
     <Compile Include="Homes\RolHome.cs" />
+    <Compile Include="Sql\TransactionalSqlRunner.cs" />
     <Compile Include="Views\ABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
