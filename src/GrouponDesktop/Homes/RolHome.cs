@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
 
@@ -30,21 +31,21 @@ namespace GrouponDesktop.Homes
             
         }
 
-
         public void RegistrarRol(Rol rol, IEnumerable<Funcionalidad> funcionalidades)
         {
-            this.RunProcedure("AgregarRol", rol,
-                "descripcion");
+            var procedures = new List<Runnable>
+            {
+                this.CreateProcedureFrom("AgregarRol", rol, "descripcion")
+            };
 
-            foreach (var funcionalidad in funcionalidades)
-                this.RunProcedure("AgregarFuncionalidadPorRol", new Dictionary<string, object> { { "id_funcionalidad", funcionalidad.id_funcionalidad }, { "id_rol", rol.id_rol } });
+            var nuevasFuncionalidades = funcionalidades
+                .Select(funcionalidad =>
+                    this.CreateProcedureFrom("AgregarFuncionalidadPorRol",
+                    new Dictionary<string, object> { { "id_funcionalidad", funcionalidad.id_funcionalidad }, { "id_rol", rol.id_rol } }));
+
+            procedures.AddRange(nuevasFuncionalidades);
+
+            this.RunProcedures(procedures);
         }
-
-/*
-        private static class Queries
-        {
-
-        }
-*/
     }
 }
