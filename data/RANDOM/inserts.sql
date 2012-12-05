@@ -218,6 +218,7 @@ begin
 	set saldo_actual =	10
 						+ (select sum(carga_credito) from RANDOM.Credito cred where @id_usuario = cred.id_cliente)
 						+ (select sum(monto) from RANDOM.Gift_Card gc where @id_usuario = gc.id_usuario_destino)
+						- (select sum(monto) from RANDOM.Gift_Card gc where @id_usuario = gc.id_usuario_origen)
 						- (select sum(precio_real) from RANDOM.Cupon_Comprado cupc inner join RANDOM.Cupon cup on cupc.id_cupon = cup.id_cupon and cupc.id_cliente = @id_usuario)
 						+ (select sum(precio_real) from RANDOM.Cupon_Comprado cupc inner join RANDOM.Cupon cup on cupc.id_cupon = cup.id_cupon inner join RANDOM.Cupon_Devuelto cupd on cupd.id_compra = cupc.id_compra and cupd.id_cliente = @id_usuario)
 	where id_usuario = @id_usuario
