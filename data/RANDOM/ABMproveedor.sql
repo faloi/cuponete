@@ -1,5 +1,5 @@
---Registro de un proveedor
-create procedure RANDOM.RegistrarProveedor @username nvarchar(255), @password nvarchar(255), @razon_social nvarchar(255), @mail nvarchar(100), @telefono numeric (18,0), @direccion nvarchar(255), @cod_postal numeric(18,0), @id_ciudad bigint, @cuit nvarchar(20), @id_rubro bigint, @contacto_nombre nvarchar(100)
+--Registro de un proveedor: RANDOM.RegistrarProveedor (todos los parametros son necesarios)
+create procedure RANDOM.RegistrarProveedor @username nvarchar(255) output, @password nvarchar(255) output, @razon_social nvarchar(255) output, @mail nvarchar(100) output, @telefono numeric (18,0) output, @direccion nvarchar(255) output, @cod_postal numeric(18,0) output, @id_ciudad bigint output, @cuit nvarchar(20) output, @id_rubro bigint output, @contacto_nombre nvarchar(100) output
 as
 begin transaction
 	if exists (select username from RANDOM.Usuario where @username = username)
@@ -48,8 +48,8 @@ commit
 go
 
 
---Modificacion de un proveedor
-create procedure RANDOM.ModificarProveedor @id_usuario bigint, @razon_social nvarchar(255), @mail nvarchar(100), @telefono numeric (18,0), @direccion nvarchar(255), @cod_postal numeric(18,0), @id_ciudad bigint, @cuit nvarchar(20), @id_rubro bigint, @contacto_nombre nvarchar(100)
+--Modificacion de un proveedor: RANDOM.ModificarProveedor (todos los parametros son necesarios)
+create procedure RANDOM.ModificarProveedor @id_usuario bigint output, @razon_social nvarchar(255) output, @mail nvarchar(100) output, @telefono numeric (18,0) output, @direccion nvarchar(255) output, @cod_postal numeric(18,0) output, @id_ciudad bigint output, @cuit nvarchar(20) output, @id_rubro bigint output, @contacto_nombre nvarchar(100) output
 as
 begin transaction
 	if (exists (select razon_social from RANDOM.Proveedor where razon_social = @razon_social)) and ((select razon_social from RANDOM.Proveedor where id_usuario = @id_usuario) != @razon_social)

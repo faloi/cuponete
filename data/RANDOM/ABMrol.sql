@@ -1,6 +1,6 @@
 
---Agregar un rol
-create procedure RANDOM.AgregarRol @descripcion nvarchar(50)
+--Agregar un rol: RANDOM.AgregarRol (el parametro @id_rol es solo de output, para usarlo en RANDOM.AgregarFuncionalidadPorRol)
+create procedure RANDOM.AgregarRol @id_rol bigint output, @descripcion nvarchar(50) output
 as
 begin transaction
 	if exists (select descripcion from RANDOM.Rol where @descripcion = descripcion)
@@ -11,12 +11,14 @@ begin transaction
 
 	insert into RANDOM.Rol(descripcion, estado)
 	values(@descripcion, 1)
+	
+	select @id_rol = id_rol from RANDOM.Rol where descripcion = @descripcion
 commit
 go
 
 
---Agregar funcionalidades por rol
-create procedure RANDOM.AgregarFuncionalidadPorRol @id_funcionalidad bigint, @id_rol bigint
+--Agregar funcionalidades por rol: RANDOM.AgregarFuncionalidadPorRol (todos los parametros necesarios)
+create procedure RANDOM.AgregarFuncionalidadPorRol @id_funcionalidad bigint output, @id_rol bigint output
 as
 begin
 	insert into RANDOM.Funcionalidad_x_Rol(id_rol, id_funcionalidad)
@@ -25,8 +27,8 @@ end
 go
 
 
---Quitar funcionalidades por rol
-create procedure RANDOM.QuitarFuncionalidadPorRol @id_funcionalidad bigint, @id_rol bigint
+--Quitar funcionalidades por rol: RANDOM.QuitarFuncionalidadPorRol (todos los parametros necesarios)
+create procedure RANDOM.QuitarFuncionalidadPorRol @id_funcionalidad bigint output, @id_rol bigint output
 as
 begin
 	delete from RANDOM.Funcionalidad_x_Rol
@@ -34,9 +36,26 @@ begin
 end
 go
 
+--Cambiar nombre de rol: RANDOM.CambiarNombreRol (el parametro @id_rol es solo de output, para usarlo en RANDOM.AgregarFuncionalidadPorRol)
+create procedure RANDOM.CambiarNombreRol @id_rol bigint output, @descripcion nvarchar(50) output
+as
+begin transaction
+	if exists (select descripcion from RANDOM.Rol where @descripcion = descripcion)
+	begin
+		rollback
+		raiserror('El nombre de rol ya existe', 16, 1)
+	end	
 
---Habilitar rol
-create procedure RANDOM.HabilitarRol @descripcion nvarchar(50)
+	select @id_rol = id_rol from RANDOM.Rol where descripcion = @descripcion
+	
+	update RANDOM.Rol
+	set descripcion = @descripcion
+	where id_rol = @id_rol
+commit
+go
+
+--Habilitar rol: RANDOM.HabilitarRol (parametro necesario)
+create procedure RANDOM.HabilitarRol @descripcion nvarchar(50) output
 as
 begin
 	update RANDOM.Rol
@@ -44,8 +63,8 @@ begin
 end
 go
 
---Deshabilitar rol
-create procedure RANDOM.DeshabilitarRol @descripcion nvarchar(50)
+--Deshabilitar rol: RANDOM.DeshabilitarRol (parametro necesario)
+create procedure RANDOM.DeshabilitarRol @descripcion nvarchar(50) output
 as
 begin
 	update RANDOM.Rol

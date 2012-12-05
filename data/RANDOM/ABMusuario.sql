@@ -1,5 +1,5 @@
---Modificacion de usuario (username y password)
-create procedure RANDOM.ModificarUsuario @id_usuario bigint, @username nvarchar(255), @password nvarchar(255)
+--Modificacion de usuario (username y password): RANDOM.ModificarUsuario (todos los parametros son necesarios)
+create procedure RANDOM.ModificarUsuario @id_usuario bigint output, @username nvarchar(255) output, @password nvarchar(255) output
 as
 begin transaction
 	if exists (select username from RANDOM.Usuario where @username = username and id_usuario != @id_usuario)
@@ -16,29 +16,29 @@ commit
 go
 
 
---Habilitar usuario
-create procedure RANDOM.HabilitarUsuario @username nvarchar(255)
+--Habilitar usuario: RANDOM.HabilitarUsuario (parametro necesario)
+create procedure RANDOM.HabilitarUsuario @id_usuario bigint output
 as
 begin
 	update RANDOM.Usuario
 	set estado = 1 
-	where @username = username
+	where @id_usuario = id_usuario
 end
 go
 
---Deshabilitar usuario
-create procedure RANDOM.DeshabilitarUsuario @username nvarchar(255)
+--Deshabilitar usuario: RANDOM.DeshabilitarUsuario (parametro necesario)
+create procedure RANDOM.DeshabilitarUsuario @id_usuario bigint output
 as
 begin
 	update RANDOM.Usuario
 	set estado = 0 
-	where @username = username
+	where @id_usuario = id_usuario
 end
 go
 
 
---Incrementar las fallas que tiene un usuario
-CREATE PROCEDURE RANDOM.IncrementarFallas @id_usuario bigint
+--Incrementar las fallas que tiene un usuario: RANDOM.IncrementarFallas (parametro necesario)
+CREATE PROCEDURE RANDOM.IncrementarFallas @id_usuario bigint output
 AS
 BEGIN 
       UPDATE RANDOM.Usuario

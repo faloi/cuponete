@@ -1,5 +1,5 @@
---Registro de una carga de credito
-create procedure RANDOM.CargarCredito @id_usuario bigint, @carga_credito bigint, @fecha datetime, @id_forma_pago bigint, @nro_tarjeta numeric(15,0), @cod_seguridad_tarjeta numeric(3,0), @fecha_vto_tarjeta nvarchar(5)
+--Registro de una carga de credito: RANDOM.CargarCredito (todos los parametros necesarios)
+create procedure RANDOM.CargarCredito @id_usuario bigint output, @carga_credito bigint output, @fecha datetime output, @id_forma_pago bigint output, @nro_tarjeta numeric(15,0) output, @cod_seguridad_tarjeta numeric(3,0) output, @fecha_vto_tarjeta nvarchar(5) output
 as
 begin
 	insert into RANDOM.Credito(id_cliente, carga_credito, fecha,id_forma_pago, nro_tarjeta, cod_seguridad_tarjeta, fecha_vto_tarjeta)
@@ -12,8 +12,8 @@ end
 go
 
 
---Registro de una compra de gift card
-create procedure RANDOM.ComprarGiftCard @id_usuario_origen bigint, @id_usuario_destino bigint, @fecha datetime, @monto bigint
+--Registro de una compra de gift card: RANDOM.ComprarGiftCard (todos los parametros necesarios)
+create procedure RANDOM.ComprarGiftCard @id_usuario_origen bigint output, @id_usuario_destino bigint output, @fecha datetime output, @monto bigint output
 as
 begin
 
@@ -49,8 +49,8 @@ end
 go
 
 
---Comprar cupon
-create procedure RANDOM.ComprarCupon @id_cliente bigint, @id_cupon bigint, @fecha datetime, @codigo_compra nvarchar(50) output
+--Comprar cupon: RANDOM.ComprarCupon (todos los parametros necesarios)
+create procedure RANDOM.ComprarCupon @id_cliente bigint output, @id_cupon bigint output, @fecha datetime output, @codigo_compra nvarchar(50) output
 as
 begin transaction
 	if (select cant_disp from RANDOM.Cupon where id_cupon = @id_cupon) <= 0
@@ -94,8 +94,8 @@ commit
 go
 
 
---Pedir devolucion
-create procedure RANDOM.PedirDevolucionCupon @id_cliente bigint, @fecha_devolucion datetime, @codigo_compra nvarchar(50), @descripcion nvarchar(255) output, @fecha_venc_consumo datetime output, @precio_real numeric(18,2) output
+--Pedir devolucion: RANDOM.PedirDevolucionCupon (los parametros @descripcion, @fecha_venc_consumo y @precio_real son solo output, para mostrarlos antes de concretar la devolucion, para lo cual se llama a RANDOM.DevolverCupon)
+create procedure RANDOM.PedirDevolucionCupon @id_cliente bigint output, @fecha_devolucion datetime output, @codigo_compra nvarchar(50) output, @descripcion nvarchar(255) output, @fecha_venc_consumo datetime output, @precio_real numeric(18,2) output
 as
 begin transaction
 	if not exists (select 1 from RANDOM.Cupon_Comprado where codigo_compra = @codigo_compra)
@@ -127,7 +127,7 @@ begin transaction
 commit
 go
 
---Devolver un cupon
+--Devolver un cupon: RANDOM.DevolverCupon (todos los parametros necesarios)
 create procedure RANDOM.DevolverCupon @id_cliente bigint, @fecha_devolucion datetime, @codigo_compra nvarchar(50), @motivo_devolucion nvarchar(255)
 as
 begin
