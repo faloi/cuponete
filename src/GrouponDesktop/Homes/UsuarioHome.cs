@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using GrouponDesktop.DTOs;
+using GrouponDesktop.Helpers;
 using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Homes
@@ -28,7 +29,7 @@ namespace GrouponDesktop.Homes
                 if (userFromDb.EstaBloqueado)
                     throw new ApplicationException("El usuario se encuentra bloqueado");
 
-                if (userFromDb.password != usuario.password)
+                if (userFromDb.password != usuario.password.ToSha256())
                 {
                     this.IncrementarFallas(userFromDb);
                     throw new ApplicationException("Password incorrecto");
@@ -57,6 +58,7 @@ namespace GrouponDesktop.Homes
 
         public void RegistrarCliente(Cliente cliente, IEnumerable<Ciudad> ciudades)
         {
+            cliente.password = cliente.password.ToSha256();
 
             var procedures = new List<Runnable>
             {
