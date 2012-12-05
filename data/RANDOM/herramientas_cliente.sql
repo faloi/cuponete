@@ -16,12 +16,13 @@ go
 --Registro de una compra de gift card: RANDOM.ComprarGiftCard (todos los parametros necesarios)
 create procedure RANDOM.ComprarGiftCard @id_usuario_origen bigint output, @id_usuario_destino bigint output, @fecha datetime output, @monto bigint output
 as
-begin
+begin transaction
 
 	if not exists (select 1 from RANDOM.Usuario where id_usuario = @id_usuario_destino)
 	begin
 		rollback
 		raiserror('El nombre de usuario es incorrecto', 16, 1)
+		return
 	end
 	else
 	begin
@@ -29,13 +30,24 @@ begin
 		begin
 			rollback
 			raiserror('El usuario esta deshabilitado', 16, 1)
+			return
 		end
 		else
 		begin
 			if @id_usuario_destino = @id_usuario_origen
 			begin
 				rollback
-				raiserror('No puede regalarse credito a si mismo', 16, 1)			
+				raiserror('No puede regalarse credito a si mismo', 16, 1)
+				return			
+			end
+			else
+			begin
+				if (select saldo_actual from RANDOM.Cliente where id_usuario = @id_usuario_origen) < @monto
+				begin
+					rollback
+					raiserror('No posee credito suficiente para regalar', 16, 1)
+					return			
+				end
 			end
 		end
 	end	
@@ -46,11 +58,15 @@ begin
 	update RANDOM.Cliente
 	set saldo_actual = saldo_actual + @monto
 	where id_usuario = @id_usuario_destino
-end
+	
+	update RANDOM.Cliente
+	set saldo_actual = saldo_actual - @monto
+	where id_usuario = @id_usuario_origen
+commit
 go
 
 
---Comprar cupon: RANDOM.ComprarCupon (todos los parametros necesarios)
+--Comprar cupon: RANDOM.ComprarCupon (el parametro codigo_compra es solo output, para mostrarlo por pantalla)
 create procedure RANDOM.ComprarCupon @id_cliente bigint output, @id_cupon bigint output, @fecha datetime output, @codigo_compra nvarchar(50) output
 as
 begin transaction
@@ -58,6 +74,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('No hay suficiente stock', 16, 1)
+		return
 	end
 	else
 	begin
@@ -65,13 +82,15 @@ begin transaction
 		begin
 			rollback
 			raiserror('No posee credito suficiente para realizar la compra', 16, 1)
+			return
 		end
 		else
 		begin
 			if (select COUNT(*) from RANDOM.Cupon_Comprado where id_cliente = @id_cliente and id_cupon = @id_cupon) >= (select max_compra_por_usuario from RANDOM.Cupon where id_cupon = @id_cupon)
 			begin
 				rollback
-				raiserror('Ya ha comprado el maximo permitido de este cupon', 16, 1)			
+				raiserror('Ya ha comprado el maximo permitido de este cupon', 16, 1)
+				return			
 			end
 		end
 	end	
@@ -85,9 +104,11 @@ begin transaction
 	
 	update RANDOM.Cupon
 	set cant_disp = cant_disp - 1
+	where id_cupon = @id_cupon
 	
 	update RANDOM.Cliente
 	set saldo_actual = saldo_actual - (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
+	where id_usuario = @id_cliente
 	
 	select @codigo_compra = codigo_compra from RANDOM.Cupon_Comprado where id_cupon = @id_cupon and id_cliente = @id_cliente
 	
@@ -103,6 +124,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('El codigo de compra es erroneo', 16, 1)
+		return
 	end
 	else
 	begin
@@ -110,13 +132,24 @@ begin transaction
 		begin
 			rollback
 			raiserror('No es dueño del cupon', 16, 1)
+			return
 		end
 		else
 		begin
 			if (select fec_venc_consumo from RANDOM.Cupon c inner join RANDOM.Cupon_Comprado cc on cc.id_cupon = c.id_cupon where codigo_compra = @codigo_compra) < @fecha_devolucion
 			begin
 				rollback
-				raiserror('La fecha de vencimiento para el consumo ha expirado, no puede devolverse este cupon', 16, 1)			
+				raiserror('La fecha de vencimiento para el consumo ha expirado, no puede devolverse este cupon', 16, 1)		
+				return	
+			end
+			else
+			begin
+				if exists (select 1 from RANDOM.Cupon_Devuelto cd inner join RANDOM.Cupon_Comprado cc on cc.id_compra = cd.id_compra where cc.codigo_compra = @codigo_compra)
+				begin
+					rollback
+					raiserror('Ese cupon ya fue devuelto', 16, 1)		
+					return	
+				end
 			end
 		end
 	end	
@@ -137,9 +170,11 @@ begin
 	
 	update RANDOM.Cliente
 	set saldo_actual = saldo_actual + (select precio_real from RANDOM.Cupon c inner join RANDOM.Cupon_Comprado cc on c.id_cupon = cc.id_cupon where codigo_compra = @codigo_compra)
+	where id_usuario = @id_cliente
 
 	update RANDOM.Cupon
 	set cant_disp = cant_disp + 1
+	where id_cupon = (select id_cupon from Cupon_Comprado where codigo_compra = @codigo_compra)
 
 end
 go

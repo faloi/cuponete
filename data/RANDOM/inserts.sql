@@ -215,8 +215,7 @@ fetch c1 into @id_usuario
 while @@FETCH_STATUS = 0
 begin
 	update RANDOM.Cliente
-	set saldo_actual =	10
-						+ (select sum(carga_credito) from RANDOM.Credito cred where @id_usuario = cred.id_cliente)
+	set saldo_actual =	(select sum(carga_credito) from RANDOM.Credito cred where @id_usuario = cred.id_cliente)
 						+ (select sum(monto) from RANDOM.Gift_Card gc where @id_usuario = gc.id_usuario_destino)
 						- (select sum(monto) from RANDOM.Gift_Card gc where @id_usuario = gc.id_usuario_origen)
 						- (select sum(precio_real) from RANDOM.Cupon_Comprado cupc inner join RANDOM.Cupon cup on cupc.id_cupon = cup.id_cupon and cupc.id_cliente = @id_usuario)
