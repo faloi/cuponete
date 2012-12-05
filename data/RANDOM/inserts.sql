@@ -33,7 +33,7 @@ INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (7,3);
 /** INSERT DE USUARIOS_CLIENTES**/
 
 INSERT INTO  RANDOM.Usuario(username,password,id_rol,estado,dni_cuit,fallas)
-(SELECT DISTINCT ('u'+CONVERT(nvarchar,Cli_Dni)), 'pass123',2,1,CONVERT(nvarchar,Cli_Dni),0
+(SELECT DISTINCT ('u'+CONVERT(nvarchar,Cli_Dni)), '9b8769a4a742959a2d0298c36fb70623f2dfacda8436237df08d8dfd5b37374c',2,1,CONVERT(nvarchar,Cli_Dni),0
 FROM gd_esquema.Maestra
 WHERE Cli_Dni IS not null)
 
