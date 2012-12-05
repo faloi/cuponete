@@ -122,6 +122,7 @@
             this.administrarRolesToolStripMenuItem.Name = "administrarRolesToolStripMenuItem";
             this.administrarRolesToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.administrarRolesToolStripMenuItem.Text = "Administrar Roles";
+            this.administrarRolesToolStripMenuItem.Click += new System.EventHandler(this.administrarRolesToolStripMenuItem_Click);
             // 
             // publicarCuponesToolStripMenuItem
             // 

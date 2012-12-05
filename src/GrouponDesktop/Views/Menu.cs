@@ -9,17 +9,13 @@ using System.Windows.Forms;
 
 namespace GrouponDesktop.Views
 {
-    public partial class Menu : Form
+    public partial class Menu : DefaultView
     {
         public Menu()
         {
             InitializeComponent();
         }
 
-        protected void Redirect(Form form)
-        {
-            form.Show();
-        }
 
         private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -29,6 +25,11 @@ namespace GrouponDesktop.Views
         private void administrarClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Redirect(new ABMCliente());
+        }
+
+        private void administrarRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Redirect(new ABMRol());
         }
     }
 }

@@ -24,6 +24,12 @@
         {
             get { return ciudadHome ?? (ciudadHome = new CiudadHome(ConnectionString)); }
         }
+
+        private static FuncionalidadHome funcionalidadHome;
+        public static FuncionalidadHome Funcionalidad
+        {
+            get { return funcionalidadHome ?? (funcionalidadHome = new FuncionalidadHome(ConnectionString)); }
+        }
        
     }
 }

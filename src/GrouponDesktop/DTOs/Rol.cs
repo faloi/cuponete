@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Rol
+    public class Rol
     {
         public long id_rol { set; get; }
         public string descripcion { set; get; }
