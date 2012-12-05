@@ -53,6 +53,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('El DNI ya esta registrado para otro cliente', 16, 1)
+		return
 	end	
 	else
 	begin
@@ -60,13 +61,15 @@ begin transaction
 		begin
 			rollback
 			raiserror('El telefono ya esta registrado para otro cliente', 16, 1)
+			return
 		end
 		else
 		begin
 			if exists (select mail from RANDOM.Cliente where mail = @mail and id_usuario != @id_usuario)
 			begin
-			rollback
-			raiserror('El mail ya está registrado para otro cliente', 16, 1)
+				rollback
+				raiserror('El mail ya está registrado para otro cliente', 16, 1)
+				return
 			end
 		end
 	end	

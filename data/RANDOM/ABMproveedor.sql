@@ -7,6 +7,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('El nombre de usuario ya existe', 16, 1)
+		return
 	end	
 	else
 	begin
@@ -14,6 +15,7 @@ begin transaction
 		begin
 			rollback
 			raiserror('La razon social ya esta registrada para otro proveedor', 16, 1)
+			return
 		end	
 		else
 		begin
@@ -21,6 +23,7 @@ begin transaction
 			begin
 				rollback
 				raiserror('El CUIT ya esta registrado para otro proveedor', 16, 1)
+				return
 			end
 			else
 			begin
@@ -28,6 +31,7 @@ begin transaction
 				begin
 					rollback
 					raiserror('El telefono ya esta registrado para otro proveedor', 16, 1)
+					return
 				end
 				else
 				begin
@@ -35,6 +39,7 @@ begin transaction
 					begin
 						rollback
 						raiserror('El mail ya está registrado para otro proveedor', 16, 1)
+						return
 					end
 				end
 			end
@@ -57,6 +62,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('La razon social ya esta registrada para otro proveedor', 16, 1)
+		return
 	end	
 	else
 	begin
@@ -64,6 +70,7 @@ begin transaction
 		begin
 			rollback
 			raiserror('El CUIT ya esta registrado para otro proveedor', 16, 1)
+			return
 		end
 		else
 		begin
@@ -71,6 +78,7 @@ begin transaction
 			begin
 				rollback
 				raiserror('El telefono ya esta registrado para otro proveedor', 16, 1)
+				return
 			end
 			else
 			begin
@@ -78,6 +86,7 @@ begin transaction
 				begin
 					rollback
 					raiserror('El mail ya está registrado para otro proveedor', 16, 1)
+					return
 				end
 			end
 		end

@@ -1,6 +1,6 @@
 
 --Agregar un rol: RANDOM.AgregarRol (el parametro @id_rol es solo de output, para usarlo en RANDOM.AgregarFuncionalidadPorRol)
-create procedure RANDOM.AgregarRol @id_rol bigint output, @descripcion nvarchar(50) output
+create procedure RANDOM.AgregarRol @id_rol bigint out, @descripcion nvarchar(50) out
 as
 begin transaction
 	if exists (select descripcion from RANDOM.Rol where @descripcion = descripcion)
@@ -45,6 +45,7 @@ begin transaction
 	begin
 		rollback
 		raiserror('El nombre de rol ya existe', 16, 1)
+		return
 	end	
 
 	select @id_rol = id_rol from RANDOM.Rol where descripcion = @descripcion
@@ -73,9 +74,5 @@ begin
 end
 go
 
-delete from RANDOM.Rol where descripcion = 'Pelotudo'
-select * from RANDOM.Rol where descripcion = 'Pelotudo'
-declare @id_rol bigint = 0
-exec RANDOM.AgregarRol @id_rol, 'Pelotudo'
-print @@error
-print @id_rol
+
+
