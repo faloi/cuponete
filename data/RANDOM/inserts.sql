@@ -52,7 +52,7 @@ WHERE ma.Provee_Rubro IS NOT NULL);
 
 /** INSERT DE USUARIO_PROVEEDOR**/
 INSERT INTO RANDOM.Usuario (username, password, dni_cuit, id_rol, estado, fallas)
-(SELECT DISTINCT ('u'+Provee_Cuit), 'pass123', Provee_Cuit, 3, 1, 0  FROM gd_esquema.Maestra
+(SELECT DISTINCT ('u'+Provee_Cuit), '9b8769a4a742959a2d0298c36fb70623f2dfacda8436237df08d8dfd5b37374c', Provee_Cuit, 3, 1, 0  FROM gd_esquema.Maestra
 WHERE Provee_RS IS NOT NULL);
 
 /** INSERT DE CIUDAD**/
@@ -209,5 +209,5 @@ WHERE RANDOM.Cupon.id_cupon = cc.id_cupon
 
 /** INSERT DEL USUARIO ADMINISTRADOR**/
 INSERT INTO RANDOM.Usuario (username, [password], id_rol, estado, fallas)
-VALUES ('admin','w23e',1, 1, 0)
+VALUES ('admin','e6b87050bfcb8143fcb8db0170a4dc9ed00d904ddd3e2a4ad1b1e8dc0fdc9be7',1, 1, 0)
 
