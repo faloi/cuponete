@@ -30,6 +30,11 @@ namespace GrouponDesktop.Homes
             return Runnable.StoreProcedure(procedureName, parameters);
         }
 
+        public void RunProcedure(Runnable procedure)
+        {
+            this.RunProcedures(new[] { procedure });
+        }
+
         protected void RunProcedures(IEnumerable<Runnable> procedures)
         {
             try
