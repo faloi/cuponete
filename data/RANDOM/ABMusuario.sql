@@ -1,3 +1,4 @@
+
 --Modificacion de usuario (username y password): RANDOM.ModificarUsuario (todos los parametros son necesarios)
 create procedure RANDOM.ModificarUsuario @id_usuario bigint output, @username nvarchar(255) output, @password nvarchar(255) output
 as

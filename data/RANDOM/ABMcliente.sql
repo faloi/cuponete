@@ -1,3 +1,4 @@
+
 --Registro de cliente: RANDOM.RegistrarCliente (el parametro @id_usuario es solo output, para usarlo en RANDOM.AgregarClientePorCiudad)
 create procedure RANDOM.RegistrarCliente @id_usuario bigint output, @username nvarchar(255) output, @password nvarchar(255) output, @nombre nvarchar(255) output, @apellido nvarchar(255) output, @dni numeric(18,0) output, @mail nvarchar(100) output, @telefono numeric (18,0) output, @direccion_completa nvarchar(255) output, @cod_postal numeric(18,0) output, @fecha_nac datetime output
 as

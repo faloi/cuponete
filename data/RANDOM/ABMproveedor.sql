@@ -1,3 +1,4 @@
+
 --Registro de un proveedor: RANDOM.RegistrarProveedor (todos los parametros son necesarios)
 create procedure RANDOM.RegistrarProveedor @username nvarchar(255) output, @password nvarchar(255) output, @razon_social nvarchar(255) output, @mail nvarchar(100) output, @telefono numeric (18,0) output, @direccion nvarchar(255) output, @cod_postal numeric(18,0) output, @id_ciudad bigint output, @cuit nvarchar(20) output, @id_rubro bigint output, @contacto_nombre nvarchar(100) output
 as

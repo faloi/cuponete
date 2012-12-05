@@ -1,3 +1,4 @@
+
 --Registro de una carga de credito: RANDOM.CargarCredito (todos los parametros necesarios)
 create procedure RANDOM.CargarCredito @id_usuario bigint output, @carga_credito bigint output, @fecha datetime output, @id_forma_pago bigint output, @nro_tarjeta numeric(15,0) output, @cod_seguridad_tarjeta numeric(3,0) output, @fecha_vto_tarjeta nvarchar(5) output
 as
