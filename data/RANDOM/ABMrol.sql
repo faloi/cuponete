@@ -7,12 +7,13 @@ begin transaction
 	begin
 		rollback
 		raiserror('El nombre de rol ya existe', 16, 1)
+		return
 	end	
 
 	insert into RANDOM.Rol(descripcion, estado)
 	values(@descripcion, 1)
 	
-	select @id_rol = id_rol from RANDOM.Rol where descripcion = @descripcion
+	set @id_rol = (select id_rol from RANDOM.Rol where descripcion = @descripcion)
 commit
 go
 
@@ -72,3 +73,9 @@ begin
 end
 go
 
+delete from RANDOM.Rol where descripcion = 'Pelotudo'
+select * from RANDOM.Rol where descripcion = 'Pelotudo'
+declare @id_rol bigint = 0
+exec RANDOM.AgregarRol @id_rol, 'Pelotudo'
+print @@error
+print @id_rol
