@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace GrouponDesktop.Sql
@@ -26,10 +25,10 @@ namespace GrouponDesktop.Sql
 
                 transaction.Commit();
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 transaction.Rollback();
-                throw new ApplicationException("Couldn't execute transaction", e);
+                throw;
             }
         }
     }
