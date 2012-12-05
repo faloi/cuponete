@@ -34,8 +34,15 @@ namespace GrouponDesktop.Views
             this.usernameTextBox.BindTextTo(this.model, "username");
             this.passwordTextBox.BindTextTo(this.model, "password");
             this.registrarButton.Click +=
-                (sender, args) => this.Redirect(new RegistroView());
+                (sender, args) => this.Redirect(new RegistroUsuarioView());
         }
+
+        protected void Redirect(Form form)
+        {
+            this.Hide();
+            form.Show();
+        }
+
 
         protected override void ExecSubmit()
         {

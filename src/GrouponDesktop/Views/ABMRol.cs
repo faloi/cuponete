@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMRol : Form
+    public partial class ABMRol : DefaultView
     {
         public ABMRol()
         {
             InitializeComponent();
+        }
+
+        private void buttonNuevoRol_Click(object sender, EventArgs e)
+        {
+            this.Redirect(new RegistroRolView());
         }
     }
 }
