@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Helpers\MessageFactory.cs" />
     <Compile Include="Homes\CiudadHome.cs" />
+    <Compile Include="Helpers\EncodingHelpers.cs" />
     <Compile Include="Sql\Filters.cs" />
     <Compile Include="Homes\RolHome.cs" />
     <Compile Include="Sql\TransactionalSqlRunner.cs" />
