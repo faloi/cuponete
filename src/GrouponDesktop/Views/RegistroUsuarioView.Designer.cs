@@ -141,7 +141,7 @@
             this.repitaPassword.Location = new System.Drawing.Point(350, 89);
             this.repitaPassword.Name = "repitaPassword";
             this.repitaPassword.Size = new System.Drawing.Size(232, 25);
-            this.repitaPassword.TabIndex = 7;
+            this.repitaPassword.TabIndex = 4;
             // 
             // repitaPasswordLabel
             // 
@@ -160,7 +160,7 @@
             this.comboRol.Location = new System.Drawing.Point(350, 39);
             this.comboRol.Name = "comboRol";
             this.comboRol.Size = new System.Drawing.Size(176, 25);
-            this.comboRol.TabIndex = 5;
+            this.comboRol.TabIndex = 2;
             this.comboRol.SelectedIndexChanged += new System.EventHandler(this.ComboRolSelectedIndexChanged);
             // 
             // rolLabel
@@ -233,7 +233,7 @@
             this.fechaNacCliente.Location = new System.Drawing.Point(477, 42);
             this.fechaNacCliente.Name = "fechaNacCliente";
             this.fechaNacCliente.Size = new System.Drawing.Size(200, 25);
-            this.fechaNacCliente.TabIndex = 28;
+            this.fechaNacCliente.TabIndex = 7;
             // 
             // ciuPrefClienteBox
             // 
@@ -523,7 +523,7 @@
             this.comboRubro.Location = new System.Drawing.Point(479, 39);
             this.comboRubro.Name = "comboRubro";
             this.comboRubro.Size = new System.Drawing.Size(155, 25);
-            this.comboRubro.TabIndex = 31;
+            this.comboRubro.TabIndex = 6;
             // 
             // rubroProveedorLabel
             // 
@@ -541,7 +541,7 @@
             this.cuitProveedor.Location = new System.Drawing.Point(257, 40);
             this.cuitProveedor.Name = "cuitProveedor";
             this.cuitProveedor.Size = new System.Drawing.Size(158, 25);
-            this.cuitProveedor.TabIndex = 29;
+            this.cuitProveedor.TabIndex = 5;
             // 
             // cuitProveedorLabel
             // 
@@ -713,7 +713,7 @@
             this.emailProveedor.Location = new System.Drawing.Point(31, 87);
             this.emailProveedor.Name = "emailProveedor";
             this.emailProveedor.Size = new System.Drawing.Size(158, 25);
-            this.emailProveedor.TabIndex = 6;
+            this.emailProveedor.TabIndex = 7;
             // 
             // emailProveedorLabel
             // 
@@ -763,7 +763,7 @@
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
-            // RegistroView
+            // RegistroUsuarioView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -773,7 +773,7 @@
             this.Controls.Add(this.proveedorGroupBox);
             this.Controls.Add(this.clienteGroupBox);
             this.Controls.Add(this.usuarioGroupBox);
-            this.Name = "RegistroView";
+            this.Name = "RegistroUsuarioView";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             this.usuarioGroupBox.ResumeLayout(false);
             this.usuarioGroupBox.PerformLayout();
