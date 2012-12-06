@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -32,7 +33,6 @@ namespace GrouponDesktop.Views
         {
             this.username.BindTextTo(this.model, "username");
             this.password.BindTextTo(this.model, "password");
-            //this.comboRol.BindTextTo(this.model,"id_rol");
             this.apellidoCliente.BindTextTo(this.model,"apellido");
             this.nombreCliente.BindTextTo(this.model, "nombre");
             this.dniCliente.BindTextTo(this.model, "dni", DataType.INTEGER);
@@ -48,8 +48,10 @@ namespace GrouponDesktop.Views
             this.limpiarButton.Click +=
                 (sender, args) => this.model.DataSource = new Cliente();
 
-            this.CargarRoles(); 
-            this.CargarCiudades();
+            this.CargarRoles();
+            this.CargarCiudadesPref();
+            this.CargarRubros();
+            this.CargarCiudadesProv();
         }
 
         protected override void ExecSubmit()
@@ -58,7 +60,7 @@ namespace GrouponDesktop.Views
                 this.home.RegistrarCliente(this.model.DataSource as Cliente, this.ciuPrefClienteBox.GetCheckedItems<Ciudad>());
             else
                 this.home.RegistrarProveedor(this.model.DataSource as Proveedor);
-            this.Redirect(new LoginView());
+           
 
         }
 
@@ -69,7 +71,21 @@ namespace GrouponDesktop.Views
 
         }
 
-        private void CargarCiudades()
+        private void CargarRubros()
+        {
+            var rubros = new Adapter().TransformMany<Rubro>(HomeFactory.Rubro.RubrosDisponibles());
+            this.comboRubro.BindSourceTo(rubros, "id_rubro", "desc_rubro");
+
+        }
+
+        private void CargarCiudadesProv()
+        {
+            var ciudades = new Adapter().TransformMany<Ciudad>(HomeFactory.Ciudad.CiudadesDisponibles());
+            ciudadProvCombo.BindSourceTo(ciudades, "id_ciudad", "descripcion");
+        }
+
+
+        private void CargarCiudadesPref()
         {
             var ciudades = new Adapter().TransformMany<Ciudad>(HomeFactory.Ciudad.CiudadesDisponibles());
             ciuPrefClienteBox.BindSourceTo(ciudades, "id_ciudad", "descripcion");
@@ -93,6 +109,22 @@ namespace GrouponDesktop.Views
         private bool EsCliente
         {
             get { return ((Rol) this.comboRol.SelectedItem).descripcion.Equals("Cliente"); }
+        }
+
+        protected override bool Validar()
+        {
+            List<TextBox> fieldsObligatorios = new List<TextBox>();
+            fieldsObligatorios.Add(this.nombreCliente);
+            fieldsObligatorios.Add(this.apellidoCliente);
+            fieldsObligatorios.Add(this.dniCliente);
+            fieldsObligatorios.Add(this.emailCliente);
+            fieldsObligatorios.Add(this.calleCliente);
+            fieldsObligatorios.Add(this.numeroDirCliente);
+            fieldsObligatorios.Add(this.telefonoCliente);
+            fieldsObligatorios.Add(this.username);
+            fieldsObligatorios.Add(this.password);
+            fieldsObligatorios.Add(this.repitaPassword);
+            return ValidatorHelper.ValidateObligatorio(fieldsObligatorios,errorProvider);
         }
     }
 }

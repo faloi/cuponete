@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MessageFactory.cs" />
+    <Compile Include="Helpers\ValidatorHelper.cs" />
     <Compile Include="Homes\CiudadHome.cs" />
     <Compile Include="Helpers\EncodingHelpers.cs" />
+    <Compile Include="Homes\RubroHome.cs" />
     <Compile Include="Homes\FuncionalidadHome.cs" />
     <Compile Include="Sql\Filters.cs" />
     <Compile Include="Homes\RolHome.cs" />

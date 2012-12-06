@@ -7,6 +7,7 @@ namespace GrouponDesktop.Views
     public class DefaultView : Form
     {
         protected readonly BindingSource model;
+        protected ErrorProvider errorProvider = new ErrorProvider();
 
         protected DefaultView()
         {
@@ -32,13 +33,20 @@ namespace GrouponDesktop.Views
         {
             try
             {
-                this.ExecSubmit();
+                if(this.Validar())
+                    this.ExecSubmit();
             }
             catch (ApplicationException e)
             {
                 MessageFactory.Alert(e.Message);
             }
         }
+
+        protected virtual bool Validar()
+        {
+            return false;
+        }
+        
 
         protected void Redirect(Form form)
         {

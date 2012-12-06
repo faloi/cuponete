@@ -63,7 +63,7 @@ namespace GrouponDesktop.Homes
             var procedures = new List<Runnable>
             {
                 this.CreateProcedureFrom("RegistrarCliente", cliente,
-                    "username", "password", "nombre", "apellido", "mail",
+                    "id_usuario","username", "password", "nombre", "apellido", "mail",
                     "dni", "telefono", "direccion_completa", "cod_postal",
                     "fecha_nac")
             };
@@ -71,7 +71,7 @@ namespace GrouponDesktop.Homes
             var relacionCiudades = ciudades
                 .Select(ciudad => 
                     this.CreateProcedureFrom("AgregarClientePorCiudad", 
-                    new Dictionary<string, object> {{"dni", cliente.dni}, {"id_ciudad", ciudad.id_ciudad}}));
+                    new Dictionary<string, object> {{"id_cliente", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}}));
             
             procedures.AddRange(relacionCiudades);
 

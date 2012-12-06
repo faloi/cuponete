@@ -30,6 +30,12 @@
         {
             get { return funcionalidadHome ?? (funcionalidadHome = new FuncionalidadHome(ConnectionString)); }
         }
+
+        private static RubroHome rubroHome;
+        public static RubroHome Rubro
+        {
+            get { return rubroHome ?? (rubroHome = new RubroHome(ConnectionString)); }
+        }
        
     }
 }

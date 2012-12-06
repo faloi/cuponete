@@ -65,13 +65,13 @@
             this.nombreCliente = new System.Windows.Forms.TextBox();
             this.nombreClienteLabel = new System.Windows.Forms.Label();
             this.proveedorGroupBox = new System.Windows.Forms.GroupBox();
+            this.ciudadProvCombo = new System.Windows.Forms.ComboBox();
             this.contactoProveedor = new System.Windows.Forms.TextBox();
             this.contactoProveedorLabel = new System.Windows.Forms.Label();
             this.comboRubro = new System.Windows.Forms.ComboBox();
             this.rubroProveedorLabel = new System.Windows.Forms.Label();
             this.cuitProveedor = new System.Windows.Forms.TextBox();
             this.cuitProveedorLabel = new System.Windows.Forms.Label();
-            this.ciudadProveedor = new System.Windows.Forms.TextBox();
             this.ciudadProveedorLabel = new System.Windows.Forms.Label();
             this.cPostalProveedor = new System.Windows.Forms.TextBox();
             this.cPostalProveedorLabel = new System.Windows.Forms.Label();
@@ -464,13 +464,13 @@
             // 
             // proveedorGroupBox
             // 
+            this.proveedorGroupBox.Controls.Add(this.ciudadProvCombo);
             this.proveedorGroupBox.Controls.Add(this.contactoProveedor);
             this.proveedorGroupBox.Controls.Add(this.contactoProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.comboRubro);
             this.proveedorGroupBox.Controls.Add(this.rubroProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.cuitProveedor);
             this.proveedorGroupBox.Controls.Add(this.cuitProveedorLabel);
-            this.proveedorGroupBox.Controls.Add(this.ciudadProveedor);
             this.proveedorGroupBox.Controls.Add(this.ciudadProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.cPostalProveedor);
             this.proveedorGroupBox.Controls.Add(this.cPostalProveedorLabel);
@@ -497,6 +497,15 @@
             this.proveedorGroupBox.TabIndex = 4;
             this.proveedorGroupBox.TabStop = false;
             this.proveedorGroupBox.Text = "Datos Proveedor";
+            // 
+            // ciudadProvCombo
+            // 
+            this.ciudadProvCombo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.ciudadProvCombo.FormattingEnabled = true;
+            this.ciudadProvCombo.Location = new System.Drawing.Point(30, 280);
+            this.ciudadProvCombo.Name = "ciudadProvCombo";
+            this.ciudadProvCombo.Size = new System.Drawing.Size(158, 25);
+            this.ciudadProvCombo.TabIndex = 26;
             // 
             // contactoProveedor
             // 
@@ -552,14 +561,6 @@
             this.cuitProveedorLabel.Size = new System.Drawing.Size(42, 21);
             this.cuitProveedorLabel.TabIndex = 28;
             this.cuitProveedorLabel.Text = "CUIT";
-            // 
-            // ciudadProveedor
-            // 
-            this.ciudadProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ciudadProveedor.Location = new System.Drawing.Point(30, 282);
-            this.ciudadProveedor.Name = "ciudadProveedor";
-            this.ciudadProveedor.Size = new System.Drawing.Size(158, 25);
-            this.ciudadProveedor.TabIndex = 27;
             // 
             // ciudadProveedorLabel
             // 
@@ -844,7 +845,6 @@
         private System.Windows.Forms.Label razonSocialProveedorLabel;
         private System.Windows.Forms.TextBox cuitProveedor;
         private System.Windows.Forms.Label cuitProveedorLabel;
-        private System.Windows.Forms.TextBox ciudadProveedor;
         private System.Windows.Forms.Label ciudadProveedorLabel;
         private System.Windows.Forms.TextBox contactoProveedor;
         private System.Windows.Forms.Label contactoProveedorLabel;
@@ -853,5 +853,6 @@
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button guardarButton;
         private System.Windows.Forms.DateTimePicker fechaNacCliente;
+        private System.Windows.Forms.ComboBox ciudadProvCombo;
     }
 }
