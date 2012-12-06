@@ -32,7 +32,7 @@ namespace GrouponDesktop.Views
         {
             this.username.BindTextTo(this.model, "username");
             this.password.BindTextTo(this.model, "password");
-            this.comboRol.BindTextTo(this.model,"id_rol");
+            //this.comboRol.BindTextTo(this.model,"id_rol");
             this.apellidoCliente.BindTextTo(this.model,"apellido");
             this.nombreCliente.BindTextTo(this.model, "nombre");
             this.dniCliente.BindTextTo(this.model, "dni", DataType.INTEGER);
