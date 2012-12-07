@@ -19,7 +19,10 @@ namespace GrouponDesktop.Views
 
         private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Redirect(new ABMProveedor());
+            ABMProveedor form = new ABMProveedor();
+            form.Show();
+            form.Focus();
+           // this.Redirect(new ABMProveedor());
         }
 
         private void administrarClientesToolStripMenuItem_Click(object sender, EventArgs e)

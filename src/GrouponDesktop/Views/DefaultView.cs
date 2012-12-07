@@ -44,7 +44,7 @@ namespace GrouponDesktop.Views
 
         protected virtual bool Validar()
         {
-            return false;
+            return true;
         }
         
 

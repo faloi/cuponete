@@ -22,7 +22,7 @@ namespace GrouponDesktop.Homes
             try
             {
                 return sqlRunner
-                    .Select("SELECT * FROM RANDOM.Rol WHERE descripcion != 'Administrador'");
+                    .Select("SELECT * FROM RANDOM.Rol WHERE descripcion in ('Cliente','Proveedor')");
             }
             catch (NoResultsException e)
             {
@@ -46,6 +46,18 @@ namespace GrouponDesktop.Homes
             procedures.AddRange(nuevasFuncionalidades);
 
             this.RunProcedures(procedures);
+        }
+
+        public IList<Rol> ListarRoles(Rol ejemplo)
+        {
+            const string QUERY = "SELECT descripcion FROM RANDOM.Rol";
+
+            var filtros = new Filters();
+            if (ejemplo.descripcion != null)
+                filtros.AddLike("descripcion", ejemplo.descripcion);
+ 
+
+            return new Adapter().TransformMany<Rol>(this.sqlRunner.Select(QUERY, filtros));
         }
     }
 }
