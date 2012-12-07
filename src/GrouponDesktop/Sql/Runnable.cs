@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Sql
 {
@@ -10,6 +12,8 @@ namespace GrouponDesktop.Sql
         private readonly string query;
         private readonly IEnumerable<SqlParameter> parameters;
         private readonly CommandType commandType;
+
+        public object Model { get; set; }
 
         public static Runnable Query(string query)
         {
@@ -43,6 +47,20 @@ namespace GrouponDesktop.Sql
         {
             this.SetupCommand(command);
             command.ExecuteNonQuery();
+
+            if (this.Model != null)
+                this.InjectModelWith(command.Parameters);
+        }
+
+        private void InjectModelWith(SqlParameterCollection returnParameters)
+        {
+            foreach (var returnParameter in returnParameters.Cast<SqlParameter>())
+                this.InjectModelWith(returnParameter);
+        }
+
+        private void InjectModelWith(SqlParameter returnParameter)
+        {
+            this.Model.SetPropertyIfExists(returnParameter.ParameterName, returnParameter.Value);
         }
 
         public DataTable Select(SqlCommand command)
@@ -65,7 +83,6 @@ namespace GrouponDesktop.Sql
             {
                 throw new NoResultsException(e);
             }
-            
         }
     }
 

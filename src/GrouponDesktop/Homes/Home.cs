@@ -19,7 +19,10 @@ namespace GrouponDesktop.Homes
             var procedureName = string.Format("RANDOM.{0}", name);
             var parameters = new Adapter().CreateParametersFrom(model, parametersNames);
 
-            return Runnable.StoreProcedure(procedureName, parameters);
+            var storeProcedure = Runnable.StoreProcedure(procedureName, parameters);
+            storeProcedure.Model = model;
+
+            return storeProcedure;
         }
 
         protected Runnable CreateProcedureFrom(string name, Dictionary<string, object> values)
@@ -30,7 +33,7 @@ namespace GrouponDesktop.Homes
             return Runnable.StoreProcedure(procedureName, parameters);
         }
 
-        public void RunProcedure(Runnable procedure)
+        protected void RunProcedure(Runnable procedure)
         {
             this.RunProcedures(new[] { procedure });
         }
