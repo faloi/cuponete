@@ -11,7 +11,6 @@ namespace GrouponDesktop.Views
     public partial class RegistroUsuarioView : DefaultView
     {
         private readonly UsuarioHome home;
-      
 
         public RegistroUsuarioView()
         {
@@ -60,8 +59,6 @@ namespace GrouponDesktop.Views
                 this.home.RegistrarCliente(this.model.DataSource as Cliente, this.ciuPrefClienteBox.GetCheckedItems<Ciudad>());
             else
                 this.home.RegistrarProveedor(this.model.DataSource as Proveedor);
-           
-
         }
 
         private void CargarRoles()
@@ -113,18 +110,20 @@ namespace GrouponDesktop.Views
 
         protected override bool Validar()
         {
-            List<TextBox> fieldsObligatorios = new List<TextBox>();
-            fieldsObligatorios.Add(this.nombreCliente);
-            fieldsObligatorios.Add(this.apellidoCliente);
-            fieldsObligatorios.Add(this.dniCliente);
-            fieldsObligatorios.Add(this.emailCliente);
-            fieldsObligatorios.Add(this.calleCliente);
-            fieldsObligatorios.Add(this.numeroDirCliente);
-            fieldsObligatorios.Add(this.telefonoCliente);
-            fieldsObligatorios.Add(this.username);
-            fieldsObligatorios.Add(this.password);
-            fieldsObligatorios.Add(this.repitaPassword);
-            return ValidatorHelper.ValidateObligatorio(fieldsObligatorios,errorProvider);
+            var fieldsObligatorios = new List<TextBox>
+               {
+                   this.nombreCliente,
+                   this.apellidoCliente,
+                   this.dniCliente,
+                   this.emailCliente,
+                   this.calleCliente,
+                   this.numeroDirCliente,
+                   this.telefonoCliente,
+                   this.username,
+                   this.password,
+                   this.repitaPassword
+               };
+            return ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider);
         }
     }
 }

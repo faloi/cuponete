@@ -45,15 +45,10 @@ namespace GrouponDesktop.Homes
 
         private void IncrementarFallas(Usuario usuario)
         {
-            this.sqlRunner.Run(Queries.IncrementarFallas(usuario));
-        }
-
-        private static class Queries
-        {
-            public static Runnable IncrementarFallas(Usuario usuario)
-            {
-                return Runnable.StoreProcedure("RANDOM.IncrementarFallas", new[] { new SqlParameter("@userId", usuario.id_usuario) });
-            }
+            var procedure = 
+                this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@userId", usuario.id_usuario}});
+            
+            this.RunProcedure(procedure);
         }
 
         public void RegistrarCliente(Cliente cliente, IEnumerable<Ciudad> ciudades)
