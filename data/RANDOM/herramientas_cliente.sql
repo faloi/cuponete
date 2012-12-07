@@ -150,6 +150,15 @@ begin transaction
 					raiserror('Ese cupon ya fue devuelto', 16, 1)		
 					return	
 				end
+				else
+				begin
+					if exists (select 1 from RANDOM.Cupon_Canjeado ccan inner join RANDOM.Cupon_Comprado ccom on ccom.id_compra = ccan.id_compra)
+					begin
+					rollback
+					raiserror('Ese cupon ha sido canjeado', 16, 1)		
+					return
+					end
+				end
 			end
 		end
 	end	

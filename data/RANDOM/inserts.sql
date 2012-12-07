@@ -79,14 +79,15 @@ direccion,id_ciudad, cuit, id_rubro)
  
  
  /** INSERT CUPONES**/
-INSERT INTO RANDOM.Cupon (descripcion,fec_publicacion, fec_venc_consumo, precio_real, precio_ficticio, id_proveedor, cant_disp, publicados)
-SELECT Groupon_Descripcion descripcion, Groupon_Fecha fec_publicacion, Groupon_Fecha_Venc fec_venc_consumo, Groupon_Precio precio_real, Groupon_Precio_Ficticio precio_ficticio, prov.id_usuario id_proveedor, Groupon_Cantidad cant_disp,0 publicado
+INSERT INTO RANDOM.Cupon (descripcion, nombre_cupon, fec_publicacion, fec_venc_consumo, precio_real, precio_ficticio, id_proveedor, cant_disp, publicado)
+SELECT Groupon_Descripcion descripcion, '0' nombre_cupon, Groupon_Fecha fec_publicacion, Groupon_Fecha_Venc fec_venc_consumo, Groupon_Precio precio_real, Groupon_Precio_Ficticio precio_ficticio, prov.id_usuario id_proveedor, Groupon_Cantidad cant_disp,0 publicado
 FROM gd_esquema.Maestra ma
 LEFT JOIN RANDOM.Proveedor prov ON (prov.cuit = ma.Provee_CUIT)
 WHERE Groupon_Descripcion IS NOT NULL
 GROUP BY Groupon_Descripcion, Groupon_Fecha, Groupon_Fecha_Venc, Groupon_Precio, Groupon_Precio_Ficticio, prov.id_usuario, Groupon_Cantidad
 
-
+update RANDOM.Cupon
+set nombre_cupon = id_cupon
  
 /** INSERT CLIENTE X CIUDAD **/
 INSERT INTO RANDOM.Cliente_x_Ciudad (id_cliente, id_ciudad)
