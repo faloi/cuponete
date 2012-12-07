@@ -5,4 +5,4 @@ SELECT cu.id_cupon,cu.descripcion,cu.fec_publicacion,cu.precio_ficticio, cu.prec
 FROM RANDOM.Cupon cu 
 LEFT JOIN RANDOM.Cupon_x_ciudad cupc ON (cUpc.id_cupon = cu.id_cupon)
 LEFT JOIN RANDOM.Cliente_x_Ciudad cpc ON (cpc.id_ciudad = cupc.id_ciudad)
-WHERE cu.publicados = 1
+WHERE cu.publicado = 1

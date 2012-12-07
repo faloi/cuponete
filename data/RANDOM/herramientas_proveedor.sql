@@ -1,5 +1,5 @@
 
---Registro de cliente: RANDOM.ArmarCupon (el parametro @id_cupon es solo output, para usarlo en RANDOM.AgregarCuponPorCiudad)
+--Armar un cupon: RANDOM.ArmarCupon (el parametro @id_cupon es solo output, para usarlo en RANDOM.AgregarCuponPorCiudad)
 create procedure RANDOM.ArmarCupon @id_cupon bigint out, @nombre_cupon nvarchar(20) out, @id_proveedor bigint out, @descripcion nvarchar(255) out, @fec_publicacion datetime out, @fec_venc_publicacion datetime out, @fec_venc_consumo datetime out, @precio_real numeric(18,2) out, @precio_ficticio numeric(18,2) out, @cant_disp numeric(18,0) out, @max_compra_por_usuario numeric(18,0) out
 as
 begin  transaction

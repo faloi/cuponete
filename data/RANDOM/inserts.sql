@@ -201,7 +201,7 @@ LEFT JOIN RANDOM.Proveedor pr ON (ma.Provee_CUIT = pr.cuit)
 WHERE Factura_Nro IS NOT NULL
 
 
-
+/** CALCULO DEL MAXIMO NUMERO DE CUPONES POR USUARIO **/
 UPDATE RANDOM.Cupon SET max_compra_por_usuario = cc.cant FROM
 (SELECT id_cupon,COUNT(*) cant FROM RANDOM.Cupon_Comprado 
 GROUP BY id_cupon, id_cliente) cc
