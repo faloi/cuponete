@@ -45,6 +45,7 @@
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proovedoresDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.buttonBajaRestaurar.Location = new System.Drawing.Point(438, 400);
             this.buttonBajaRestaurar.Name = "buttonBajaRestaurar";
             this.buttonBajaRestaurar.Size = new System.Drawing.Size(147, 33);
-            this.buttonBajaRestaurar.TabIndex = 25;
+            this.buttonBajaRestaurar.TabIndex = 7;
             this.buttonBajaRestaurar.Text = "Baja / Restaurar";
             this.buttonBajaRestaurar.UseVisualStyleBackColor = true;
             // 
@@ -64,7 +65,7 @@
             this.buttonModificar.Location = new System.Drawing.Point(227, 400);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(147, 33);
-            this.buttonModificar.TabIndex = 24;
+            this.buttonModificar.TabIndex = 6;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
             // 
@@ -74,7 +75,7 @@
             this.buttonNuevoProveedor.Location = new System.Drawing.Point(17, 400);
             this.buttonNuevoProveedor.Name = "buttonNuevoProveedor";
             this.buttonNuevoProveedor.Size = new System.Drawing.Size(147, 33);
-            this.buttonNuevoProveedor.TabIndex = 23;
+            this.buttonNuevoProveedor.TabIndex = 5;
             this.buttonNuevoProveedor.Text = "Nuevo Proveedor";
             this.buttonNuevoProveedor.UseVisualStyleBackColor = true;
             // 
@@ -99,7 +100,7 @@
             this.proovedoresDataGrid.Location = new System.Drawing.Point(17, 144);
             this.proovedoresDataGrid.Name = "proovedoresDataGrid";
             this.proovedoresDataGrid.Size = new System.Drawing.Size(568, 234);
-            this.proovedoresDataGrid.TabIndex = 22;
+            this.proovedoresDataGrid.TabIndex = 8;
             // 
             // ColumnRazonSocial
             // 
@@ -122,7 +123,7 @@
             this.textBoxCuit.Location = new System.Drawing.Point(17, 96);
             this.textBoxCuit.Name = "textBoxCuit";
             this.textBoxCuit.Size = new System.Drawing.Size(158, 20);
-            this.textBoxCuit.TabIndex = 17;
+            this.textBoxCuit.TabIndex = 1;
             // 
             // textBoxRazonSocial
             // 
@@ -130,7 +131,7 @@
             this.textBoxRazonSocial.Location = new System.Drawing.Point(17, 35);
             this.textBoxRazonSocial.Name = "textBoxRazonSocial";
             this.textBoxRazonSocial.Size = new System.Drawing.Size(337, 20);
-            this.textBoxRazonSocial.TabIndex = 13;
+            this.textBoxRazonSocial.TabIndex = 0;
             // 
             // labelRazonSocial
             // 
@@ -148,7 +149,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(196, 96);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(158, 20);
-            this.textBoxEmail.TabIndex = 27;
+            this.textBoxEmail.TabIndex = 2;
             // 
             // labelCUIT
             // 
@@ -176,7 +177,7 @@
             this.buttonBuscar.Location = new System.Drawing.Point(422, 72);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(163, 44);
-            this.buttonBuscar.TabIndex = 30;
+            this.buttonBuscar.TabIndex = 3;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
@@ -186,7 +187,7 @@
             this.limpiarButton.Location = new System.Drawing.Point(422, 30);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(163, 25);
-            this.limpiarButton.TabIndex = 31;
+            this.limpiarButton.TabIndex = 4;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
@@ -210,6 +211,7 @@
             this.Name = "ABMProveedor";
             this.Text = "ABMProveedor";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proovedoresDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

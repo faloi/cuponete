@@ -45,6 +45,9 @@
             this.darmeDeBajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,25 +56,26 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.comprarCupónToolStripMenuItem,
             this.comprarGiftcardToolStripMenuItem,
             this.cargarCréditoToolStripMenuItem,
+            this.comprarCupónToolStripMenuItem,
+            this.armarCupónToolStripMenuItem,
             this.devolverCupónToolStripMenuItem,
             this.historialDeCompraToolStripMenuItem,
-            this.armarCupónToolStripMenuItem,
             this.registroConsumoToolStripMenuItem,
             this.administrarRolesToolStripMenuItem,
-            this.publicarCuponesToolStripMenuItem,
             this.administrarClientesToolStripMenuItem,
-            this.facturarProveedorToolStripMenuItem,
             this.administrarProveedoresToolStripMenuItem,
+            this.administrarUsuariosToolStripMenuItem,
+            this.publicarCuponesToolStripMenuItem,
+            this.facturarProveedorToolStripMenuItem,
             this.listadoEstadisticoToolStripMenuItem,
             this.darmeDeBajaToolStripMenuItem,
             this.cambiarPasswordToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(9, 47);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(191, 400);
+            this.menuStrip1.Size = new System.Drawing.Size(191, 425);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -179,15 +183,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "CUPONES RANDOM";
             // 
+            // administrarUsuariosToolStripMenuItem
+            // 
+            this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
+            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(214, 456);
+            this.ClientSize = new System.Drawing.Size(214, 480);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Menu";
             this.Text = "Menu";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -214,6 +226,7 @@
         private System.Windows.Forms.ToolStripMenuItem darmeDeBajaToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem cambiarPasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administrarUsuariosToolStripMenuItem;
 
 
     }

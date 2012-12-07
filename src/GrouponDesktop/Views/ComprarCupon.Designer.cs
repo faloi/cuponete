@@ -35,6 +35,7 @@
             this.PrecioFicticio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioReal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonComprarCupon = new System.Windows.Forms.Button();
+            this.buttonAceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@
             // 
             // buttonComprarCupon
             // 
-            this.buttonComprarCupon.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComprarCupon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComprarCupon.Location = new System.Drawing.Point(192, 249);
             this.buttonComprarCupon.Name = "buttonComprarCupon";
             this.buttonComprarCupon.Size = new System.Drawing.Size(213, 36);
@@ -95,11 +96,22 @@
             this.buttonComprarCupon.Text = "Comprar Cupón";
             this.buttonComprarCupon.UseVisualStyleBackColor = true;
             // 
+            // buttonAceptar
+            // 
+            this.buttonAceptar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAceptar.Location = new System.Drawing.Point(246, 304);
+            this.buttonAceptar.Name = "buttonAceptar";
+            this.buttonAceptar.Size = new System.Drawing.Size(108, 29);
+            this.buttonAceptar.TabIndex = 3;
+            this.buttonAceptar.Text = "Cancelar";
+            this.buttonAceptar.UseVisualStyleBackColor = true;
+            // 
             // ComprarCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 293);
+            this.ClientSize = new System.Drawing.Size(596, 345);
+            this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.buttonComprarCupon);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelCuponesDisponibles);
@@ -119,5 +131,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFicticio;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReal;
         private System.Windows.Forms.Button buttonComprarCupon;
+        private System.Windows.Forms.Button buttonAceptar;
     }
 }

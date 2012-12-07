@@ -95,6 +95,7 @@
             this.limpiarButton = new System.Windows.Forms.Button();
             this.guardarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.usuarioGroupBox.SuspendLayout();
             this.clienteGroupBox.SuspendLayout();
             this.proveedorGroupBox.SuspendLayout();
@@ -684,7 +685,7 @@
             // 
             this.direccionProveedorLabel.AutoSize = true;
             this.direccionProveedorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccionProveedorLabel.Location = new System.Drawing.Point(27, 122);
+            this.direccionProveedorLabel.Location = new System.Drawing.Point(27, 134);
             this.direccionProveedorLabel.Name = "direccionProveedorLabel";
             this.direccionProveedorLabel.Size = new System.Drawing.Size(75, 21);
             this.direccionProveedorLabel.TabIndex = 13;
@@ -776,6 +777,7 @@
             this.Controls.Add(this.usuarioGroupBox);
             this.Name = "RegistroUsuarioView";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.usuarioGroupBox.ResumeLayout(false);
             this.usuarioGroupBox.PerformLayout();
             this.clienteGroupBox.ResumeLayout(false);

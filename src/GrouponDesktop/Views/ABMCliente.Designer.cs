@@ -48,6 +48,7 @@
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +76,7 @@
             this.textBoxApellido.Location = new System.Drawing.Point(232, 32);
             this.textBoxApellido.Name = "textBoxApellido";
             this.textBoxApellido.Size = new System.Drawing.Size(158, 20);
-            this.textBoxApellido.TabIndex = 2;
+            this.textBoxApellido.TabIndex = 1;
             // 
             // labelApellido
             // 
@@ -93,7 +94,7 @@
             this.textBoxDNI.Location = new System.Drawing.Point(13, 93);
             this.textBoxDNI.Name = "textBoxDNI";
             this.textBoxDNI.Size = new System.Drawing.Size(158, 20);
-            this.textBoxDNI.TabIndex = 4;
+            this.textBoxDNI.TabIndex = 2;
             // 
             // labelDNI
             // 
@@ -111,7 +112,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(232, 93);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(158, 20);
-            this.textBoxEmail.TabIndex = 6;
+            this.textBoxEmail.TabIndex = 3;
             // 
             // labelEmail
             // 
@@ -123,7 +124,7 @@
             this.labelEmail.TabIndex = 7;
             this.labelEmail.Text = "Email";
             // 
-            // dataGridView1
+            // clientesDataGrid
             // 
             this.clientesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.clientesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -173,7 +174,7 @@
             this.buttonNuevoCliente.Location = new System.Drawing.Point(13, 399);
             this.buttonNuevoCliente.Name = "buttonNuevoCliente";
             this.buttonNuevoCliente.Size = new System.Drawing.Size(147, 33);
-            this.buttonNuevoCliente.TabIndex = 10;
+            this.buttonNuevoCliente.TabIndex = 6;
             this.buttonNuevoCliente.Text = "Nuevo Cliente";
             this.buttonNuevoCliente.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +184,7 @@
             this.buttonModificar.Location = new System.Drawing.Point(223, 399);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(147, 33);
-            this.buttonModificar.TabIndex = 11;
+            this.buttonModificar.TabIndex = 7;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
             // 
@@ -193,7 +194,7 @@
             this.buttonBajaRestaurar.Location = new System.Drawing.Point(434, 399);
             this.buttonBajaRestaurar.Name = "buttonBajaRestaurar";
             this.buttonBajaRestaurar.Size = new System.Drawing.Size(147, 33);
-            this.buttonBajaRestaurar.TabIndex = 12;
+            this.buttonBajaRestaurar.TabIndex = 8;
             this.buttonBajaRestaurar.Text = "Baja / Restaurar";
             this.buttonBajaRestaurar.UseVisualStyleBackColor = true;
             // 
@@ -203,7 +204,7 @@
             this.buttonBuscar.Location = new System.Drawing.Point(418, 78);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(163, 44);
-            this.buttonBuscar.TabIndex = 22;
+            this.buttonBuscar.TabIndex = 4;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
@@ -213,7 +214,7 @@
             this.limpiarButton.Location = new System.Drawing.Point(418, 23);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(163, 32);
-            this.limpiarButton.TabIndex = 23;
+            this.limpiarButton.TabIndex = 5;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
@@ -239,6 +240,7 @@
             this.Name = "ABMCliente";
             this.Text = "ABMCliente";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

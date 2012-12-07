@@ -64,7 +64,7 @@
             this.textBoxNroTarjeta.Location = new System.Drawing.Point(16, 87);
             this.textBoxNroTarjeta.Name = "textBoxNroTarjeta";
             this.textBoxNroTarjeta.Size = new System.Drawing.Size(207, 20);
-            this.textBoxNroTarjeta.TabIndex = 2;
+            this.textBoxNroTarjeta.TabIndex = 1;
             // 
             // labelNroDeTarjeta
             // 
@@ -81,7 +81,7 @@
             this.textBoxCodDeSeg.Location = new System.Drawing.Point(16, 139);
             this.textBoxCodDeSeg.Name = "textBoxCodDeSeg";
             this.textBoxCodDeSeg.Size = new System.Drawing.Size(69, 20);
-            this.textBoxCodDeSeg.TabIndex = 4;
+            this.textBoxCodDeSeg.TabIndex = 2;
             // 
             // labelCodDeSeg
             // 
@@ -108,14 +108,14 @@
             this.textBoxFechaVto.Location = new System.Drawing.Point(16, 196);
             this.textBoxFechaVto.Name = "textBoxFechaVto";
             this.textBoxFechaVto.Size = new System.Drawing.Size(207, 20);
-            this.textBoxFechaVto.TabIndex = 7;
+            this.textBoxFechaVto.TabIndex = 3;
             // 
             // textBoxMonto
             // 
             this.textBoxMonto.Location = new System.Drawing.Point(16, 252);
             this.textBoxMonto.Name = "textBoxMonto";
             this.textBoxMonto.Size = new System.Drawing.Size(207, 20);
-            this.textBoxMonto.TabIndex = 8;
+            this.textBoxMonto.TabIndex = 4;
             // 
             // labelMonto
             // 
@@ -129,11 +129,11 @@
             // 
             // buttonCargar
             // 
-            this.buttonCargar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCargar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCargar.Location = new System.Drawing.Point(16, 286);
             this.buttonCargar.Name = "buttonCargar";
             this.buttonCargar.Size = new System.Drawing.Size(207, 36);
-            this.buttonCargar.TabIndex = 10;
+            this.buttonCargar.TabIndex = 5;
             this.buttonCargar.Text = "Cargar";
             this.buttonCargar.UseVisualStyleBackColor = true;
             // 

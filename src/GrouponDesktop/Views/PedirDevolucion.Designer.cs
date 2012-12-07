@@ -30,8 +30,9 @@
         {
             this.labelSolicitarDevolucion = new System.Windows.Forms.Label();
             this.labelCodigo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxCodigo = new System.Windows.Forms.TextBox();
+            this.buttonSolicitar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSolicitarDevolucion
@@ -56,30 +57,41 @@
             this.labelCodigo.Text = "Código de Cupón";
             this.labelCodigo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // textBoxCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(30, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(231, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxCodigo.Location = new System.Drawing.Point(30, 84);
+            this.textBoxCodigo.Name = "textBoxCodigo";
+            this.textBoxCodigo.Size = new System.Drawing.Size(231, 20);
+            this.textBoxCodigo.TabIndex = 0;
             // 
-            // button1
+            // buttonSolicitar
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(83, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 41);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Solicitar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSolicitar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSolicitar.Location = new System.Drawing.Point(30, 119);
+            this.buttonSolicitar.Name = "buttonSolicitar";
+            this.buttonSolicitar.Size = new System.Drawing.Size(117, 29);
+            this.buttonSolicitar.TabIndex = 3;
+            this.buttonSolicitar.Text = "Solicitar";
+            this.buttonSolicitar.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(153, 119);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 4;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // PedirDevolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 183);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(284, 162);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonSolicitar);
+            this.Controls.Add(this.textBoxCodigo);
             this.Controls.Add(this.labelCodigo);
             this.Controls.Add(this.labelSolicitarDevolucion);
             this.Name = "PedirDevolucion";
@@ -93,7 +105,8 @@
 
         private System.Windows.Forms.Label labelSolicitarDevolucion;
         private System.Windows.Forms.Label labelCodigo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxCodigo;
+        private System.Windows.Forms.Button buttonSolicitar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

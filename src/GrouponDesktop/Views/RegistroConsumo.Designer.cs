@@ -30,8 +30,9 @@
         {
             this.labelRegistroCupon = new System.Windows.Forms.Label();
             this.labelNroDeCupon = new System.Windows.Forms.Label();
-            this.textBoxNroTarjeta = new System.Windows.Forms.TextBox();
+            this.textBoxNroCupon = new System.Windows.Forms.TextBox();
             this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelRegistroCupon
@@ -55,12 +56,12 @@
             this.labelNroDeCupon.TabIndex = 5;
             this.labelNroDeCupon.Text = "Numero de Cupón";
             // 
-            // textBoxNroTarjeta
+            // textBoxNroCupon
             // 
-            this.textBoxNroTarjeta.Location = new System.Drawing.Point(9, 119);
-            this.textBoxNroTarjeta.Name = "textBoxNroTarjeta";
-            this.textBoxNroTarjeta.Size = new System.Drawing.Size(207, 20);
-            this.textBoxNroTarjeta.TabIndex = 4;
+            this.textBoxNroCupon.Location = new System.Drawing.Point(9, 119);
+            this.textBoxNroCupon.Name = "textBoxNroCupon";
+            this.textBoxNroCupon.Size = new System.Drawing.Size(207, 20);
+            this.textBoxNroCupon.TabIndex = 1;
             // 
             // buttonRegistrar
             // 
@@ -68,18 +69,29 @@
             this.buttonRegistrar.Location = new System.Drawing.Point(9, 161);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(207, 36);
-            this.buttonRegistrar.TabIndex = 6;
+            this.buttonRegistrar.TabIndex = 2;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(58, 221);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 6;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // RegistroConsumo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(225, 209);
+            this.ClientSize = new System.Drawing.Size(225, 262);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonRegistrar);
             this.Controls.Add(this.labelNroDeCupon);
-            this.Controls.Add(this.textBoxNroTarjeta);
+            this.Controls.Add(this.textBoxNroCupon);
             this.Controls.Add(this.labelRegistroCupon);
             this.Name = "RegistroConsumo";
             this.Text = "RegistroConsumo";
@@ -92,7 +104,8 @@
 
         private System.Windows.Forms.Label labelRegistroCupon;
         private System.Windows.Forms.Label labelNroDeCupon;
-        private System.Windows.Forms.TextBox textBoxNroTarjeta;
+        private System.Windows.Forms.TextBox textBoxNroCupon;
         private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

@@ -29,29 +29,30 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelHistorialDeCompra = new System.Windows.Forms.Label();
             this.labelDesde = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePickerHasta = new System.Windows.Forms.DateTimePicker();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioReal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CodigoCupon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
+            // labelHistorialDeCompra
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(245, 37);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Historial De Compra";
+            this.labelHistorialDeCompra.AutoSize = true;
+            this.labelHistorialDeCompra.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHistorialDeCompra.Location = new System.Drawing.Point(27, 9);
+            this.labelHistorialDeCompra.Name = "labelHistorialDeCompra";
+            this.labelHistorialDeCompra.Size = new System.Drawing.Size(245, 37);
+            this.labelHistorialDeCompra.TabIndex = 1;
+            this.labelHistorialDeCompra.Text = "Historial De Compra";
             // 
             // labelDesde
             // 
@@ -63,12 +64,12 @@
             this.labelDesde.TabIndex = 2;
             this.labelDesde.Text = "Desde";
             // 
-            // dateTimePicker1
+            // dateTimePickerDesde
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(34, 90);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePickerDesde.Location = new System.Drawing.Point(34, 90);
+            this.dateTimePickerDesde.Name = "dateTimePickerDesde";
+            this.dateTimePickerDesde.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDesde.TabIndex = 0;
             // 
             // label1
             // 
@@ -80,22 +81,22 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Hasta";
             // 
-            // dateTimePicker2
+            // dateTimePickerHasta
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(265, 89);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.dateTimePickerHasta.Location = new System.Drawing.Point(265, 89);
+            this.dateTimePickerHasta.Name = "dateTimePickerHasta";
+            this.dateTimePickerHasta.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerHasta.TabIndex = 1;
             // 
-            // button1
+            // buttonBuscar
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(165, 127);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 32);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.Location = new System.Drawing.Point(173, 127);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(163, 32);
+            this.buttonBuscar.TabIndex = 2;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -118,7 +119,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 165);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(493, 190);
-            this.dataGridView1.TabIndex = 25;
+            this.dataGridView1.TabIndex = 3;
             // 
             // Descripcion
             // 
@@ -140,18 +141,29 @@
             this.CodigoCupon.HeaderText = "Código Cupón";
             this.CodigoCupon.Name = "CodigoCupon";
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(201, 367);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 5;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            // 
             // HistorialDeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 367);
+            this.ClientSize = new System.Drawing.Size(517, 408);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.dateTimePickerHasta);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerDesde);
             this.Controls.Add(this.labelDesde);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelHistorialDeCompra);
             this.Name = "HistorialDeCompra";
             this.Text = "Historial De Compra";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -162,17 +174,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelHistorialDeCompra;
         private System.Windows.Forms.Label labelDesde;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDesde;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHasta;
+        private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoCupon;
+        private System.Windows.Forms.Button buttonCancelar;
 
     }
 }

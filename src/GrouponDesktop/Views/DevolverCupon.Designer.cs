@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDevolverCupon = new System.Windows.Forms.Label();
             this.labelDescripcion = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.labelFechaVenc = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxVencimiento = new System.Windows.Forms.TextBox();
+            this.labelPrecio = new System.Windows.Forms.Label();
+            this.textBoxPrecio = new System.Windows.Forms.TextBox();
+            this.buttonSolicitar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // labelDevolverCupon
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Devolver Cupón";
+            this.labelDevolverCupon.AutoSize = true;
+            this.labelDevolverCupon.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDevolverCupon.Location = new System.Drawing.Point(33, 9);
+            this.labelDevolverCupon.Name = "labelDevolverCupon";
+            this.labelDevolverCupon.Size = new System.Drawing.Size(199, 37);
+            this.labelDevolverCupon.TabIndex = 0;
+            this.labelDevolverCupon.Text = "Devolver Cupón";
             // 
             // labelDescripcion
             // 
@@ -58,14 +59,14 @@
             this.labelDescripcion.TabIndex = 1;
             this.labelDescripcion.Text = "Descripción";
             // 
-            // richTextBox1
+            // richTextBoxDescripcion
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(31, 87);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(210, 88);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.richTextBoxDescripcion.Location = new System.Drawing.Point(31, 87);
+            this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
+            this.richTextBoxDescripcion.ReadOnly = true;
+            this.richTextBoxDescripcion.Size = new System.Drawing.Size(210, 88);
+            this.richTextBoxDescripcion.TabIndex = 2;
+            this.richTextBoxDescripcion.Text = "";
             // 
             // labelFechaVenc
             // 
@@ -77,55 +78,66 @@
             this.labelFechaVenc.TabIndex = 3;
             this.labelFechaVenc.Text = "Fecha de Vencimiento";
             // 
-            // textBox1
+            // textBoxVencimiento
             // 
-            this.textBox1.Location = new System.Drawing.Point(31, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(210, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBoxVencimiento.Location = new System.Drawing.Point(31, 212);
+            this.textBoxVencimiento.Name = "textBoxVencimiento";
+            this.textBoxVencimiento.ReadOnly = true;
+            this.textBoxVencimiento.Size = new System.Drawing.Size(210, 20);
+            this.textBoxVencimiento.TabIndex = 4;
             // 
-            // label2
+            // labelPrecio
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 235);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Precio";
+            this.labelPrecio.AutoSize = true;
+            this.labelPrecio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrecio.Location = new System.Drawing.Point(27, 235);
+            this.labelPrecio.Name = "labelPrecio";
+            this.labelPrecio.Size = new System.Drawing.Size(51, 21);
+            this.labelPrecio.TabIndex = 5;
+            this.labelPrecio.Text = "Precio";
             // 
-            // textBox2
+            // textBoxPrecio
             // 
-            this.textBox2.Location = new System.Drawing.Point(31, 259);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(210, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxPrecio.Location = new System.Drawing.Point(31, 259);
+            this.textBoxPrecio.Name = "textBoxPrecio";
+            this.textBoxPrecio.ReadOnly = true;
+            this.textBoxPrecio.Size = new System.Drawing.Size(210, 20);
+            this.textBoxPrecio.TabIndex = 6;
             // 
-            // button1
+            // buttonSolicitar
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(49, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 28);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Solicitar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSolicitar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSolicitar.Location = new System.Drawing.Point(49, 285);
+            this.buttonSolicitar.Name = "buttonSolicitar";
+            this.buttonSolicitar.Size = new System.Drawing.Size(173, 41);
+            this.buttonSolicitar.TabIndex = 0;
+            this.buttonSolicitar.Text = "Solicitar";
+            this.buttonSolicitar.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(81, 341);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // DevolverCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 338);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(266, 383);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonSolicitar);
+            this.Controls.Add(this.textBoxPrecio);
+            this.Controls.Add(this.labelPrecio);
+            this.Controls.Add(this.textBoxVencimiento);
             this.Controls.Add(this.labelFechaVenc);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.richTextBoxDescripcion);
             this.Controls.Add(this.labelDescripcion);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDevolverCupon);
             this.Name = "DevolverCupon";
             this.Text = "DevolverCupon";
             this.ResumeLayout(false);
@@ -135,13 +147,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDevolverCupon;
         private System.Windows.Forms.Label labelDescripcion;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
         private System.Windows.Forms.Label labelFechaVenc;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxVencimiento;
+        private System.Windows.Forms.Label labelPrecio;
+        private System.Windows.Forms.TextBox textBoxPrecio;
+        private System.Windows.Forms.Button buttonSolicitar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

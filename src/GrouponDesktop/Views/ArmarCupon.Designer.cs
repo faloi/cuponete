@@ -45,6 +45,7 @@
             this.labelCiudades = new System.Windows.Forms.Label();
             this.checkedListBoxCiudades = new System.Windows.Forms.CheckedListBox();
             this.buttonArmarCupon = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPrecioReal
@@ -62,7 +63,7 @@
             this.textBoxPrecioReal.Location = new System.Drawing.Point(16, 198);
             this.textBoxPrecioReal.Name = "textBoxPrecioReal";
             this.textBoxPrecioReal.Size = new System.Drawing.Size(207, 20);
-            this.textBoxPrecioReal.TabIndex = 16;
+            this.textBoxPrecioReal.TabIndex = 3;
             // 
             // labelFecVencCanje
             // 
@@ -100,21 +101,21 @@
             this.textBoxDescripcion.Multiline = true;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.Size = new System.Drawing.Size(207, 20);
-            this.textBoxDescripcion.TabIndex = 10;
+            this.textBoxDescripcion.TabIndex = 0;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(16, 86);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(207, 20);
-            this.dateTimePicker1.TabIndex = 18;
+            this.dateTimePicker1.TabIndex = 1;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(16, 143);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(207, 20);
-            this.dateTimePicker2.TabIndex = 19;
+            this.dateTimePicker2.TabIndex = 2;
             // 
             // labelPrecioFicticio
             // 
@@ -131,7 +132,7 @@
             this.textBox1.Location = new System.Drawing.Point(16, 245);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 20;
+            this.textBox1.TabIndex = 4;
             // 
             // labelCantDisp
             // 
@@ -148,7 +149,7 @@
             this.textBox2.Location = new System.Drawing.Point(16, 292);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(207, 20);
-            this.textBox2.TabIndex = 22;
+            this.textBox2.TabIndex = 5;
             // 
             // labelCantMaxPorUsuario
             // 
@@ -165,7 +166,7 @@
             this.textBox3.Location = new System.Drawing.Point(16, 339);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(207, 20);
-            this.textBox3.TabIndex = 24;
+            this.textBox3.TabIndex = 6;
             // 
             // labelCiudades
             // 
@@ -184,23 +185,34 @@
             this.checkedListBoxCiudades.Location = new System.Drawing.Point(16, 387);
             this.checkedListBoxCiudades.Name = "checkedListBoxCiudades";
             this.checkedListBoxCiudades.Size = new System.Drawing.Size(208, 89);
-            this.checkedListBoxCiudades.TabIndex = 27;
+            this.checkedListBoxCiudades.TabIndex = 7;
             // 
             // buttonArmarCupon
             // 
-            this.buttonArmarCupon.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonArmarCupon.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonArmarCupon.Location = new System.Drawing.Point(16, 482);
             this.buttonArmarCupon.Name = "buttonArmarCupon";
             this.buttonArmarCupon.Size = new System.Drawing.Size(208, 36);
-            this.buttonArmarCupon.TabIndex = 28;
+            this.buttonArmarCupon.TabIndex = 8;
             this.buttonArmarCupon.Text = "Armar Cupón";
             this.buttonArmarCupon.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(64, 535);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 27;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // ArmarCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 524);
+            this.ClientSize = new System.Drawing.Size(234, 576);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonArmarCupon);
             this.Controls.Add(this.checkedListBoxCiudades);
             this.Controls.Add(this.labelCiudades);
@@ -244,5 +256,6 @@
         private System.Windows.Forms.Label labelCiudades;
         private System.Windows.Forms.CheckedListBox checkedListBoxCiudades;
         private System.Windows.Forms.Button buttonArmarCupon;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

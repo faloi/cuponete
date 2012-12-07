@@ -34,6 +34,7 @@
             this.labelUsrDestino = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -56,11 +57,11 @@
             // 
             // buttonComprar
             // 
-            this.buttonComprar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonComprar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComprar.Location = new System.Drawing.Point(16, 180);
             this.buttonComprar.Name = "buttonComprar";
             this.buttonComprar.Size = new System.Drawing.Size(176, 36);
-            this.buttonComprar.TabIndex = 9;
+            this.buttonComprar.TabIndex = 2;
             this.buttonComprar.Text = "Comprar";
             this.buttonComprar.UseVisualStyleBackColor = true;
             // 
@@ -79,7 +80,7 @@
             this.textBox1.Location = new System.Drawing.Point(16, 133);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(176, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBox1.TabIndex = 1;
             // 
             // labelNombre
             // 
@@ -91,11 +92,22 @@
             this.labelNombre.TabIndex = 4;
             this.labelNombre.Text = "Nombre de Usuario";
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(50, 242);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 5;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            // 
             // ComprarGiftCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(210, 227);
+            this.ClientSize = new System.Drawing.Size(210, 283);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonComprar);
             this.Controls.Add(this.labelNombre);
             this.Controls.Add(this.textBox1);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.Label labelUsrDestino;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label labelNombre;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

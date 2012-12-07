@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -44,13 +44,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "El número de su cupón es:";
             // 
-            // textBox1
+            // textBoxNumero
             // 
-            this.textBox1.Location = new System.Drawing.Point(17, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxNumero.Location = new System.Drawing.Point(17, 38);
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.ReadOnly = true;
+            this.textBoxNumero.Size = new System.Drawing.Size(183, 20);
+            this.textBoxNumero.TabIndex = 1;
             // 
             // label2
             // 
@@ -68,7 +68,7 @@
             this.buttonAceptar.Location = new System.Drawing.Point(55, 134);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(108, 29);
-            this.buttonAceptar.TabIndex = 10;
+            this.buttonAceptar.TabIndex = 0;
             this.buttonAceptar.Text = "Aceptar";
             this.buttonAceptar.UseVisualStyleBackColor = true;
             // 
@@ -79,7 +79,7 @@
             this.ClientSize = new System.Drawing.Size(218, 175);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNumero);
             this.Controls.Add(this.label1);
             this.Name = "PopUpCuponComprado";
             this.Text = "PopUpCuponComprado";
@@ -91,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonAceptar;
     }
