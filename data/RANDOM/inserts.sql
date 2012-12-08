@@ -178,10 +178,10 @@ WHERE ma.GiftCard_Monto is not null
 INSERT INTO RANDOM.Cupon_Canjeado ( fecha_canje, id_compra, id_cliente, facturado)
 SELECT ma.Groupon_Entregado_Fecha, cc.id_compra, cli.id_usuario,0
 FROM gd_esquema.Maestra ma
-LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra = ma.Groupon_Codigo)
-LEFT JOIN RANDOM.Cupon cup ON (cup.id_cupon = cc.id_cupon)
 LEFT JOIN RANDOM.Cliente cli ON (cli.dni = ma.Cli_Dni)
-WHERE Groupon_Entregado_Fecha is not null
+LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra like(ma.Groupon_Codigo+'%') and cc.fecha_compra = ma.Groupon_Fecha_Compra and cc.id_cliente = cli.id_usuario )
+LEFT JOIN RANDOM.Cupon cup ON (cup.id_cupon = cc.id_cupon)
+WHERE Groupon_Entregado_Fecha is not null 
 
 /** INSERT CUPON DEVUELTO **/
 
@@ -189,9 +189,9 @@ WHERE Groupon_Entregado_Fecha is not null
 INSERT INTO RANDOM.Cupon_Devuelto (fecha_devolucion, id_compra, id_cliente, motivo_devolucion, codigo_compra)
 SELECT ma.Groupon_Devolucion_Fecha, cc.id_compra, cli.id_usuario,' ', codigo_compra
 FROM gd_esquema.Maestra ma
-LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra = ma.Groupon_Codigo)
-LEFT JOIN RANDOM.Cupon cup ON (cup.id_cupon = cc.id_cupon)
 LEFT JOIN RANDOM.Cliente cli ON (cli.dni = ma.Cli_Dni)
+LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra like(ma.Groupon_Codigo+'%') and cc.fecha_compra = ma.Groupon_Fecha_Compra and cc.id_cliente = cli.id_usuario )
+LEFT JOIN RANDOM.Cupon cup ON (cup.id_cupon = cc.id_cupon)
 WHERE ma.Groupon_Devolucion_Fecha is not null
 
 /** INSERT FACTURA **/
@@ -199,6 +199,20 @@ INSERT INTO RANDOM.Factura(id_proveedor, nro_factura, fecha)
 SELECT distinct pr.id_usuario, ma.Factura_Nro, ma.Factura_Fecha  FROM gd_esquema.Maestra ma
 LEFT JOIN RANDOM.Proveedor pr ON (ma.Provee_CUIT = pr.cuit)
 WHERE Factura_Nro IS NOT NULL
+
+/** INSERT RENGLON_FACTURA **/
+INSERT INTO RANDOM.Renglon_Factura (id_cupon_canjeado, id_factura)
+SELECT ccanj.id_canje, fac.id_factura
+FROM gd_esquema.Maestra ma
+LEFT JOIN RANDOM.Cliente cli ON (cli.dni = ma.Cli_Dni)
+LEFT JOIN RANDOM.Cupon_Comprado cc ON (cc.codigo_compra like(ma.Groupon_Codigo+'%') and cc.fecha_compra = ma.Groupon_Fecha_Compra and cc.id_cliente = cli.id_usuario )
+LEFT JOIN RANDOM.Cupon_Canjeado ccanj on cc.id_compra = ccanj.id_compra
+LEFT JOIN RANDOM.Factura fac ON (fac.nro_factura = ma.Factura_Nro)
+WHERE ma.Factura_Fecha is not null 
+
+/**MARCO QUE CUPONES CANJEADOS ESTAN FACTURADOS**/
+UPDATE RANDOM.Cupon_Canjeado SET facturado = 1 
+WHERE id_canje IN (select id_cupon_canjeado from RANDOM.Renglon_Factura)
 
 
 /** CALCULO DEL MAXIMO NUMERO DE CUPONES POR USUARIO **/
