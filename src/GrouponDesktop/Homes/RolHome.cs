@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace GrouponDesktop.Homes
         public RolHome(string connectionString)
             : base(connectionString)
         {
-            
+
         }
 
 
@@ -28,14 +28,14 @@ namespace GrouponDesktop.Homes
             {
                 throw new ApplicationException("No hay roles Disponibles", e);
             }
-            
+
         }
 
         public void RegistrarRol(Rol rol, IEnumerable<Funcionalidad> funcionalidades)
         {
             var procedures = new List<Runnable>
             {
-                this.CreateProcedureFrom("AgregarRol", rol, "descripcion","id_rol")
+                this.CreateProcedureFrom("AgregarRol", rol, "descripcion")
             };
 
             var nuevasFuncionalidades = funcionalidades
@@ -55,9 +55,22 @@ namespace GrouponDesktop.Homes
             var filtros = new Filters();
             if (ejemplo.descripcion != null)
                 filtros.AddLike("descripcion", ejemplo.descripcion);
- 
+
 
             return new Adapter().TransformMany<Rol>(this.sqlRunner.Select(QUERY, filtros));
         }
+
+        public IList<Funcionalidad> Funcionalidades(long id_rol)
+        {
+            const string QUERY = "SELECT func.descripcion FROM RANDOM.Funcionalidad_x_Rol funcr LEFT JOIN RANDOM.Funcionalidad func ON (func.id_funcionalidad = funcr.id_funcionalidad)";
+
+            var filtros = new Filters();
+            if (id_rol != null)
+                filtros.AddEqual("id_rol", id_rol.ToString());
+
+
+            return new Adapter().TransformMany<Funcionalidad>(this.sqlRunner.Select(QUERY, filtros));
+        }
+
     }
 }

@@ -6,45 +6,40 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
     public partial class Menu : DefaultView
     {
+        private readonly RolHome home;
+        private readonly Dictionary<string, string> funcionalidades = new Dictionary<string, string> { { "Cargar Crédito", "CargarCredito" }, { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" }, { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" }, { "Publicar Cupón", "ArmarCupon" }, { "Facturación a Proveedor", "ArmarCupon" }, { "Listado Estadístico", "ArmarCupon" } };
+
         public Menu()
         {
             InitializeComponent();
-                this.menuStrip1.AddItem("hola", (sender, args) => FormCreator.Show("pepe"));
+            this.home = HomeFactory.Rol;
+            this.Setup();
         }
 
-
-        private void administrarProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Setup()
         {
-            ABMProveedor form = new ABMProveedor();
-            form.Show();
-            form.Focus();
-           // this.Redirect(new ABMProveedor());
+            this.Text = "Menu";
+            this.LoadFuncionalidades();
         }
 
-        private void administrarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadFuncionalidades()
         {
-            this.Redirect(new ABMCliente());
+            IList<Funcionalidad> listFuncionalidades = this.home.Funcionalidades(HomeFactory.Usuario.UsuarioActual.id_rol);
+            foreach (var item in listFuncionalidades)
+            {
+                string redirect = funcionalidades[item.descripcion];
+                this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
+            }
+
         }
 
-        private void administrarRolesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Redirect(new ABMRol());
-        }
-
-        private void comprarCupónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Redirect(new ComprarCupon());
-        }
-
-        private void cargarCréditoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Redirect(new CargarCredito());
-        }
     }
 }
