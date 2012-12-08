@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.comprarCupónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprarGiftcardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarCréditoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprarCupónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.armarCupónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devolverCupónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.armarCupónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroConsumoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.publicarCuponesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.publicarCuponesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoEstadisticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darmeDeBajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambiarPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.administrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -79,12 +79,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // comprarCupónToolStripMenuItem
-            // 
-            this.comprarCupónToolStripMenuItem.Name = "comprarCupónToolStripMenuItem";
-            this.comprarCupónToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
-            this.comprarCupónToolStripMenuItem.Text = "Comprar Cupón";
-            // 
             // comprarGiftcardToolStripMenuItem
             // 
             this.comprarGiftcardToolStripMenuItem.Name = "comprarGiftcardToolStripMenuItem";
@@ -97,6 +91,19 @@
             this.cargarCréditoToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.cargarCréditoToolStripMenuItem.Text = "Cargar Crédito";
             // 
+            // comprarCupónToolStripMenuItem
+            // 
+            this.comprarCupónToolStripMenuItem.Name = "comprarCupónToolStripMenuItem";
+            this.comprarCupónToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.comprarCupónToolStripMenuItem.Text = "Comprar Cupón";
+            this.comprarCupónToolStripMenuItem.Click += new System.EventHandler(this.comprarCupónToolStripMenuItem_Click);
+            // 
+            // armarCupónToolStripMenuItem
+            // 
+            this.armarCupónToolStripMenuItem.Name = "armarCupónToolStripMenuItem";
+            this.armarCupónToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.armarCupónToolStripMenuItem.Text = "Armar Cupón";
+            // 
             // devolverCupónToolStripMenuItem
             // 
             this.devolverCupónToolStripMenuItem.Name = "devolverCupónToolStripMenuItem";
@@ -108,12 +115,6 @@
             this.historialDeCompraToolStripMenuItem.Name = "historialDeCompraToolStripMenuItem";
             this.historialDeCompraToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.historialDeCompraToolStripMenuItem.Text = "Historial de Compra";
-            // 
-            // armarCupónToolStripMenuItem
-            // 
-            this.armarCupónToolStripMenuItem.Name = "armarCupónToolStripMenuItem";
-            this.armarCupónToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
-            this.armarCupónToolStripMenuItem.Text = "Armar Cupón";
             // 
             // registroConsumoToolStripMenuItem
             // 
@@ -128,12 +129,6 @@
             this.administrarRolesToolStripMenuItem.Text = "Administrar Roles";
             this.administrarRolesToolStripMenuItem.Click += new System.EventHandler(this.administrarRolesToolStripMenuItem_Click);
             // 
-            // publicarCuponesToolStripMenuItem
-            // 
-            this.publicarCuponesToolStripMenuItem.Name = "publicarCuponesToolStripMenuItem";
-            this.publicarCuponesToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
-            this.publicarCuponesToolStripMenuItem.Text = "Publicar Cupones";
-            // 
             // administrarClientesToolStripMenuItem
             // 
             this.administrarClientesToolStripMenuItem.Name = "administrarClientesToolStripMenuItem";
@@ -141,18 +136,30 @@
             this.administrarClientesToolStripMenuItem.Text = "Administrar Clientes";
             this.administrarClientesToolStripMenuItem.Click += new System.EventHandler(this.administrarClientesToolStripMenuItem_Click);
             // 
-            // facturarProveedorToolStripMenuItem
-            // 
-            this.facturarProveedorToolStripMenuItem.Name = "facturarProveedorToolStripMenuItem";
-            this.facturarProveedorToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
-            this.facturarProveedorToolStripMenuItem.Text = "Facturar Proveedor";
-            // 
             // administrarProveedoresToolStripMenuItem
             // 
             this.administrarProveedoresToolStripMenuItem.Name = "administrarProveedoresToolStripMenuItem";
             this.administrarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.administrarProveedoresToolStripMenuItem.Text = "Administrar Proveedores";
             this.administrarProveedoresToolStripMenuItem.Click += new System.EventHandler(this.administrarProveedoresToolStripMenuItem_Click);
+            // 
+            // administrarUsuariosToolStripMenuItem
+            // 
+            this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
+            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios";
+            // 
+            // publicarCuponesToolStripMenuItem
+            // 
+            this.publicarCuponesToolStripMenuItem.Name = "publicarCuponesToolStripMenuItem";
+            this.publicarCuponesToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.publicarCuponesToolStripMenuItem.Text = "Publicar Cupones";
+            // 
+            // facturarProveedorToolStripMenuItem
+            // 
+            this.facturarProveedorToolStripMenuItem.Name = "facturarProveedorToolStripMenuItem";
+            this.facturarProveedorToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
+            this.facturarProveedorToolStripMenuItem.Text = "Facturar Proveedor";
             // 
             // listadoEstadisticoToolStripMenuItem
             // 
@@ -182,12 +189,6 @@
             this.label1.Size = new System.Drawing.Size(189, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "CUPONES RANDOM";
-            // 
-            // administrarUsuariosToolStripMenuItem
-            // 
-            this.administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            this.administrarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
-            this.administrarUsuariosToolStripMenuItem.Text = "Administrar Usuarios";
             // 
             // Menu
             // 

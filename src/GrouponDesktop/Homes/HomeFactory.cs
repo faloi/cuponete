@@ -36,6 +36,12 @@
         {
             get { return rubroHome ?? (rubroHome = new RubroHome(ConnectionString)); }
         }
+
+        private static CuponHome cuponHome;
+        public static CuponHome Cupon
+        {
+            get { return cuponHome ?? (cuponHome = new CuponHome(ConnectionString)); }
+        }
        
     }
 }

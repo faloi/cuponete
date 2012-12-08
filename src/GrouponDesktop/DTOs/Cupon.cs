@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Cupon
+    public class Cupon
     {
         public long id_cupon { set; get; }
         public string codigo_cupon { set; get; }

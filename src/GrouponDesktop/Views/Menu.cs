@@ -34,5 +34,10 @@ namespace GrouponDesktop.Views
         {
             this.Redirect(new ABMRol());
         }
+
+        private void comprarCupónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Redirect(new ComprarCupon());
+        }
     }
 }
