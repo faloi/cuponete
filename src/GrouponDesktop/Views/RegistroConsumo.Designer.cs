@@ -82,6 +82,7 @@
             this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // RegistroConsumo
             // 
@@ -93,8 +94,11 @@
             this.Controls.Add(this.labelNroDeCupon);
             this.Controls.Add(this.textBoxNroCupon);
             this.Controls.Add(this.labelRegistroCupon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "RegistroConsumo";
-            this.Text = "RegistroConsumo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Registro Consumo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -206,6 +206,7 @@
             this.buttonCancelar.TabIndex = 27;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // ArmarCupon
             // 
@@ -230,8 +231,11 @@
             this.Controls.Add(this.labelFecVencOferta);
             this.Controls.Add(this.labelDescripcion);
             this.Controls.Add(this.textBoxDescripcion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ArmarCupon";
-            this.Text = "ArmarCupon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Armar Cupon";
             this.ResumeLayout(false);
             this.PerformLayout();
 

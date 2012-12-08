@@ -9,8 +9,10 @@ namespace GrouponDesktop.DTOs
     {
         public long id_gift_card { set; get; }
         public DateTime fecha { set; get; }
-        public decimal monto { set; get; }
+        public int monto { set; get; }
         public long id_usuario_origen { set; get; }
         public long id_usuario_destino { set; get; }
+
+        public string usuario_destino { set; get; }
     }
 }

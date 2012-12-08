@@ -48,6 +48,11 @@
         {
             get { return formaPagoHome ?? (formaPagoHome = new FormaPagoHome(ConnectionString)); }
         }
-       
+
+        private static GiftCardHome giftCardHome;
+        public static GiftCardHome GiftCard
+        {
+            get { return giftCardHome ?? (giftCardHome = new GiftCardHome(ConnectionString)); }
+        }
     }
 }

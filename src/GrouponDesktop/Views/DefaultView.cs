@@ -16,7 +16,6 @@ namespace GrouponDesktop.Views
 
         protected void CreateBindings(Button submitButton)
         {
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             submitButton.Click +=
                 (sender, args) => this.Submit();
 

@@ -153,8 +153,11 @@
             this.Controls.Add(this.buttonNuevoRol);
             this.Controls.Add(this.rolesDataGrid);
             this.Controls.Add(this.buttonBuscar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ABMRol";
-            this.Text = "ABMRol";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ABM Rol";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rolesDataGrid)).EndInit();

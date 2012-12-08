@@ -208,8 +208,11 @@
             this.Controls.Add(this.proovedoresDataGrid);
             this.Controls.Add(this.textBoxCuit);
             this.Controls.Add(this.textBoxRazonSocial);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ABMProveedor";
-            this.Text = "ABMProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ABM Proveedor";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proovedoresDataGrid)).EndInit();

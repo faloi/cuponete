@@ -15,5 +15,10 @@ namespace GrouponDesktop.Views
         {
             InitializeComponent();
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

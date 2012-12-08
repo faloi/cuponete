@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMontos = new System.Windows.Forms.ComboBox();
             this.labelMonto = new System.Windows.Forms.Label();
             this.buttonComprar = new System.Windows.Forms.Button();
             this.labelUsrDestino = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNomUsua = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxMontos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(176, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxMontos.FormattingEnabled = true;
+            this.comboBoxMontos.Location = new System.Drawing.Point(16, 33);
+            this.comboBoxMontos.Name = "comboBoxMontos";
+            this.comboBoxMontos.Size = new System.Drawing.Size(176, 21);
+            this.comboBoxMontos.TabIndex = 0;
             // 
             // labelMonto
             // 
@@ -75,12 +77,12 @@
             this.labelUsrDestino.TabIndex = 2;
             this.labelUsrDestino.Text = "Destinatario";
             // 
-            // textBox1
+            // textBoxNomUsua
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxNomUsua.Location = new System.Drawing.Point(16, 133);
+            this.textBoxNomUsua.Name = "textBoxNomUsua";
+            this.textBoxNomUsua.Size = new System.Drawing.Size(176, 20);
+            this.textBoxNomUsua.TabIndex = 1;
             // 
             // labelNombre
             // 
@@ -101,6 +103,7 @@
             this.buttonCancelar.TabIndex = 5;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // ComprarGiftCard
             // 
@@ -110,12 +113,17 @@
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonComprar);
             this.Controls.Add(this.labelNombre);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNomUsua);
             this.Controls.Add(this.labelUsrDestino);
             this.Controls.Add(this.labelMonto);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxMontos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ComprarGiftCard";
-            this.Text = "ComprarGiftCard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comprar Gift Card";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,11 +131,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxMontos;
         private System.Windows.Forms.Label labelMonto;
         private System.Windows.Forms.Button buttonComprar;
         private System.Windows.Forms.Label labelUsrDestino;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNomUsua;
         private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.Button buttonCancelar;
     }

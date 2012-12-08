@@ -775,7 +775,11 @@
             this.Controls.Add(this.proveedorGroupBox);
             this.Controls.Add(this.clienteGroupBox);
             this.Controls.Add(this.usuarioGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "RegistroUsuarioView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modificar Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.usuarioGroupBox.ResumeLayout(false);

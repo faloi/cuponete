@@ -81,8 +81,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxNumero);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "PopUpCuponComprado";
-            this.Text = "PopUpCuponComprado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Aviso";
             this.ResumeLayout(false);
             this.PerformLayout();
 

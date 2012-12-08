@@ -123,6 +123,7 @@
             this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // DevolverCupon
             // 
@@ -138,8 +139,11 @@
             this.Controls.Add(this.richTextBoxDescripcion);
             this.Controls.Add(this.labelDescripcion);
             this.Controls.Add(this.labelDevolverCupon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "DevolverCupon";
-            this.Text = "DevolverCupon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Devolver Cupon";
             this.ResumeLayout(false);
             this.PerformLayout();
 

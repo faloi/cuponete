@@ -35,7 +35,7 @@
             this.PrecioFicticio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioReal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonComprarCupon = new System.Windows.Forms.Button();
-            this.buttonAceptar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponDataGrid)).BeginInit();
@@ -98,27 +98,31 @@
             this.buttonComprarCupon.Text = "Comprar Cupón";
             this.buttonComprarCupon.UseVisualStyleBackColor = true;
             // 
-            // buttonAceptar
+            // buttonCancelar
             // 
-            this.buttonAceptar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAceptar.Location = new System.Drawing.Point(246, 304);
-            this.buttonAceptar.Name = "buttonAceptar";
-            this.buttonAceptar.Size = new System.Drawing.Size(108, 29);
-            this.buttonAceptar.TabIndex = 3;
-            this.buttonAceptar.Text = "Cancelar";
-            this.buttonAceptar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(246, 304);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 3;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // ComprarCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 345);
-            this.Controls.Add(this.buttonAceptar);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonComprarCupon);
             this.Controls.Add(this.cuponDataGrid);
             this.Controls.Add(this.labelCuponesDisponibles);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ComprarCupon";
-            this.Text = "ComprarCupon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comprar Cupon";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponDataGrid)).EndInit();
@@ -135,6 +139,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFicticio;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReal;
         private System.Windows.Forms.Button buttonComprarCupon;
-        private System.Windows.Forms.Button buttonAceptar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

@@ -39,5 +39,10 @@ namespace GrouponDesktop.Views
             var roles = new Adapter().TransformMany<Forma_de_pago>(HomeFactory.FormaPago.FormaPagoDisponibles());
             this.comboBoxFormaPago.BindSourceTo(roles, "id_forma_pago", "descripcion");
         }
+
+        private void buttonCancelar_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

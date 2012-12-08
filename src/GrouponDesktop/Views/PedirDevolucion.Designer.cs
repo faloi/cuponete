@@ -39,11 +39,11 @@
             // 
             this.labelSolicitarDevolucion.AutoSize = true;
             this.labelSolicitarDevolucion.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSolicitarDevolucion.Location = new System.Drawing.Point(23, 9);
+            this.labelSolicitarDevolucion.Location = new System.Drawing.Point(40, 9);
             this.labelSolicitarDevolucion.Name = "labelSolicitarDevolucion";
-            this.labelSolicitarDevolucion.Size = new System.Drawing.Size(238, 37);
+            this.labelSolicitarDevolucion.Size = new System.Drawing.Size(209, 37);
             this.labelSolicitarDevolucion.TabIndex = 0;
-            this.labelSolicitarDevolucion.Text = "Solicitar Devolución";
+            this.labelSolicitarDevolucion.Text = "Pedir Devolución";
             this.labelSolicitarDevolucion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelCodigo
@@ -83,6 +83,7 @@
             this.buttonCancelar.TabIndex = 4;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // PedirDevolucion
             // 
@@ -94,8 +95,11 @@
             this.Controls.Add(this.textBoxCodigo);
             this.Controls.Add(this.labelCodigo);
             this.Controls.Add(this.labelSolicitarDevolucion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "PedirDevolucion";
-            this.Text = "PedirDevolucion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Pedir Devolucion";
             this.ResumeLayout(false);
             this.PerformLayout();
 

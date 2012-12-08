@@ -39,6 +39,9 @@
             this.textBoxMonto = new System.Windows.Forms.TextBox();
             this.labelMonto = new System.Windows.Forms.Label();
             this.buttonCargar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxFormaPago
@@ -137,11 +140,23 @@
             this.buttonCargar.Text = "Cargar";
             this.buttonCargar.UseVisualStyleBackColor = true;
             // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.Location = new System.Drawing.Point(63, 343);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
+            this.buttonCancelar.TabIndex = 10;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 334);
+            this.ClientSize = new System.Drawing.Size(234, 384);
+            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonCargar);
             this.Controls.Add(this.labelMonto);
             this.Controls.Add(this.textBoxMonto);
@@ -153,8 +168,13 @@
             this.Controls.Add(this.textBoxNroTarjeta);
             this.Controls.Add(this.labelFormaDePago);
             this.Controls.Add(this.comboBoxFormaPago);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "CargarCredito";
-            this.Text = "CargarCredito";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cargar Credito";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +193,6 @@
         private System.Windows.Forms.TextBox textBoxMonto;
         private System.Windows.Forms.Label labelMonto;
         private System.Windows.Forms.Button buttonCargar;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }
