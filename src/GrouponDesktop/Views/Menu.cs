@@ -38,7 +38,6 @@ namespace GrouponDesktop.Views
                 string redirect = funcionalidades[item.descripcion];
                 this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
             }
-
         }
 
     }
