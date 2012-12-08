@@ -123,7 +123,7 @@ namespace GrouponDesktop.Views
                    this.password,
                    this.repitaPassword
                };
-            return ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider);
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateCheckList(this.ciuPrefClienteBox, this.errorProvider));
         }
     }
 }

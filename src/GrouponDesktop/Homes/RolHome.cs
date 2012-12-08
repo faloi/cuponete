@@ -35,7 +35,7 @@ namespace GrouponDesktop.Homes
         {
             var procedures = new List<Runnable>
             {
-                this.CreateProcedureFrom("AgregarRol", rol, "descripcion")
+                this.CreateProcedureFrom("AgregarRol", rol, "descripcion","id_rol")
             };
 
             var nuevasFuncionalidades = funcionalidades

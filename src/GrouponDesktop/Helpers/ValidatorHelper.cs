@@ -12,7 +12,6 @@ namespace GrouponDesktop.Helpers
 
         public static bool ValidateObligatorio(List<TextBox> boxes, ErrorProvider errorProvider)
         {
-            errorProvider.Clear();
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             var ret = true;
             foreach (var textBox in boxes)
@@ -32,6 +31,17 @@ namespace GrouponDesktop.Helpers
             }
             return ret;
 
+        }
+
+        public static bool ValidateCheckList(CheckedListBox boxes, ErrorProvider errorProvider)
+        {
+            if(boxes.CheckedItems.Count > 0)
+                return true;
+            errorProvider.SetError(boxes, "Este campo es obligatorio");
+            return false;
+ 
+
+            
         }
 
     }

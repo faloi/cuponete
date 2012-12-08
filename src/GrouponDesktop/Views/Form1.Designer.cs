@@ -90,6 +90,7 @@
             this.cargarCréditoToolStripMenuItem.Name = "cargarCréditoToolStripMenuItem";
             this.cargarCréditoToolStripMenuItem.Size = new System.Drawing.Size(184, 25);
             this.cargarCréditoToolStripMenuItem.Text = "Cargar Crédito";
+            this.cargarCréditoToolStripMenuItem.Click += new System.EventHandler(this.cargarCréditoToolStripMenuItem_Click);
             // 
             // comprarCupónToolStripMenuItem
             // 

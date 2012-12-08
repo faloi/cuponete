@@ -42,6 +42,12 @@
         {
             get { return cuponHome ?? (cuponHome = new CuponHome(ConnectionString)); }
         }
+
+        private static FormaPagoHome formaPagoHome;
+        public static FormaPagoHome FormaPago
+        {
+            get { return formaPagoHome ?? (formaPagoHome = new FormaPagoHome(ConnectionString)); }
+        }
        
     }
 }

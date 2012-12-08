@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -48,6 +49,17 @@ namespace GrouponDesktop.Views
         {
             this.Redirect(new RegistroRolView());
         }
+
+        private void rolesDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Ignore clicks that are not on button cells. 
+           // if (e.RowIndex < 0 || e.ColumnIndex != rolesDataGrid.Columns["Rol"].Index) return;
+
+            string descripcion = Convert.ToString(rolesDataGrid.Rows[e.RowIndex].Cells["Nombre"].Value);
+        }
+
+
+
 
 
     }

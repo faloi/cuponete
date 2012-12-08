@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Views
 {
@@ -14,6 +15,7 @@ namespace GrouponDesktop.Views
         public Menu()
         {
             InitializeComponent();
+                this.menuStrip1.AddItem("hola", (sender, args) => FormCreator.Show("pepe"));
         }
 
 
@@ -38,6 +40,11 @@ namespace GrouponDesktop.Views
         private void comprarCupónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Redirect(new ComprarCupon());
+        }
+
+        private void cargarCréditoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Redirect(new CargarCredito());
         }
     }
 }

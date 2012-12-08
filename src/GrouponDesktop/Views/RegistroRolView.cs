@@ -50,5 +50,15 @@ namespace GrouponDesktop.Views
             var funcionalidades = new Adapter().TransformMany<Funcionalidad>(HomeFactory.Funcionalidad.FuncionalidadesDisponibles());
             checkedListBoxFuncionalidades.BindSourceTo(funcionalidades, "id_funcionalidad", "descripcion");
         }
+
+        protected override bool Validar()
+        {
+            var fieldsObligatorios = new List<TextBox>
+               {
+                   this.textBoxNombre
+               };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateCheckList(this.checkedListBoxFuncionalidades, this.errorProvider));
+             
+        }
     }
 }
