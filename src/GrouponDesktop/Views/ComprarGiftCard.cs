@@ -19,6 +19,7 @@ namespace GrouponDesktop.Views
 
         public ComprarGiftCard()
         {
+
             InitializeComponent();
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(new Usuario());

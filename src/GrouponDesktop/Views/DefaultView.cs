@@ -59,5 +59,10 @@ namespace GrouponDesktop.Views
         {
             this.model.DataSource = source;
         }
+
+        protected void MensajeRolNoPermitido()
+        {
+            MessageFactory.Alert("No se tiene la información suficiente para acceder a esta funcionalidad");
+        }
     }
 }
