@@ -15,7 +15,7 @@ namespace GrouponDesktop.Views
     public partial class Menu : DefaultView
     {
         private readonly RolHome home;
-        private readonly Dictionary<string, string> funcionalidades = new Dictionary<string, string> { { "Cargar Crédito", "CargarCredito" }, { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" }, { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" }, { "Publicar Cupón", "ArmarCupon" }, { "Facturación a Proveedor", "ArmarCupon" }, { "Listado Estadístico", "ArmarCupon" } };
+        private readonly Dictionary<string, string> funcionalidades = new Dictionary<string, string> { { "Cargar Crédito", "CargarCredito" }, { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" }, { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" }, { "Publicar Cupón", "PublicarCupon" }, { "Facturación a Proveedor", "ArmarCupon" }, { "Listado Estadístico", "ListadoEstadistico" } };
 
         public Menu()
         {

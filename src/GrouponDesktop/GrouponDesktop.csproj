@@ -150,12 +150,18 @@
     <EmbeddedResource Include="Views\DevolverCupon.resx">
       <DependentUpon>DevolverCupon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FacturarProveedor.resx">
+      <DependentUpon>FacturarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\HistorialDeCompra.resx">
       <DependentUpon>HistorialDeCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
@@ -172,6 +178,9 @@
     <EmbeddedResource Include="Views\PedirDevolucion.resx">
       <DependentUpon>PedirDevolucion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PublicarCupon.resx">
+      <DependentUpon>PublicarCupon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\RegistroRolView.resx">
       <DependentUpon>RegistroRolView.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +193,9 @@
     <EmbeddedResource Include="Views\RegistroUsuarioView.resx">
       <DependentUpon>RegistroUsuarioView.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ResumenDeFactura.resx">
+      <DependentUpon>ResumenDeFactura.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -213,11 +225,23 @@
     <Compile Include="Views\DevolverCupon.Designer.cs">
       <DependentUpon>DevolverCupon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FacturarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FacturarProveedor.Designer.cs">
+      <DependentUpon>FacturarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\HistorialDeCompra.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\HistorialDeCompra.Designer.cs">
       <DependentUpon>HistorialDeCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListadoEstadistico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ListadoView.cs">
       <SubType>Form</SubType>
@@ -230,6 +254,12 @@
     </Compile>
     <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PublicarCupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PublicarCupon.Designer.cs">
+      <DependentUpon>PublicarCupon.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RegistroRolView.cs">
       <SubType>Form</SubType>
@@ -272,6 +302,12 @@
     </Compile>
     <Compile Include="Views\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResumenDeFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ResumenDeFactura.Designer.cs">
+      <DependentUpon>ResumenDeFactura.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
