@@ -10,7 +10,7 @@ end
 go
 
 
---Facruracion de cupones: RANDOM.FacturarCupones (los parametros @monto_total y @nro_factura son solo output, para mostrarlos al administrador)
+--Facturacion de cupones: RANDOM.FacturarCupones (los parametros @monto_total y @nro_factura son solo output, para mostrarlos al administrador)
 create procedure RANDOM.ArmarCupon @monto_total bigint out, @nro_factura numeric(18,0) out, @id_proveedor bigint out, @fecha datetime out, @fecha_inicio datetime out, @fecha_fin datetime out
 as
 begin
