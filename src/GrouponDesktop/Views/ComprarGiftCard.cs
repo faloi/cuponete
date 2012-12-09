@@ -15,13 +15,13 @@ namespace GrouponDesktop.Views
 {
     public partial class ComprarGiftCard : DefaultView
     {
-        private readonly GiftCardHome home;
+        private readonly UsuarioHome home;
 
         public ComprarGiftCard()
         {
             InitializeComponent();
-            this.home = HomeFactory.GiftCard;
-            this.SetBindingSource(new Gift_card());
+            this.home = HomeFactory.Usuario;
+            this.SetBindingSource(new Usuario());
 
             this.Setup();
         }
