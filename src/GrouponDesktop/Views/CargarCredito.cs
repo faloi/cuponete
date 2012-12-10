@@ -31,7 +31,7 @@ namespace GrouponDesktop.Views
         {
             this.textBoxNroTarjeta.BindTextTo(this.model, "nro_tarjeta");
             this.textBoxCodDeSeg.BindTextTo(this.model, "cod_seguridad_tarjeta");
-            //this.labelFechaVto.BindTextTo(this.model, "fecha_vto_tarjeta","dd/MM/yyyy");
+            this.textBoxFechaVto.BindTextTo(this.model, "fecha_vto_tarjeta");
             this.textBoxMonto.BindTextTo(this.model, "carga_credito", DataType.INTEGER);
             this.CargarFormaPago();
        }

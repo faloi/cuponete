@@ -49,7 +49,7 @@
             this.comboBoxFormaPago.FormattingEnabled = true;
             this.comboBoxFormaPago.Location = new System.Drawing.Point(16, 33);
             this.comboBoxFormaPago.Name = "comboBoxFormaPago";
-            this.comboBoxFormaPago.Size = new System.Drawing.Size(207, 21);
+            this.comboBoxFormaPago.Size = new System.Drawing.Size(224, 21);
             this.comboBoxFormaPago.TabIndex = 0;
             // 
             // labelFormaDePago
@@ -66,7 +66,7 @@
             // 
             this.textBoxNroTarjeta.Location = new System.Drawing.Point(16, 87);
             this.textBoxNroTarjeta.Name = "textBoxNroTarjeta";
-            this.textBoxNroTarjeta.Size = new System.Drawing.Size(207, 20);
+            this.textBoxNroTarjeta.Size = new System.Drawing.Size(224, 20);
             this.textBoxNroTarjeta.TabIndex = 1;
             // 
             // labelNroDeTarjeta
@@ -102,22 +102,22 @@
             this.labelFechaVto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFechaVto.Location = new System.Drawing.Point(12, 172);
             this.labelFechaVto.Name = "labelFechaVto";
-            this.labelFechaVto.Size = new System.Drawing.Size(158, 21);
+            this.labelFechaVto.Size = new System.Drawing.Size(236, 21);
             this.labelFechaVto.TabIndex = 6;
-            this.labelFechaVto.Text = "Fecha de Vencimiento";
+            this.labelFechaVto.Text = "Fecha de Vencimiento (mm/aaaa)";
             // 
             // textBoxFechaVto
             // 
             this.textBoxFechaVto.Location = new System.Drawing.Point(16, 196);
             this.textBoxFechaVto.Name = "textBoxFechaVto";
-            this.textBoxFechaVto.Size = new System.Drawing.Size(207, 20);
+            this.textBoxFechaVto.Size = new System.Drawing.Size(224, 20);
             this.textBoxFechaVto.TabIndex = 3;
             // 
             // textBoxMonto
             // 
             this.textBoxMonto.Location = new System.Drawing.Point(16, 252);
             this.textBoxMonto.Name = "textBoxMonto";
-            this.textBoxMonto.Size = new System.Drawing.Size(207, 20);
+            this.textBoxMonto.Size = new System.Drawing.Size(224, 20);
             this.textBoxMonto.TabIndex = 4;
             // 
             // labelMonto
@@ -135,7 +135,7 @@
             this.buttonCargar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCargar.Location = new System.Drawing.Point(16, 286);
             this.buttonCargar.Name = "buttonCargar";
-            this.buttonCargar.Size = new System.Drawing.Size(207, 36);
+            this.buttonCargar.Size = new System.Drawing.Size(224, 36);
             this.buttonCargar.TabIndex = 5;
             this.buttonCargar.Text = "Cargar";
             this.buttonCargar.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(63, 343);
+            this.buttonCancelar.Location = new System.Drawing.Point(74, 343);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 10;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 384);
+            this.ClientSize = new System.Drawing.Size(252, 384);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonCargar);
             this.Controls.Add(this.labelMonto);

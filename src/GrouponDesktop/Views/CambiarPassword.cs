@@ -33,7 +33,7 @@ namespace GrouponDesktop.Views
         
         protected override void CreateSpecificBindings()
         {
-            this.textBoxPassword.BindTextTo(this.model, "password");
+            //this.textBoxPassword.BindTextTo(this.model, "password");
         }
 
         
