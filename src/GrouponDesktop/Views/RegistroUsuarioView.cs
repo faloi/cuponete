@@ -13,21 +13,9 @@ namespace GrouponDesktop.Views
         private readonly UsuarioHome home;
 
 
-        public RegistroUsuarioView() : this(new Usuario()) {}
 
-        public RegistroUsuarioView(Cliente cliente) : this(cliente as Usuario)
-        {
-            //this.comboRol.SelectedValue = 1;
-            this.usuarioGroupBox.Enabled=false;
-        }
 
-        public RegistroUsuarioView(Proveedor proveedor) : this(proveedor as Usuario)
-        {
-           // this.comboRol.SelectedValue = 2;
-            this.usuarioGroupBox.Enabled = false;
-        }
-
-        private RegistroUsuarioView(Usuario usuario)
+        public RegistroUsuarioView(Usuario usuario)
         {
             InitializeComponent();
 

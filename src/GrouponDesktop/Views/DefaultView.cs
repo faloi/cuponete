@@ -7,10 +7,10 @@ namespace GrouponDesktop.Views
 {
     public class DefaultView : Form
     {
+        protected readonly int TODOS = 0;
+        protected readonly int ADMINISTRADOR = 1;
         protected readonly int CLIENTE = 2;
         protected readonly int PROVEEDOR = 3;
-        protected readonly int ADMINISTRADOR = 1;
-        protected readonly int TODOS = 0;
         protected readonly BindingSource model;
         protected int rolDisponible;
         protected ErrorProvider errorProvider = new ErrorProvider();

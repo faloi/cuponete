@@ -36,5 +36,20 @@ namespace GrouponDesktop.Homes
 
         }
 */
+
+        public DataTable FuncionalidadesDisponiblesParaRol(long id_rol)
+        {
+            try
+            {
+                var filtros = new Filters();
+                filtros.AddEqual("id_rol", id_rol.ToString());
+                return sqlRunner
+                    .Select("SELECT * FROM RANDOM.Funcionalidad", filtros);
+            }
+            catch (NoResultsException e)
+            {
+                throw new ApplicationException("No hay Resultados", e);
+            }
+        }
     }
 }

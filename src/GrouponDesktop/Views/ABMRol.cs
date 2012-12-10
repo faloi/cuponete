@@ -57,7 +57,7 @@ namespace GrouponDesktop.Views
         private void ModificarRol()
         {
             var rol = this.home.GetRolById(this.IdSeleccionado);
-            new RegistroUsuarioView(rol).ShowDialog();
+            new RegistroRolView(rol).ShowDialog();
 
             this.ExecSubmit();
         }

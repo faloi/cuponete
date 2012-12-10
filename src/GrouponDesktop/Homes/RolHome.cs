@@ -48,7 +48,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Rol> ListarRoles(Rol ejemplo)
         {
-            const string QUERY = "SELECT descripcion FROM RANDOM.Rol";
+            const string QUERY = "SELECT * FROM RANDOM.Rol";
 
             var filtros = new Filters();
             if (ejemplo.descripcion != null)
@@ -70,11 +70,11 @@ namespace GrouponDesktop.Homes
             return new Adapter().TransformMany<Funcionalidad>(this.sqlRunner.Select(QUERY, filtros));
         }
 
-        public Cliente GetRolById(string idSeleccionado)
+        public Rol GetRolById(string idSeleccionado)
         {
-            const string QUERY = "SELECT id_rol, descripcion FROM RANDOM.rol where id = {0}";
+            const string QUERY = "SELECT id_rol, descripcion FROM RANDOM.Rol where id_rol = {0}";
 
-            return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, idSeleccionado));
+            return new Adapter().Transform<Rol>(this.sqlRunner.Single(QUERY, idSeleccionado));
         }
     }
 }

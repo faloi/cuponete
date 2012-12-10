@@ -94,7 +94,7 @@
             this.rolesDataGrid.Name = "rolesDataGrid";
             this.rolesDataGrid.Size = new System.Drawing.Size(431, 209);
             this.rolesDataGrid.TabIndex = 6;
-            this.rolesDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rolesDataGrid_CellContentClick);
+          
             // 
             // ColumnRol
             // 

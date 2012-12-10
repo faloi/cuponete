@@ -34,8 +34,12 @@ namespace GrouponDesktop.Views
         protected override void CreateSpecificBindings()
         {
             this.textBoxNombre.BindTextTo(this.model, "descripcion");
-            this.CargarFuncionalidades();
-        }
+            
+            CargarFuncionalidades();
+            if((this.model.DataSource as Rol).id_rol != 0)
+                this.FiltrarFuncionalidades();
+            
+        }   
 
         protected override void ExecSubmit()
         {
@@ -48,6 +52,20 @@ namespace GrouponDesktop.Views
             var funcionalidades = new Adapter().TransformMany<Funcionalidad>(HomeFactory.Funcionalidad.FuncionalidadesDisponibles());
             checkedListBoxFuncionalidades.BindSourceTo(funcionalidades, "id_funcionalidad", "descripcion");
         }
+       
+        private void FiltrarFuncionalidades()
+        {
+            var funcionalidades = (HomeFactory.Rol.Funcionalidades((this.model.DataSource as Rol).id_rol));
+            var checkBoxItems = checkedListBoxFuncionalidades.DataSource as List<Funcionalidad>;
+            foreach (var checkBoxItem in checkBoxItems)
+            {
+                Funcionalidad funcionalidad = checkBoxItem as Funcionalidad;
+                if(funcionalidades.Any(obj=> obj.descripcion == funcionalidad.descripcion))
+                    checkedListBoxFuncionalidades.SetItemChecked(checkBoxItems.IndexOf(checkBoxItem),true);
+            }
+        }
+
+
 
         protected override bool Validar()
         {
