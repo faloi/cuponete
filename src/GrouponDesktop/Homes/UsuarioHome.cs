@@ -80,7 +80,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
-            const string QUERY = "SELECT nombre, apellido, dni, mail FROM RANDOM.Cliente";
+            const string QUERY = "SELECT id_cliente, nombre, apellido, dni, mail FROM RANDOM.Cliente";
 
             var filtros = new Filters();
             if (ejemplo.nombre != null)

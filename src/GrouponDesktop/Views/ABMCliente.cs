@@ -31,7 +31,7 @@ namespace GrouponDesktop.Views
             this.textBoxEmail.BindTextTo(this.Example, "mail");
             this.textBoxDNI.BindTextTo(this.Example, "dni", DataType.INTEGER);
 
-            this.clientesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            this.clientesDataGrid.BindSourceTo(this.Data, "id_cliente", new Dictionary<string, string>
             {
                 {"Nombre", "nombre"},
                 {"Apellido", "apellido"},
