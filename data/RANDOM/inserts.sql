@@ -15,9 +15,20 @@ INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('Registro de consumo de C
 INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('Publicar Cupón');
 INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('Facturación a Proveedor');
 INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('Listado Estadístico');
+INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('ABM Cliente');
+INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('ABM Proveedor');
+INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('ABM Rol');
+INSERT INTO RANDOM.Funcionalidad (descripcion) VALUES ('Cambiar Password');
+
 
 /** INSERT DE FUNCIONALIDAD x ROL**/
 
+INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (14,3);
+INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (14,2);
+INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (14,1);
+INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (13,1);
+INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (12,1);
+INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (11,1);
 INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (10,1);
 INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (9,1);
 INSERT INTO RANDOM.Funcionalidad_x_Rol (id_funcionalidad,id_rol) VALUES (8,1);
