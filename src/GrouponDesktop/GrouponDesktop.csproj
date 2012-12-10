@@ -55,7 +55,6 @@
     <Compile Include="Helpers\ValidatorHelper.cs" />
     <Compile Include="Homes\CiudadHome.cs" />
     <Compile Include="Helpers\EncodingHelpers.cs" />
-    <Compile Include="Homes\GiftCardHome.cs" />
     <Compile Include="Homes\FormaPagoHome.cs" />
     <Compile Include="Homes\CuponHome.cs" />
     <Compile Include="Homes\RubroHome.cs" />
