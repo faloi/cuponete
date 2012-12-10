@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -18,6 +19,11 @@ namespace GrouponDesktop.Views
             this.Setup();
         }
 
+        private string IdSeleccionado
+       {
+           get { return Convert.ToString((this.proveedoresDataGrid.GetValue() as Proveedor).id_usuario); }
+       }
+
         private void Setup()
         {
             this.rolDisponible = ADMINISTRADOR;
@@ -31,7 +37,7 @@ namespace GrouponDesktop.Views
             this.textBoxCuit.BindTextTo(this.Example, "cuit");
             this.textBoxEmail.BindTextTo(this.Example, "mail");
 
-            this.proovedoresDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            this.proveedoresDataGrid.BindSourceTo(this.Data,"id_usuario", new Dictionary<string, string>
             {
                 {"Razon Social", "razon_social"},
                 {"CUIT", "cuit"},
@@ -40,7 +46,19 @@ namespace GrouponDesktop.Views
 
             this.limpiarButton.Click +=
                 (sender, args) => this.Example = new Proveedor();
+
+            this.buttonModificar.Click +=
+                (sender, args) => this.ModificarProveedor();
         }
+
+        private void ModificarProveedor()
+        {
+            var proveedor = this.home.GetProveedorById(this.IdSeleccionado);
+            new ModificarProveedor(proveedor).ShowDialog();
+
+            this.ExecSubmit();
+        }
+
 
         protected override void ExecSubmit()
         {

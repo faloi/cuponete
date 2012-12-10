@@ -58,7 +58,7 @@ namespace GrouponDesktop.Views
         private void ModificarCliente()
         {
             var cliente = this.home.GetClienteById(this.IdSeleccionado);
-            new RegistroUsuarioView(cliente).ShowDialog();
+            new ModificarCliente(cliente).ShowDialog();
 
             this.ExecSubmit();
         }
