@@ -91,19 +91,19 @@ go
 
 
 --Agregar cliente x ciudad: RANDOM.AgregarClientePorCiudad (todos los parametros son necesarios)
-create procedure RANDOM.AgregarClientePorCiudad @id_cliente bigint output, @id_ciudad bigint output
+create procedure RANDOM.AgregarClientePorCiudad @id_usuario bigint output, @id_ciudad bigint output
 as
 begin
 	insert into RANDOM.Cliente_x_Ciudad(id_cliente, id_ciudad)
-	values(@id_cliente , @id_ciudad)
+	values(@id_usuario , @id_ciudad)
 end
 go
 
 --Quitar cliente x ciudad: RANDOM.QuitarClientePorCiudad (todos los parametros son necesarios)
-create procedure RANDOM.QuitarClientePorCiudad @id_cliente bigint output, @id_ciudad bigint output
+create procedure RANDOM.QuitarClientePorCiudad @id_usuario bigint output, @id_ciudad bigint output
 as
 begin
 	delete from RANDOM.Cliente_x_Ciudad
-	where id_cliente = @id_cliente and id_ciudad = @id_ciudad
+	where id_cliente = @id_usuario and id_ciudad = @id_ciudad
 end
 go
