@@ -52,7 +52,11 @@ namespace GrouponDesktop.Sql
 
         private object ConvertValue(DataRow dataRow, PropertyInfo property)
         {
-            return Convert.ChangeType(dataRow[property.Name], property.PropertyType, CultureInfo.InvariantCulture);
+            var value = dataRow[property.Name];
+
+            return value == DBNull.Value ? null : Convert.ChangeType(value, property.PropertyType, CultureInfo.InvariantCulture);
+
+            //return Convert.ChangeType(dataRow[property.Name], property.PropertyType, CultureInfo.InvariantCulture);
         }
     }
 }

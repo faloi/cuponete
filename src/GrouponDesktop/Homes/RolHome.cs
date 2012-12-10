@@ -9,13 +9,11 @@ namespace GrouponDesktop.Homes
 {
     public class RolHome : Home
     {
-
         public RolHome(string connectionString)
             : base(connectionString)
         {
 
         }
-
 
         public DataTable RolesDisponibles()
         {
@@ -35,7 +33,7 @@ namespace GrouponDesktop.Homes
         {
             var procedures = new List<Runnable>
             {
-                this.CreateProcedureFrom("AgregarRol", rol, "descripcion")
+                this.CreateProcedureFrom("AgregarRol", rol, "id_rol","descripcion")
             };
 
             var nuevasFuncionalidades = funcionalidades
@@ -72,5 +70,11 @@ namespace GrouponDesktop.Homes
             return new Adapter().TransformMany<Funcionalidad>(this.sqlRunner.Select(QUERY, filtros));
         }
 
+        public Cliente GetRolById(string idSeleccionado)
+        {
+            const string QUERY = "SELECT id_rol, descripcion FROM RANDOM.rol where id = {0}";
+
+            return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, idSeleccionado));
+        }
     }
 }

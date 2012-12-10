@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -19,7 +20,7 @@ namespace GrouponDesktop.Views
 
         private string IdSeleccionado
         {
-            get { return this.clientesDataGrid.GetValue("id_usuario"); }
+            get { return Convert.ToString((this.clientesDataGrid.GetValue() as Cliente).id_usuario); }
         }
 
         private void Setup()

@@ -17,18 +17,16 @@ namespace GrouponDesktop.Views
     {
 
         private readonly RolHome home;
-        public RegistroRolView()
+
+        public RegistroRolView() : this(new Rol()) {}
+        
+        public RegistroRolView(Rol rol)
         {
             InitializeComponent();
+
             this.home = HomeFactory.Rol;
-            this.SetBindingSource(new Rol());
+            this.SetBindingSource(rol);
 
-            this.Setup();
-
-        }
-
-        private void Setup()
-        {
             this.Text = "Registro de Rol";
             this.CreateBindings(this.buttonAceptar);
         }

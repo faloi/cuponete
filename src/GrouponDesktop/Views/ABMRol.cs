@@ -32,13 +32,16 @@ namespace GrouponDesktop.Views
             this.nombreRol.BindTextTo(this.Example, "descripcion");
   
 
-            this.rolesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            this.rolesDataGrid.BindSourceTo(this.Data,"id_rol", new Dictionary<string, string>
             {
                 {"Nombre", "descripcion"}
             });
 
             this.buttonLimpiar.Click +=
                 (sender, args) => this.Example = new Rol();
+
+            this.buttonModificar.Click +=
+                (sender, args) => this.ModificarRol();
         }
 
         protected override void ExecSubmit()
@@ -51,17 +54,18 @@ namespace GrouponDesktop.Views
             this.Redirect(new RegistroRolView());
         }
 
-        private void rolesDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ModificarRol()
         {
-            // Ignore clicks that are not on button cells. 
-           // if (e.RowIndex < 0 || e.ColumnIndex != rolesDataGrid.Columns["Rol"].Index) return;
+            var rol = this.home.GetRolById(this.IdSeleccionado);
+            new RegistroUsuarioView(rol).ShowDialog();
 
-            string descripcion = Convert.ToString(rolesDataGrid.Rows[e.RowIndex].Cells["Nombre"].Value);
+            this.ExecSubmit();
         }
 
-
-
-
+        private string IdSeleccionado
+        {
+            get { return Convert.ToString((this.rolesDataGrid.GetValue() as Rol).id_rol); }
+        }
 
     }
 }
