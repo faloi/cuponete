@@ -56,10 +56,21 @@ namespace GrouponDesktop.Helpers
             control.DisplayMember = displayMember;
         }
 
+        public static void BindSourceTo(this DataGridView dataGrid, object model, string idField, Dictionary<string, string> columns)
+        {
+            dataGrid.BindSourceTo(model, columns);
+            
+            var idColumn = CreateDataGridViewColumn(new KeyValuePair<string, string>("id", idField));
+            idColumn.Visible = false;
+
+            dataGrid.Columns.Add(idColumn);
+        }
+
         public static void BindSourceTo(this DataGridView dataGrid, object model, Dictionary<string, string> columns)
         {
             dataGrid.AutoGenerateColumns = false;
             dataGrid.DataSource = model;
+            dataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGrid.Columns.Clear();
 
             var dataGridColumns = columns
@@ -77,6 +88,11 @@ namespace GrouponDesktop.Helpers
                 DataPropertyName = x.Value, 
                 HeaderText = x.Key, 
             };
+        }
+
+        public static string GetValue(this DataGridView dataGrid, string columnId)
+        {
+            return dataGrid.SelectedRows[0].Cells[columnId].Value as string;
         }
 
         public static IEnumerable<T> GetCheckedItems<T>(this CheckedListBox list)
