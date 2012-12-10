@@ -70,15 +70,24 @@ go
 
 
 --Incrementar las fallas que tiene un usuario: RANDOM.IncrementarFallas (parametro necesario)
-CREATE PROCEDURE RANDOM.IncrementarFallas @id_usuario bigint output
-AS
-BEGIN 
-      UPDATE RANDOM.Usuario
-      SET 
-             fallas    = fallas+1
-      FROM   RANDOM.Usuario
-      WHERE  
-      id_usuario    = @id_usuario                   
+create procedure RANDOM.IncrementarFallas @id_usuario bigint output
+as
+begin 
+      update RANDOM.Usuario
+      set fallas = fallas + 1
+      from RANDOM.Usuario
+      where id_usuario = @id_usuario
+end
+go
 
-END
-GO
+
+--Reiniciar las fallas que tiene un usuario: RANDOM.ReiniciarFallas (parametro necesario)
+create procedure RANDOM.ReiniciarFallas @id_usuario bigint output
+as
+begin 
+      update RANDOM.Usuario
+      set fallas = 0
+      from RANDOM.Usuario
+      where id_usuario = @id_usuario
+end
+go

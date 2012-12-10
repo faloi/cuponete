@@ -115,6 +115,7 @@ namespace GrouponDesktop.Homes
             const string QUERY = "SELECT * FROM RANDOM.Cliente where id_usuario = {0}";
 
             return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id_usuario));
+
         }
 
         public void BorrarCliente(string id)
