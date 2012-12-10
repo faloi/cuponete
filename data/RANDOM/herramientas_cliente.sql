@@ -3,6 +3,13 @@
 create procedure RANDOM.CargarCredito @id_usuario bigint output, @carga_credito bigint output, @fecha datetime output, @id_forma_pago bigint output, @nro_tarjeta numeric(15,0) output, @cod_seguridad_tarjeta numeric(3,0) output, @fecha_vto_tarjeta nvarchar(5) output
 as
 begin
+	if exists (select 1 from RANDOM.Usuario where id_usuario = @id_usuario and estado = 0)
+	begin
+		rollback
+		raiserror('Está deshabilitado, no puede cargar credito', 16, 1)
+		return
+	end
+	
 	insert into RANDOM.Credito(id_cliente, carga_credito, fecha,id_forma_pago, nro_tarjeta, cod_seguridad_tarjeta, fecha_vto_tarjeta)
 	values(@id_usuario, @carga_credito, @fecha, @id_forma_pago, @nro_tarjeta, @cod_seguridad_tarjeta, @fecha_vto_tarjeta)
 	
@@ -70,30 +77,40 @@ go
 create procedure RANDOM.ComprarCupon @id_cliente bigint output, @id_cupon bigint output, @fecha datetime output, @codigo_compra nvarchar(50) output
 as
 begin transaction
-	if (select cant_disp from RANDOM.Cupon where id_cupon = @id_cupon) <= 0
+
+	if exists (select 1 from RANDOM.Usuario where id_usuario = @id_cliente and estado = 0)
 	begin
 		rollback
-		raiserror('No hay suficiente stock', 16, 1)
+		raiserror('Está deshabilitado, no puede comprar cupones', 16, 1)
 		return
 	end
 	else
 	begin
-		if (select saldo_actual from RANDOM.Cliente where id_usuario = @id_cliente) < (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
+		if (select cant_disp from RANDOM.Cupon where id_cupon = @id_cupon) <= 0
 		begin
 			rollback
-			raiserror('No posee credito suficiente para realizar la compra', 16, 1)
+			raiserror('No hay suficiente stock', 16, 1)
 			return
 		end
 		else
 		begin
-			if (select COUNT(*) from RANDOM.Cupon_Comprado where id_cliente = @id_cliente and id_cupon = @id_cupon) >= (select max_compra_por_usuario from RANDOM.Cupon where id_cupon = @id_cupon)
+			if (select saldo_actual from RANDOM.Cliente where id_usuario = @id_cliente) < (select precio_real from RANDOM.Cupon where id_cupon = @id_cupon)
 			begin
 				rollback
-				raiserror('Ya ha comprado el maximo permitido de este cupon', 16, 1)
-				return			
+				raiserror('No posee credito suficiente para realizar la compra', 16, 1)
+				return
 			end
-		end
-	end	
+			else
+			begin
+				if (select COUNT(*) from RANDOM.Cupon_Comprado where id_cliente = @id_cliente and id_cupon = @id_cupon) >= (select max_compra_por_usuario from RANDOM.Cupon where id_cupon = @id_cupon)
+				begin
+					rollback
+					raiserror('Ya ha comprado el maximo permitido de este cupon', 16, 1)
+					return			
+				end
+			end
+		end	
+	end
 	
 	insert into RANDOM.Cupon_Comprado(fecha_compra, id_cliente, id_cupon, codigo_compra)
 	values (@fecha, @id_cliente, @id_cupon, 0)
