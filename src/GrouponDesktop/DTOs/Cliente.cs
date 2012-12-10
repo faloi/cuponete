@@ -31,5 +31,7 @@ namespace GrouponDesktop.DTOs
         {
             this.fecha_nac = DateTime.Now;
         }
+
+        public Cliente(Usuario usuario) : base(usuario) {}
     }
 }

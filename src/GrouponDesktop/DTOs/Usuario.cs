@@ -13,6 +13,15 @@ namespace GrouponDesktop.DTOs
         public string dni_cuit { get; set; }
         public decimal fallas { get; set; }
 
+        public Usuario() {}
+
+        public Usuario(Usuario usuario)
+        {
+            this.dni_cuit = usuario.dni_cuit;
+            this.password = usuario.password;
+            this.username = usuario.username;
+        }
+
         public bool EstaBloqueado
         {
             get { return this.fallas >= 3; }

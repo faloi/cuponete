@@ -12,18 +12,25 @@ namespace GrouponDesktop.Views
     {
         private readonly UsuarioHome home;
 
-        public RegistroUsuarioView()
+        public RegistroUsuarioView() : this(new Usuario()) {}
+
+        public RegistroUsuarioView(Cliente cliente) : this(cliente as Usuario)
+        {
+            this.comboRol.SelectedValue = 1;
+        }
+
+        public RegistroUsuarioView(Proveedor proveedor) : this(proveedor as Usuario)
+        {
+            this.comboRol.SelectedValue = 2;
+        }
+
+        private RegistroUsuarioView(Usuario usuario)
         {
             InitializeComponent();
 
             this.home = HomeFactory.Usuario;
-            this.SetBindingSource(new Cliente());
+            this.SetBindingSource(usuario);
 
-            this.Setup();
-        }
-
-        private void Setup()
-        {
             this.Text = "Registro de Usuario";
             this.CreateBindings(this.guardarButton);
         }
@@ -32,6 +39,7 @@ namespace GrouponDesktop.Views
         {
             this.username.BindTextTo(this.model, "username");
             this.password.BindTextTo(this.model, "password");
+            
             this.apellidoCliente.BindTextTo(this.model,"apellido");
             this.nombreCliente.BindTextTo(this.model, "nombre");
             this.dniCliente.BindTextTo(this.model, "dni", DataType.INTEGER);
@@ -43,6 +51,10 @@ namespace GrouponDesktop.Views
             this.localidadCliente.BindTextTo(this.model, "direccionLocalidad");
             this.cpostalCliente.BindTextTo(this.model, "cod_postal");
             this.fechaNacCliente.BindTextToDate(this.model, "fecha_nac", "dd/MM/yyyy");
+
+            //TODO: faltan los bindings del proveedor
+            this.contactoProveedor.BindTextTo(this.model, "contacto_nombre");
+            this.razonSocialProveedor.BindTextTo(this.model, "razon_social");
 
             this.limpiarButton.Click +=
                 (sender, args) => this.model.DataSource = new Cliente();
@@ -90,17 +102,13 @@ namespace GrouponDesktop.Views
 
         private void ComboRolSelectedIndexChanged(object sender, EventArgs e)
         {
+            this.proveedorGroupBox.Visible = !this.EsCliente;
+            this.clienteGroupBox.Visible = this.EsCliente;
+
             if (this.EsCliente)
-            {
-                this.proveedorGroupBox.Visible = false;
-                this.clienteGroupBox.Visible = true;
-            }
+                this.SetBindingSource(new Cliente(this.model.DataSource as Usuario));
             else
-            {
-                this.proveedorGroupBox.Visible = true;
-                this.clienteGroupBox.Visible = false;   
-            }
-                
+                this.SetBindingSource(new Proveedor(this.model.DataSource as Usuario));
         }
 
         private bool EsCliente
