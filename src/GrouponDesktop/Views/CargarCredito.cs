@@ -42,6 +42,7 @@ namespace GrouponDesktop.Views
             this.comboBoxFormaPago.BindSourceTo(roles, "id_forma_pago", "descripcion");
         }
 
+
         private void buttonCancelar_Click(object sender, System.EventArgs e)
         {
             this.Close();

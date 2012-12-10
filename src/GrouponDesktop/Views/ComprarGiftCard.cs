@@ -47,6 +47,11 @@ namespace GrouponDesktop.Views
             this.comboBoxMontos.DataSource = datasource;
         }
 
+         protected override void ExecSubmit()
+        {
+               //this.home.ComprarGiftCard(this.model.DataSource as Gift_card, this.comboBoxMontos.SelectedItem.ToString());
+        }
+
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

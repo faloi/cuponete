@@ -12,6 +12,7 @@ namespace GrouponDesktop.Views
     {
         private readonly UsuarioHome home;
 
+
         public RegistroUsuarioView() : this(new Usuario()) {}
 
         public RegistroUsuarioView(Cliente cliente) : this(cliente as Usuario)
