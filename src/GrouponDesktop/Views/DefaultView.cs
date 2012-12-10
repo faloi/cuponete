@@ -33,6 +33,7 @@ namespace GrouponDesktop.Views
         {
             try
             {
+                ValidarRolActual();
                 if(this.Validar())
                     this.ExecSubmit();
             }
@@ -41,6 +42,8 @@ namespace GrouponDesktop.Views
                 MessageFactory.Alert(e.Message);
             }
         }
+
+        protected virtual void ValidarRolActual(){}
 
         protected virtual bool Validar()
         {
@@ -62,7 +65,7 @@ namespace GrouponDesktop.Views
 
         protected void MensajeRolNoPermitido()
         {
-            MessageFactory.Alert("No se tiene la información suficiente para acceder a esta funcionalidad");
+            throw new ApplicationException("Con este rol no se puede acceder a esta funcionalidad"); 
         }
     }
 }

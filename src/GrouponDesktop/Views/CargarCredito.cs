@@ -1,4 +1,5 @@
 ﻿
+using System;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -12,15 +13,19 @@ namespace GrouponDesktop.Views
         
         public CargarCredito()
         {
-            if(this.home.UsuarioActual.id_rol == 1)
-            {
-                this.MensajeRolNoPermitido();
-            }
             InitializeComponent();
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(new Credito());
-
             this.Setup();
+            
+        }
+
+        protected override void ValidarRolActual()
+        {
+            if (this.home.UsuarioActual.id_rol != 2)
+            {
+                MensajeRolNoPermitido();
+            }
         }
 
         private void Setup()

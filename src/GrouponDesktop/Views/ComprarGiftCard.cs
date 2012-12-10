@@ -22,7 +22,7 @@ namespace GrouponDesktop.Views
 
             InitializeComponent();
             this.home = HomeFactory.Usuario;
-            this.SetBindingSource(new Usuario());
+            this.SetBindingSource(new Gift_card());
 
             this.Setup();
         }
