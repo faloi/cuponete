@@ -28,6 +28,7 @@ namespace GrouponDesktop.Views
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Clientes";
             this.CreateBindings(this.buttonBuscar);
+            this.buttonModificar.Visible = false;
         }
 
         protected override void CreateSpecificBindings()
@@ -66,6 +67,7 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             this.Data = this.home.ListarClientes(this.Filter as Cliente);
+            this.buttonModificar.Visible = true;
         }
     }
 }

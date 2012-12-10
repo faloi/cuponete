@@ -25,6 +25,7 @@ namespace GrouponDesktop.Views
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Roles";
             this.CreateBindings(this.buttonBuscar);
+            this.buttonModificar.Visible = false;
         }
 
         protected override void CreateSpecificBindings()
@@ -47,6 +48,7 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             this.Data = this.home.ListarRoles(this.Filter as Rol);
+            this.buttonModificar.Visible = true;
         }
 
         private void buttonNuevoRol_Click(object sender, EventArgs e)
