@@ -36,26 +36,37 @@ namespace GrouponDesktop.Views
             this.textBoxNombre.BindTextTo(this.model, "descripcion");
             
             CargarFuncionalidades();
-            if((this.model.DataSource as Rol).id_rol != 0)
+            if(isModificar())
                 this.FiltrarFuncionalidades();
             
-        }   
+        }
+
+        private bool isModificar()
+        {
+            return ((this.model.DataSource as Rol).id_rol!=0)
+            ;
+
+        }
 
         protected override void ExecSubmit()
         {
-            this.home.RegistrarRol(this.model.DataSource as Rol, this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
+            if (isModificar())
+                this.home.ModificarRol(this, model.DataSource as Rol,
+                                       this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
+            else
+                 this.home.RegistrarRol(this.model.DataSource as Rol, this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
            
         }
 
         private void CargarFuncionalidades()
         {
-            var funcionalidades = new Adapter().TransformMany<Funcionalidad>(HomeFactory.Funcionalidad.FuncionalidadesDisponibles());
+            var funcionalidades = HomeFactory.Funcionalidad.FuncionalidadesDisponibles();
             checkedListBoxFuncionalidades.BindSourceTo(funcionalidades, "id_funcionalidad", "descripcion");
         }
        
         private void FiltrarFuncionalidades()
         {
-            var funcionalidades = (HomeFactory.Rol.Funcionalidades((this.model.DataSource as Rol).id_rol));
+            var funcionalidades = (HomeFactory.Funcionalidad.FuncionalidadesPorRol((this.model.DataSource as Rol).id_rol));
             var checkBoxItems = checkedListBoxFuncionalidades.DataSource as List<Funcionalidad>;
             foreach (var checkBoxItem in checkBoxItems)
             {

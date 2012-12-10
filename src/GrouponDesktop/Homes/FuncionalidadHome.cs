@@ -16,12 +16,11 @@ namespace GrouponDesktop.Homes
         }
 
 
-        public DataTable FuncionalidadesDisponibles()
+        public IList<Funcionalidad> FuncionalidadesDisponibles()
         {
             try
             {
-                return sqlRunner
-                    .Select("SELECT * FROM RANDOM.Funcionalidad");
+                return new Adapter().TransformMany<Funcionalidad>(sqlRunner.Select("SELECT * FROM RANDOM.Funcionalidad"));
             }
             catch (NoResultsException e)
             {
@@ -37,19 +36,16 @@ namespace GrouponDesktop.Homes
         }
 */
 
-        public DataTable FuncionalidadesDisponiblesParaRol(long id_rol)
+        public IList<Funcionalidad> FuncionalidadesPorRol(long id_rol)
         {
-            try
-            {
-                var filtros = new Filters();
+            const string QUERY = "SELECT func.descripcion FROM RANDOM.Funcionalidad_x_Rol funcr LEFT JOIN RANDOM.Funcionalidad func ON (func.id_funcionalidad = funcr.id_funcionalidad)";
+
+            var filtros = new Filters();
+            if (id_rol != null)
                 filtros.AddEqual("id_rol", id_rol.ToString());
-                return sqlRunner
-                    .Select("SELECT * FROM RANDOM.Funcionalidad", filtros);
-            }
-            catch (NoResultsException e)
-            {
-                throw new ApplicationException("No hay Resultados", e);
-            }
+
+
+            return new Adapter().TransformMany<Funcionalidad>(this.sqlRunner.Select(QUERY, filtros));
         }
     }
 }
