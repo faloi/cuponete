@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
 using GrouponDesktop.Helpers;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
     public class DefaultView : Form
     {
+        protected readonly int CLIENTE = 2;
+        protected readonly int PROVEEDOR = 3;
+        protected readonly int ADMINISTRADOR = 1;
         protected readonly BindingSource model;
+        protected int rolDisponible;
         protected ErrorProvider errorProvider = new ErrorProvider();
 
         protected DefaultView()
@@ -43,7 +48,13 @@ namespace GrouponDesktop.Views
             }
         }
 
-        protected virtual void ValidarRolActual(){}
+        protected void ValidarRolActual()
+        {
+            if (HomeFactory.Usuario.UsuarioActual.id_rol != this.rolDisponible)
+            {
+                MensajeRolNoPermitido();
+            }
+        }
 
         protected virtual bool Validar()
         {

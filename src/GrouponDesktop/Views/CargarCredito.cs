@@ -20,16 +20,9 @@ namespace GrouponDesktop.Views
             
         }
 
-        protected override void ValidarRolActual()
-        {
-            if (this.home.UsuarioActual.id_rol != 2)
-            {
-                MensajeRolNoPermitido();
-            }
-        }
-
         private void Setup()
         {
+            this.rolDisponible = CLIENTE;
             this.Text = "Cargar Credito";
             this.CreateBindings(this.buttonCargar);
         }
