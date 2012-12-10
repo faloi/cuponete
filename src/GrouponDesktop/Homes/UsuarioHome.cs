@@ -112,7 +112,13 @@ namespace GrouponDesktop.Homes
 
         public Cliente GetClienteById(string id)
         {
-            throw new NotImplementedException();
+            const string QUERY = "SELECT razon_social, cuit,mail FROM RANDOM.Proveedor where id = {0}";
+
+            var filtros = new Filters();
+            if(id != null)
+                filtros.AddEqual("id_usuario", id);
+
+            return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id));
         }
 
         public void BorrarCliente(string id)
