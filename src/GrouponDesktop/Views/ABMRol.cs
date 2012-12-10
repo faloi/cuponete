@@ -26,6 +26,7 @@ namespace GrouponDesktop.Views
             this.Text = "Listado de Roles";
             this.CreateBindings(this.buttonBuscar);
             this.buttonModificar.Visible = false;
+            this.rolesDataGrid.AllowUserToAddRows = false;
         }
 
         protected override void CreateSpecificBindings()

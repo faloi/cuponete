@@ -30,6 +30,7 @@ namespace GrouponDesktop.Views
             this.Text = "Listado de Proveedores";
             this.CreateBindings(this.buttonBuscar);
             this.buttonModificar.Visible = false;
+            this.proveedoresDataGrid.AllowUserToAddRows = false;
         }
 
         protected override void CreateSpecificBindings()
