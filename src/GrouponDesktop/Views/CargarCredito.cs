@@ -12,6 +12,10 @@ namespace GrouponDesktop.Views
         
         public CargarCredito()
         {
+            if(this.home.UsuarioActual.id_rol == 1)
+            {
+                this.MensajeRolNoPermitido();
+            }
             InitializeComponent();
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(new Credito());
