@@ -97,7 +97,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Proveedor> ListarProveedores(Proveedor ejemplo)
         {
-            const string QUERY = "SELECT razon_social, cuit,mail FROM RANDOM.Proveedor";
+            const string QUERY = "SELECT * FROM RANDOM.Proveedor";
 
             var filtros = new Filters();
             if (ejemplo.razon_social != null)
@@ -115,6 +115,14 @@ namespace GrouponDesktop.Homes
             const string QUERY = "SELECT * FROM RANDOM.Cliente where id_usuario = {0}";
 
             return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id_usuario));
+
+        }
+
+        public Proveedor GetProveedorById(string id_usuario)
+        {
+            const string QUERY = "SELECT * FROM RANDOM.Proveedor where id_usuario = {0}";
+
+            return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
 
         }
 

@@ -32,7 +32,7 @@
             this.buttonBajaRestaurar = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonNuevoProveedor = new System.Windows.Forms.Button();
-            this.proovedoresDataGrid = new System.Windows.Forms.DataGridView();
+            this.proveedoresDataGrid = new System.Windows.Forms.DataGridView();
             this.ColumnRazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCUIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@
             this.limpiarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proovedoresDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonBajaRestaurar
@@ -79,11 +79,11 @@
             this.buttonNuevoProveedor.Text = "Nuevo Proveedor";
             this.buttonNuevoProveedor.UseVisualStyleBackColor = true;
             // 
-            // proovedoresDataGrid
+            // proveedoresDataGrid
             // 
-            this.proovedoresDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.proovedoresDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.proovedoresDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.proveedoresDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.proveedoresDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.proveedoresDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,16 +91,16 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.proovedoresDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.proovedoresDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.proovedoresDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.proveedoresDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.proveedoresDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.proveedoresDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnRazonSocial,
             this.ColumnCUIT,
             this.ColumnEmail});
-            this.proovedoresDataGrid.Location = new System.Drawing.Point(17, 144);
-            this.proovedoresDataGrid.Name = "proovedoresDataGrid";
-            this.proovedoresDataGrid.Size = new System.Drawing.Size(568, 234);
-            this.proovedoresDataGrid.TabIndex = 8;
+            this.proveedoresDataGrid.Location = new System.Drawing.Point(17, 144);
+            this.proveedoresDataGrid.Name = "proveedoresDataGrid";
+            this.proveedoresDataGrid.Size = new System.Drawing.Size(568, 234);
+            this.proveedoresDataGrid.TabIndex = 8;
             // 
             // ColumnRazonSocial
             // 
@@ -205,7 +205,7 @@
             this.Controls.Add(this.buttonBajaRestaurar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonNuevoProveedor);
-            this.Controls.Add(this.proovedoresDataGrid);
+            this.Controls.Add(this.proveedoresDataGrid);
             this.Controls.Add(this.textBoxCuit);
             this.Controls.Add(this.textBoxRazonSocial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -215,7 +215,7 @@
             this.Text = "ABM Proveedor";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proovedoresDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,7 +226,7 @@
         private System.Windows.Forms.Button buttonBajaRestaurar;
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.Button buttonNuevoProveedor;
-        private System.Windows.Forms.DataGridView proovedoresDataGrid;
+        private System.Windows.Forms.DataGridView proveedoresDataGrid;
         private System.Windows.Forms.TextBox textBoxCuit;
         private System.Windows.Forms.TextBox textBoxRazonSocial;
         private System.Windows.Forms.Label labelRazonSocial;
