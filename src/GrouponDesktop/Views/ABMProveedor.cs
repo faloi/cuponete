@@ -29,6 +29,7 @@ namespace GrouponDesktop.Views
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Proveedores";
             this.CreateBindings(this.buttonBuscar);
+            this.buttonModificar.Visible = false;
         }
 
         protected override void CreateSpecificBindings()
@@ -63,6 +64,7 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             this.Data = this.home.ListarProveedores(this.Filter as Proveedor);
+            this.buttonModificar.Visible = true;
         }
     }
 }
