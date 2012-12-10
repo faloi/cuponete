@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace GrouponDesktop.Views
 {
-    public partial class FacturarProveedor : Form
+    public partial class FacturarProveedor : DefaultView
     {
         public FacturarProveedor()
         {
