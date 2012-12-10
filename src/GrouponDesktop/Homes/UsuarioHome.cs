@@ -27,7 +27,10 @@ namespace GrouponDesktop.Homes
                 var userFromDb = new Adapter().Transform<Usuario>(result);
 
                 if (userFromDb.EstaBloqueado)
-                    throw new ApplicationException("El usuario se encuentra bloqueado");
+                    throw new ApplicationException("El usuario se encuentra bloqueado.");
+                
+                if(userFromDb.id_rol==0)
+                    throw new ApplicationException("El usuario no tiene un rol asignado. Contáctese con el administrador.");
 
                 if (userFromDb.password != usuario.password.ToSha256())
                 {
