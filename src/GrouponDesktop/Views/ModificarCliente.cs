@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
+using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Views
 {
@@ -38,12 +39,28 @@ namespace GrouponDesktop.Views
             this.direccionCliente.BindTextTo(this.model, "direccion");
             this.fechaNacCliente.BindTextToDate(this.model, "fecha_nac", "dd/MM/yyyy");
 
-            //this.CargarCiudades();
+            this.CargarCiudadesPref();
+            this.FiltrarCiudades();
         }
 
-        private void CargarCiudades()
+
+        private void CargarCiudadesPref()
         {
-            throw new NotImplementedException();
+            var ciudades = new Adapter().TransformMany<Ciudad>(HomeFactory.Ciudad.CiudadesDisponibles());
+            ciuPrefClienteBox.BindSourceTo(ciudades, "id_ciudad", "descripcion");
+        }
+
+
+        private void FiltrarCiudades()
+        {
+            var funcionalidades = (HomeFactory.Ciudad.CiudadesPorCliente((this.model.DataSource as Cliente).id_usuario));
+            var checkBoxItems = ciuPrefClienteBox.DataSource as List<Ciudad>;
+            foreach (var checkBoxItem in checkBoxItems)
+            {
+                Ciudad ciudad = checkBoxItem as Ciudad;
+                if (funcionalidades.Any(obj => obj.descripcion == ciudad.descripcion))
+                    ciuPrefClienteBox.SetItemChecked(checkBoxItems.IndexOf(checkBoxItem), true);
+            }
         }
     }
 }
