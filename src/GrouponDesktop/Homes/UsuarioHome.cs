@@ -109,5 +109,15 @@ namespace GrouponDesktop.Homes
 
             return new Adapter().TransformMany<Proveedor>(this.sqlRunner.Select(QUERY, filtros));
         }
+
+        public Cliente GetClienteById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BorrarCliente(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

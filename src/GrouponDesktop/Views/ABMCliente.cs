@@ -17,6 +17,11 @@ namespace GrouponDesktop.Views
             this.Setup();
         }
 
+        private string IdSeleccionado
+        {
+            get { return this.clientesDataGrid.GetValue("id_cliente"); }
+        }
+
         private void Setup()
         {
             this.rolDisponible = ADMINISTRADOR;
@@ -40,7 +45,21 @@ namespace GrouponDesktop.Views
             });
 
             this.limpiarButton.Click += 
-                (sender, args) => this.Example = new Cliente();
+                (sender, args) => this.Example = new Cliente(); this.clientesDataGrid.Rows.Clear();
+
+            this.buttonModificar.Click +=
+                (sender, args) => this.ModificarCliente();
+
+            this.buttonBajaRestaurar.Click +=
+                (sender, args) => this.home.BorrarCliente(this.IdSeleccionado);
+        }
+
+        private void ModificarCliente()
+        {
+            var cliente = this.home.GetClienteById(this.IdSeleccionado);
+            new RegistroUsuarioView(cliente).ShowDialog();
+
+            this.ExecSubmit();
         }
 
         protected override void ExecSubmit()
