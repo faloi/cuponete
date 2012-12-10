@@ -32,7 +32,9 @@
             this.labelNroDeCupon = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.buttonRegistrar = new System.Windows.Forms.Button();
+            this.buttonCambiar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCambiarPassword
@@ -74,15 +76,15 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // buttonRegistrar
+            // buttonCambiar
             // 
-            this.buttonRegistrar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRegistrar.Location = new System.Drawing.Point(19, 134);
-            this.buttonRegistrar.Name = "buttonRegistrar";
-            this.buttonRegistrar.Size = new System.Drawing.Size(217, 36);
-            this.buttonRegistrar.TabIndex = 8;
-            this.buttonRegistrar.Text = "Cambiar";
-            this.buttonRegistrar.UseVisualStyleBackColor = true;
+            this.buttonCambiar.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCambiar.Location = new System.Drawing.Point(19, 134);
+            this.buttonCambiar.Name = "buttonCambiar";
+            this.buttonCambiar.Size = new System.Drawing.Size(217, 36);
+            this.buttonCambiar.TabIndex = 8;
+            this.buttonCambiar.Text = "Cambiar";
+            this.buttonCambiar.UseVisualStyleBackColor = true;
             // 
             // CambiarPassword
             // 
@@ -90,7 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(253, 235);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.buttonRegistrar);
+            this.Controls.Add(this.buttonCambiar);
             this.Controls.Add(this.labelNroDeCupon);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelCambiarPassword);
@@ -99,6 +101,8 @@
             this.Name = "CambiarPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambiar Password";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +114,6 @@
         private System.Windows.Forms.Label labelNroDeCupon;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.Button buttonRegistrar;
+        private System.Windows.Forms.Button buttonCambiar;
     }
 }

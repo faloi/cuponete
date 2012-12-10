@@ -20,6 +20,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
+            this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Proveedores";
             this.CreateBindings(this.buttonBuscar);
         }

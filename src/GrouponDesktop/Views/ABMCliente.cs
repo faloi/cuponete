@@ -14,12 +14,12 @@ namespace GrouponDesktop.Views
             InitializeComponent();
             this.home = HomeFactory.Usuario;
             this.Example = new Cliente();
-
             this.Setup();
         }
 
         private void Setup()
         {
+            this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Clientes";
             this.CreateBindings(this.buttonBuscar);
         }
