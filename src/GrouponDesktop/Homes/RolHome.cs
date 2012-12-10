@@ -61,12 +61,12 @@ namespace GrouponDesktop.Homes
 
         public Rol GetRolById(string idSeleccionado)
         {
-            const string QUERY = "SELECT id_rol, descripcion FROM RANDOM.Rol where id_rol = {0}";
+            const string QUERY = "SELECT * FROM RANDOM.Rol where id_rol = {0}";
 
             return new Adapter().Transform<Rol>(this.sqlRunner.Single(QUERY, idSeleccionado));
         }
 
-        public void ModificarRol(RegistroRolView registroRolView, Rol rol, IEnumerable<Funcionalidad> funcionalidades)
+        public void ModificarRol(Rol rol, IEnumerable<Funcionalidad> funcionalidades)
         {
             var procedures = new List<Runnable>
             {
@@ -86,6 +86,26 @@ namespace GrouponDesktop.Homes
                     new Dictionary<string, object> { { "id_funcionalidad", funcionalidad.id_funcionalidad }, { "id_rol", rol.id_rol } }));
 
             procedures.AddRange(nuevasFuncionalidades);
+
+            this.RunProcedures(procedures);
+        }
+
+        public void HabilitarRol(Rol rol)
+        {
+            var procedures = new List<Runnable>
+            {
+                this.CreateProcedureFrom("HabilitarRol", rol,"descripcion")
+            };
+
+            this.RunProcedures(procedures);
+        }
+
+        public void DeshabilitarRol(Rol rol)
+        {
+            var procedures = new List<Runnable>
+            {
+                this.CreateProcedureFrom("DeshabilitarRol", rol,"descripcion")
+            };
 
             this.RunProcedures(procedures);
         }

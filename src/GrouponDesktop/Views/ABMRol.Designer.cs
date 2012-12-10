@@ -72,7 +72,6 @@
             this.buttonNuevoRol.TabIndex = 3;
             this.buttonNuevoRol.Text = "Nuevo Rol";
             this.buttonNuevoRol.UseVisualStyleBackColor = true;
-            this.buttonNuevoRol.Click += new System.EventHandler(this.buttonNuevoRol_Click);
             // 
             // rolesDataGrid
             // 

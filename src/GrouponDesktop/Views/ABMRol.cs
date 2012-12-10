@@ -36,7 +36,8 @@ namespace GrouponDesktop.Views
 
             this.rolesDataGrid.BindSourceTo(this.Data,"id_rol", new Dictionary<string, string>
             {
-                {"Nombre", "descripcion"}
+                {"Nombre", "descripcion"},
+                {"Estado", "estado"}
             });
 
             this.buttonLimpiar.Click +=
@@ -44,17 +45,34 @@ namespace GrouponDesktop.Views
 
             this.buttonModificar.Click +=
                 (sender, args) => this.ModificarRol();
+
+            this.buttonNuevoRol.Click +=
+                (sender, args) => this.Redirect(new RegistroRolView());
+
+            this.buttonBajaRestaurar.Click +=
+                (sender, args) => this.BajaRestaurarRol();
+        }
+
+        private void BajaRestaurarRol()
+        {
+            var rol = this.home.GetRolById(this.IdSeleccionado);
+            if (rol.estado == 0)
+            {
+                this.home.HabilitarRol(rol);
+                MessageBox.Show("El rol se Habilito con éxito");
+            }
+
+            else
+            {
+                this.home.DeshabilitarRol(rol);
+                MessageBox.Show("El rol se Deshabilito con éxito");
+            }
         }
 
         protected override void ExecSubmit()
         {
             this.Data = this.home.ListarRoles(this.Filter as Rol);
             this.buttonModificar.Visible = true;
-        }
-
-        private void buttonNuevoRol_Click(object sender, EventArgs e)
-        {
-            this.Redirect(new RegistroRolView());
         }
 
         private void ModificarRol()

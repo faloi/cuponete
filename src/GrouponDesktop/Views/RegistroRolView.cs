@@ -51,7 +51,7 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             if (isModificar())
-                this.home.ModificarRol(this, model.DataSource as Rol,
+                this.home.ModificarRol(model.DataSource as Rol,
                                        this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
             else
                  this.home.RegistrarRol(this.model.DataSource as Rol, this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());

@@ -12,7 +12,7 @@ begin
 			delete from RANDOM.Cliente
 		end
 	
-		if (select estado from RANDOM.Rol where id_rol = 2 /*3 es proveedor*/) = 0 
+		if (select estado from RANDOM.Rol where id_rol = 3 /*3 es proveedor*/) = 0 
 		begin
 			delete from RANDOM.Proveedor
 		end
