@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
+using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Views
 {
@@ -36,9 +37,23 @@ namespace GrouponDesktop.Views
             this.cPostalProveedor.BindTextTo(this.model, "cod_postal", DataType.INTEGER);
             this.cuitProveedor.BindTextTo(this.model, "cuit");
             this.contactoProveedor.BindTextTo(this.model, "contacto_nombre");
-            this.comboRubro.BindTextTo(this.model, "id_rubro");
+            this.CargarRubros();
+            this.CargarCiudadesProv();
+        }
 
-            //this.CargarCiudades();
+        private void CargarRubros()
+        {
+            var rubros = new Adapter().TransformMany<Rubro>(HomeFactory.Rubro.RubrosDisponibles());
+            this.comboRubro.BindSourceTo(rubros, "id_rubro", "desc_rubro");
+            this.comboRubro.SelectedValue = (this.model.DataSource as Proveedor).id_rubro;
+
+        }
+
+        private void CargarCiudadesProv()
+        {
+            var ciudades = new Adapter().TransformMany<Ciudad>(HomeFactory.Ciudad.CiudadesDisponibles());
+            ciudadProvCombo.BindSourceTo(ciudades, "id_ciudad", "descripcion");
+            this.ciudadProvCombo.SelectedValue = (this.model.DataSource as Proveedor).id_ciudad;
         }
     }
 }
