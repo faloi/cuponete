@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
-using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Views
 {
@@ -23,7 +17,6 @@ namespace GrouponDesktop.Views
         public RegistroRolView(Rol rol)
         {
             InitializeComponent();
-
             this.home = HomeFactory.Rol;
             this.SetBindingSource(rol);
 

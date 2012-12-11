@@ -53,6 +53,7 @@ namespace GrouponDesktop.Views
         {
             this.home.Login(this.model);
             this.Redirect(new Menu());
+            this.home.ReiniciarFallas();
         }
 
     }

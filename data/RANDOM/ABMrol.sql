@@ -37,18 +37,16 @@ begin
 end
 go
 
---Cambiar nombre de rol: RANDOM.CambiarNombreRol (el parametro @id_rol es solo de output, para usarlo en RANDOM.AgregarFuncionalidadPorRol)
+--Cambiar nombre de rol: RANDOM.CambiarNombreRol (todos los parametros son necesarios)
 create procedure RANDOM.CambiarNombreRol @id_rol bigint output, @descripcion nvarchar(50) output
 as
 begin transaction
-	if exists (select descripcion from RANDOM.Rol where @descripcion = descripcion)
+	if exists (select descripcion from RANDOM.Rol where @descripcion = descripcion and @id_rol != id_rol)
 	begin
 		rollback
 		raiserror('El nombre de rol ya existe', 16, 1)
 		return
 	end	
-
-	select @id_rol = id_rol from RANDOM.Rol where descripcion = @descripcion
 	
 	update RANDOM.Rol
 	set descripcion = @descripcion

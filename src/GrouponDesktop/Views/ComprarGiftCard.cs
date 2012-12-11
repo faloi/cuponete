@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -23,6 +20,7 @@ namespace GrouponDesktop.Views
             InitializeComponent();
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(new Gift_card());
+            this.rolDisponible = CLIENTE;
 
             this.Setup();
         }
@@ -37,7 +35,9 @@ namespace GrouponDesktop.Views
         protected override void CreateSpecificBindings()
         {
             this.textBoxNomUsua.BindTextTo(this.model, "usuario_destino");
-            this.CargarValoresGiftCard();
+            this.CargarValoresGiftCard(); 
+            this.buttonCancelar.Click +=
+                (sender, args) => this.Close();
         }
 
         private void CargarValoresGiftCard()
@@ -45,16 +45,35 @@ namespace GrouponDesktop.Views
             List<string> valores = ConfigurationManager.AppSettings["valores"].Split(',').ToList<string>();
             var datasource = valores.Select(item => Convert.ToInt32(item)).ToList();
             this.comboBoxMontos.DataSource = datasource;
+            
+
         }
 
          protected override void ExecSubmit()
+         {
+             this.fillData();
+             this.home.ComprarGiftCard(this.model.DataSource as Gift_card);
+         }
+
+         protected void fillData()
+         {
+             var gift = this.model.DataSource as Gift_card;
+             gift.id_usuario_destino = this.home.GetClienteByUserName(gift.usuario_destino).id_usuario;
+             gift.fecha = ControlBindingHelpers.GetFechaSistema();
+             gift.monto = Convert.ToInt32(comboBoxMontos.SelectedValue);
+             gift.id_usuario_origen = this.home.UsuarioActual.id_usuario;
+         }
+
+        protected override bool Validar()
         {
-               //this.home.ComprarGiftCard(this.model.DataSource as Gift_card, this.comboBoxMontos.SelectedItem.ToString());
+            var fieldsObligatorios = new List<TextBox>
+               {
+                   this.textBoxNomUsua,
+                
+               };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateComboBox(this.comboBoxMontos, this.errorProvider));
+      
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

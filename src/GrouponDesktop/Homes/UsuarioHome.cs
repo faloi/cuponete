@@ -27,7 +27,10 @@ namespace GrouponDesktop.Homes
                 var userFromDb = new Adapter().Transform<Usuario>(result);
 
                 if (userFromDb.EstaBloqueado)
-                    throw new ApplicationException("El usuario se encuentra bloqueado");
+                    throw new ApplicationException("El usuario se encuentra bloqueado.");
+                
+                if(userFromDb.id_rol==0)
+                    throw new ApplicationException("El usuario no tiene un rol asignado. Contáctese con el administrador.");
 
                 if (userFromDb.password != usuario.password.ToSha256())
                 {
@@ -78,6 +81,11 @@ namespace GrouponDesktop.Homes
             this.CreateProcedureFrom("RegistrarProveedor", proveedor);
         }
 
+        public void ComprarGiftCard(Gift_card gift)
+        {
+            this.CreateProcedureFrom("ComprarGiftCard", gift,"id_usuario_origen","id_usuario_destino","fecha","monto");
+        }
+
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
             const string QUERY = "SELECT id_usuario, nombre, apellido, dni, mail FROM RANDOM.Cliente";
@@ -124,6 +132,44 @@ namespace GrouponDesktop.Homes
 
             return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
 
+        }
+
+        public Cliente GetClienteByUserName(string username)
+        {
+           try
+           {
+               const string QUERY = "SELECT * FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) where us.username = {0}";
+
+               return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, username));
+           }
+           catch (NoResultsException e)
+           {
+               throw new ApplicationException("El usuario no existe", e);
+           }   
+
+
+        }
+
+        public void CambiaPassword(string nuevoPass)
+        {
+            HomeFactory.Usuario.UsuarioActual.password = nuevoPass.ToSha256();
+
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ModificarUsuario", HomeFactory.Usuario.UsuarioActual,
+                                                              "id_usuario", "username", "password")
+                                 };
+            this.RunProcedures(procedures);
+        }
+
+        public void ReiniciarFallas()
+        {
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual,
+                                                              "id_usuario")
+                                 };
+            this.RunProcedures(procedures);
         }
 
         public void BorrarCliente(string id)

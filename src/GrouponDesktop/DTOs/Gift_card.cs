@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Gift_card
+    public class Gift_card
     {
         public long id_gift_card { set; get; }
         public DateTime fecha { set; get; }

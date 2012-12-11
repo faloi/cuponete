@@ -39,10 +39,10 @@ end
 go
 
 
---Cambiar rol: RANDOM.CambiarRol (parametros necesarios. Es importante, despues del cambio a rol de proveedor o cliente, llamar al procedure registrar de dicho rol)
+--Cambiar rol: RANDOM.CambiarRol (todos los parametros son necesarios)
 create procedure RANDOM.CambiarRol @id_usuario bigint out, @id_rol bigint out
 as
-begin transaction
+begin transaction	
 	if (select id_rol from RANDOM.Usuario where @id_usuario = id_usuario) = @id_rol
 	begin
 		rollback
@@ -50,16 +50,32 @@ begin transaction
 		return
 	end	
 	
-	if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 2 /*2 es cliente*/)
+	/*if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = NULL)
 	begin
-		delete from RANDOM.Cliente_x_Ciudad where id_cliente = @id_usuario
-		delete from RANDOM.Cliente where id_usuario = @id_usuario
+		if ((exists (select 1 from RANDOM.Usuario u inner join RANDOM.Cliente c on u.id_usuario = c.id_usuario)) and @id_rol != 2 /*2 es cliente*/)
+		begin
+			delete from RANDOM.Cliente_x_Ciudad where id_cliente = @id_usuario
+			delete from RANDOM.Cliente where id_usuario = @id_usuario
+		end
+		
+		if ((exists (select 1 from RANDOM.Usuario u inner join RANDOM.Proveedor p on u.id_usuario = p.id_usuario)) and @id_rol != 3 /*3 es proveedor*/)
+		begin
+			delete from RANDOM.Proveedor where id_usuario = @id_usuario
+		end
 	end
-	
-	if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 3 /*3 es proveedor*/)
+	else
 	begin
-		delete from RANDOM.Proveedor where id_usuario = @id_usuario
-	end
+		if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 2 /*2 es cliente*/)
+		begin
+			delete from RANDOM.Cliente_x_Ciudad where id_cliente = @id_usuario
+			delete from RANDOM.Cliente where id_usuario = @id_usuario
+		end
+		
+		if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 3 /*3 es proveedor*/)
+		begin
+			delete from RANDOM.Proveedor where id_usuario = @id_usuario
+		end
+	end*/
 	
 	update RANDOM.Usuario
 	set id_rol = @id_rol
