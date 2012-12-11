@@ -38,6 +38,9 @@ namespace GrouponDesktop.Views
             CargarFuncionalidades();
             if(isModificar())
                 this.FiltrarFuncionalidades();
+
+            this.buttonCancelar.Click +=
+                (sender, args) => this.Close();
             
         }
 
@@ -76,8 +79,6 @@ namespace GrouponDesktop.Views
             }
         }
 
-
-
         protected override bool Validar()
         {
             var fieldsObligatorios = new List<TextBox>
@@ -88,9 +89,5 @@ namespace GrouponDesktop.Views
              
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

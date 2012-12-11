@@ -46,7 +46,7 @@ namespace GrouponDesktop.Homes
         private void IncrementarFallas(Usuario usuario)
         {
             var procedure = 
-                this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@userId", usuario.id_usuario}});
+                this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@id_usuario", usuario.id_usuario}});
             
             this.RunProcedure(procedure);
         }
