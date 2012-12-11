@@ -1,1 +1,1 @@
-sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2012 -i drop_procedures.sql,drop_tables_script.sql -a 32767 -o resultado_output.txt
+sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2012 -i destroy_random_database.sql -a 32767 -o resultado_output.txt
