@@ -83,8 +83,14 @@ namespace GrouponDesktop.Homes
 
         public void ComprarGiftCard(Gift_card gift)
         {
-            this.CreateProcedureFrom("ComprarGiftCard", gift,"id_usuario_origen","id_usuario_destino","fecha","monto");
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ComprarGiftCard", gift, "id_usuario_origen",
+                                                              "id_usuario_destino", "fecha", "monto")
+                                 };
+            this.RunProcedures(procedures);
         }
+
 
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
@@ -139,7 +145,7 @@ namespace GrouponDesktop.Homes
            try
            {
                const string QUERY = 
-                   "SELECT * FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) where us.username = '{0}'";
+                   "SELECT cli.* FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) where us.username = '{0}'";
 
                return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, username));
            }

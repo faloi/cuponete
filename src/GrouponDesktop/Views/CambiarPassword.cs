@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using GrouponDesktop.DTOs;
-using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
@@ -35,10 +27,8 @@ namespace GrouponDesktop.Views
         protected override void ExecSubmit()
         {
             this.home.CambiaPassword(this.textBoxPassword.Text);
-            MessageBox.Show("Su password fue cambiado con éxito");
-            this.Close();
+            SuccessMessage("Su Password fue cambiado con éxito");
         }
-
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
