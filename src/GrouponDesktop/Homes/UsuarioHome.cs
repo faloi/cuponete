@@ -69,7 +69,7 @@ namespace GrouponDesktop.Homes
             var relacionCiudades = ciudades
                 .Select(ciudad => 
                     this.CreateProcedureFrom("AgregarClientePorCiudad", 
-                    new Dictionary<string, object> {{"id_cliente", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}}));
+                    new Dictionary<string, object> {{"id_usuario", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}}));
             
             procedures.AddRange(relacionCiudades);
 
