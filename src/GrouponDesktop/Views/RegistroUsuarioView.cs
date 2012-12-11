@@ -11,10 +11,7 @@ namespace GrouponDesktop.Views
     public partial class RegistroUsuarioView : DefaultView
     {
         private readonly UsuarioHome home;
-
-
-
-
+        
         public RegistroUsuarioView(Usuario usuario)
         {
             InitializeComponent();

@@ -40,8 +40,10 @@
             this.labelMonto = new System.Windows.Forms.Label();
             this.buttonCargar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxFormaPago
@@ -49,8 +51,9 @@
             this.comboBoxFormaPago.FormattingEnabled = true;
             this.comboBoxFormaPago.Location = new System.Drawing.Point(16, 33);
             this.comboBoxFormaPago.Name = "comboBoxFormaPago";
-            this.comboBoxFormaPago.Size = new System.Drawing.Size(224, 21);
+            this.comboBoxFormaPago.Size = new System.Drawing.Size(242, 21);
             this.comboBoxFormaPago.TabIndex = 0;
+            this.comboBoxFormaPago.SelectedIndexChanged += new System.EventHandler(this.comboBoxFormaPago_SelectedIndexChanged);
             // 
             // labelFormaDePago
             // 
@@ -64,7 +67,7 @@
             // 
             // textBoxNroTarjeta
             // 
-            this.textBoxNroTarjeta.Location = new System.Drawing.Point(16, 87);
+            this.textBoxNroTarjeta.Location = new System.Drawing.Point(10, 40);
             this.textBoxNroTarjeta.Name = "textBoxNroTarjeta";
             this.textBoxNroTarjeta.Size = new System.Drawing.Size(224, 20);
             this.textBoxNroTarjeta.TabIndex = 1;
@@ -73,7 +76,7 @@
             // 
             this.labelNroDeTarjeta.AutoSize = true;
             this.labelNroDeTarjeta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNroDeTarjeta.Location = new System.Drawing.Point(12, 63);
+            this.labelNroDeTarjeta.Location = new System.Drawing.Point(6, 16);
             this.labelNroDeTarjeta.Name = "labelNroDeTarjeta";
             this.labelNroDeTarjeta.Size = new System.Drawing.Size(135, 21);
             this.labelNroDeTarjeta.TabIndex = 3;
@@ -81,7 +84,7 @@
             // 
             // textBoxCodDeSeg
             // 
-            this.textBoxCodDeSeg.Location = new System.Drawing.Point(16, 139);
+            this.textBoxCodDeSeg.Location = new System.Drawing.Point(10, 92);
             this.textBoxCodDeSeg.Name = "textBoxCodDeSeg";
             this.textBoxCodDeSeg.Size = new System.Drawing.Size(69, 20);
             this.textBoxCodDeSeg.TabIndex = 2;
@@ -90,7 +93,7 @@
             // 
             this.labelCodDeSeg.AutoSize = true;
             this.labelCodDeSeg.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCodDeSeg.Location = new System.Drawing.Point(12, 115);
+            this.labelCodDeSeg.Location = new System.Drawing.Point(6, 68);
             this.labelCodDeSeg.Name = "labelCodDeSeg";
             this.labelCodDeSeg.Size = new System.Drawing.Size(152, 21);
             this.labelCodDeSeg.TabIndex = 5;
@@ -100,7 +103,7 @@
             // 
             this.labelFechaVto.AutoSize = true;
             this.labelFechaVto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaVto.Location = new System.Drawing.Point(12, 172);
+            this.labelFechaVto.Location = new System.Drawing.Point(6, 125);
             this.labelFechaVto.Name = "labelFechaVto";
             this.labelFechaVto.Size = new System.Drawing.Size(236, 21);
             this.labelFechaVto.TabIndex = 6;
@@ -108,23 +111,23 @@
             // 
             // textBoxFechaVto
             // 
-            this.textBoxFechaVto.Location = new System.Drawing.Point(16, 196);
+            this.textBoxFechaVto.Location = new System.Drawing.Point(10, 149);
             this.textBoxFechaVto.Name = "textBoxFechaVto";
             this.textBoxFechaVto.Size = new System.Drawing.Size(224, 20);
             this.textBoxFechaVto.TabIndex = 3;
             // 
             // textBoxMonto
             // 
-            this.textBoxMonto.Location = new System.Drawing.Point(16, 252);
+            this.textBoxMonto.Location = new System.Drawing.Point(16, 284);
             this.textBoxMonto.Name = "textBoxMonto";
-            this.textBoxMonto.Size = new System.Drawing.Size(224, 20);
+            this.textBoxMonto.Size = new System.Drawing.Size(242, 20);
             this.textBoxMonto.TabIndex = 4;
             // 
             // labelMonto
             // 
             this.labelMonto.AutoSize = true;
             this.labelMonto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMonto.Location = new System.Drawing.Point(12, 228);
+            this.labelMonto.Location = new System.Drawing.Point(12, 260);
             this.labelMonto.Name = "labelMonto";
             this.labelMonto.Size = new System.Drawing.Size(55, 21);
             this.labelMonto.TabIndex = 9;
@@ -133,9 +136,9 @@
             // buttonCargar
             // 
             this.buttonCargar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCargar.Location = new System.Drawing.Point(16, 286);
+            this.buttonCargar.Location = new System.Drawing.Point(16, 318);
             this.buttonCargar.Name = "buttonCargar";
-            this.buttonCargar.Size = new System.Drawing.Size(224, 36);
+            this.buttonCargar.Size = new System.Drawing.Size(242, 36);
             this.buttonCargar.TabIndex = 5;
             this.buttonCargar.Text = "Cargar";
             this.buttonCargar.UseVisualStyleBackColor = true;
@@ -143,7 +146,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(74, 343);
+            this.buttonCancelar.Location = new System.Drawing.Point(80, 369);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 10;
@@ -151,21 +154,31 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelNroDeTarjeta);
+            this.groupBox1.Controls.Add(this.textBoxNroTarjeta);
+            this.groupBox1.Controls.Add(this.textBoxCodDeSeg);
+            this.groupBox1.Controls.Add(this.labelCodDeSeg);
+            this.groupBox1.Controls.Add(this.labelFechaVto);
+            this.groupBox1.Controls.Add(this.textBoxFechaVto);
+            this.groupBox1.Location = new System.Drawing.Point(16, 66);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(244, 191);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos de Tarjeta";
+            // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 384);
+            this.ClientSize = new System.Drawing.Size(275, 410);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonCargar);
             this.Controls.Add(this.labelMonto);
             this.Controls.Add(this.textBoxMonto);
-            this.Controls.Add(this.textBoxFechaVto);
-            this.Controls.Add(this.labelFechaVto);
-            this.Controls.Add(this.labelCodDeSeg);
-            this.Controls.Add(this.textBoxCodDeSeg);
-            this.Controls.Add(this.labelNroDeTarjeta);
-            this.Controls.Add(this.textBoxNroTarjeta);
             this.Controls.Add(this.labelFormaDePago);
             this.Controls.Add(this.comboBoxFormaPago);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -175,6 +188,8 @@
             this.Text = "Cargar Credito";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +209,6 @@
         private System.Windows.Forms.Label labelMonto;
         private System.Windows.Forms.Button buttonCargar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
