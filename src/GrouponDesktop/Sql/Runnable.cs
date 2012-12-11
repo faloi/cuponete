@@ -21,6 +21,8 @@ namespace GrouponDesktop.Sql
         private readonly IList<SqlParameter> parameters;
         private readonly CommandType commandType;
 
+        public IEnumerable<string> ParametersToReplace { get; set; }
+
         public static Runnable Query(string query)
         {
             return new Runnable(CommandType.Text, query);
@@ -31,11 +33,20 @@ namespace GrouponDesktop.Sql
             return new Runnable(CommandType.StoredProcedure, name, parameters);
         }
 
+        public static Runnable StoreProcedure(string name, IEnumerable<SqlParameter> parameters, IEnumerable<string> parametersToReplace)
+        {
+            var runnable = StoreProcedure(name, parameters);
+            runnable.ParametersToReplace = parametersToReplace;
+
+            return runnable;
+        }
+
         private Runnable(CommandType commandType, string query, IEnumerable<SqlParameter> parameters)
         {
             this.query = query;
             this.parameters = parameters.ToList();
             this.commandType = commandType;
+            this.ParametersToReplace = new string[1];
         }
 
         private Runnable(CommandType commandType, string query) : this(commandType, query, new SqlParameter[0]) { }
@@ -90,6 +101,7 @@ namespace GrouponDesktop.Sql
         public void UpdateParametersFrom(Runnable executed)
         {
             var repeatedParameterNames = this.parameters
+                .Where(p => this.ParametersToReplace.Contains(p.ParameterName))
                 .Intersect(executed.parameters, new SqlParameterComparer())
                 .Select(p => p.ParameterName);
 

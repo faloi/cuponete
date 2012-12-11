@@ -20,7 +20,7 @@ namespace GrouponDesktop.Test.Sql
             var firstProcedure = Runnable.StoreProcedure("TheFirstOne", firstParameters);
 
             var secondParameters = this.CreateParametersFrom(new Dictionary<string, object> {{"Price", 30}, {"Id", "1324567"}});
-            var secondProcedure = Runnable.StoreProcedure("TheSecondOne", secondParameters);
+            var secondProcedure = Runnable.StoreProcedure("TheSecondOne", secondParameters, new[] { "Price", "Id" });
 
             secondProcedure.UpdateParametersFrom(firstProcedure);
 
@@ -40,6 +40,21 @@ namespace GrouponDesktop.Test.Sql
             secondProcedure.UpdateParametersFrom(firstProcedure);
 
             Assert.Equal(30, secondProcedure.GetParameterValue("Quantity"));
+            Assert.Equal("1324567", secondProcedure.GetParameterValue("Id"));
+        }
+
+        [Fact]
+        public void Update_parameters_from_should_only_replace_the_specified_parameters()
+        {
+            var firstParameters = this.CreateParametersFrom(new Dictionary<string, object> { { "Price", 15 }, { "Id", "Potatoes3356" } });
+            var firstProcedure = Runnable.StoreProcedure("TheFirstOne", firstParameters);
+
+            var secondParameters = this.CreateParametersFrom(new Dictionary<string, object> { { "Price", 30 }, { "Id", "1324567" } });
+            var secondProcedure = Runnable.StoreProcedure("TheSecondOne", secondParameters, new[] { "Price" });
+
+            secondProcedure.UpdateParametersFrom(firstProcedure);
+
+            Assert.Equal(15, secondProcedure.GetParameterValue("Price"));
             Assert.Equal("1324567", secondProcedure.GetParameterValue("Id"));
         }
     }
