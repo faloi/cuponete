@@ -66,7 +66,7 @@ namespace GrouponDesktop.Helpers
 
         public static bool ValidateMontoPositivo(TextBox textBoxMonto, ErrorProvider errorProvider)
         {
-             if(Convert.ToInt32(textBoxMonto.Text) <= 0)
+             if(Convert.ToDecimal(textBoxMonto.Text) <= 0)
              {
                  errorProvider.SetError(textBoxMonto, "El monto debe ser mayor a cero");
                  return false; 
