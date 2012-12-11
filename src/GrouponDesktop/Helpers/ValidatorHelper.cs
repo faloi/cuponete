@@ -39,9 +39,16 @@ namespace GrouponDesktop.Helpers
                 return true;
             errorProvider.SetError(boxes, "Este campo es obligatorio");
             return false;
- 
 
-            
+        }
+
+        public static bool ValidateComboBox(ComboBox boxes, ErrorProvider errorProvider)
+        {
+            if (!boxes.SelectedIndex.Equals(-1))
+                return true;
+            errorProvider.SetError(boxes, "Este campo es obligatorio");
+            return false;
+
         }
 
     }

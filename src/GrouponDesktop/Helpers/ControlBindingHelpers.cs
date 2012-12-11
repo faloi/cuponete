@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -98,6 +99,12 @@ namespace GrouponDesktop.Helpers
         public static IEnumerable<T> GetCheckedItems<T>(this CheckedListBox list)
         {
             return list.CheckedItems.Cast<T>();
+        }
+
+        public static DateTime GetFechaSistema()
+        {
+            string fecha = ConfigurationManager.AppSettings["fecha"];
+            return DateTime.ParseExact(fecha,"dd/MM/yyyy",null);
         }
     }
 }

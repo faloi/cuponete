@@ -78,6 +78,11 @@ namespace GrouponDesktop.Homes
             this.CreateProcedureFrom("RegistrarProveedor", proveedor);
         }
 
+        public void ComprarGiftCard(Gift_card gift)
+        {
+            this.CreateProcedureFrom("ComprarGiftCard", gift,"id_usuario_origen","id_usuario_destino","fecha","monto");
+        }
+
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
             const string QUERY = "SELECT id_usuario, nombre, apellido, dni, mail FROM RANDOM.Cliente";
@@ -125,6 +130,25 @@ namespace GrouponDesktop.Homes
             return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
 
         }
+
+        public Cliente GetClienteByUserName(string username)
+        {
+           try
+           {
+               const string QUERY = "SELECT * FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) where us.username = {0}";
+
+               return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, username));
+           }
+           catch (NoResultsException e)
+           {
+               throw new ApplicationException("El usuario no existe", e);
+           }   
+
+
+        }
+
+
+
 
         public void BorrarCliente(string id)
         {
