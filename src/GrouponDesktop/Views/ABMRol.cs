@@ -85,7 +85,7 @@ namespace GrouponDesktop.Views
 
         private string IdSeleccionado
         {
-            get { return Convert.ToString((this.rolesDataGrid.GetValue() as Rol).id_rol); }
+            get { return this.rolesDataGrid.GetSelectedItem<Rol>().id_rol.ToString(); }
         }
 
     }

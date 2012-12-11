@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
 
         private string IdSeleccionado
         {
-            get { return Convert.ToString((this.clientesDataGrid.GetValue() as Cliente).id_usuario); }
+            get { return this.clientesDataGrid.GetSelectedItem<Cliente>().id_usuario.ToString(); }
         }
 
         private void Setup()

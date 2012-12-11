@@ -21,7 +21,7 @@ namespace GrouponDesktop.Views
 
         private string IdSeleccionado
        {
-           get { return Convert.ToString((this.proveedoresDataGrid.GetValue() as Proveedor).id_usuario); }
+           get { return this.proveedoresDataGrid.GetSelectedItem<Proveedor>().id_usuario.ToString(); }
        }
 
         private void Setup()
