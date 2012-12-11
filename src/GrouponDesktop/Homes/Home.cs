@@ -22,6 +22,14 @@ namespace GrouponDesktop.Homes
             return Runnable.StoreProcedure(procedureName, parameters);
         }
 
+        protected Runnable CreateProcedureFrom(string name, IEnumerable<string> fieldsToReplace, Dictionary<string, object> values)
+        {
+            var runnable = this.CreateProcedureFrom(name, values);
+            runnable.ParametersToReplace = fieldsToReplace;
+
+            return runnable;
+        }
+
         protected Runnable CreateProcedureFrom(string name, Dictionary<string, object> values)
         {
             var procedureName = string.Format("RANDOM.{0}", name);
