@@ -53,6 +53,8 @@ namespace GrouponDesktop.Views
          {
              this.fillData();
              this.home.ComprarGiftCard(this.model.DataSource as Gift_card);
+             this.SuccessMessage("La compra se realizó exitosamente");
+
          }
 
          protected void fillData()

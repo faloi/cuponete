@@ -83,5 +83,11 @@ namespace GrouponDesktop.Views
         {
             throw new ApplicationException("Con este rol no se puede acceder a esta funcionalidad"); 
         }
+
+        protected void SuccessMessage(string message)
+        {
+            MessageBox.Show(message);
+            this.Close();
+        }
     }
 }
