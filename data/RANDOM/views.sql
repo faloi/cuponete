@@ -13,8 +13,9 @@ go
 create view RANDOM.Historial_Compra_Cupones
 as
 select fecha_compra, descripcion, codigo_compra, estado =
-	case when exists (select 1 from RANDOM.Cupon_Canjeado ccan inner join RANDOM.Cupon_Comprado ccom on ccan.id_compra = ccom.id_compra) then 'Canjeado'
-		 when exists (select 1 from RANDOM.Cupon_Devuelto cdev inner join RANDOM.Cupon_Comprado ccom on cdev.id_compra = ccom.id_compra) then 'Devuelto'
+	case when exists (select 1 from RANDOM.Cupon_Canjeado ccan where ccan.id_compra = cc.id_compra) then 'Canjeado'
+		 when exists (select 1 from RANDOM.Cupon_Devuelto cdev where cdev.id_compra = cc.id_compra) then 'Devuelto'
 		 else 'Comprado'
 	end
  from RANDOM.Cupon_Comprado cc inner join RANDOM.Cupon c on cc.id_cupon = c.id_cupon
+ go

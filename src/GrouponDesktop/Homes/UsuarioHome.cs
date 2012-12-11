@@ -27,7 +27,10 @@ namespace GrouponDesktop.Homes
                 var userFromDb = new Adapter().Transform<Usuario>(result);
 
                 if (userFromDb.EstaBloqueado)
-                    throw new ApplicationException("El usuario se encuentra bloqueado");
+                    throw new ApplicationException("El usuario se encuentra bloqueado.");
+                
+                if(userFromDb.id_rol==0)
+                    throw new ApplicationException("El usuario no tiene un rol asignado. Contáctese con el administrador.");
 
                 if (userFromDb.password != usuario.password.ToSha256())
                 {
@@ -147,8 +150,27 @@ namespace GrouponDesktop.Homes
 
         }
 
+        public void CambiaPassword(string nuevoPass)
+        {
+            HomeFactory.Usuario.UsuarioActual.password = nuevoPass.ToSha256();
 
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ModificarUsuario", HomeFactory.Usuario.UsuarioActual,
+                                                              "id_usuario", "username", "password")
+                                 };
+            this.RunProcedures(procedures);
+        }
 
+        public void ReiniciarFallas()
+        {
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual,
+                                                              "id_usuario")
+                                 };
+            this.RunProcedures(procedures);
+        }
 
         public void BorrarCliente(string id)
         {

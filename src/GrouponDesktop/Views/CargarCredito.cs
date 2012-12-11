@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Drawing;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -34,6 +35,7 @@ namespace GrouponDesktop.Views
             this.textBoxFechaVto.BindTextTo(this.model, "fecha_vto_tarjeta");
             this.textBoxMonto.BindTextTo(this.model, "carga_credito", DataType.INTEGER);
             this.CargarFormaPago();
+            this.comboBoxFormaPago.SelectedIndex = 1;
        }
 
         private void CargarFormaPago()
@@ -46,6 +48,30 @@ namespace GrouponDesktop.Views
         private void buttonCancelar_Click(object sender, System.EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBoxFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {  
+            this.Size = new Size(281, 438);
+            if(Equals(this.comboBoxFormaPago.Text, "Efectivo"))
+            {
+                this.groupBox1.Visible = false;
+                this.labelMonto.Location = new Point(12, 260 - 191);
+                this.textBoxMonto.Location = new Point(16, 284 - 191);
+                this.buttonCargar.Location = new Point(16, 318 - 191);
+                this.buttonCancelar.Location = new Point(80, 369 - 191);
+                this.Size = new Size(281, 438 - 191);
+            }
+            else
+            {
+                this.groupBox1.Visible = true;
+                this.labelMonto.Location = new Point(12, 260);
+                this.textBoxMonto.Location = new Point(16, 284);
+                this.buttonCargar.Location = new Point(16, 318);
+                this.buttonCancelar.Location = new Point(80, 369);
+                this.Size = new Size(281, 438);
+            }
+
         }
     }
 }
