@@ -175,6 +175,7 @@ GO
 /****** Object:  Table [RANDOM].[Motivo_devolucion]    Script Date: 11/04/2012 15:06:48 ******/
 DROP TABLE [RANDOM].[Motivo_devolucion]
 GO
+DROP VIEW [RANDOM].[Cupones_para_cliente]
 /****** Object:  Schema [RANDOM]    Script Date: 11/04/2012 15:06:46 ******/
 DROP SCHEMA [RANDOM]
 GO
