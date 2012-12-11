@@ -26,7 +26,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
-            this.Text = "Comprar cupon";
+            this.Text = "Comprar Cupón";
             this.CreateBindings(this.buttonComprarCupon);
             this.listaCupones();
         }
