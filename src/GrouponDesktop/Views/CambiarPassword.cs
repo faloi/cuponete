@@ -20,23 +20,25 @@ namespace GrouponDesktop.Views
         {
             InitializeComponent();
             this.home = HomeFactory.Usuario;
-            this.SetBindingSource(new Credito());
+            this.SetBindingSource(new Usuario());
             this.Setup();
         }
 
         private void Setup()
         {
-            this.rolDisponible = CLIENTE;
+            this.rolDisponible = TODOS;
             this.Text = "Cambiar Password";
+            this.textBoxPassword.UseSystemPasswordChar = true;
             this.CreateBindings(this.buttonCambiar);
         }
         
-        protected override void CreateSpecificBindings()
+        protected override void ExecSubmit()
         {
-            //this.textBoxPassword.BindTextTo(this.model, "password");
+            this.home.CambiaPassword(this.textBoxPassword.Text);
+            MessageBox.Show("Su password fue cambiado con éxito");
+            this.Close();
         }
 
-        
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {

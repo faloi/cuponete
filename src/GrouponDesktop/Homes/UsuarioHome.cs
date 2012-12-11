@@ -129,6 +129,18 @@ namespace GrouponDesktop.Homes
 
         }
 
+        public void CambiaPassword(string nuevoPass)
+        {
+            HomeFactory.Usuario.UsuarioActual.password = nuevoPass.ToSha256();
+
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ModificarUsuario", HomeFactory.Usuario.UsuarioActual,
+                                                              "id_usuario", "username", "password")
+                                 };
+            this.RunProcedures(procedures);
+        }
+
         public void BorrarCliente(string id)
         {
             throw new NotImplementedException();
