@@ -141,6 +141,16 @@ namespace GrouponDesktop.Homes
             this.RunProcedures(procedures);
         }
 
+        public void ReiniciarFallas()
+        {
+            var procedures = new List<Runnable>
+                                 {
+                                     this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual,
+                                                              "id_usuario")
+                                 };
+            this.RunProcedures(procedures);
+        }
+
         public void BorrarCliente(string id)
         {
             throw new NotImplementedException();
