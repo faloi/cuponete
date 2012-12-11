@@ -7,9 +7,10 @@ namespace GrouponDesktop.Views
 {
     public class DefaultView : Form
     {
+        protected readonly int TODOS = 0;
+        protected readonly int ADMINISTRADOR = 1;
         protected readonly int CLIENTE = 2;
         protected readonly int PROVEEDOR = 3;
-        protected readonly int ADMINISTRADOR = 1;
         protected readonly BindingSource model;
         protected int rolDisponible;
         protected ErrorProvider errorProvider = new ErrorProvider();
@@ -50,10 +51,14 @@ namespace GrouponDesktop.Views
 
         protected void ValidarRolActual()
         {
-            if (HomeFactory.Usuario.UsuarioActual.id_rol != this.rolDisponible)
+            if(this.rolDisponible != TODOS)
             {
-                MensajeRolNoPermitido();
+                if (HomeFactory.Usuario.UsuarioActual.id_rol != this.rolDisponible)
+                {
+                    MensajeRolNoPermitido();
+                } 
             }
+
         }
 
         protected virtual bool Validar()

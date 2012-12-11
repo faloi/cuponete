@@ -90,9 +90,9 @@ namespace GrouponDesktop.Helpers
             };
         }
 
-        public static string GetValue(this DataGridView dataGrid, string columnId)
+        public static object GetValue(this DataGridView dataGrid)
         {
-            return dataGrid.SelectedRows[0].Cells[columnId].Value as string;
+                return dataGrid.SelectedRows[0].DataBoundItem;
         }
 
         public static IEnumerable<T> GetCheckedItems<T>(this CheckedListBox list)

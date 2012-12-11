@@ -17,18 +17,16 @@ namespace GrouponDesktop.Views
     {
 
         private readonly RolHome home;
-        public RegistroRolView()
+
+        public RegistroRolView() : this(new Rol()) {}
+        
+        public RegistroRolView(Rol rol)
         {
             InitializeComponent();
+
             this.home = HomeFactory.Rol;
-            this.SetBindingSource(new Rol());
+            this.SetBindingSource(rol);
 
-            this.Setup();
-
-        }
-
-        private void Setup()
-        {
             this.Text = "Registro de Rol";
             this.CreateBindings(this.buttonAceptar);
         }
@@ -36,19 +34,49 @@ namespace GrouponDesktop.Views
         protected override void CreateSpecificBindings()
         {
             this.textBoxNombre.BindTextTo(this.model, "descripcion");
-            this.CargarFuncionalidades();
+            
+            CargarFuncionalidades();
+            if(isModificar())
+                this.FiltrarFuncionalidades();
+
+            this.buttonCancelar.Click +=
+                (sender, args) => this.Close();
+            
+        }
+
+        private bool isModificar()
+        {
+            return ((this.model.DataSource as Rol).id_rol!=0)
+            ;
+
         }
 
         protected override void ExecSubmit()
         {
-            this.home.RegistrarRol(this.model.DataSource as Rol, this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
+            if (isModificar())
+                this.home.ModificarRol(model.DataSource as Rol,
+                                       this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
+            else
+                 this.home.RegistrarRol(this.model.DataSource as Rol, this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
            
         }
 
         private void CargarFuncionalidades()
         {
-            var funcionalidades = new Adapter().TransformMany<Funcionalidad>(HomeFactory.Funcionalidad.FuncionalidadesDisponibles());
+            var funcionalidades = HomeFactory.Funcionalidad.FuncionalidadesDisponibles();
             checkedListBoxFuncionalidades.BindSourceTo(funcionalidades, "id_funcionalidad", "descripcion");
+        }
+       
+        private void FiltrarFuncionalidades()
+        {
+            var funcionalidades = (HomeFactory.Funcionalidad.FuncionalidadesPorRol((this.model.DataSource as Rol).id_rol));
+            var checkBoxItems = checkedListBoxFuncionalidades.DataSource as List<Funcionalidad>;
+            foreach (var checkBoxItem in checkBoxItems)
+            {
+                Funcionalidad funcionalidad = checkBoxItem as Funcionalidad;
+                if(funcionalidades.Any(obj=> obj.descripcion == funcionalidad.descripcion))
+                    checkedListBoxFuncionalidades.SetItemChecked(checkBoxItems.IndexOf(checkBoxItem),true);
+            }
         }
 
         protected override bool Validar()
@@ -61,9 +89,5 @@ namespace GrouponDesktop.Views
              
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

@@ -46,7 +46,7 @@ namespace GrouponDesktop.Homes
         private void IncrementarFallas(Usuario usuario)
         {
             var procedure = 
-                this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@userId", usuario.id_usuario}});
+                this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@id_usuario", usuario.id_usuario}});
             
             this.RunProcedure(procedure);
         }
@@ -80,7 +80,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
-            const string QUERY = "SELECT id_cliente, nombre, apellido, dni, mail FROM RANDOM.Cliente";
+            const string QUERY = "SELECT id_usuario, nombre, apellido, dni, mail FROM RANDOM.Cliente";
 
             var filtros = new Filters();
             if (ejemplo.nombre != null)
@@ -97,7 +97,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Proveedor> ListarProveedores(Proveedor ejemplo)
         {
-            const string QUERY = "SELECT razon_social, cuit,mail FROM RANDOM.Proveedor";
+            const string QUERY = "SELECT * FROM RANDOM.Proveedor";
 
             var filtros = new Filters();
             if (ejemplo.razon_social != null)
@@ -110,9 +110,20 @@ namespace GrouponDesktop.Homes
             return new Adapter().TransformMany<Proveedor>(this.sqlRunner.Select(QUERY, filtros));
         }
 
-        public Cliente GetClienteById(string id)
+        public Cliente GetClienteById(string id_usuario)
         {
-            throw new NotImplementedException();
+            const string QUERY = "SELECT * FROM RANDOM.Cliente where id_usuario = {0}";
+
+            return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id_usuario));
+
+        }
+
+        public Proveedor GetProveedorById(string id_usuario)
+        {
+            const string QUERY = "SELECT * FROM RANDOM.Proveedor where id_usuario = {0}";
+
+            return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
+
         }
 
         public void BorrarCliente(string id)

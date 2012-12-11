@@ -25,6 +25,8 @@ namespace GrouponDesktop.Views
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Roles";
             this.CreateBindings(this.buttonBuscar);
+            this.buttonModificar.Visible = false;
+            this.rolesDataGrid.AllowUserToAddRows = false;
         }
 
         protected override void CreateSpecificBindings()
@@ -32,36 +34,59 @@ namespace GrouponDesktop.Views
             this.nombreRol.BindTextTo(this.Example, "descripcion");
   
 
-            this.rolesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            this.rolesDataGrid.BindSourceTo(this.Data,"id_rol", new Dictionary<string, string>
             {
-                {"Nombre", "descripcion"}
+                {"Nombre", "descripcion"},
+                {"Estado", "estado"}
             });
 
             this.buttonLimpiar.Click +=
                 (sender, args) => this.Example = new Rol();
+
+            this.buttonModificar.Click +=
+                (sender, args) => this.ModificarRol();
+
+            this.buttonNuevoRol.Click +=
+                (sender, args) => this.Redirect(new RegistroRolView());
+
+            this.buttonBajaRestaurar.Click +=
+                (sender, args) => this.BajaRestaurarRol();
+        }
+
+        private void BajaRestaurarRol()
+        {
+            var rol = this.home.GetRolById(this.IdSeleccionado);
+            if (rol.estado == 0)
+            {
+                this.home.HabilitarRol(rol);
+                MessageBox.Show("El rol se Habilito con éxito");
+            }
+
+            else
+            {
+                this.home.DeshabilitarRol(rol);
+                MessageBox.Show("El rol se Deshabilito con éxito");
+            }
         }
 
         protected override void ExecSubmit()
         {
             this.Data = this.home.ListarRoles(this.Filter as Rol);
+            this.buttonModificar.Visible = true;
         }
 
-        private void buttonNuevoRol_Click(object sender, EventArgs e)
+        private void ModificarRol()
         {
-            this.Redirect(new RegistroRolView());
+            var rol = this.home.GetRolById(this.IdSeleccionado);
+            new RegistroRolView(rol).ShowDialog();
+
+            this.ExecSubmit();
         }
 
-        private void rolesDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private string IdSeleccionado
         {
-            // Ignore clicks that are not on button cells. 
-           // if (e.RowIndex < 0 || e.ColumnIndex != rolesDataGrid.Columns["Rol"].Index) return;
-
-            string descripcion = Convert.ToString(rolesDataGrid.Rows[e.RowIndex].Cells["Nombre"].Value);
+            get { return Convert.ToString((this.rolesDataGrid.GetValue() as Rol).id_rol); }
         }
-
-
-
-
 
     }
 }

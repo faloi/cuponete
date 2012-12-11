@@ -14,6 +14,13 @@ namespace GrouponDesktop.Views
         public PublicarCupon()
         {
             InitializeComponent();
+
+            this.Setup();
+        }
+
+        private void Setup()
+        {
+            this.cuponDataGrid.AllowUserToAddRows = false;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

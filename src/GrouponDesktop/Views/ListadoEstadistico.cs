@@ -22,6 +22,8 @@ namespace GrouponDesktop.Views
         {
             this.Text = "Listado Estadistico";
             this.CreateBindings(this.buttonConsultar);
+            this.dataGridViewCuponesDevueltos.AllowUserToAddRows = false;
+            this.dataGridViewGifcardAcreditadas.AllowUserToAddRows = false;
         }
         
         protected override void CreateSpecificBindings()

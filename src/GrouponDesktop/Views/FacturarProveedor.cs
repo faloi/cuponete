@@ -9,11 +9,18 @@ using System.Windows.Forms;
 
 namespace GrouponDesktop.Views
 {
-    public partial class FacturarProveedor : Form
+    public partial class FacturarProveedor : DefaultView
     {
         public FacturarProveedor()
         {
             InitializeComponent();
+
+            this.Setup();
+        }
+
+        private void Setup()
+        {
+            this.dataGridView1.AllowUserToAddRows = false;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

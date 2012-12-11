@@ -1,23 +1,53 @@
+<<<<<<< HEAD
 /** Cambia el rol de los clientes a NULL cuando se deshabilita dicho rol en la tabla rol **/
-create trigger inhabilitar_rol_alt ON RANDOM.Rol
+create trigger RANDOM.inhabilitar_rol ON RANDOM.Rol
 after update
 as
 begin
-       if exists (select 1 FROM inserted i where i.estado = 0)
-               update RANDOM.Usuario
-               set id_rol = NULL
-               where exists (select 1 FROM inserted i, RANDOM.Usuario u where i.id_rol = u.id_rol AND i.estado = 0)            
-end
-go
-
-/** Cambia el estado a 0 cuando un usuario llega a 3 fallas **/
-create trigger tres_fallas ON RANDOM.Usuario
-after update
-as
-begin
-	if exists(select 1 FROM inserted i where i.fallas = 3)
+	if exists (select 1 from inserted where estado = 0)
+	begin
+	    
+	    if (select estado from RANDOM.Rol where id_rol = 2 /*2 es cliente*/) = 0
+		begin
+			delete from RANDOM.Cliente_x_Ciudad
+			delete from RANDOM.Cliente
+		end
+	
+		if (select estado from RANDOM.Rol where id_rol = 3 /*3 es proveedor*/) = 0 
+		begin
+			delete from RANDOM.Proveedor
+		end
+	      
 		update RANDOM.Usuario
-		set estado = 0
-		where fallas = 3	
+		set id_rol = NULL
+		where id_rol = (select id_rol from inserted)
+	end           
 end
 go
+=======
+/** Cambia el rol de los clientes a NULL cuando se deshabilita dicho rol en la tabla rol **/
+create trigger RANDOM.inhabilitar_rol ON RANDOM.Rol
+after update
+as
+begin
+	if exists (select 1 from inserted where estado = 0)
+	begin
+	    
+	    if (select estado from RANDOM.Rol where id_rol = 2 /*2 es cliente*/) = 0
+		begin
+			delete from RANDOM.Cliente_x_Ciudad
+			delete from RANDOM.Cliente
+		end
+	
+		if (select estado from RANDOM.Rol where id_rol = 3 /*3 es proveedor*/) = 0 
+		begin
+			delete from RANDOM.Proveedor
+		end
+	      
+		update RANDOM.Usuario
+		set id_rol = NULL
+		where id_rol = (select id_rol from inserted)
+	end           
+end
+go
+>>>>>>> agregada vista para historial de cupones

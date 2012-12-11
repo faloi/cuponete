@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -19,7 +20,7 @@ namespace GrouponDesktop.Views
 
         private string IdSeleccionado
         {
-            get { return this.clientesDataGrid.GetValue("id_cliente"); }
+            get { return Convert.ToString((this.clientesDataGrid.GetValue() as Cliente).id_usuario); }
         }
 
         private void Setup()
@@ -27,6 +28,8 @@ namespace GrouponDesktop.Views
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Clientes";
             this.CreateBindings(this.buttonBuscar);
+            this.buttonModificar.Visible = false;
+            this.clientesDataGrid.AllowUserToAddRows = false;
         }
 
         protected override void CreateSpecificBindings()
@@ -36,7 +39,7 @@ namespace GrouponDesktop.Views
             this.textBoxEmail.BindTextTo(this.Example, "mail");
             this.textBoxDNI.BindTextTo(this.Example, "dni", DataType.INTEGER);
 
-            this.clientesDataGrid.BindSourceTo(this.Data, "id_cliente", new Dictionary<string, string>
+            this.clientesDataGrid.BindSourceTo(this.Data, "id_usuario", new Dictionary<string, string>
             {
                 {"Nombre", "nombre"},
                 {"Apellido", "apellido"},
@@ -57,14 +60,15 @@ namespace GrouponDesktop.Views
         private void ModificarCliente()
         {
             var cliente = this.home.GetClienteById(this.IdSeleccionado);
-            new RegistroUsuarioView(cliente).ShowDialog();
+            new ModificarCliente(cliente).ShowDialog();
 
-            this.ExecSubmit();
+            this.ExecSubmit();    
         }
 
         protected override void ExecSubmit()
         {
             this.Data = this.home.ListarClientes(this.Filter as Cliente);
+            this.buttonModificar.Visible = true;
         }
     }
 }

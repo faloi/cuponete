@@ -1,8 +1,20 @@
-/** CREACION DE VISTA DE CUPONES PARA CLIENTE**/
-CREATE VIEW RANDOM.Cupones_Para_Cliente
-AS
-SELECT cu.id_cupon,cu.descripcion,cu.fec_publicacion,cu.precio_ficticio, cu.precio_real,cpc.id_cliente
-FROM RANDOM.Cupon cu 
-LEFT JOIN RANDOM.Cupon_x_ciudad cupc ON (cUpc.id_cupon = cu.id_cupon)
-LEFT JOIN RANDOM.Cliente_x_Ciudad cpc ON (cpc.id_ciudad = cupc.id_ciudad)
-WHERE cu.publicado = 1
+/** Vista de cupones para cliente **/
+create view RANDOM.Cupones_Para_Cliente
+as
+select cu.id_cupon,cu.descripcion,cu.fec_publicacion,cu.precio_ficticio, cu.precio_real,cpc.id_cliente
+from RANDOM.Cupon cu 
+left join RANDOM.Cupon_x_ciudad cupc on (cUpc.id_cupon = cu.id_cupon)
+left join RANDOM.Cliente_x_Ciudad cpc on (cpc.id_ciudad = cupc.id_ciudad)
+where cu.publicado = 1
+go
+
+
+/** Vista para historial de cupones **/
+create view RANDOM.Historial_Compra_Cupones
+as
+select fecha_compra, descripcion, codigo_compra, estado =
+	case when exists (select 1 from RANDOM.Cupon_Canjeado ccan inner join RANDOM.Cupon_Comprado ccom on ccan.id_compra = ccom.id_compra) then 'Canjeado'
+		 when exists (select 1 from RANDOM.Cupon_Devuelto cdev inner join RANDOM.Cupon_Comprado ccom on cdev.id_compra = ccom.id_compra) then 'Devuelto'
+		 else 'Comprado'
+	end
+ from RANDOM.Cupon_Comprado cc inner join RANDOM.Cupon c on cc.id_cupon = c.id_cupon

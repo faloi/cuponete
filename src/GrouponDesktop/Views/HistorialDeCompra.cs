@@ -14,6 +14,13 @@ namespace GrouponDesktop.Views
         public HistorialDeCompra()
         {
             InitializeComponent();
+
+            this.Setup();
+        }
+
+        private void Setup()
+        {
+            this.dataGridView1.AllowUserToAddRows = false;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

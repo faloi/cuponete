@@ -36,7 +36,7 @@ namespace GrouponDesktop.Views
 
         private void LoadFuncionalidades()
         {
-            IList<Funcionalidad> listFuncionalidades = this.home.Funcionalidades(HomeFactory.Usuario.UsuarioActual.id_rol);
+            IList<Funcionalidad> listFuncionalidades = HomeFactory.Funcionalidad.FuncionalidadesPorRol(HomeFactory.Usuario.UsuarioActual.id_rol);
             foreach (var item in listFuncionalidades)
             {
                 string redirect = funcionalidades[item.descripcion];

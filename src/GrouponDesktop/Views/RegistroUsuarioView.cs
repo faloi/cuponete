@@ -12,19 +12,10 @@ namespace GrouponDesktop.Views
     {
         private readonly UsuarioHome home;
 
-        public RegistroUsuarioView() : this(new Usuario()) {}
 
-        public RegistroUsuarioView(Cliente cliente) : this(cliente as Usuario)
-        {
-            this.comboRol.SelectedValue = 1;
-        }
 
-        public RegistroUsuarioView(Proveedor proveedor) : this(proveedor as Usuario)
-        {
-            this.comboRol.SelectedValue = 2;
-        }
 
-        private RegistroUsuarioView(Usuario usuario)
+        public RegistroUsuarioView(Usuario usuario)
         {
             InitializeComponent();
 
@@ -50,7 +41,7 @@ namespace GrouponDesktop.Views
             this.dptoDirCliente.BindTextTo(this.model, "direccionDto");
             this.localidadCliente.BindTextTo(this.model, "direccionLocalidad");
             this.cpostalCliente.BindTextTo(this.model, "cod_postal");
-            this.fechaNacCliente.BindTextToDate(this.model, "fecha_nac", "dd/MM/yyyy");
+            //this.fechaNacCliente.BindTextToDate(this.model, "fecha_nac", "dd/MM/yyyy");
 
             //TODO: faltan los bindings del proveedor
             this.contactoProveedor.BindTextTo(this.model, "contacto_nombre");
