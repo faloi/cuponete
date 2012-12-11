@@ -39,10 +39,12 @@ end
 go
 
 
---Cambiar rol: RANDOM.CambiarRol (parametros necesarios. Es importante, despues del cambio a rol de proveedor o cliente, llamar al procedure registrar de dicho rol)
-create procedure RANDOM.CambiarRol @id_usuario bigint out, @id_rol bigint out
+--Cambiar rol: RANDOM.CambiarRol (parametros necesarios. Es importante, despues del cambio a rol de proveedor o cliente, llamar al procedure registrar de dicho rol si la variable @llamar_registro está en 1)
+create procedure RANDOM.CambiarRol @id_usuario bigint out, @id_rol bigint out, @llamar_registro numeric(1,0) out
 as
 begin transaction
+	set @llamar_registro = 0
+	
 	if (select id_rol from RANDOM.Usuario where @id_usuario = id_usuario) = @id_rol
 	begin
 		rollback
@@ -50,15 +52,35 @@ begin transaction
 		return
 	end	
 	
-	if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 2 /*2 es cliente*/)
+	if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = NULL)
 	begin
-		delete from RANDOM.Cliente_x_Ciudad where id_cliente = @id_usuario
-		delete from RANDOM.Cliente where id_usuario = @id_usuario
+		if ((exists (select 1 from RANDOM.Usuario u inner join RANDOM.Cliente c on u.id_usuario = c.id_usuario)) and @id_rol != 2 /*2 es cliente*/)
+		begin
+			delete from RANDOM.Cliente_x_Ciudad where id_cliente = @id_usuario
+			delete from RANDOM.Cliente where id_usuario = @id_usuario
+			set @llamar_registro = 1
+		end
+		
+		if ((exists (select 1 from RANDOM.Usuario u inner join RANDOM.Proveedor p on u.id_usuario = p.id_usuario)) and @id_rol != 3 /*3 es proveedor*/)
+		begin
+			delete from RANDOM.Proveedor where id_usuario = @id_usuario
+			set @llamar_registro = 1
+		end
 	end
-	
-	if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 3 /*3 es proveedor*/)
+	else
 	begin
-		delete from RANDOM.Proveedor where id_usuario = @id_usuario
+		if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 2 /*2 es cliente*/)
+		begin
+			delete from RANDOM.Cliente_x_Ciudad where id_cliente = @id_usuario
+			delete from RANDOM.Cliente where id_usuario = @id_usuario
+			set @llamar_registro = 1
+		end
+		
+		if ((select id_rol from RANDOM.Usuario where id_usuario = @id_usuario) = 3 /*3 es proveedor*/)
+		begin
+			delete from RANDOM.Proveedor where id_usuario = @id_usuario
+			set @llamar_registro = 1
+		end
 	end
 	
 	update RANDOM.Usuario
