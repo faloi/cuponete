@@ -138,7 +138,8 @@ namespace GrouponDesktop.Homes
         {
            try
            {
-               const string QUERY = "SELECT * FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) where us.username = {0}";
+               const string QUERY = 
+                   "SELECT * FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) where us.username = '{0}'";
 
                return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, username));
            }
@@ -155,20 +156,21 @@ namespace GrouponDesktop.Homes
             HomeFactory.Usuario.UsuarioActual.password = nuevoPass.ToSha256();
 
             var procedures = new List<Runnable>
-                                 {
-                                     this.CreateProcedureFrom("ModificarUsuario", HomeFactory.Usuario.UsuarioActual,
-                                                              "id_usuario", "username", "password")
-                                 };
+            {
+            this.CreateProcedureFrom("ModificarUsuario", HomeFactory.Usuario.UsuarioActual,
+                                      "id_usuario", "username", "password")
+            };
+
             this.RunProcedures(procedures);
         }
 
         public void ReiniciarFallas()
         {
             var procedures = new List<Runnable>
-                                 {
-                                     this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual,
-                                                              "id_usuario")
-                                 };
+            {
+            this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual,
+                                      "id_usuario")
+            };
             this.RunProcedures(procedures);
         }
 
