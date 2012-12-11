@@ -7,11 +7,21 @@ using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Sql
 {
+    public static class SqlParameterHelpers
+    {
+        public static SqlParameter FindByName(this SqlParameterCollection collection, string name)
+        {
+            return collection.Cast<SqlParameter>().Single(p => p.ParameterName == name);
+        }
+    }
+    
     public class Runnable
     {
         private readonly string query;
-        private readonly IEnumerable<SqlParameter> parameters;
+        private readonly IList<SqlParameter> parameters;
         private readonly CommandType commandType;
+
+        public IEnumerable<string> ParametersToReplace { get; set; }
 
         public static Runnable Query(string query)
         {
@@ -23,17 +33,28 @@ namespace GrouponDesktop.Sql
             return new Runnable(CommandType.StoredProcedure, name, parameters);
         }
 
+        public static Runnable StoreProcedure(string name, IEnumerable<SqlParameter> parameters, IEnumerable<string> parametersToReplace)
+        {
+            var runnable = StoreProcedure(name, parameters);
+            runnable.ParametersToReplace = parametersToReplace;
+
+            return runnable;
+        }
+
         private Runnable(CommandType commandType, string query, IEnumerable<SqlParameter> parameters)
         {
             this.query = query;
-            this.parameters = parameters;
+            this.parameters = parameters.ToList();
             this.commandType = commandType;
+            this.ParametersToReplace = new string[1];
         }
 
         private Runnable(CommandType commandType, string query) : this(commandType, query, new SqlParameter[0]) { }
 
         private void SetupCommand(SqlCommand command)
         {
+            command.Parameters.Clear();
+
             foreach (var p in parameters)
                 command.Parameters.Add(p);
 
@@ -45,6 +66,14 @@ namespace GrouponDesktop.Sql
         {
             this.SetupCommand(command);
             command.ExecuteNonQuery();
+            
+            this.UpdateParametersValuesFrom(command.Parameters);
+        }
+
+        private void UpdateParametersValuesFrom(SqlParameterCollection sqlParameterCollection)
+        {
+            foreach (var parameter in this.parameters)
+                parameter.Value = sqlParameterCollection.FindByName(parameter.ParameterName).Value;
         }
 
         public DataTable Select(SqlCommand command)
@@ -72,6 +101,7 @@ namespace GrouponDesktop.Sql
         public void UpdateParametersFrom(Runnable executed)
         {
             var repeatedParameterNames = this.parameters
+                .Where(p => this.ParametersToReplace.Contains(p.ParameterName))
                 .Intersect(executed.parameters, new SqlParameterComparer())
                 .Select(p => p.ParameterName);
 

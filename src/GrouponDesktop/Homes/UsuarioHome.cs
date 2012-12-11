@@ -68,8 +68,8 @@ namespace GrouponDesktop.Homes
 
             var relacionCiudades = ciudades
                 .Select(ciudad => 
-                    this.CreateProcedureFrom("AgregarClientePorCiudad", 
-                    new Dictionary<string, object> {{"id_cliente", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}}));
+                    this.CreateProcedureFrom("AgregarClientePorCiudad", new[] { "id_usuario" },
+                    new Dictionary<string, object> {{"id_usuario", cliente.id_usuario}, {"id_ciudad", ciudad.id_ciudad}}));
             
             procedures.AddRange(relacionCiudades);
 
@@ -193,6 +193,30 @@ namespace GrouponDesktop.Homes
                                                               "carga_credito", "fecha", "id_forma_pago","nro_tarjeta","cod_seguridad_tarjeta","fecha_vto_tarjeta")
 
                                  };
+
+        public void ModificarCliente(Cliente cliente, IEnumerable<Ciudad> ciudadesAgregadas, IEnumerable<Ciudad> ciudadesEliminadas)
+        {
+            var procedures = new List<Runnable>
+            {
+                this.CreateProcedureFrom("ModificarCliente", cliente,
+                    "id_usuario", "nombre", "apellido", "mail",
+                    "dni", "telefono", "direccion", "cod_postal", "fecha_nac")
+            };
+
+            var nuevasCiudades = ciudadesAgregadas
+                .Select(ciudad =>
+                    this.CreateProcedureFrom("QuitarClientePorCiudad",
+                    new Dictionary<string, object> { { "id_usuario", cliente.id_usuario }, { "id_ciudad", ciudad.id_ciudad } }));
+
+            procedures.AddRange(nuevasCiudades);
+
+            var ciudadesViejas = ciudadesEliminadas
+                .Select(ciudad => 
+                    this.CreateProcedureFrom(
+                    "AgregarClientePorCiudad",
+                    new Dictionary<string, object> { { "id_usuario", cliente.id_usuario }, { "id_ciudad", ciudad.id_ciudad } }));                
+
+            procedures.AddRange(ciudadesViejas);
             this.RunProcedures(procedures);
         }
     }
