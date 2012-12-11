@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -16,10 +11,20 @@ namespace GrouponDesktop.Views
     public partial class ModificarCliente : DefaultView
     {
         private readonly UsuarioHome home;
+        private IEnumerable<Ciudad> ciudadesOriginales;
 
-        public ModificarCliente(Cliente cliente)
+        private bool IsNew { get; set; }
+
+        public ModificarCliente() : this(new Cliente(), true) {}
+
+        public ModificarCliente(Cliente cliente) : this(cliente, false) {}
+
+        public ModificarCliente(Cliente cliente, bool isNew)
         {
             InitializeComponent();
+
+            this.IsNew = isNew;
+            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.IsNew;
 
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(cliente);
@@ -36,13 +41,58 @@ namespace GrouponDesktop.Views
             this.emailCliente.BindTextTo(this.model, "mail");
             this.telefonoCliente.BindTextTo(this.model, "telefono", DataType.INTEGER);
             this.cpostalCliente.BindTextTo(this.model, "cod_postal");
-            this.direccionCliente.BindTextTo(this.model, "direccion");
             this.fechaNacCliente.BindTextToDate(this.model, "fecha_nac", "dd/MM/yyyy");
 
+            if (this.IsNew)
+            {
+                this.username.BindTextTo(this.model, "username");
+                this.password.BindTextTo(this.model, "password");
+                this.calle.BindTextTo(this.model, "direccionCalle");
+                this.numero.BindTextTo(this.model, "direccionNumero");
+                this.piso.BindTextTo(this.model, "direccionPiso");
+                this.depto.BindTextTo(this.model, "direccionDto");
+                this.localidad.BindTextTo(this.model, "direccionLocalidad");
+            }
+            else
+            {
+                this.direccionCliente.BindTextTo(this.model, "direccion");
+            }
+
             this.CargarCiudadesPref();
-            this.FiltrarCiudades();
+
+            if (!this.IsNew)
+                this.SeleccionarCiudades();
         }
 
+        protected override void ExecSubmit()
+        {
+            var cliente = this.model.DataSource as Cliente;
+            var ciudadesSeleccionadas = this.ciuPrefClienteBox.GetCheckedItems<Ciudad>();
+
+            if (this.IsNew)
+                this.home.RegistrarCliente(cliente, ciudadesSeleccionadas);
+            else
+            {
+                var ciudadesEliminadas = this.ciudadesOriginales.Except(ciudadesSeleccionadas);
+                var ciudadesAgregadas = ciudadesSeleccionadas.Except(this.ciudadesOriginales);
+                this.home.ModificarCliente(cliente, ciudadesAgregadas, ciudadesEliminadas);
+            }
+        }
+
+        protected override bool Validar()
+        {
+            var fieldsObligatorios = new List<TextBox>
+            {
+               this.nombreCliente,
+               this.apellidoCliente,
+               this.dniCliente,
+               this.emailCliente,
+               this.telefonoCliente,
+               this.username,
+               this.password,
+            };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateCheckList(this.ciuPrefClienteBox, this.errorProvider));
+        }
 
         private void CargarCiudadesPref()
         {
@@ -50,15 +100,15 @@ namespace GrouponDesktop.Views
             ciuPrefClienteBox.BindSourceTo(ciudades, "id_ciudad", "descripcion");
         }
 
-
-        private void FiltrarCiudades()
+        private void SeleccionarCiudades()
         {
-            var funcionalidades = (HomeFactory.Ciudad.CiudadesPorCliente((this.model.DataSource as Cliente).id_usuario));
+            this.ciudadesOriginales = HomeFactory.Ciudad.CiudadesPorCliente((this.model.DataSource as Cliente).id_usuario);
+
             var checkBoxItems = ciuPrefClienteBox.DataSource as List<Ciudad>;
             foreach (var checkBoxItem in checkBoxItems)
             {
-                Ciudad ciudad = checkBoxItem as Ciudad;
-                if (funcionalidades.Any(obj => obj.descripcion == ciudad.descripcion))
+                var ciudad = checkBoxItem;
+                if (this.ciudadesOriginales.Any(obj => obj.descripcion == ciudad.descripcion))
                     ciuPrefClienteBox.SetItemChecked(checkBoxItems.IndexOf(checkBoxItem), true);
             }
         }
