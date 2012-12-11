@@ -1,10 +1,10 @@
 /** Vista de cupones para cliente **/
 create view RANDOM.Cupones_Para_Cliente
 as
-select cu.id_cupon,cu.descripcion,cu.fec_publicacion,cu.precio_ficticio, cu.precio_real,cpc.id_cliente
+select cu.id_cupon, descripcion, precio_ficticio, precio_real, fec_publicacion, fec_venc_publicacion, id_cliente
 from RANDOM.Cupon cu 
-left join RANDOM.Cupon_x_ciudad cupc on (cUpc.id_cupon = cu.id_cupon)
-left join RANDOM.Cliente_x_Ciudad cpc on (cpc.id_ciudad = cupc.id_ciudad)
+	 inner join RANDOM.Cupon_x_ciudad cuxc on (cuxc.id_cupon = cu.id_cupon)
+	 inner join RANDOM.Cliente_x_Ciudad clxc on (clxc.id_ciudad = cuxc.id_ciudad)
 where cu.publicado = 1
 go
 
@@ -12,10 +12,30 @@ go
 /** Vista para historial de cupones **/
 create view RANDOM.Historial_Compra_Cupones
 as
-select fecha_compra, descripcion, codigo_compra, estado =
+select id_cliente, fecha_compra, descripcion, codigo_compra, estado =
 	case when exists (select 1 from RANDOM.Cupon_Canjeado ccan where ccan.id_compra = cc.id_compra) then 'Canjeado'
 		 when exists (select 1 from RANDOM.Cupon_Devuelto cdev where cdev.id_compra = cc.id_compra) then 'Devuelto'
 		 else 'Comprado'
 	end
- from RANDOM.Cupon_Comprado cc inner join RANDOM.Cupon c on cc.id_cupon = c.id_cupon
- go
+from RANDOM.Cupon_Comprado cc 
+	 inner join RANDOM.Cupon c on cc.id_cupon = c.id_cupon
+go
+ 
+ 
+/** Vista para facturacion de proveedor */
+create view RANDOM.Facturacion_Proveedor
+as
+select codigo_compra, fecha_canje, precio_real 
+from RANDOM.Cupon_Canjeado ccan 
+	  inner join RANDOM.Cupon_Comprado ccom on ccan.id_compra = ccom.id_compra
+	  inner join RANDOM.Cupon c on c.id_cupon = ccom.id_cupon
+where facturado = 0
+
+/*
+/** Vista para porcentaje de devolucion por proveedor por semestre **/
+create view RANDOM.Porcentaje_Devolucion
+as
+select anio = year(fecha_devolucion), semestre = (month(fecha_devolucion) % 7) + 1
+from RANDOM.Cupon c
+	 inner join RANDOM.Cupon_Comprado ccom on c.id_cupon = ccom.id_cupon
+	 inner join RANDOM.Cupon_Devuelto cdev on ccom.id_compra = cdev.id_compra
