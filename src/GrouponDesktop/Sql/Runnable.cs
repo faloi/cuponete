@@ -13,8 +13,6 @@ namespace GrouponDesktop.Sql
         private readonly IEnumerable<SqlParameter> parameters;
         private readonly CommandType commandType;
 
-        public object Model { get; set; }
-
         public static Runnable Query(string query)
         {
             return new Runnable(CommandType.Text, query);
@@ -47,20 +45,6 @@ namespace GrouponDesktop.Sql
         {
             this.SetupCommand(command);
             command.ExecuteNonQuery();
-
-            if (this.Model != null)
-                this.InjectModelWith(command.Parameters);
-        }
-
-        private void InjectModelWith(SqlParameterCollection returnParameters)
-        {
-            foreach (var returnParameter in returnParameters.Cast<SqlParameter>())
-                this.InjectModelWith(returnParameter);
-        }
-
-        private void InjectModelWith(SqlParameter returnParameter)
-        {
-            this.Model.SetPropertyIfExists(returnParameter.ParameterName, returnParameter.Value);
         }
 
         public DataTable Select(SqlCommand command)
@@ -83,6 +67,38 @@ namespace GrouponDesktop.Sql
             {
                 throw new NoResultsException(e);
             }
+        }
+
+        public void UpdateParametersFrom(Runnable executed)
+        {
+            var repeatedParameterNames = this.parameters
+                .Intersect(executed.parameters, new SqlParameterComparer())
+                .Select(p => p.ParameterName);
+
+            var parametersToUpdate = this.parameters.Where(parameter => repeatedParameterNames.Contains(parameter.ParameterName));
+
+            foreach (var parameter in parametersToUpdate)
+                parameter.Value = executed.GetParameterValue(parameter.ParameterName);
+        }
+
+        public object GetParameterValue(string parameterName)
+        {
+            return this.parameters
+                .Single(p => p.ParameterName == parameterName)
+                .Value;
+        }
+    }
+
+    public class SqlParameterComparer : IEqualityComparer<SqlParameter>
+    {
+        public bool Equals(SqlParameter x, SqlParameter y)
+        {
+            return x.ParameterName == y.ParameterName;
+        }
+
+        public int GetHashCode(SqlParameter obj)
+        {
+            return obj.ParameterName.GetHashCode();
         }
     }
 

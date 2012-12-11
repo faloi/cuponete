@@ -48,6 +48,7 @@
     <Compile Include="Helpers\ReflectionHelpersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sql\AdapterTest.cs" />
+    <Compile Include="Sql\RunnableTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GrouponDesktop\GrouponDesktop.csproj">

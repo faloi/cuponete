@@ -77,7 +77,16 @@ namespace GrouponDesktop.Sql
         protected virtual void ExecuteCommand(IEnumerable<Runnable> runnables, SqlCommand command)
         {
             foreach (var runnable in runnables)
+            {
                 runnable.Run(command);
+                this.UpdateParameters(runnable, runnables);
+            }
+        }
+
+        private void UpdateParameters(Runnable executed, IEnumerable<Runnable> runnables)
+        {
+            foreach (var runnable in runnables.Except(new[] { executed }))
+                runnable.UpdateParametersFrom(executed);
         }
 
         protected virtual void PostConnectionAction(SqlConnection connection) { }
