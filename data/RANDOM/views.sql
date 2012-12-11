@@ -30,12 +30,35 @@ from RANDOM.Cupon_Canjeado ccan
 	  inner join RANDOM.Cupon_Comprado ccom on ccan.id_compra = ccom.id_compra
 	  inner join RANDOM.Cupon c on c.id_cupon = ccom.id_cupon
 where facturado = 0
+go
 
-/*
-/** Vista para porcentaje de devolucion por proveedor por semestre **/
+
+/** Vista para porcentaje de devolucion por proveedor por semestre (algo hay que cambiar, asi tarda 24.33 min en mi maquina) **/
 create view RANDOM.Porcentaje_Devolucion
 as
-select anio = year(fecha_devolucion), semestre = (month(fecha_devolucion) % 7) + 1
+select distinct id_proveedor,
+	   anio = year(fecha_compra), 
+	   semestre = floor (((month(fecha_compra)) - 1) / 6) + 1, 
+	   porcentaje_devolucion = 
+			(select count(*) from RANDOM.Cupon_Devuelto cdev1 
+							 inner join RANDOM.Cupon_Comprado ccom1 on cdev1.id_compra = ccom1.id_compra 
+							 inner join RANDOM.Cupon c1 on ccom1.id_cupon = c1.id_cupon
+							 where c1.id_proveedor = c.id_proveedor and year(ccom1.fecha_compra) = year(ccom.fecha_compra) and floor(((month(ccom1.fecha_compra)) - 1) / 6) + 1 = floor(((month(ccom.fecha_compra)) - 1) / 6) + 1) * 100 /
+			(select count(*) from RANDOM.Cupon_Comprado ccom1 
+							 inner join RANDOM.Cupon c1 on ccom1.id_cupon = c1.id_cupon 
+							 where c1.id_proveedor = c.id_proveedor and year(ccom1.fecha_compra) = year(ccom.fecha_compra) and floor(((month(ccom1.fecha_compra)) - 1) / 6) + 1 = floor(((month(ccom.fecha_compra)) - 1) / 6) + 1)
 from RANDOM.Cupon c
 	 inner join RANDOM.Cupon_Comprado ccom on c.id_cupon = ccom.id_cupon
-	 inner join RANDOM.Cupon_Devuelto cdev on ccom.id_compra = cdev.id_compra
+go
+
+
+/** Vista para estadistica de giftcards **/
+create view RANDOM.Estadistica_Giftcards
+as
+select distinct id_usuario_destino,
+	   anio = year(fecha), 
+	   semestre = floor (((month(fecha)) - 1) / 6) + 1,
+	   monto_total = (select sum(monto) 
+					  from RANDOM.Gift_Card gc1 
+					  where gc.id_usuario_destino = gc1.id_usuario_destino and year(gc.fecha) = year(gc1.fecha) and floor (((month(gc.fecha)) - 1) / 6) + 1 = floor (((month(gc1.fecha)) - 1) / 6) + 1)
+from RANDOM.Gift_Card gc
