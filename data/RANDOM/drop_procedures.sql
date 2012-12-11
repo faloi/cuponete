@@ -26,3 +26,4 @@ drop procedure RANDOM.RegistrarCliente
 drop procedure RANDOM.ModificarCliente
 drop procedure RANDOM.AgregarClientePorCiudad
 drop procedure RANDOM.QuitarClientePorCiudad
+drop procedure RANDOM.ReiniciarFallas
