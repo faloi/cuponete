@@ -36,14 +36,14 @@ namespace GrouponDesktop.Sql
 
         public IEnumerable<SqlParameter> CreateParametersFrom(Dictionary<string, object> values)
         {
-            return values.Select(x => new SqlParameter(x.Key, x.Value));
+            return values.Select(x => new SqlParameter(x.Key, x.Value) { Direction = ParameterDirection.InputOutput });
         }
 
         public IEnumerable<SqlParameter> CreateParametersFrom(object model, params string[] parameterNames)
         {
             var properties = model.GetType().GetProperties();
             var parameters = properties
-                .Select(property => new SqlParameter(property.Name, property.GetValue(model, null)));
+                .Select(property => new SqlParameter(property.Name, property.GetValue(model, null)) { Direction = ParameterDirection.InputOutput});
             
             return parameterNames.Length == 0
                 ? parameters 
@@ -54,9 +54,9 @@ namespace GrouponDesktop.Sql
         {
             var value = dataRow[property.Name];
 
-            return value == DBNull.Value ? null : Convert.ChangeType(value, property.PropertyType, CultureInfo.InvariantCulture);
-
-            //return Convert.ChangeType(dataRow[property.Name], property.PropertyType, CultureInfo.InvariantCulture);
+            return value == DBNull.Value 
+                ? null 
+                : Convert.ChangeType(value, property.PropertyType, CultureInfo.InvariantCulture);
         }
     }
 }

@@ -7,10 +7,18 @@ using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.Sql
 {
+    public static class SqlParameterHelpers
+    {
+        public static SqlParameter FindByName(this SqlParameterCollection collection, string name)
+        {
+            return collection.Cast<SqlParameter>().Single(p => p.ParameterName == name);
+        }
+    }
+    
     public class Runnable
     {
         private readonly string query;
-        private readonly IEnumerable<SqlParameter> parameters;
+        private readonly IList<SqlParameter> parameters;
         private readonly CommandType commandType;
 
         public static Runnable Query(string query)
@@ -26,7 +34,7 @@ namespace GrouponDesktop.Sql
         private Runnable(CommandType commandType, string query, IEnumerable<SqlParameter> parameters)
         {
             this.query = query;
-            this.parameters = parameters;
+            this.parameters = parameters.ToList();
             this.commandType = commandType;
         }
 
@@ -34,6 +42,8 @@ namespace GrouponDesktop.Sql
 
         private void SetupCommand(SqlCommand command)
         {
+            command.Parameters.Clear();
+
             foreach (var p in parameters)
                 command.Parameters.Add(p);
 
@@ -45,6 +55,14 @@ namespace GrouponDesktop.Sql
         {
             this.SetupCommand(command);
             command.ExecuteNonQuery();
+            
+            this.UpdateParametersValuesFrom(command.Parameters);
+        }
+
+        private void UpdateParametersValuesFrom(SqlParameterCollection sqlParameterCollection)
+        {
+            foreach (var parameter in this.parameters)
+                parameter.Value = sqlParameterCollection.FindByName(parameter.ParameterName).Value;
         }
 
         public DataTable Select(SqlCommand command)

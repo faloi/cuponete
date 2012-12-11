@@ -19,10 +19,7 @@ namespace GrouponDesktop.Sql
             try
             {
                 command.Transaction = this.transaction;
-
-                foreach (var runnable in runnables)
-                    runnable.Run(command);
-
+                this.RunRunnables(runnables, command);
                 transaction.Commit();
             }
             catch (SqlException)
