@@ -13,7 +13,8 @@ namespace GrouponDesktop.Views
         protected readonly int PROVEEDOR = 3;
         protected readonly BindingSource model;
         protected int rolDisponible;
-        protected ErrorProvider errorProvider = new ErrorProvider();
+        protected ErrorProvider errorProvider = new ErrorProvider {BlinkStyle = ErrorBlinkStyle.NeverBlink};
+        
 
         protected DefaultView()
         {

@@ -12,20 +12,21 @@ namespace GrouponDesktop.Helpers
 
         public static bool ValidateObligatorio(List<TextBox> boxes, ErrorProvider errorProvider)
         {
-            errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+            
             var ret = true;
             foreach (var textBox in boxes)
             {
-                if (!textBox.Text.Equals(""))
+                if (textBox.Text.Equals("") || textBox.Text.Equals("0"))
                 {
-                    // Clear the error, if any, in the error provider.
-                    errorProvider.SetError(textBox, "");
+                   // Set the error if the name is not valid.
+                    errorProvider.SetError(textBox, "Este campo es obligatorio");
+                    ret = false;
                 }
                 else
                 {
-                    // Set the error if the name is not valid.
-                    errorProvider.SetError(textBox, "Este campo es obligatorio");
-                    ret = false;
+                    // Clear the error, if any, in the error provider.
+                    errorProvider.SetError(textBox, "");
+                    
                 }
                 
             }
@@ -51,5 +52,26 @@ namespace GrouponDesktop.Helpers
 
         }
 
+        public static bool ValidateFormatoVtoTarjeta(TextBox box,ErrorProvider errorProvider)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(box.Text, "^((0[1-9])|(1[0-2]))/((2009)|(20[1-2][0-9]))$"))
+                return true;
+            else
+            {
+                errorProvider.SetError(box, "El formato de la fecha de vencimiento debe ser MM/yyyy");
+                return false;
+            };
+
+        }
+
+        public static bool ValidateMontoPositivo(TextBox textBoxMonto, ErrorProvider errorProvider)
+        {
+             if(Convert.ToInt32(textBoxMonto.Text) <= 0)
+             {
+                 errorProvider.SetError(textBoxMonto, "El monto debe ser mayor a cero");
+                 return false; 
+             }
+            return true;
+        }
     }
 }

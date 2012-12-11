@@ -68,9 +68,11 @@
             // textBoxNroTarjeta
             // 
             this.textBoxNroTarjeta.Location = new System.Drawing.Point(10, 40);
+            this.textBoxNroTarjeta.MaxLength = 15;
             this.textBoxNroTarjeta.Name = "textBoxNroTarjeta";
             this.textBoxNroTarjeta.Size = new System.Drawing.Size(224, 20);
             this.textBoxNroTarjeta.TabIndex = 1;
+            this.textBoxNroTarjeta.TextChanged += new System.EventHandler(this.textBoxNroTarjeta_TextChanged);
             // 
             // labelNroDeTarjeta
             // 
@@ -85,6 +87,7 @@
             // textBoxCodDeSeg
             // 
             this.textBoxCodDeSeg.Location = new System.Drawing.Point(10, 92);
+            this.textBoxCodDeSeg.MaxLength = 3;
             this.textBoxCodDeSeg.Name = "textBoxCodDeSeg";
             this.textBoxCodDeSeg.Size = new System.Drawing.Size(69, 20);
             this.textBoxCodDeSeg.TabIndex = 2;
@@ -112,6 +115,7 @@
             // textBoxFechaVto
             // 
             this.textBoxFechaVto.Location = new System.Drawing.Point(10, 149);
+            this.textBoxFechaVto.MaxLength = 7;
             this.textBoxFechaVto.Name = "textBoxFechaVto";
             this.textBoxFechaVto.Size = new System.Drawing.Size(224, 20);
             this.textBoxFechaVto.TabIndex = 3;
@@ -152,7 +156,6 @@
             this.buttonCancelar.TabIndex = 10;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // groupBox1
             // 

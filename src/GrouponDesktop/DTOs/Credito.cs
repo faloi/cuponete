@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Credito
+    public class Credito
     {
         public long id_credito { set; get; }
         public long id_cliente { set; get; }
