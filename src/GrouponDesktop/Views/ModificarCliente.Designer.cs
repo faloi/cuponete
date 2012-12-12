@@ -214,7 +214,7 @@
             this.ciuPrefClienteBox.FormattingEnabled = true;
             this.ciuPrefClienteBox.Location = new System.Drawing.Point(9, 251);
             this.ciuPrefClienteBox.Name = "ciuPrefClienteBox";
-            this.ciuPrefClienteBox.Size = new System.Drawing.Size(647, 148);
+            this.ciuPrefClienteBox.Size = new System.Drawing.Size(619, 148);
             this.ciuPrefClienteBox.TabIndex = 27;
             // 
             // fechaNacCliente
