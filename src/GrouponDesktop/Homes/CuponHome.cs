@@ -8,12 +8,7 @@ namespace GrouponDesktop.Homes
 {
     public class CuponHome : Home
     {
-
-        public CuponHome(string connectionString)
-            : base(connectionString)
-        {
-
-        }
+        public CuponHome(string connectionString) : base(connectionString) {}
 
         public IList<Cupon> CuponesDisponibles()
         {
@@ -24,12 +19,5 @@ namespace GrouponDesktop.Homes
 
             return new Adapter().TransformMany<Cupon>(this.sqlRunner.Select(QUERY, filtros));
         }
-
-        /*
-                private static class Queries
-                {
-
-                }
-        */
     }
 }

@@ -4,30 +4,23 @@ using System.Data;
 using System.Linq;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
-﻿using GrouponDesktop.Views;
 
 namespace GrouponDesktop.Homes
 {
     public class RolHome : Home
     {
-        public RolHome(string connectionString)
-            : base(connectionString)
-        {
-
-        }
+        public RolHome(string connectionString) : base(connectionString) {}
 
         public DataTable RolesDisponibles()
         {
             try
             {
-                return sqlRunner
-                    .Select("SELECT * FROM RANDOM.Rol WHERE descripcion in ('Cliente','Proveedor')");
+                return sqlRunner.Select("SELECT * FROM RANDOM.Rol WHERE descripcion in ('Cliente','Proveedor')");
             }
             catch (NoResultsException e)
             {
                 throw new ApplicationException("No hay roles Disponibles", e);
             }
-
         }
 
         public void RegistrarRol(Rol rol, IEnumerable<Funcionalidad> funcionalidades)
@@ -40,11 +33,12 @@ namespace GrouponDesktop.Homes
             var nuevasFuncionalidades = funcionalidades
                 .Select(funcionalidad =>
                     this.CreateProcedureFrom("AgregarFuncionalidadPorRol",
+                    new [] {"id_rol"},
                     new Dictionary<string, object> { { "id_funcionalidad", funcionalidad.id_funcionalidad }, { "id_rol", rol.id_rol } }));
 
             procedures.AddRange(nuevasFuncionalidades);
 
-            this.RunProcedures(procedures);
+            this.Run(procedures);
         }
 
         public IList<Rol> ListarRoles(Rol ejemplo)
@@ -55,14 +49,12 @@ namespace GrouponDesktop.Homes
             if (ejemplo.descripcion != null)
                 filtros.AddLike("descripcion", ejemplo.descripcion);
 
-
             return new Adapter().TransformMany<Rol>(this.sqlRunner.Select(QUERY, filtros));
         }
 
         public Rol GetRolById(string idSeleccionado)
         {
             const string QUERY = "SELECT * FROM RANDOM.Rol where id_rol = {0}";
-
             return new Adapter().Transform<Rol>(this.sqlRunner.Single(QUERY, idSeleccionado));
         }
 
@@ -87,27 +79,19 @@ namespace GrouponDesktop.Homes
 
             procedures.AddRange(nuevasFuncionalidades);
 
-            this.RunProcedures(procedures);
+            this.Run(procedures);
         }
 
         public void HabilitarRol(Rol rol)
         {
-            var procedures = new List<Runnable>
-            {
-                this.CreateProcedureFrom("HabilitarRol", rol,"descripcion")
-            };
-
-            this.RunProcedures(procedures);
+            var procedure = this.CreateProcedureFrom("HabilitarRol", rol, "descripcion");
+            this.Run(procedure);
         }
 
         public void DeshabilitarRol(Rol rol)
         {
-            var procedures = new List<Runnable>
-            {
-                this.CreateProcedureFrom("DeshabilitarRol", rol,"descripcion")
-            };
-
-            this.RunProcedures(procedures);
+            var procedure = this.CreateProcedureFrom("DeshabilitarRol", rol, "descripcion");
+            this.Run(procedure);
         }
     }
 }

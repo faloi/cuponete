@@ -8,40 +8,30 @@ namespace GrouponDesktop.Homes
 {
     public class CiudadHome : Home
     {
-
-        public CiudadHome(string connectionString)
-            : base(connectionString)
-        {
-            
-        }
-
+        public CiudadHome(string connectionString) : base(connectionString) {}
 
         public DataTable CiudadesDisponibles()
         {
             try
             {
-                return sqlRunner
-                    .Select("SELECT * FROM RANDOM.Ciudad");
+                return this.sqlRunner.Select("SELECT * FROM RANDOM.Ciudad");
             }
             catch (NoResultsException e)
             {
                 throw new ApplicationException("No hay Resultados", e);
             }
-            
         }
 
         public DataTable CiudadesDisponiblesParaCliente()
         {
             try
             {
-                return sqlRunner
-                    .Select("SELECT * FROM RANDOM.Ciudad");
+                return this.sqlRunner.Select("SELECT * FROM RANDOM.Ciudad");
             }
             catch (NoResultsException e)
             {
                 throw new ApplicationException("No hay Resultados", e);
             }
-
         }
 
         public IEnumerable<Ciudad> CiudadesPorCliente(long id_cliente)
@@ -53,12 +43,5 @@ namespace GrouponDesktop.Homes
 
             return new Adapter().TransformMany<Ciudad>(this.sqlRunner.Select(QUERY, filtros));
         }
-
-/*
-        private static class Queries
-        {
-
-        }
-*/
     }
 }
