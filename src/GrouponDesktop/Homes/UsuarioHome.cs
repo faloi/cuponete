@@ -209,5 +209,11 @@ namespace GrouponDesktop.Homes
                 "direccion", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
             this.Run(procedure);
         }
+
+        public void DarDeBajaUsuario(Usuario usuario)
+        {
+            var procedure = this.CreateProcedureFrom("DeshabilitarUsuario", usuario, "id_usuario");
+            this.Run(procedure);
+        }
     }
 }

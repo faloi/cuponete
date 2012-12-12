@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
         { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" },
         { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" },
         { "Publicar Cupón", "PublicarCupon" }, { "Facturación a Proveedor", "FacturarProveedor" }, { "Listado Estadístico", "ListadoEstadistico" }, { "ABM Cliente", "ABMCliente" },
-        { "ABM Proveedor", "ABMProveedor" }, { "ABM Rol", "ABMRol" }, { "Cambiar Password", "CambiarPassword"} };
+        { "ABM Proveedor", "ABMProveedor" }, { "ABM Rol", "ABMRol" }, { "Dar de Baja", "DarDeBajaCliente" }, { "Cambiar Password", "CambiarPassword"} };
 
         public Menu()
         {
