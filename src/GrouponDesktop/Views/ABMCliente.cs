@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -49,7 +50,22 @@ namespace GrouponDesktop.Views
                 (sender, args) => this.ModificarCliente();
 
             this.buttonBajaRestaurar.Click +=
-                (sender, args) => this.home.BorrarCliente(this.IdSeleccionado);
+                (sender, args) => this.BajaRestaurarCliente();
+        }
+
+        private void BajaRestaurarCliente()
+        {
+            var cliente = this.home.GetClienteById(this.IdSeleccionado);
+            if (cliente.estado == 0)
+            {
+                this.home.DarDeAltaUsuario(cliente);
+                MessageBox.Show("El cliente se Habilito con éxito");
+            }
+            else
+            {
+                this.home.DarDeBajaUsuario(cliente);
+                MessageBox.Show("El cliente se Deshabilito con éxito");
+            }
         }
 
         private void ModificarCliente()
