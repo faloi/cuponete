@@ -171,8 +171,9 @@ namespace GrouponDesktop.Homes
                                                               "carga_credito", "fecha", "id_forma_pago", "nro_tarjeta",
                                                               "cod_seguridad_tarjeta", "fecha_vto_tarjeta")
 
+
                                  };
-            this.RunProcedures(procedures);
+            this.Run(procedures);
         }
 
         public void ModificarCliente(Cliente cliente, IEnumerable<Ciudad> ciudadesAgregadas, IEnumerable<Ciudad> ciudadesEliminadas)
