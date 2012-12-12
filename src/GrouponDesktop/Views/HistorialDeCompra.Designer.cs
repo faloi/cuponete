@@ -155,7 +155,7 @@
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 5;
-            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.Text = "Volver";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 

@@ -14,8 +14,20 @@ namespace GrouponDesktop.Views
         {
             this.InitializeComponent();
 
-            this.proveedorButton.Click += (sender, args) => this.Redirect(new ModificarProveedor(null));
-            this.clienteButton.Click += (sender, args) => this.Redirect(new ModificarCliente());
+            this.proveedorButton.Click += (sender, args) => this.AbrirProveedor();
+            this.clienteButton.Click += (sender, args) => this.AbrirCliente();
+
+        }
+
+        public void AbrirCliente()
+        {
+            this.Redirect(new ModificarCliente());
+            this.Close();
+        }
+
+        public void AbrirProveedor()
+        {
+            this.Redirect(new ModificarProveedor(null));
             this.Close();
         }
     }
