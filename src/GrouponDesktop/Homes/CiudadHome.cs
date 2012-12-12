@@ -36,7 +36,7 @@ namespace GrouponDesktop.Homes
 
         public IEnumerable<Ciudad> CiudadesPorCliente(long id_cliente)
         {
-            const string QUERY = "SELECT ciu.descripcion FROM RANDOM.Cliente_x_ciudad cliciu LEFT JOIN RANDOM.Ciudad ciu ON (ciu.id_ciudad = cliciu.id_ciudad)";
+            const string QUERY = "SELECT ciu.id_ciudad FROM RANDOM.Cliente_x_ciudad cliciu LEFT JOIN RANDOM.Ciudad ciu ON (ciu.id_ciudad = cliciu.id_ciudad)";
 
             var filtros = new Filters();
             filtros.AddEqual("id_cliente", id_cliente.ToString());
