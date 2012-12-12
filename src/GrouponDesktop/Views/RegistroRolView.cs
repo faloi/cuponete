@@ -51,6 +51,7 @@ namespace GrouponDesktop.Views
                                        this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
             else
                  this.home.RegistrarRol(this.model.DataSource as Rol, this.checkedListBoxFuncionalidades.GetCheckedItems<Funcionalidad>());
+            this.SuccessMessage("El rol se guardo correctamente");
            
         }
 
