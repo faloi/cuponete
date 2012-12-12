@@ -75,7 +75,12 @@ namespace GrouponDesktop.Homes
 
         public void RegistrarProveedor(Proveedor proveedor)
         {
-            this.CreateProcedureFrom("RegistrarProveedor", proveedor);
+            proveedor.password = proveedor.password.ToSha256();
+
+            var procedure = this.CreateProcedureFrom(
+                "RegistrarProveedor", proveedor, "username", "password", "razon_social", "mail", 
+                "telefono", "direccion", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
+            this.Run(procedure);
         }
 
         public void ComprarGiftCard(Gift_card gift)
@@ -195,6 +200,14 @@ namespace GrouponDesktop.Homes
 
             procedures.AddRange(ciudadesViejas);
             this.Run(procedures);
+        }
+
+        public void ModificarProveedor(Proveedor proveedor)
+        {
+            var procedure = this.CreateProcedureFrom(
+                "ModificarProveedor", proveedor, "id_usuario", "razon_social", "mail", "telefono",
+                "direccion", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
+            this.Run(procedure);
         }
     }
 }
