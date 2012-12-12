@@ -6,8 +6,6 @@ drop trigger RANDOM.inhabilitar_rol
 drop view RANDOM.Cupones_Para_Cliente
 drop view RANDOM.Historial_Compra_Cupones
 drop view RANDOM.Facturacion_Proveedor
-drop view RANDOM.Porcentaje_Devolucion
-drop view RANDOM.Estadistica_Giftcards
 
 drop procedure RANDOM.AgregarCuponPorCiudad
 drop procedure RANDOM.QuitarCuponPorCiudad
