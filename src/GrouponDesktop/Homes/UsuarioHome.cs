@@ -215,5 +215,11 @@ namespace GrouponDesktop.Homes
             var procedure = this.CreateProcedureFrom("DeshabilitarUsuario", usuario, "id_usuario");
             this.Run(procedure);
         }
+
+        public void DarDeAltaUsuario(Usuario usuario)
+        {
+            var procedure = this.CreateProcedureFrom("HabilitarUsuario", usuario, "id_usuario");
+            this.Run(procedure);
+        }
     }
 }
