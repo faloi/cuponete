@@ -77,6 +77,7 @@ namespace GrouponDesktop.Views
                 var ciudadesAgregadas = ciudadesSeleccionadas.Except(this.ciudadesOriginales);
                 this.home.ModificarCliente(cliente, ciudadesAgregadas, ciudadesEliminadas);
             }
+            this.Close();
         }
 
         protected override bool Validar()

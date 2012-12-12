@@ -81,6 +81,8 @@
             // 
             // proveedoresDataGrid
             // 
+            this.proveedoresDataGrid.AllowUserToAddRows = false;
+            this.proveedoresDataGrid.AllowUserToDeleteRows = false;
             this.proveedoresDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.proveedoresDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.proveedoresDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -99,6 +101,7 @@
             this.ColumnEmail});
             this.proveedoresDataGrid.Location = new System.Drawing.Point(17, 144);
             this.proveedoresDataGrid.Name = "proveedoresDataGrid";
+            this.proveedoresDataGrid.ReadOnly = true;
             this.proveedoresDataGrid.Size = new System.Drawing.Size(568, 234);
             this.proveedoresDataGrid.TabIndex = 8;
             // 
@@ -106,16 +109,19 @@
             // 
             this.ColumnRazonSocial.HeaderText = "Razon Social";
             this.ColumnRazonSocial.Name = "ColumnRazonSocial";
+            this.ColumnRazonSocial.ReadOnly = true;
             // 
             // ColumnCUIT
             // 
             this.ColumnCUIT.HeaderText = "CUIT";
             this.ColumnCUIT.Name = "ColumnCUIT";
+            this.ColumnCUIT.ReadOnly = true;
             // 
             // ColumnEmail
             // 
             this.ColumnEmail.HeaderText = "Email";
             this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.ReadOnly = true;
             // 
             // textBoxCuit
             // 

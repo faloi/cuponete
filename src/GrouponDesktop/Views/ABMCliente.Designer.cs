@@ -126,6 +126,8 @@
             // 
             // clientesDataGrid
             // 
+            this.clientesDataGrid.AllowUserToAddRows = false;
+            this.clientesDataGrid.AllowUserToDeleteRows = false;
             this.clientesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.clientesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.clientesDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -145,6 +147,7 @@
             this.ColumnEmail});
             this.clientesDataGrid.Location = new System.Drawing.Point(13, 143);
             this.clientesDataGrid.Name = "clientesDataGrid";
+            this.clientesDataGrid.ReadOnly = true;
             this.clientesDataGrid.Size = new System.Drawing.Size(568, 234);
             this.clientesDataGrid.TabIndex = 9;
             // 
@@ -152,21 +155,25 @@
             // 
             this.ColumnNombre.HeaderText = "Nombre";
             this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
             // 
             // ColumnApellido
             // 
             this.ColumnApellido.HeaderText = "Apellido";
             this.ColumnApellido.Name = "ColumnApellido";
+            this.ColumnApellido.ReadOnly = true;
             // 
             // ColumnDNI
             // 
             this.ColumnDNI.HeaderText = "DNI";
             this.ColumnDNI.Name = "ColumnDNI";
+            this.ColumnDNI.ReadOnly = true;
             // 
             // ColumnEmail
             // 
             this.ColumnEmail.HeaderText = "Email";
             this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.ReadOnly = true;
             // 
             // buttonNuevoCliente
             // 

@@ -75,6 +75,8 @@
             // 
             // rolesDataGrid
             // 
+            this.rolesDataGrid.AllowUserToAddRows = false;
+            this.rolesDataGrid.AllowUserToDeleteRows = false;
             this.rolesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.rolesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.rolesDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -91,6 +93,7 @@
             this.ColumnRol});
             this.rolesDataGrid.Location = new System.Drawing.Point(16, 114);
             this.rolesDataGrid.Name = "rolesDataGrid";
+            this.rolesDataGrid.ReadOnly = true;
             this.rolesDataGrid.Size = new System.Drawing.Size(431, 209);
             this.rolesDataGrid.TabIndex = 6;
             // 
@@ -98,6 +101,7 @@
             // 
             this.ColumnRol.HeaderText = "Rol";
             this.ColumnRol.Name = "ColumnRol";
+            this.ColumnRol.ReadOnly = true;
             // 
             // buttonBuscar
             // 
