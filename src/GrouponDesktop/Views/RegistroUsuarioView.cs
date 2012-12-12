@@ -1,12 +1,4 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using GrouponDesktop.DTOs;
-using GrouponDesktop.Helpers;
-using GrouponDesktop.Homes;
-using GrouponDesktop.Sql;
-
-namespace GrouponDesktop.Views
+﻿namespace GrouponDesktop.Views
 {
     public partial class RegistroUsuarioView : DefaultView
     {
@@ -27,7 +19,7 @@ namespace GrouponDesktop.Views
 
         public void AbrirProveedor()
         {
-            this.Redirect(new ModificarProveedor(null));
+            this.Redirect(new ModificarProveedor());
             this.Close();
         }
     }
