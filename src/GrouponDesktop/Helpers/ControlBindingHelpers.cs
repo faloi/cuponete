@@ -27,14 +27,29 @@ namespace GrouponDesktop.Helpers
 
     public static class ControlBindingHelpers
     {
+        private static void BindPropertyTo(Control control, string controlProperty, object model, string propertyName)
+        {
+            control.DataBindings.Add(controlProperty, model, propertyName);
+        }
+
+        private static void BindPropertyTo(this Control control, string controlProperty, object model, string propertyName, DataType dataType)
+        {
+            control.DataBindings.Add(controlProperty, model, propertyName, true, DataSourceUpdateMode.OnPropertyChanged, null, dataType.ToString());
+        }
+
         public static void BindTextTo(this Control control, object model, string propertyName)
         {
-            control.DataBindings.Add("Text", model, propertyName);
+            BindPropertyTo(control, "Text", model, propertyName);
         }
 
         public static void BindTextTo(this Control control, object model, string propertyName, DataType dataType)
         {
-            control.DataBindings.Add("Text", model, propertyName, true, DataSourceUpdateMode.OnPropertyChanged, null, dataType.ToString());
+            BindPropertyTo(control, "Text", model, propertyName, dataType);
+        }
+
+        public static void BindValueTo(this ListControl control, object model, string propertyName)
+        {
+            BindPropertyTo(control, "SelectedValue", model, propertyName);
         }
 
         public static void BindTextToDate(this Control control, object model, string propertyName, string format)

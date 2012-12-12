@@ -43,6 +43,8 @@
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonFacturar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +122,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -137,6 +141,7 @@
             this.Monto});
             this.dataGridView1.Location = new System.Drawing.Point(16, 149);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(430, 190);
             this.dataGridView1.TabIndex = 35;
             // 
@@ -144,16 +149,19 @@
             // 
             this.CodigoCupon.HeaderText = "Código Cupón";
             this.CodigoCupon.Name = "CodigoCupon";
+            this.CodigoCupon.ReadOnly = true;
             // 
             // FechaCanje
             // 
             this.FechaCanje.HeaderText = "Fecha de Canje";
             this.FechaCanje.Name = "FechaCanje";
+            this.FechaCanje.ReadOnly = true;
             // 
             // Monto
             // 
             this.Monto.HeaderText = "Monto";
             this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
             // 
             // buttonCancelar
             // 
@@ -197,6 +205,8 @@
             this.Name = "FacturarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturar a Proveedor";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

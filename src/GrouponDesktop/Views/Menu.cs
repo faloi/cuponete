@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
         { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" },
         { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" },
         { "Publicar Cupón", "PublicarCupon" }, { "Facturación a Proveedor", "FacturarProveedor" }, { "Listado Estadístico", "ListadoEstadistico" }, { "ABM Cliente", "ABMCliente" },
-        { "ABM Proveedor", "ABMProveedor" }, { "ABM Rol", "ABMRol" }, { "Cambiar Password", "CambiarPassword"} };
+        { "ABM Proveedor", "ABMProveedor" }, { "ABM Rol", "ABMRol" }, { "Dar de Baja", "DarDeBaja" }, { "Cambiar Password", "CambiarPassword"} };
 
         public Menu()
         {
@@ -40,7 +40,10 @@ namespace GrouponDesktop.Views
             foreach (var item in listFuncionalidades)
             {
                 string redirect = funcionalidades[item.descripcion];
-                this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
+                if ((Equals(item.descripcion, "Dar de Baja")) && (HomeFactory.Usuario.UsuarioActual.id_rol == 1))
+                    this.menuStrip1.AddItem("Habilitar / Deshabilitar Usuario", (sender, args) => FormCreator.Show(redirect));
+                else
+                    this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
             }
         }
 

@@ -150,6 +150,8 @@
             // 
             // dataGridViewGifcardAcreditadas
             // 
+            this.dataGridViewGifcardAcreditadas.AllowUserToAddRows = false;
+            this.dataGridViewGifcardAcreditadas.AllowUserToDeleteRows = false;
             this.dataGridViewGifcardAcreditadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewGifcardAcreditadas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -166,6 +168,7 @@
             this.GiftcardAcreditadas});
             this.dataGridViewGifcardAcreditadas.Location = new System.Drawing.Point(19, 223);
             this.dataGridViewGifcardAcreditadas.Name = "dataGridViewGifcardAcreditadas";
+            this.dataGridViewGifcardAcreditadas.ReadOnly = true;
             this.dataGridViewGifcardAcreditadas.Size = new System.Drawing.Size(252, 223);
             this.dataGridViewGifcardAcreditadas.TabIndex = 37;
             // 
@@ -173,11 +176,13 @@
             // 
             this.Usuario.HeaderText = "Usuario";
             this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
             // 
             // GiftcardAcreditadas
             // 
             this.GiftcardAcreditadas.HeaderText = "Giftcard Acreditadas";
             this.GiftcardAcreditadas.Name = "GiftcardAcreditadas";
+            this.GiftcardAcreditadas.ReadOnly = true;
             // 
             // buttonCancelar
             // 

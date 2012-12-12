@@ -19,18 +19,19 @@ namespace GrouponDesktop.Views
 
         public ModificarCliente(Cliente cliente) : this(cliente, false) {}
 
-        public ModificarCliente(Cliente cliente, bool isNew)
+        private ModificarCliente(Cliente cliente, bool isNew)
         {
             InitializeComponent();
 
             this.IsNew = isNew;
-            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.IsNew;
+            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.direccionGroupBox.Visible = this.IsNew;
 
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(cliente);
 
             this.Text = "Modificar Cliente";
             this.CreateBindings(this.guardarButton);
+            this.password.UseSystemPasswordChar = true;
         }
         
         protected override void CreateSpecificBindings()
@@ -77,6 +78,7 @@ namespace GrouponDesktop.Views
                 var ciudadesAgregadas = ciudadesSeleccionadas.Except(this.ciudadesOriginales);
                 this.home.ModificarCliente(cliente, ciudadesAgregadas, ciudadesEliminadas);
             }
+            this.Close();
         }
 
         protected override bool Validar()
@@ -87,10 +89,12 @@ namespace GrouponDesktop.Views
                this.apellidoCliente,
                this.dniCliente,
                this.emailCliente,
-               this.telefonoCliente,
-               this.username,
-               this.password,
+               this.telefonoCliente               
             };
+
+            if (this.IsNew)
+                fieldsObligatorios.AddRange(new[] { this.username, this.password });
+
             return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateCheckList(this.ciuPrefClienteBox, this.errorProvider));
         }
 
@@ -102,15 +106,13 @@ namespace GrouponDesktop.Views
 
         private void SeleccionarCiudades()
         {
-            this.ciudadesOriginales = HomeFactory.Ciudad.CiudadesPorCliente((this.model.DataSource as Cliente).id_usuario);
+            var cliente = this.model.DataSource as Cliente;
+            this.ciudadesOriginales = HomeFactory.Ciudad.CiudadesPorCliente(cliente.id_usuario);
 
-            var checkBoxItems = ciuPrefClienteBox.DataSource as List<Ciudad>;
-            foreach (var checkBoxItem in checkBoxItems)
-            {
-                var ciudad = checkBoxItem;
-                if (this.ciudadesOriginales.Any(obj => obj.descripcion == ciudad.descripcion))
-                    ciuPrefClienteBox.SetItemChecked(checkBoxItems.IndexOf(checkBoxItem), true);
-            }
+            var todasLasCiudades = ciuPrefClienteBox.DataSource as List<Ciudad>;
+
+            foreach (var ciudad in todasLasCiudades.Where(ciudad => ciudadesOriginales.Contains(ciudad, new CiudadEqualityComparer())))
+                ciuPrefClienteBox.SetItemChecked(todasLasCiudades.IndexOf(ciudad), true);
         }
     }
 }

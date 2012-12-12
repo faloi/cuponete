@@ -77,7 +77,7 @@
             this.MaximizeBox = false;
             this.Name = "RegistroUsuarioView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modificar Usuario";
+            this.Text = "Registrar";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

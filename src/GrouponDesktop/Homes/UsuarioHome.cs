@@ -75,7 +75,12 @@ namespace GrouponDesktop.Homes
 
         public void RegistrarProveedor(Proveedor proveedor)
         {
-            this.CreateProcedureFrom("RegistrarProveedor", proveedor);
+            proveedor.password = proveedor.password.ToSha256();
+
+            var procedure = this.CreateProcedureFrom(
+                "RegistrarProveedor", proveedor, "username", "password", "razon_social", "mail", 
+                "telefono", "direccion", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
+            this.Run(procedure);
         }
 
         public void ComprarGiftCard(Gift_card gift)
@@ -86,7 +91,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
-            const string QUERY = "SELECT id_usuario, nombre, apellido, dni, mail FROM RANDOM.Cliente";
+            const string QUERY = "SELECT cli.*,us.estado FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario)";
 
             var filtros = new Filters();
             if (ejemplo.nombre != null)
@@ -165,15 +170,11 @@ namespace GrouponDesktop.Homes
 
         public void CargarCredito(Credito credito)
         {
-            var procedures = new List<Runnable>
-                                 {
-                                     this.CreateProcedureFrom("CargarCredito", credito, "id_cliente",
-                                                              "carga_credito", "fecha", "id_forma_pago", "nro_tarjeta",
-                                                              "cod_seguridad_tarjeta", "fecha_vto_tarjeta")
-
-
-                                 };
-            this.Run(procedures);
+            var procedure = this.CreateProcedureFrom(
+                "CargarCredito", credito, "id_cliente", "carga_credito", "fecha", "id_forma_pago", "nro_tarjeta", 
+                "cod_seguridad_tarjeta", "fecha_vto_tarjeta");
+            
+            this.Run(procedure);
         }
 
         public void ModificarCliente(Cliente cliente, IEnumerable<Ciudad> ciudadesAgregadas, IEnumerable<Ciudad> ciudadesEliminadas)
@@ -185,21 +186,41 @@ namespace GrouponDesktop.Homes
                     "dni", "telefono", "direccion", "cod_postal", "fecha_nac")
             };
 
-            var nuevasCiudades = ciudadesAgregadas
-                .Select(ciudad =>
-                    this.CreateProcedureFrom("QuitarClientePorCiudad",
+
+            var ciudadesViejas = ciudadesEliminadas.Select(ciudad =>
+                    this.CreateProcedureFrom(
+                    "QuitarClientePorCiudad",
+                    new Dictionary<string, object> { { "id_usuario", cliente.id_usuario }, { "id_ciudad", ciudad.id_ciudad } }));
+
+            procedures.AddRange(ciudadesViejas);
+
+            var nuevasCiudades = ciudadesAgregadas.Select(ciudad =>
+                    this.CreateProcedureFrom(
+                    "AgregarClientePorCiudad",
                     new Dictionary<string, object> { { "id_usuario", cliente.id_usuario }, { "id_ciudad", ciudad.id_ciudad } }));
 
             procedures.AddRange(nuevasCiudades);
-
-            var ciudadesViejas = ciudadesEliminadas
-                .Select(ciudad => 
-                    this.CreateProcedureFrom(
-                    "AgregarClientePorCiudad",
-                    new Dictionary<string, object> { { "id_usuario", cliente.id_usuario }, { "id_ciudad", ciudad.id_ciudad } }));                
-
-            procedures.AddRange(ciudadesViejas);
             this.Run(procedures);
+        }
+
+        public void ModificarProveedor(Proveedor proveedor)
+        {
+            var procedure = this.CreateProcedureFrom(
+                "ModificarProveedor", proveedor, "id_usuario", "razon_social", "mail", "telefono",
+                "direccion", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
+            this.Run(procedure);
+        }
+
+        public void DarDeBajaUsuario(Usuario usuario)
+        {
+            var procedure = this.CreateProcedureFrom("DeshabilitarUsuario", usuario, "id_usuario");
+            this.Run(procedure);
+        }
+
+        public void DarDeAltaUsuario(Usuario usuario)
+        {
+            var procedure = this.CreateProcedureFrom("HabilitarUsuario", usuario, "id_usuario");
+            this.Run(procedure);
         }
     }
 }

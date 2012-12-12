@@ -53,6 +53,8 @@
             // 
             // cuponDataGrid
             // 
+            this.cuponDataGrid.AllowUserToAddRows = false;
+            this.cuponDataGrid.AllowUserToDeleteRows = false;
             this.cuponDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cuponDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -71,6 +73,7 @@
             this.Cantidad});
             this.cuponDataGrid.Location = new System.Drawing.Point(12, 49);
             this.cuponDataGrid.Name = "cuponDataGrid";
+            this.cuponDataGrid.ReadOnly = true;
             this.cuponDataGrid.Size = new System.Drawing.Size(699, 225);
             this.cuponDataGrid.TabIndex = 1;
             // 
@@ -78,21 +81,25 @@
             // 
             this.Proveedor.HeaderText = "Proveedor";
             this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
             // 
             // Descripcion
             // 
             this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // PrecioReal
             // 
             this.PrecioReal.HeaderText = "Precio Real";
             this.PrecioReal.Name = "PrecioReal";
+            this.PrecioReal.ReadOnly = true;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             // 
             // buttonCancelar
             // 

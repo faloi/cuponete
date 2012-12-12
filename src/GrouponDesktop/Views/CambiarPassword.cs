@@ -28,6 +28,7 @@ namespace GrouponDesktop.Views
         {
             this.home.CambiaPassword(this.textBoxPassword.Text);
             SuccessMessage("Su Password fue cambiado con éxito");
+            this.Close();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

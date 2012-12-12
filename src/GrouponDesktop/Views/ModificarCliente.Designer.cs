@@ -214,7 +214,7 @@
             this.ciuPrefClienteBox.FormattingEnabled = true;
             this.ciuPrefClienteBox.Location = new System.Drawing.Point(9, 251);
             this.ciuPrefClienteBox.Name = "ciuPrefClienteBox";
-            this.ciuPrefClienteBox.Size = new System.Drawing.Size(647, 148);
+            this.ciuPrefClienteBox.Size = new System.Drawing.Size(619, 148);
             this.ciuPrefClienteBox.TabIndex = 27;
             // 
             // fechaNacCliente
@@ -452,8 +452,12 @@
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.usuarioGroupBox);
             this.Controls.Add(this.clienteGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ModificarCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Cliente";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.clienteGroupBox.ResumeLayout(false);

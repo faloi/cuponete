@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.labelNombre = new System.Windows.Forms.Label();
             this.textBoxApellido = new System.Windows.Forms.TextBox();
@@ -126,17 +126,19 @@
             // 
             // clientesDataGrid
             // 
+            this.clientesDataGrid.AllowUserToAddRows = false;
+            this.clientesDataGrid.AllowUserToDeleteRows = false;
             this.clientesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.clientesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.clientesDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.clientesDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.clientesDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.clientesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clientesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNombre,
@@ -145,6 +147,7 @@
             this.ColumnEmail});
             this.clientesDataGrid.Location = new System.Drawing.Point(13, 143);
             this.clientesDataGrid.Name = "clientesDataGrid";
+            this.clientesDataGrid.ReadOnly = true;
             this.clientesDataGrid.Size = new System.Drawing.Size(568, 234);
             this.clientesDataGrid.TabIndex = 9;
             // 
@@ -152,21 +155,25 @@
             // 
             this.ColumnNombre.HeaderText = "Nombre";
             this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
             // 
             // ColumnApellido
             // 
             this.ColumnApellido.HeaderText = "Apellido";
             this.ColumnApellido.Name = "ColumnApellido";
+            this.ColumnApellido.ReadOnly = true;
             // 
             // ColumnDNI
             // 
             this.ColumnDNI.HeaderText = "DNI";
             this.ColumnDNI.Name = "ColumnDNI";
+            this.ColumnDNI.ReadOnly = true;
             // 
             // ColumnEmail
             // 
             this.ColumnEmail.HeaderText = "Email";
             this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.ReadOnly = true;
             // 
             // buttonNuevoCliente
             // 

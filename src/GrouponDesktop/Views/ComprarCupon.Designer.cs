@@ -53,6 +53,8 @@
             // 
             // cuponDataGrid
             // 
+            this.cuponDataGrid.AllowUserToAddRows = false;
+            this.cuponDataGrid.AllowUserToDeleteRows = false;
             this.cuponDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cuponDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -70,6 +72,7 @@
             this.PrecioReal});
             this.cuponDataGrid.Location = new System.Drawing.Point(10, 49);
             this.cuponDataGrid.Name = "cuponDataGrid";
+            this.cuponDataGrid.ReadOnly = true;
             this.cuponDataGrid.Size = new System.Drawing.Size(572, 194);
             this.cuponDataGrid.TabIndex = 1;
             // 
@@ -77,16 +80,19 @@
             // 
             this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
             // 
             // PrecioFicticio
             // 
             this.PrecioFicticio.HeaderText = "Precio Ficticio";
             this.PrecioFicticio.Name = "PrecioFicticio";
+            this.PrecioFicticio.ReadOnly = true;
             // 
             // PrecioReal
             // 
             this.PrecioReal.HeaderText = "Precio Real";
             this.PrecioReal.Name = "PrecioReal";
+            this.PrecioReal.ReadOnly = true;
             // 
             // buttonComprarCupon
             // 
@@ -105,7 +111,7 @@
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 3;
-            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.Text = "Volver";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
