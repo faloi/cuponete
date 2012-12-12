@@ -266,6 +266,7 @@
             this.Name = "ModificarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Proveedor";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.proveedorGroupBox.ResumeLayout(false);

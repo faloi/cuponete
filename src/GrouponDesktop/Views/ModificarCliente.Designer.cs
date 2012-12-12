@@ -457,6 +457,7 @@
             this.Name = "ModificarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Cliente";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.clienteGroupBox.ResumeLayout(false);
