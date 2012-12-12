@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -48,10 +47,8 @@ namespace GrouponDesktop.Homes
 
         private void IncrementarFallas(Usuario usuario)
         {
-            var procedure = 
-                this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@id_usuario", usuario.id_usuario}});
-            
-            this.RunProcedure(procedure);
+            var procedure = this.CreateProcedureFrom("IncrementarFallas", new Dictionary<string, object> {{"@id_usuario", usuario.id_usuario}});
+            this.Run(procedure);
         }
 
         public void RegistrarCliente(Cliente cliente, IEnumerable<Ciudad> ciudades)
@@ -73,7 +70,7 @@ namespace GrouponDesktop.Homes
             
             procedures.AddRange(relacionCiudades);
 
-            this.RunProcedures(procedures);
+            this.Run(procedures);
         }
 
         public void RegistrarProveedor(Proveedor proveedor)
@@ -83,14 +80,9 @@ namespace GrouponDesktop.Homes
 
         public void ComprarGiftCard(Gift_card gift)
         {
-            var procedures = new List<Runnable>
-                                 {
-                                     this.CreateProcedureFrom("ComprarGiftCard", gift, "id_usuario_origen",
-                                                              "id_usuario_destino", "fecha", "monto")
-                                 };
-            this.RunProcedures(procedures);
+            var procedure = this.CreateProcedureFrom("ComprarGiftCard", gift, "id_usuario_origen", "id_usuario_destino", "fecha", "monto");
+            this.Run(procedure);
         }
-
 
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
@@ -127,17 +119,13 @@ namespace GrouponDesktop.Homes
         public Cliente GetClienteById(string id_usuario)
         {
             const string QUERY = "SELECT * FROM RANDOM.Cliente where id_usuario = {0}";
-
             return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id_usuario));
-
         }
 
         public Proveedor GetProveedorById(string id_usuario)
         {
             const string QUERY = "SELECT * FROM RANDOM.Proveedor where id_usuario = {0}";
-
             return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
-
         }
 
         public Cliente GetClienteByUserName(string username)
@@ -153,31 +141,21 @@ namespace GrouponDesktop.Homes
            {
                throw new ApplicationException("El usuario no existe", e);
            }   
-
-
         }
 
         public void CambiaPassword(string nuevoPass)
         {
             HomeFactory.Usuario.UsuarioActual.password = nuevoPass.ToSha256();
+            var procedure = this.CreateProcedureFrom(
+                "ModificarUsuario", HomeFactory.Usuario.UsuarioActual, "id_usuario", "username", "password");
 
-            var procedures = new List<Runnable>
-            {
-            this.CreateProcedureFrom("ModificarUsuario", HomeFactory.Usuario.UsuarioActual,
-                                      "id_usuario", "username", "password")
-            };
-
-            this.RunProcedures(procedures);
+            this.Run(procedure);
         }
 
         public void ReiniciarFallas()
         {
-            var procedures = new List<Runnable>
-            {
-            this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual,
-                                      "id_usuario")
-            };
-            this.RunProcedures(procedures);
+            var procedure = this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual, "id_usuario");
+            this.Run(procedure);
         }
 
         public void BorrarCliente(string id)
@@ -220,7 +198,7 @@ namespace GrouponDesktop.Homes
                     new Dictionary<string, object> { { "id_usuario", cliente.id_usuario }, { "id_ciudad", ciudad.id_ciudad } }));                
 
             procedures.AddRange(ciudadesViejas);
-            this.RunProcedures(procedures);
+            this.Run(procedures);
         }
     }
 }
