@@ -18,6 +18,6 @@ namespace GrouponDesktop.DTOs
         public long id_proveedor { set; get; }
         public long cant_disp { set; get; }
         public long max_compra_por_usuario { set; get; }
-        public int publicados { set; get; }
+        public int publicado { set; get; }
     }
 }

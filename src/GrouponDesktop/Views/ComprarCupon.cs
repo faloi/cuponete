@@ -19,6 +19,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
+            this.rolDisponible = CLIENTE;
             this.Text = "Comprar Cupón";
             this.CreateBindings(this.buttonComprarCupon);
             this.listaCupones();
@@ -26,22 +27,36 @@ namespace GrouponDesktop.Views
 
         private void listaCupones()
         {
-            this.Data = this.home.CuponesDisponibles();
+            this.Data = this.home.CuponesDisponibles(ControlBindingHelpers.GetFechaSistema());
         }
 
         protected override void CreateSpecificBindings()
         {
-            this.cuponDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            this.cuponDataGrid.BindSourceTo(this.Data,"id_cupon", new Dictionary<string, string>
             {
                 {"Descripcion", "descripcion"},
                 {"Precio Ficticio", "precio_ficticio"},
                 {"Precio Real", "precio_real"}
            });
+
+            this.buttonCancelar.Click +=
+               (sender, args) => this.Close();
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        protected override void ExecSubmit()
         {
-            this.Close();
+            var cupon = this.home.GetCuponById(this.IdSeleccionado);
+            var cuponComprado = new Cupon_comprado();
+            cuponComprado.id_cupon = cupon.id_cupon;
+            cuponComprado.fecha_compra = ControlBindingHelpers.GetFechaSistema();
+            cuponComprado.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
+            this.home.ComprarCupon(cuponComprado);
+            this.SuccessMessage("La compra se realizó exitosamente");
+        }
+
+        private string IdSeleccionado
+        {
+            get { return this.cuponDataGrid.GetSelectedItem<Cupon>().id_cupon.ToString(); }
         }
     }
 }

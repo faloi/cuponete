@@ -22,6 +22,26 @@ namespace GrouponDesktop.Sql
             this.filters.Add(string.Format("{0} = '{1}'", columnName, value));
         }
 
+        public void AddMenor(string columnName, string value)
+        {
+            this.filters.Add(string.Format("{0} < '{1}'", columnName, value));
+        }
+
+        public void AddMayor(string columnName, string value)
+        {
+            this.filters.Add(string.Format("{0} > '{1}'", columnName, value));
+        }
+
+        public void AddMenorIgual(string columnName, string value)
+        {
+            this.filters.Add(string.Format("{0} <= '{1}'", columnName, value));
+        }
+
+        public void AddMayorIgual(string columnName, string value)
+        {
+            this.filters.Add(string.Format("{0} >= '{1}'", columnName, value));
+        }
+
         public string Build()
         {
             if (!this.filters.Any())

@@ -113,7 +113,6 @@
             this.buttonCancelar.TabIndex = 3;
             this.buttonCancelar.Text = "Volver";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // ComprarCupon
             // 

@@ -5,11 +5,12 @@ using System.Text;
 
 namespace GrouponDesktop.DTOs
 {
-    class Cupon_comprado
+    public class Cupon_comprado
     {
         public long id_compra { set; get; }
         public DateTime fecha_compra { set; get; }
         public long id_cupon { set; get; }
+        public long codigo_compra { set; get; }
         public long id_cliente { set; get; }
     }
 }
