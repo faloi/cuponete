@@ -18,6 +18,7 @@ namespace GrouponDesktop.Views
 
             this.Text = "Modificar Proveedor";
             this.CreateBindings(this.guardarButton);
+            
         }
 
         protected override void CreateSpecificBindings()

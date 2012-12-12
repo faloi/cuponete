@@ -31,6 +31,7 @@ namespace GrouponDesktop.Views
 
             this.Text = "Modificar Cliente";
             this.CreateBindings(this.guardarButton);
+            this.password.UseSystemPasswordChar = true;
         }
         
         protected override void CreateSpecificBindings()
