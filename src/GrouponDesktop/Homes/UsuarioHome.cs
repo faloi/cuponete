@@ -30,6 +30,9 @@ namespace GrouponDesktop.Homes
                 
                 if(userFromDb.id_rol==0)
                     throw new ApplicationException("El usuario no tiene un rol asignado. Contáctese con el administrador.");
+               
+                if (userFromDb.estado == 0)
+                    throw new ApplicationException("El usuario no esta habilitado. Contáctese con el administrador.");
 
                 if (userFromDb.password != usuario.password.ToSha256())
                 {
@@ -123,13 +126,15 @@ namespace GrouponDesktop.Homes
 
         public Cliente GetClienteById(string id_usuario)
         {
-            const string QUERY = "SELECT * FROM RANDOM.Cliente where id_usuario = {0}";
+            const string QUERY = "SELECT cli.*,us.estado FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) " +
+                                 "where cli.id_usuario = {0}";
             return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id_usuario));
         }
 
         public Proveedor GetProveedorById(string id_usuario)
         {
-            const string QUERY = "SELECT * FROM RANDOM.Proveedor where id_usuario = {0}";
+            const string QUERY = "SELECT prov.*,us.estado FROM RANDOM.Proveedor prov LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=prov.id_usuario) " +
+                                 "where prov.id_usuario = {0}";
             return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
         }
 
