@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
 
         public ModificarCliente(Cliente cliente) : this(cliente, false) {}
 
-        public ModificarCliente(Cliente cliente, bool isNew)
+        private ModificarCliente(Cliente cliente, bool isNew)
         {
             InitializeComponent();
 
