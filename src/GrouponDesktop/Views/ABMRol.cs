@@ -7,16 +7,14 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMRol : ListadoView
+    public partial class ABMRol : ListadoView<Rol>
     {
         private readonly RolHome home;
 
         public ABMRol()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.home = HomeFactory.Rol;
-            this.Example = new Rol();
-
             this.Setup();
         }
 
@@ -24,24 +22,18 @@ namespace GrouponDesktop.Views
         {
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Roles";
-            this.CreateBindings(this.buttonBuscar);
-            this.buttonModificar.Visible = false;
-            this.rolesDataGrid.AllowUserToAddRows = false;
+            this.CreateBindings(this.buttonBuscar, this.buttonLimpiar, this.buttonModificar, this.buttonBajaRestaurar, this.rolesDataGrid);
         }
 
         protected override void CreateSpecificBindings()
         {
             this.nombreRol.BindTextTo(this.Example, "descripcion");
-  
 
             this.rolesDataGrid.BindSourceTo(this.Data,"id_rol", new Dictionary<string, string>
             {
                 {"Nombre", "descripcion"},
                 {"Estado", "estado"}
             });
-
-            this.buttonLimpiar.Click +=
-                (sender, args) => this.Example = new Rol();
 
             this.buttonModificar.Click +=
                 (sender, args) => this.ModificarRol();
@@ -61,7 +53,6 @@ namespace GrouponDesktop.Views
                 this.home.HabilitarRol(rol);
                 MessageBox.Show("El rol se Habilito con éxito");
             }
-
             else
             {
                 this.home.DeshabilitarRol(rol);
@@ -71,8 +62,7 @@ namespace GrouponDesktop.Views
 
         protected override void ExecSubmit()
         {
-            this.Data = this.home.ListarRoles(this.Filter as Rol);
-            this.buttonModificar.Visible = true;
+            this.Data = this.home.ListarRoles(this.Filter);
         }
 
         private void ModificarRol()

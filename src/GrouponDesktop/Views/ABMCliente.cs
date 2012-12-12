@@ -6,15 +6,14 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMCliente : ListadoView
+    public partial class ABMCliente : ListadoView<Cliente>
     {
         private readonly UsuarioHome home;
 
         public ABMCliente()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.home = HomeFactory.Usuario;
-            this.Example = new Cliente();
             this.Setup();
         }
 
@@ -27,9 +26,8 @@ namespace GrouponDesktop.Views
         {
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Clientes";
-            this.CreateBindings(this.buttonBuscar);
-            this.buttonModificar.Visible = false;
-            this.clientesDataGrid.AllowUserToAddRows = false;
+            
+            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.clientesDataGrid);
         }
 
         protected override void CreateSpecificBindings()
@@ -46,9 +44,6 @@ namespace GrouponDesktop.Views
                 {"DNI", "dni"},
                 {"Email", "mail"}
             });
-
-            this.limpiarButton.Click += 
-                (sender, args) => this.Example = new Cliente(); this.clientesDataGrid.Rows.Clear();
 
             this.buttonModificar.Click +=
                 (sender, args) => this.ModificarCliente();
@@ -67,8 +62,7 @@ namespace GrouponDesktop.Views
 
         protected override void ExecSubmit()
         {
-            this.Data = this.home.ListarClientes(this.Filter as Cliente);
-            this.buttonModificar.Visible = true;
+            this.Data = this.home.ListarClientes(this.Filter);
         }
     }
 }

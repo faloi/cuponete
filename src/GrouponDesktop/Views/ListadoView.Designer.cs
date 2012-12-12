@@ -1,6 +1,6 @@
 ﻿namespace GrouponDesktop.Views
 {
-    partial class ListadoView
+    abstract partial class ListadoView<T>
     {
         /// <summary>
         /// Required designer variable.

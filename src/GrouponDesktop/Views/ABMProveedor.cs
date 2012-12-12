@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMProveedor : ListadoView
+    public partial class ABMProveedor : ListadoView<Proveedor>
     {
         private readonly UsuarioHome home;
 
         public ABMProveedor()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.home = HomeFactory.Usuario;
-            this.Example = new Proveedor();
-
             this.Setup();
         }
 
@@ -28,9 +25,7 @@ namespace GrouponDesktop.Views
         {
             this.rolDisponible = ADMINISTRADOR;
             this.Text = "Listado de Proveedores";
-            this.CreateBindings(this.buttonBuscar);
-            this.buttonModificar.Visible = false;
-            this.proveedoresDataGrid.AllowUserToAddRows = false;
+            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.proveedoresDataGrid);
         }
 
         protected override void CreateSpecificBindings()
@@ -61,11 +56,9 @@ namespace GrouponDesktop.Views
             this.ExecSubmit();
         }
 
-
         protected override void ExecSubmit()
         {
-            this.Data = this.home.ListarProveedores(this.Filter as Proveedor);
-            this.buttonModificar.Visible = true;
+            this.Data = this.home.ListarProveedores(this.Filter);
         }
     }
 }
