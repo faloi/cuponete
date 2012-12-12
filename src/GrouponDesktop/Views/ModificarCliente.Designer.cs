@@ -452,6 +452,8 @@
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.usuarioGroupBox);
             this.Controls.Add(this.clienteGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ModificarCliente";
             this.Text = "Modificar Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
