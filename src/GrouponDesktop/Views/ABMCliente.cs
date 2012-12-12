@@ -29,6 +29,7 @@ namespace GrouponDesktop.Views
             this.Text = "Listado de Clientes";
             this.CreateBindings(this.buttonBuscar);
             this.buttonModificar.Visible = false;
+            this.buttonBajaRestaurar.Visible = false;
             this.clientesDataGrid.AllowUserToAddRows = false;
         }
 
@@ -69,6 +70,7 @@ namespace GrouponDesktop.Views
         {
             this.Data = this.home.ListarClientes(this.Filter as Cliente);
             this.buttonModificar.Visible = true;
+            this.buttonBajaRestaurar.Visible = true;
         }
     }
 }

@@ -26,6 +26,7 @@ namespace GrouponDesktop.Views
             this.Text = "Listado de Roles";
             this.CreateBindings(this.buttonBuscar);
             this.buttonModificar.Visible = false;
+            this.buttonBajaRestaurar.Visible = false;
             this.rolesDataGrid.AllowUserToAddRows = false;
         }
 
@@ -73,6 +74,7 @@ namespace GrouponDesktop.Views
         {
             this.Data = this.home.ListarRoles(this.Filter as Rol);
             this.buttonModificar.Visible = true;
+            this.buttonBajaRestaurar.Visible = true;
         }
 
         private void ModificarRol()

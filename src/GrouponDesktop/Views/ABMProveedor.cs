@@ -30,6 +30,7 @@ namespace GrouponDesktop.Views
             this.Text = "Listado de Proveedores";
             this.CreateBindings(this.buttonBuscar);
             this.buttonModificar.Visible = false;
+            this.buttonBajaRestaurar.Visible = false;
             this.proveedoresDataGrid.AllowUserToAddRows = false;
         }
 
@@ -66,6 +67,7 @@ namespace GrouponDesktop.Views
         {
             this.Data = this.home.ListarProveedores(this.Filter as Proveedor);
             this.buttonModificar.Visible = true;
+            this.buttonBajaRestaurar.Visible = true;
         }
     }
 }
