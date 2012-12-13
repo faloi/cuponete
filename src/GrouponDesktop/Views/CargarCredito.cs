@@ -25,7 +25,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
-            this.rolDisponible = CLIENTE;
+            this.tipoUsuarioDisponible = CLIENTE;
             this.Text = "Cargar Credito";
             this.CreateBindings(this.buttonCargar);
         }

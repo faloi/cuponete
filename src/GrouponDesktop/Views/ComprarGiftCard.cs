@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
             InitializeComponent();
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(new Gift_card());
-            this.rolDisponible = CLIENTE;
+            this.tipoUsuarioDisponible = CLIENTE;
 
             this.Setup();
         }

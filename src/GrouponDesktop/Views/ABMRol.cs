@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
-            this.rolDisponible = ADMINISTRADOR;
+            this.tipoUsuarioDisponible = ADMINISTRADOR;
             this.Text = "Listado de Roles";
             this.CreateBindings(this.buttonBuscar, this.buttonLimpiar, this.buttonModificar, this.buttonBajaRestaurar, this.rolesDataGrid);
         }

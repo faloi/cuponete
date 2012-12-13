@@ -18,7 +18,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
-            this.rolDisponible = TODOS;
+            this.tipoUsuarioDisponible = TODOS;
             this.Text = "Cambiar Password";
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.CreateBindings(this.buttonCambiar);

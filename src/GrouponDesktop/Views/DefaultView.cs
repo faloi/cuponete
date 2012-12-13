@@ -12,7 +12,7 @@ namespace GrouponDesktop.Views
         protected readonly int CLIENTE = 2;
         protected readonly int PROVEEDOR = 3;
         protected readonly BindingSource model;
-        protected int rolDisponible;
+        protected int tipoUsuarioDisponible;
         protected ErrorProvider errorProvider = new ErrorProvider {BlinkStyle = ErrorBlinkStyle.NeverBlink};
         
 
@@ -52,9 +52,9 @@ namespace GrouponDesktop.Views
 
         protected void ValidarRolActual()
         {
-            if(this.rolDisponible != TODOS)
+            if(this.tipoUsuarioDisponible != TODOS)
             {
-                if (HomeFactory.Usuario.UsuarioActual.id_rol != this.rolDisponible)
+                if (HomeFactory.Usuario.UsuarioActual.id_tipo_usuario != this.tipoUsuarioDisponible)
                 {
                     MensajeRolNoPermitido();
                 } 

@@ -7,6 +7,7 @@ namespace GrouponDesktop.DTOs
         public long id_usuario { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+        public long id_tipo_usuario { get; set; }
         public long id_rol { get; set; }
         public string tipo { get; set; }
         public int estado { get; set; }

@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
-            this.rolDisponible = PROVEEDOR;
+            this.tipoUsuarioDisponible = PROVEEDOR;
             this.Text = "Armar Cupón";
         }
 

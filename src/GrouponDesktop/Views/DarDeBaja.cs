@@ -24,7 +24,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
-            this.rolDisponible = TODOS;
+            this.tipoUsuarioDisponible = TODOS;
             this.groupBoxDarDeBaja.Visible = false;
             this.groupBoxHabilitarDeshabilitar.Visible = true;    
             this.Text = "Habilitación Usuario";
