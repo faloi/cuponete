@@ -42,6 +42,11 @@ namespace GrouponDesktop.Views
             this.CreateBindings(submitButton, new Button(), new Button(), new Button(), dataGrid);
         }
 
+        protected void CreateBindings(Button submitButton,Button modificarButton, DataGridView dataGrid)
+        {
+            this.CreateBindings(submitButton, new Button(), modificarButton, new Button(), dataGrid);
+        }
+
         protected void CreateBindings(Button submitButton, Button limpiarButton, Button modificarButton, Button eliminarButton, DataGridView dataGrid)
         {
             this.CreateBindings(submitButton);

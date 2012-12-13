@@ -21,7 +21,7 @@ namespace GrouponDesktop.Views
         {
             this.tipoUsuarioDisponible = CLIENTE;
             this.Text = "Comprar Cupón";
-            this.CreateBindings(this.buttonComprarCupon);
+            this.CreateBindings(this.buttonComprarCupon,buttonComprarCupon,cuponDataGrid);
             this.listaCupones();
         }
 
@@ -49,6 +49,7 @@ namespace GrouponDesktop.Views
             var cuponComprado = new Cupon_comprado();
             cuponComprado.id_cupon = cupon.id_cupon;
             cuponComprado.fecha_compra = ControlBindingHelpers.GetFechaSistema();
+            cuponComprado.codigo_compra = "";
             cuponComprado.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
             this.home.ComprarCupon(cuponComprado);
             this.SuccessMessage("La compra se realizó exitosamente");
