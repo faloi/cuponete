@@ -37,15 +37,14 @@
             this.dateTimePickerDesde = new System.Windows.Forms.DateTimePicker();
             this.labelDesde = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cuponesDataGrid = new System.Windows.Forms.DataGridView();
             this.CodigoCupon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCanje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonFacturar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.limpiarButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.cuponesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProveedor
@@ -69,7 +68,7 @@
             // buttonBuscar
             // 
             this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(334, 22);
+            this.buttonBuscar.Location = new System.Drawing.Point(334, 9);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(112, 36);
             this.buttonBuscar.TabIndex = 29;
@@ -120,12 +119,12 @@
             this.label2.TabIndex = 34;
             this.label2.Text = "Cupones a Facturar";
             // 
-            // dataGridView1
+            // cuponesDataGrid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.cuponesDataGrid.AllowUserToAddRows = false;
+            this.cuponesDataGrid.AllowUserToDeleteRows = false;
+            this.cuponesDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.cuponesDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,17 +132,17 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cuponesDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.cuponesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cuponesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodigoCupon,
             this.FechaCanje,
             this.Monto});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 149);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(430, 190);
-            this.dataGridView1.TabIndex = 35;
+            this.cuponesDataGrid.Location = new System.Drawing.Point(16, 149);
+            this.cuponesDataGrid.Name = "cuponesDataGrid";
+            this.cuponesDataGrid.ReadOnly = true;
+            this.cuponesDataGrid.Size = new System.Drawing.Size(430, 190);
+            this.cuponesDataGrid.TabIndex = 35;
             // 
             // CodigoCupon
             // 
@@ -172,7 +171,6 @@
             this.buttonCancelar.TabIndex = 37;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonFacturar
             // 
@@ -184,14 +182,25 @@
             this.buttonFacturar.Text = "Facturar";
             this.buttonFacturar.UseVisualStyleBackColor = true;
             // 
+            // limpiarButton
+            // 
+            this.limpiarButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.limpiarButton.Location = new System.Drawing.Point(334, 48);
+            this.limpiarButton.Name = "limpiarButton";
+            this.limpiarButton.Size = new System.Drawing.Size(112, 36);
+            this.limpiarButton.TabIndex = 38;
+            this.limpiarButton.Text = "Limpiar";
+            this.limpiarButton.UseVisualStyleBackColor = true;
+            // 
             // FacturarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 432);
+            this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonFacturar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cuponesDataGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePickerHasta);
             this.Controls.Add(this.label1);
@@ -205,9 +214,7 @@
             this.Name = "FacturarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturar a Proveedor";
-            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuponesDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,11 +230,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerDesde;
         private System.Windows.Forms.Label labelDesde;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView cuponesDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodigoCupon;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCanje;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonFacturar;
+        private System.Windows.Forms.Button limpiarButton;
     }
 }

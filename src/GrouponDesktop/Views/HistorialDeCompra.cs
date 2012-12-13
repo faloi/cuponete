@@ -29,6 +29,9 @@ namespace GrouponDesktop.Views
                 {"Precio", "precio_real"},
                 {"Estado", "estado"}
             });
+
+            this.buttonCancelar.Click +=
+                (sender, args) => this.Close();
         }
 
         protected override void ExecSubmit()

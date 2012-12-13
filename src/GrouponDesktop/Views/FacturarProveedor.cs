@@ -6,26 +6,46 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GrouponDesktop.DTOs;
+using GrouponDesktop.Helpers;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class FacturarProveedor : DefaultView
+    public partial class FacturarProveedor : ListadoView<ProveedorFacturacion>
     {
+        private readonly CuponHome home;
+
         public FacturarProveedor()
         {
-            InitializeComponent();
-
-            this.Setup();
+            this.InitializeComponent();
+            this.home = HomeFactory.Cupon;
+            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonFacturar, new Button(), this.cuponesDataGrid);
         }
 
-        private void Setup()
+        protected override void CreateSpecificBindings()
         {
-            this.dataGridView1.AllowUserToAddRows = false;
+            this.textBoxProveedor.BindTextTo(this.Example, "id_proveedor");
+            this.dateTimePickerDesde.BindTextTo(this.Example, "fecha_inicio");
+            this.dateTimePickerHasta.BindTextTo(this.Example, "fecha_fin");
+
+            this.cuponesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            {
+                {"Código compra", "codigo_compra"},    
+                {"Fecha de canje", "fecha_canje"},
+                {"Precio", "precio_real"}
+            });
+
+            this.buttonCancelar.Click +=
+                (sender, args) => this.Close();
+
+            this.buttonFacturar.Click +=
+                (sender, args) => this.home.Facturar(this.Filter);
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        protected override void ExecSubmit()
         {
-            this.Close();
+            this.Data = this.home.CuponesParaFacturar(this.Filter);
         }
     }
 }

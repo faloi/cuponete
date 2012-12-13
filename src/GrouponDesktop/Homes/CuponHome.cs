@@ -49,5 +49,29 @@ namespace GrouponDesktop.Homes
 
             return new Adapter().TransformMany<Cupon_comprado>(this.sqlRunner.Select(QUERY, filters));
         }
+
+        public IList<ProveedorFacturacion> CuponesParaFacturar(ProveedorFacturacion filter)
+        {
+            const string QUERY =
+               @"select codigo_compra, fecha_canje, precio_real 
+                from RANDOM.Facturacion_Proveedor";
+
+            var filters = new Filters()
+                .AddEqual("id_proveedor", filter.id_proveedor)
+                .AddGreaterThanOrEqual("fecha_canje", filter.fecha_inicio.ToString(DATE_FORMAT))
+                .AddLessThanOrEqual("fecha_canje", filter.fecha_fin.ToString(DATE_FORMAT));
+
+            return new Adapter().TransformMany<ProveedorFacturacion>(this.sqlRunner.Select(QUERY, filters));
+        }
+
+        public void Facturar(ProveedorFacturacion example)
+        {
+            var procedure = this.CreateProcedureFrom(
+                "Facturacion_Proveedor",
+                example,
+                "monto_total", "nro_factura", "id_proveedor", "fecha", "fecha_inicio", "fecha_fin");
+
+            this.Run(procedure);
+        }
     }
 }
