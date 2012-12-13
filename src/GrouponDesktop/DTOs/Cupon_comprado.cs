@@ -10,7 +10,18 @@ namespace GrouponDesktop.DTOs
         public long id_compra { set; get; }
         public DateTime fecha_compra { set; get; }
         public long id_cupon { set; get; }
-        public long codigo_compra { set; get; }
+        public string codigo_compra { set; get; }
         public long id_cliente { set; get; }
+        public decimal precio_real { set; get; }
+        public string estado { get; set; }
+        public string descripcion { get; set; }
+
+        public DateTime FechaDesde { get; set; }
+        public DateTime FechaHasta { get; set; }
+
+        public Cupon_comprado()
+        {
+            this.FechaDesde = this.FechaHasta = DateTime.Now;
+        }
     }
 }

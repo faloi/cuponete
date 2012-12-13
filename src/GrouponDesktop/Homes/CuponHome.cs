@@ -35,5 +35,19 @@ namespace GrouponDesktop.Homes
                 "ComprarCupon", cuponComprado, "id_cliente", "id_cupon", "fecha_compra", "codigo_compra");
             this.Run(procedure);
         }
+
+        public IList<Cupon_comprado> CuponesComprados(Cupon_comprado example)
+        {
+            const string QUERY =
+                @"select fecha_compra, descripcion, codigo_compra, precio_real, estado 
+                from RANDOM.Historial_Compra_Cupones";
+
+            var filters = new Filters()
+                .AddEqual("id_cliente", HomeFactory.Usuario.UsuarioActual.id_usuario.ToString())
+                .AddGreaterThanOrEqual("fecha_compra", example.FechaDesde.ToString(DATE_FORMAT))
+                .AddLessThanOrEqual("fecha_compra", example.FechaHasta.ToString(DATE_FORMAT));
+
+            return new Adapter().TransformMany<Cupon_comprado>(this.sqlRunner.Select(QUERY, filters));
+        }
     }
 }

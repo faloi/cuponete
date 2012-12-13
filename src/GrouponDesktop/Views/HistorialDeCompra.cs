@@ -1,31 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using GrouponDesktop.DTOs;
+using GrouponDesktop.Helpers;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class HistorialDeCompra : Form
+    public partial class HistorialDeCompra : ListadoView<Cupon_comprado>
     {
+        private readonly CuponHome home;
+
         public HistorialDeCompra()
         {
-            InitializeComponent();
-
-            this.Setup();
+            this.InitializeComponent();
+            this.home = HomeFactory.Cupon;
+            this.CreateBindings(buttonBuscar, cuponesDataGrid);
         }
 
-        private void Setup()
+        protected override void CreateSpecificBindings()
         {
-            this.dataGridView1.AllowUserToAddRows = false;
+            this.dateTimePickerDesde.BindTextTo(this.Example, "FechaDesde");
+            this.dateTimePickerHasta.BindTextTo(this.Example, "FechaHasta");
+
+            this.cuponesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
+            {
+                {"Fecha", "fecha_compra"},    
+                {"Descripción", "descripcion"},
+                {"Código compra", "codigo_compra"},
+                {"Precio", "precio_real"},
+                {"Estado", "estado"}
+            });
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        protected override void ExecSubmit()
         {
-            this.Close();
+            this.Data = this.home.CuponesComprados(this.Filter);
         }
     }
 }

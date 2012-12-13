@@ -37,15 +37,19 @@ namespace GrouponDesktop.Views
             get { return this.example.DataSource as T;  }
         }
 
+        protected void CreateBindings(Button submitButton, DataGridView dataGrid)
+        {
+            this.CreateBindings(submitButton, new Button(), new Button(), new Button(), dataGrid);
+        }
+
         protected void CreateBindings(Button submitButton, Button limpiarButton, Button modificarButton, Button eliminarButton, DataGridView dataGrid)
         {
-            this.submitButton = submitButton;
+            this.CreateBindings(submitButton);
+            
             this.limpiarButton = limpiarButton;
             this.modificarButton = modificarButton;
             this.eliminarButton = eliminarButton;
             this.dataGrid = dataGrid;            
-            
-            this.CreateBindings(submitButton);
 
             this.ResetExample();
             dataGrid.AllowUserToAddRows = false;
