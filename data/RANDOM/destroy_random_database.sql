@@ -37,6 +37,9 @@ drop procedure RANDOM.QuitarClientePorCiudad
 drop procedure RANDOM.ReiniciarFallas
 drop procedure RANDOM.FacturarCupones
 
+drop function RANDOM.EsCliente
+drop function RANDOM.EsProveedor
+
 DROP TABLE [RANDOM].[Cupon_Devuelto]
 DROP TABLE [RANDOM].[Cupon_x_ciudad]
 DROP TABLE [RANDOM].[Renglon_Factura]
