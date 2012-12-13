@@ -1,4 +1,6 @@
-﻿using GrouponDesktop.DTOs;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
+using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 using GrouponDesktop.Sql;
@@ -59,6 +61,24 @@ namespace GrouponDesktop.Views
                 this.home.ModificarProveedor(proveedor);
 
             this.Close();
+        }
+
+        protected override bool Validar()
+        {
+            var fieldsObligatorios = new List<TextBox>
+            {
+               this.razonSocialProveedor,
+               this.telefonoProveedor,
+               this.emailProveedor,
+               this.direccionProveedor,
+               this.cuitProveedor,
+               this.contactoProveedor
+            };
+
+            if (this.IsNew)
+                fieldsObligatorios.AddRange(new[] { this.username, this.password });
+
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
         }
 
         private void CargarRubros()

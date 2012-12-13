@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -41,14 +42,38 @@ namespace GrouponDesktop.Views
                 {"Email", "mail"}
             });
 
-            this.limpiarButton.Click +=
-                (sender, args) => this.Example = new Proveedor();
+            this.buttonNuevoProveedor.Click +=
+                (sender, args) => this.Nuevo();
 
             this.buttonModificar.Click +=
-                (sender, args) => this.ModificarProveedor();
+                (sender, args) => this.Modificar();
+
+            this.buttonBajaRestaurar.Click +=
+                (sender, args) => this.BajaRestaurar();
         }
 
-        private void ModificarProveedor()
+        private void BajaRestaurar()
+        {
+            var proveedor = this.home.GetProveedorById(this.IdSeleccionado);
+            if (proveedor.estado == 0)
+            {
+                this.home.DarDeAltaUsuario(proveedor);
+                MessageBox.Show("El proveedor se Habilito con éxito");
+            }
+            else
+            {
+                this.home.DarDeBajaUsuario(proveedor);
+                MessageBox.Show("El proveedor se Deshabilito con éxito");
+            }
+        }
+
+        private void Nuevo()
+        {
+            new ModificarProveedor().ShowDialog();
+            this.ExecSubmit();
+        }
+
+        private void Modificar()
         {
             var proveedor = this.home.GetProveedorById(this.IdSeleccionado);
             new ModificarProveedor(proveedor).ShowDialog();

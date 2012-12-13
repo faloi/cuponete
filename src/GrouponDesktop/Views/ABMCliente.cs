@@ -46,11 +46,20 @@ namespace GrouponDesktop.Views
                 {"Estado", "estado"}
             });
 
+            this.buttonNuevoCliente.Click +=
+                (sender, args) => this.NuevoCliente();
+
             this.buttonModificar.Click +=
                 (sender, args) => this.ModificarCliente();
 
             this.buttonBajaRestaurar.Click +=
                 (sender, args) => this.BajaRestaurarCliente();
+        }
+
+        private void NuevoCliente()
+        {
+            new ModificarCliente().ShowDialog();
+            this.ExecSubmit();
         }
 
         private void BajaRestaurarCliente()
