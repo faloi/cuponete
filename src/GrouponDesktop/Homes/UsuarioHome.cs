@@ -81,8 +81,8 @@ namespace GrouponDesktop.Homes
             proveedor.password = proveedor.password.ToSha256();
 
             var procedure = this.CreateProcedureFrom(
-                "RegistrarProveedor", proveedor, "username", "password", "razon_social", "mail", 
-                "telefono", "direccion", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
+                "RegistrarProveedor", proveedor, "username", "password", "razon_social", "mail",
+                "telefono", "direccion_completa", "cod_postal", "id_ciudad", "cuit", "id_rubro", "contacto_nombre");
             this.Run(procedure);
         }
 
@@ -174,7 +174,7 @@ namespace GrouponDesktop.Homes
         {
             usuario.password = usuario.password.ToSha256();
             var procedure = this.CreateProcedureFrom(
-                "ModificarUsuario", usuario, "id_usuario", "username", "password");
+                "ModificarUsuario", usuario, "id_usuario", "username", "password","id_rol");
 
             this.Run(procedure);
         }
@@ -207,7 +207,7 @@ namespace GrouponDesktop.Homes
 
         public void ModificarUsuario(Usuario usuario)
         {
-            var procedure = this.CreateProcedureFrom("ModificarUsuario", usuario, "id_usuario", "username", "password");   
+            var procedure = this.CreateProcedureFrom("ModificarUsuario", usuario, "id_usuario", "username", "password","id_rol");   
             this.Run(procedure);
         }
 

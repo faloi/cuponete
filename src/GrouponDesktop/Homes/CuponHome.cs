@@ -130,12 +130,32 @@ namespace GrouponDesktop.Homes
            var results =  this.Run(procedure);
             cuponParaDevolucion.id_cupon = Convert.ToInt32(results.GetValue("id_cupon"));
             cuponParaDevolucion.id_compra = Convert.ToInt32(results.GetValue("id_compra"));
+            cuponParaDevolucion.codigo_compra = results.GetValue("id_compra");
 
+        }
+
+        public CuponParaDevolucion GetCuponParaDevolucion(CuponParaDevolucion cuponParaDevolucion)
+        {
+            const string QUERY = "SELECT id_cupon,descripcion,fec_venc_consumo,precio_real FROM RANDOM.Cupon where id_cupon = {0}";
+
+            var cupon = new Adapter().Transform<CuponParaDevolucion>(this.sqlRunner.Single(QUERY, cuponParaDevolucion.id_cupon.ToString()));
+            cuponParaDevolucion.id_cupon = cupon.id_cupon;
+            cuponParaDevolucion.descripcion = cupon.descripcion;
+            cuponParaDevolucion.fec_venc_consumo = cupon.fec_venc_consumo;
+            cuponParaDevolucion.precio_real = cupon.precio_real;
+            return cuponParaDevolucion;
         }
 
          public void RegistrarConsumo(Cupon_canjeado cupon)
         {
             var procedure = this.CreateProcedureFrom("RegistrarConsumo", cupon, "id_proveedor", "codigo_compra", "fecha_canje");
+            this.Run(procedure);
+        }
+
+        public void DevolverCupon(CuponParaDevolucion cuponParaDevolucion)
+        {
+            var procedure = this.CreateProcedureFrom("DevolverCupon", cuponParaDevolucion, "id_cliente", "fecha_devolucion", "codigo_compra", "motivo_devolucion");
+
             this.Run(procedure);
         }
     }

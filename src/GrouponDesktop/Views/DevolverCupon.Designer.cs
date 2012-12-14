@@ -32,13 +32,13 @@
             this.labelDescripcion = new System.Windows.Forms.Label();
             this.richTextBoxDescripcion = new System.Windows.Forms.RichTextBox();
             this.labelFechaVenc = new System.Windows.Forms.Label();
-            this.textBoxVencimiento = new System.Windows.Forms.TextBox();
             this.labelPrecio = new System.Windows.Forms.Label();
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
             this.buttonSolicitar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.richTextBoxMotivo = new System.Windows.Forms.RichTextBox();
             this.labelMotivo = new System.Windows.Forms.Label();
+            this.fecVencimientoCanje = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -81,14 +81,6 @@
             this.labelFechaVenc.Size = new System.Drawing.Size(158, 21);
             this.labelFechaVenc.TabIndex = 3;
             this.labelFechaVenc.Text = "Fecha de Vencimiento";
-            // 
-            // textBoxVencimiento
-            // 
-            this.textBoxVencimiento.Location = new System.Drawing.Point(11, 212);
-            this.textBoxVencimiento.Name = "textBoxVencimiento";
-            this.textBoxVencimiento.ReadOnly = true;
-            this.textBoxVencimiento.Size = new System.Drawing.Size(296, 20);
-            this.textBoxVencimiento.TabIndex = 4;
             // 
             // labelPrecio
             // 
@@ -146,18 +138,26 @@
             this.labelMotivo.TabIndex = 9;
             this.labelMotivo.Text = "Motivo";
             // 
+            // fecVencimientoCanje
+            // 
+            this.fecVencimientoCanje.Enabled = false;
+            this.fecVencimientoCanje.Location = new System.Drawing.Point(11, 211);
+            this.fecVencimientoCanje.Name = "fecVencimientoCanje";
+            this.fecVencimientoCanje.Size = new System.Drawing.Size(207, 20);
+            this.fecVencimientoCanje.TabIndex = 32;
+            // 
             // DevolverCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 513);
+            this.Controls.Add(this.fecVencimientoCanje);
             this.Controls.Add(this.labelMotivo);
             this.Controls.Add(this.richTextBoxMotivo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSolicitar);
             this.Controls.Add(this.textBoxPrecio);
             this.Controls.Add(this.labelPrecio);
-            this.Controls.Add(this.textBoxVencimiento);
             this.Controls.Add(this.labelFechaVenc);
             this.Controls.Add(this.richTextBoxDescripcion);
             this.Controls.Add(this.labelDescripcion);
@@ -180,12 +180,12 @@
         private System.Windows.Forms.Label labelDescripcion;
         private System.Windows.Forms.RichTextBox richTextBoxDescripcion;
         private System.Windows.Forms.Label labelFechaVenc;
-        private System.Windows.Forms.TextBox textBoxVencimiento;
         private System.Windows.Forms.Label labelPrecio;
         private System.Windows.Forms.TextBox textBoxPrecio;
         private System.Windows.Forms.Button buttonSolicitar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.RichTextBox richTextBoxMotivo;
         private System.Windows.Forms.Label labelMotivo;
+        private System.Windows.Forms.DateTimePicker fecVencimientoCanje;
     }
 }
