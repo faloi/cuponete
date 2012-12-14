@@ -77,6 +77,11 @@ namespace GrouponDesktop.Helpers
             control.DisplayMember = displayMember;
         }
 
+        public static void BindSourceTo<TKey, TValue>(this ListControl control, Dictionary<TKey, TValue> values)
+        {
+            BindSourceTo(control, values.AsEnumerable().ToList(), "Key", "Value");
+        }
+
         public static void BindSourceTo(this DataGridView dataGrid, object model, string idField, Dictionary<string, string> columns)
         {
             dataGrid.BindSourceTo(model, columns);
