@@ -45,6 +45,19 @@ namespace GrouponDesktop.Views
             this.buttonCancelar.Click +=
                 (sender, args) => this.Close();
 
+            this.buttonLimpiar.Click +=
+                (sender, args) => this.Clear();
+
+        }
+
+        private void Clear()
+        {
+            this.SetBindingSource(new Cupon());
+            for (int i = 0; i < checkedListBoxCiudades.Items.Count; i++)
+            {
+                checkedListBoxCiudades.SetItemChecked(i, false);
+            }
+            //this.checkedListBoxCiudades.ClearSelected();
         }
 
         private void CargarCiudadesPref()

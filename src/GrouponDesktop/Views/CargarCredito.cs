@@ -44,7 +44,7 @@ namespace GrouponDesktop.Views
                 (sender, args) => this.Close();
 
             this.buttonLimpiar.Click +=
-                (sender, args) => this.model.DataSource = new Credito();
+                (sender, args) => this.SetBindingSource(new Credito());
         }
 
         private void CargarFormaPago()
