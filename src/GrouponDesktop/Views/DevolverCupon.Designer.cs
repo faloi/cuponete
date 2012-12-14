@@ -37,6 +37,8 @@
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
             this.buttonSolicitar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.richTextBoxMotivo = new System.Windows.Forms.RichTextBox();
+            this.labelMotivo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +47,7 @@
             // 
             this.labelDevolverCupon.AutoSize = true;
             this.labelDevolverCupon.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDevolverCupon.Location = new System.Drawing.Point(33, 9);
+            this.labelDevolverCupon.Location = new System.Drawing.Point(58, 9);
             this.labelDevolverCupon.Name = "labelDevolverCupon";
             this.labelDevolverCupon.Size = new System.Drawing.Size(199, 37);
             this.labelDevolverCupon.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             this.labelDescripcion.AutoSize = true;
             this.labelDescripcion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcion.Location = new System.Drawing.Point(27, 62);
+            this.labelDescripcion.Location = new System.Drawing.Point(7, 62);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(87, 21);
             this.labelDescripcion.TabIndex = 1;
@@ -63,10 +65,10 @@
             // 
             // richTextBoxDescripcion
             // 
-            this.richTextBoxDescripcion.Location = new System.Drawing.Point(31, 87);
+            this.richTextBoxDescripcion.Location = new System.Drawing.Point(11, 87);
             this.richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             this.richTextBoxDescripcion.ReadOnly = true;
-            this.richTextBoxDescripcion.Size = new System.Drawing.Size(210, 88);
+            this.richTextBoxDescripcion.Size = new System.Drawing.Size(296, 88);
             this.richTextBoxDescripcion.TabIndex = 2;
             this.richTextBoxDescripcion.Text = "";
             // 
@@ -74,7 +76,7 @@
             // 
             this.labelFechaVenc.AutoSize = true;
             this.labelFechaVenc.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaVenc.Location = new System.Drawing.Point(27, 187);
+            this.labelFechaVenc.Location = new System.Drawing.Point(7, 187);
             this.labelFechaVenc.Name = "labelFechaVenc";
             this.labelFechaVenc.Size = new System.Drawing.Size(158, 21);
             this.labelFechaVenc.TabIndex = 3;
@@ -82,17 +84,17 @@
             // 
             // textBoxVencimiento
             // 
-            this.textBoxVencimiento.Location = new System.Drawing.Point(31, 212);
+            this.textBoxVencimiento.Location = new System.Drawing.Point(11, 212);
             this.textBoxVencimiento.Name = "textBoxVencimiento";
             this.textBoxVencimiento.ReadOnly = true;
-            this.textBoxVencimiento.Size = new System.Drawing.Size(210, 20);
+            this.textBoxVencimiento.Size = new System.Drawing.Size(296, 20);
             this.textBoxVencimiento.TabIndex = 4;
             // 
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
             this.labelPrecio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrecio.Location = new System.Drawing.Point(27, 235);
+            this.labelPrecio.Location = new System.Drawing.Point(7, 235);
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(51, 21);
             this.labelPrecio.TabIndex = 5;
@@ -100,16 +102,16 @@
             // 
             // textBoxPrecio
             // 
-            this.textBoxPrecio.Location = new System.Drawing.Point(31, 259);
+            this.textBoxPrecio.Location = new System.Drawing.Point(11, 259);
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.ReadOnly = true;
-            this.textBoxPrecio.Size = new System.Drawing.Size(210, 20);
+            this.textBoxPrecio.Size = new System.Drawing.Size(296, 20);
             this.textBoxPrecio.TabIndex = 6;
             // 
             // buttonSolicitar
             // 
             this.buttonSolicitar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSolicitar.Location = new System.Drawing.Point(49, 285);
+            this.buttonSolicitar.Location = new System.Drawing.Point(65, 423);
             this.buttonSolicitar.Name = "buttonSolicitar";
             this.buttonSolicitar.Size = new System.Drawing.Size(173, 41);
             this.buttonSolicitar.TabIndex = 0;
@@ -119,18 +121,38 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(77, 342);
+            this.buttonCancelar.Location = new System.Drawing.Point(96, 479);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
+            // richTextBoxMotivo
+            // 
+            this.richTextBoxMotivo.Location = new System.Drawing.Point(11, 308);
+            this.richTextBoxMotivo.Name = "richTextBoxMotivo";
+            this.richTextBoxMotivo.Size = new System.Drawing.Size(296, 96);
+            this.richTextBoxMotivo.TabIndex = 8;
+            this.richTextBoxMotivo.Text = "";
+            // 
+            // labelMotivo
+            // 
+            this.labelMotivo.AutoSize = true;
+            this.labelMotivo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMotivo.Location = new System.Drawing.Point(7, 284);
+            this.labelMotivo.Name = "labelMotivo";
+            this.labelMotivo.Size = new System.Drawing.Size(56, 21);
+            this.labelMotivo.TabIndex = 9;
+            this.labelMotivo.Text = "Motivo";
+            // 
             // DevolverCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 383);
+            this.ClientSize = new System.Drawing.Size(320, 513);
+            this.Controls.Add(this.labelMotivo);
+            this.Controls.Add(this.richTextBoxMotivo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSolicitar);
             this.Controls.Add(this.textBoxPrecio);
@@ -163,5 +185,7 @@
         private System.Windows.Forms.TextBox textBoxPrecio;
         private System.Windows.Forms.Button buttonSolicitar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.RichTextBox richTextBoxMotivo;
+        private System.Windows.Forms.Label labelMotivo;
     }
 }
