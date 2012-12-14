@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
         { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" },
         { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" },
         { "Publicar Cupón", "PublicarCupon" }, { "Facturación a Proveedor", "FacturarProveedor" }, { "Listado Estadístico", "ListadoEstadistico" }, { "ABM Cliente", "ABMCliente" },
-        { "ABM Proveedor", "ABMProveedor" }, { "ABM Rol", "ABMRol" }, { "Modificar Usuario", "ABMUsuario" } };
+        { "ABM Proveedor", "ABMProveedor" }, { "ABM Rol", "ABMRol" }, { "Modificar Usuario", "ABMUsuario" }, { "Cambiar Password", "CambiarPassword" } };
 
         public Menu()
         {
@@ -30,6 +30,7 @@ namespace GrouponDesktop.Views
 
         private void Setup()
         {
+            this.ValidarDatos();
             this.Text = "Menu";
             this.LoadFuncionalidades();
         }
@@ -42,7 +43,6 @@ namespace GrouponDesktop.Views
                 string redirect = funcionalidades[item.descripcion];
                 this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
             }
-            this.menuStrip1.AddItem("Cambiar Password", (sender, args) => FormCreator.Show("CambiarPassword"));
             if(HomeFactory.Usuario.UsuarioActual.id_rol != 1)
             this.menuStrip1.AddItem("Darse de Baja", (sender, args) => FormCreator.Show("DarDeBaja"));
             
@@ -51,6 +51,26 @@ namespace GrouponDesktop.Views
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Redirect(new LoginView(new Usuario()));
+        }
+
+        private void ValidarDatos()
+        {
+            bool falta = false;
+            var tipo = HomeFactory.Usuario.UsuarioActual.id_tipo_usuario;
+            var usuario = HomeFactory.Usuario.UsuarioActual;
+            if(tipo == CLIENTE)
+            {
+                var cliente = HomeFactory.Usuario.GetClienteById(usuario.id_usuario.ToString());
+                if(Equals(cliente.cod_postal, 0))
+                {
+                    falta = true;
+                }
+                if(Equals(cliente.mail, ""))
+                {
+                    falta = true;
+                }
+            }
+            
         }
     }
 }
