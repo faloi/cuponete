@@ -9,24 +9,16 @@ using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
-using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Views
 {
-    public partial class PublicarCupon : ListadoView<Cupon>
+    public partial class PublicarCupon : ListadoView<Cupon, CuponHome>
     {
+        public PublicarCupon() : base(HomeFactory.Cupon) {}
 
-        private readonly CuponHome home;
-
-        public PublicarCupon()
+        protected override void Setup()
         {
             this.InitializeComponent();
-            this.home = HomeFactory.Cupon;
-            this.Setup();
-        }
-
-        private void Setup()
-        {
             this.tipoUsuarioDisponible = ADMINISTRADOR;
             this.Text = "Publicar Cupón";
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonPublicar, new Button(), this.cuponDataGrid);

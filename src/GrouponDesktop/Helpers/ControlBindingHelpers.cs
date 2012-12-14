@@ -37,6 +37,11 @@ namespace GrouponDesktop.Helpers
             control.DataBindings.Add(controlProperty, model, propertyName, true, DataSourceUpdateMode.OnPropertyChanged, null, dataType.ToString());
         }
 
+        public static void SetTextFrom(this TextBox textBox, object model, string propertyName)
+        {
+            textBox.Text = model.GetPropertyValue(propertyName).ToString();
+        }
+
         public static void BindTextTo(this Control control, object model, string propertyName)
         {
             BindPropertyTo(control, "Text", model, propertyName);

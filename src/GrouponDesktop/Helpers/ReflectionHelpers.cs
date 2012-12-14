@@ -19,5 +19,10 @@ namespace GrouponDesktop.Helpers
             }
             catch (NullReferenceException) {}
         }
+
+        public static object GetPropertyValue(this object instance, string name)
+        {
+            return instance.GetType().GetProperty(name).GetValue(instance, null);
+        }
     }
 }

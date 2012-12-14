@@ -80,7 +80,6 @@ namespace GrouponDesktop.Views
                 this.Close();
         }
 
-
         protected virtual void ExecSubmit() {}
 
         protected void SetBindingSource(object source)

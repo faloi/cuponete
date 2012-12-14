@@ -7,19 +7,13 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMRol : ListadoView<Rol>
+    public partial class ABMRol : ListadoView<Rol, RolHome>
     {
-        private readonly RolHome home;
+        public ABMRol() : base(HomeFactory.Rol) {}
 
-        public ABMRol()
+        protected override void Setup()
         {
             this.InitializeComponent();
-            this.home = HomeFactory.Rol;
-            this.Setup();
-        }
-
-        private void Setup()
-        {
             this.tipoUsuarioDisponible = ADMINISTRADOR;
             this.Text = "Listado de Roles";
             this.CreateBindings(this.buttonBuscar, this.buttonLimpiar, this.buttonModificar, this.buttonBajaRestaurar, this.rolesDataGrid);

@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
+using GrouponDesktop.Helpers;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public abstract partial class ListadoView<T> : DefaultView where T : class
+    public abstract partial class ListadoView<TModel, THome> : DefaultView where TModel : class where THome : Home
     {
+        private readonly TextBox lookupTextbox;
+        private readonly string lookupProperty;
+        
         private readonly BindingSource data;
         private readonly BindingSource example;
         
@@ -13,11 +18,31 @@ namespace GrouponDesktop.Views
         private Button modificarButton;
         private Button eliminarButton;
         private DataGridView dataGrid;
+        
+        protected readonly THome home;
 
-        protected ListadoView()
+        protected ListadoView(TextBox lookupTextbox, string lookupProperty, Home home) : this(home)
+        {
+            this.lookupTextbox = lookupTextbox;
+            this.lookupProperty = lookupProperty;
+        }
+
+        protected ListadoView(Home home)
         {
             this.data = new BindingSource();
             this.example = new BindingSource();
+            this.home = home as THome;
+
+            this.InitializeComponent();
+
+            this.Setup();
+        }
+
+        protected abstract void Setup();
+
+        protected TModel SelectedItem
+        {
+            get { return this.dataGrid.GetSelectedItem<TModel>(); }
         }
 
         protected object Data
@@ -32,9 +57,9 @@ namespace GrouponDesktop.Views
             set { this.example.DataSource = value; }
         }
 
-        protected T Filter
+        protected TModel Filter
         {
-            get { return this.example.DataSource as T;  }
+            get { return this.example.DataSource as TModel;  }
         }
 
         protected void CreateBindings(Button submitButton, DataGridView dataGrid)
@@ -64,6 +89,9 @@ namespace GrouponDesktop.Views
 
             dataGrid.SelectionChanged +=
                 (sender, args) => this.EnableActions();
+
+            dataGrid.CellDoubleClick +=
+                (sender, args) => this.PerformLookup();
             
             limpiarButton.Click +=
                 (sender, args) => this.ResetExample();
@@ -94,7 +122,18 @@ namespace GrouponDesktop.Views
         private void ResetExample()
         {
             this.Data = null;
-            this.Example = Activator.CreateInstance<T>();
+            this.Example = Activator.CreateInstance<TModel>();
+        }
+
+        protected void PerformLookup()
+        {
+            if (this.lookupTextbox == null)
+                return;
+
+            var selectedItem = this.SelectedItem;
+            ControlBindingHelpers.SetTextFrom(lookupTextbox, selectedItem, lookupProperty);
+
+            this.Close();
         }
     }
 }
