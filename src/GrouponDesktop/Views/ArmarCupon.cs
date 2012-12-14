@@ -54,9 +54,7 @@ namespace GrouponDesktop.Views
         {
             this.SetBindingSource(new Cupon());
             for (int i = 0; i < checkedListBoxCiudades.Items.Count; i++)
-            {
                 checkedListBoxCiudades.SetItemChecked(i, false);
-            }
         }
 
         private void CargarCiudadesPref()
