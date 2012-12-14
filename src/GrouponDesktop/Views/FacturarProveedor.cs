@@ -12,14 +12,13 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class FacturarProveedor : ListadoView<ProveedorFacturacion>
+    public partial class FacturarProveedor : ListadoView<ProveedorFacturacion, CuponHome>
     {
-        private readonly CuponHome home;
+        public FacturarProveedor() : base(HomeFactory.Cupon) {}
 
-        public FacturarProveedor()
+        protected override void Setup()
         {
             this.InitializeComponent();
-            this.home = HomeFactory.Cupon;
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonFacturar, new Button(), this.cuponesDataGrid);
         }
 
@@ -40,6 +39,9 @@ namespace GrouponDesktop.Views
 
             this.buttonFacturar.Click +=
                 (sender, args) => this.home.Facturar(this.Filter);
+
+            this.lookupButton.Click +=
+                (sender, args) => new ABMProveedor(this.textBoxProveedor, "id_usuario").ShowDialog();
         }
 
         protected override void ExecSubmit()

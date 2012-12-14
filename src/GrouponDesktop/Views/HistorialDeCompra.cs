@@ -6,14 +6,13 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class HistorialDeCompra : ListadoView<Cupon_comprado>
+    public partial class HistorialDeCompra : ListadoView<Cupon_comprado, CuponHome>
     {
-        private readonly CuponHome home;
+        public HistorialDeCompra() : base(HomeFactory.Cupon) {}
 
-        public HistorialDeCompra()
+        protected override void Setup()
         {
             this.InitializeComponent();
-            this.home = HomeFactory.Cupon;
             this.CreateBindings(buttonBuscar, cuponesDataGrid);
         }
 

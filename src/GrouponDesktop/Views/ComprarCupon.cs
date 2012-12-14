@@ -7,19 +7,13 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ComprarCupon : ListadoView<Cupon>
+    public partial class ComprarCupon : ListadoView<Cupon, CuponHome>
     {
-        private readonly CuponHome home;
-        
-        public ComprarCupon()
+        public ComprarCupon() : base(HomeFactory.Cupon) {}
+
+        protected override void Setup()
         {
             this.InitializeComponent();
-            this.home = HomeFactory.Cupon;
-            this.Setup();
-        }
-
-        private void Setup()
-        {
             this.tipoUsuarioDisponible = CLIENTE;
             this.Text = "Comprar Cupón";
             this.CreateBindings(this.buttonComprarCupon,buttonComprarCupon,cuponDataGrid);

@@ -1,6 +1,8 @@
-﻿namespace GrouponDesktop.Views
+﻿using System.Windows.Forms;
+
+namespace GrouponDesktop.Views
 {
-    abstract partial class ListadoView<T>
+    abstract partial class ListadoView<TModel, THome>
     {
         /// <summary>
         /// Required designer variable.

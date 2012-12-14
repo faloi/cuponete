@@ -7,24 +7,18 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMCliente : ListadoView<Cliente>
+    public partial class ABMCliente : ListadoView<Cliente, UsuarioHome>
     {
-        private readonly UsuarioHome home;
-
-        public ABMCliente()
-        {
-            this.InitializeComponent();
-            this.home = HomeFactory.Usuario;
-            this.Setup();
-        }
+        public ABMCliente() : base(HomeFactory.Usuario) {}
 
         private string IdSeleccionado
         {
             get { return this.clientesDataGrid.GetSelectedItem<Cliente>().id_usuario.ToString(); }
         }
 
-        private void Setup()
+        protected override void Setup()
         {
+            this.InitializeComponent();
             this.tipoUsuarioDisponible = ADMINISTRADOR;
             this.Text = "Listado de Clientes";
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.clientesDataGrid);

@@ -44,6 +44,9 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonFacturar = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
+            this.lookupButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponesDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +65,7 @@
             this.textBoxProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxProveedor.Location = new System.Drawing.Point(16, 33);
             this.textBoxProveedor.Name = "textBoxProveedor";
-            this.textBoxProveedor.Size = new System.Drawing.Size(299, 20);
+            this.textBoxProveedor.Size = new System.Drawing.Size(200, 20);
             this.textBoxProveedor.TabIndex = 0;
             // 
             // buttonBuscar
@@ -192,11 +195,21 @@
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
+            // lookupButton
+            // 
+            this.lookupButton.Location = new System.Drawing.Point(223, 30);
+            this.lookupButton.Name = "lookupButton";
+            this.lookupButton.Size = new System.Drawing.Size(25, 23);
+            this.lookupButton.TabIndex = 35;
+            this.lookupButton.Text = "...";
+            this.lookupButton.UseVisualStyleBackColor = true;
+            // 
             // FacturarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 432);
+            this.Controls.Add(this.lookupButton);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonFacturar);
@@ -214,6 +227,8 @@
             this.Name = "FacturarProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturar a Proveedor";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponesDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -237,5 +252,6 @@
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonFacturar;
         private System.Windows.Forms.Button limpiarButton;
+        private System.Windows.Forms.Button lookupButton;
     }
 }

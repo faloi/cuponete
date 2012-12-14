@@ -6,24 +6,20 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMProveedor : ListadoView<Proveedor>
+    public partial class ABMProveedor : ListadoView<Proveedor, UsuarioHome>
     {
-        private readonly UsuarioHome home;
-
-        public ABMProveedor()
-        {
-            this.InitializeComponent();
-            this.home = HomeFactory.Usuario;
-            this.Setup();
-        }
+        public ABMProveedor(TextBox lookupTextBox, string lookupProperty) : base(lookupTextBox, lookupProperty, HomeFactory.Usuario) { }
+           
+        public ABMProveedor() : base(HomeFactory.Usuario) {}
 
         private string IdSeleccionado
-       {
-           get { return this.proveedoresDataGrid.GetSelectedItem<Proveedor>().id_usuario.ToString(); }
-       }
-
-        private void Setup()
         {
+            get { return this.SelectedItem.id_usuario.ToString(); }
+        }
+
+        protected override void Setup()
+        {
+            this.InitializeComponent();
             this.tipoUsuarioDisponible = ADMINISTRADOR;
             this.Text = "Listado de Proveedores";
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.proveedoresDataGrid);

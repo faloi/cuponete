@@ -12,19 +12,13 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ABMUsuario : ListadoView<Cliente>
+    public partial class ABMUsuario : ListadoView<Cliente, UsuarioHome>
     {
-        private readonly UsuarioHome home;
+        public ABMUsuario() : base(HomeFactory.Usuario) {}
 
-        public ABMUsuario()
+        protected override void Setup()
         {
             this.InitializeComponent();
-            this.home = HomeFactory.Usuario;
-            this.Setup();
-        }
-
-        private void Setup()
-        {
             this.tipoUsuarioDisponible = ADMINISTRADOR;
             this.Text = "Listado de Usuarios";
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.usuariosDataGrid);
