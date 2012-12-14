@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\ProveedorFacturacion.cs" />
+    <Compile Include="Helpers\EnumerableHelpers.cs" />
     <Compile Include="Helpers\ReflectionHelpers.cs" />
     <Compile Include="Helpers\MessageFactory.cs" />
     <Compile Include="Helpers\ValidatorHelper.cs" />

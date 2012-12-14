@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GrouponDesktop.DTOs;
+using GrouponDesktop.Helpers;
 using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Homes
@@ -34,7 +35,8 @@ namespace GrouponDesktop.Homes
         {
             var procedure = this.CreateProcedureFrom(
                 "ComprarCupon", cuponComprado, "id_cliente", "id_cupon", "fecha_compra", "codigo_compra");
-            this.Run(procedure);
+            
+            cuponComprado.codigo_compra = this.Run(procedure).GetValue("codigo_compra");
         }
 
         public IList<Cupon_comprado> CuponesComprados(Cupon_comprado example)
