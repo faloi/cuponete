@@ -107,7 +107,7 @@
             this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
             this.ciudadProvCombo.Name = "ciudadProvCombo";
             this.ciudadProvCombo.Size = new System.Drawing.Size(155, 25);
-            this.ciudadProvCombo.TabIndex = 34;
+            this.ciudadProvCombo.TabIndex = 9;
             // 
             // contactoProveedor
             // 
@@ -134,7 +134,7 @@
             this.comboRubro.Location = new System.Drawing.Point(461, 39);
             this.comboRubro.Name = "comboRubro";
             this.comboRubro.Size = new System.Drawing.Size(155, 25);
-            this.comboRubro.TabIndex = 6;
+            this.comboRubro.TabIndex = 4;
             // 
             // rubroProveedorLabel
             // 
@@ -152,7 +152,7 @@
             this.cuit.Location = new System.Drawing.Point(239, 40);
             this.cuit.Name = "cuit";
             this.cuit.Size = new System.Drawing.Size(158, 25);
-            this.cuit.TabIndex = 5;
+            this.cuit.TabIndex = 3;
             // 
             // cuitProveedorLabel
             // 
@@ -180,7 +180,7 @@
             this.codigoPostal.Location = new System.Drawing.Point(567, 152);
             this.codigoPostal.Name = "codigoPostal";
             this.codigoPostal.Size = new System.Drawing.Size(96, 25);
-            this.codigoPostal.TabIndex = 25;
+            this.codigoPostal.TabIndex = 8;
             // 
             // cPostalProveedorLabel
             // 
@@ -198,7 +198,7 @@
             this.direccion.Location = new System.Drawing.Point(12, 152);
             this.direccion.Name = "direccion";
             this.direccion.Size = new System.Drawing.Size(496, 25);
-            this.direccion.TabIndex = 15;
+            this.direccion.TabIndex = 7;
             // 
             // direccionProveedorLabel
             // 
@@ -216,7 +216,7 @@
             this.telefono.Location = new System.Drawing.Point(239, 85);
             this.telefono.Name = "telefono";
             this.telefono.Size = new System.Drawing.Size(158, 25);
-            this.telefono.TabIndex = 12;
+            this.telefono.TabIndex = 6;
             // 
             // telefonoProveedorLabel
             // 
@@ -234,7 +234,7 @@
             this.email.Location = new System.Drawing.Point(13, 87);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(158, 25);
-            this.email.TabIndex = 7;
+            this.email.TabIndex = 5;
             // 
             // emailProveedorLabel
             // 
@@ -252,7 +252,7 @@
             this.razonSocial.Location = new System.Drawing.Point(12, 40);
             this.razonSocial.Name = "razonSocial";
             this.razonSocial.Size = new System.Drawing.Size(158, 25);
-            this.razonSocial.TabIndex = 4;
+            this.razonSocial.TabIndex = 2;
             // 
             // razonSocialProveedorLabel
             // 
@@ -283,7 +283,7 @@
             this.password.Location = new System.Drawing.Point(239, 40);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(158, 25);
-            this.password.TabIndex = 3;
+            this.password.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -311,7 +311,7 @@
             this.username.Location = new System.Drawing.Point(12, 40);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(157, 25);
-            this.username.TabIndex = 1;
+            this.username.TabIndex = 0;
             // 
             // guardarButton
             // 
@@ -329,7 +329,7 @@
             this.limpiarButton.Location = new System.Drawing.Point(376, 397);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(161, 28);
-            this.limpiarButton.TabIndex = 10;
+            this.limpiarButton.TabIndex = 12;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Visible = false;

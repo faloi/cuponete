@@ -53,9 +53,9 @@
             this.labelMonto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonto.Location = new System.Drawing.Point(12, 9);
             this.labelMonto.Name = "labelMonto";
-            this.labelMonto.Size = new System.Drawing.Size(55, 21);
+            this.labelMonto.Size = new System.Drawing.Size(77, 21);
             this.labelMonto.TabIndex = 1;
-            this.labelMonto.Text = "Monto";
+            this.labelMonto.Text = "Monto ($)";
             // 
             // buttonComprar
             // 
@@ -88,7 +88,7 @@
             // 
             this.labelNombre.AutoSize = true;
             this.labelNombre.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombre.Location = new System.Drawing.Point(34, 109);
+            this.labelNombre.Location = new System.Drawing.Point(12, 109);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(140, 21);
             this.labelNombre.TabIndex = 4;

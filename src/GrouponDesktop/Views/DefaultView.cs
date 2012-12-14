@@ -90,5 +90,11 @@ namespace GrouponDesktop.Views
             MessageBox.Show(message);
             this.Close();
         }
+        protected void SuccessMessage(string message,bool closewindow)
+        {
+            MessageBox.Show(message);
+            if(closewindow)
+                this.Close();
+        }
     }
 }

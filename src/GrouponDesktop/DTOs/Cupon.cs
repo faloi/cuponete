@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.DTOs
 {
@@ -17,15 +18,16 @@ namespace GrouponDesktop.DTOs
         public decimal precio_real { set; get; }
         public decimal precio_ficticio { set; get; }
         public long id_proveedor { set; get; }
+        public string descripcionProveedor { set; get; }
         public long cant_disp { set; get; }
         public long max_compra_por_usuario { set; get; }
         public int publicado { set; get; }
 
         public Cupon()
         {
-            this.fec_publicacion = DateTime.Now;
-            this.fec_venc_consumo = DateTime.Now;
-            this.fec_venc_publicacion = DateTime.Now;
+            this.fec_publicacion = ControlBindingHelpers.GetFechaSistema();
+            this.fec_venc_consumo = ControlBindingHelpers.GetFechaSistema();
+            this.fec_venc_publicacion = ControlBindingHelpers.GetFechaSistema();
         }
     }
 

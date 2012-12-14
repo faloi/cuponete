@@ -27,7 +27,6 @@ namespace GrouponDesktop.Views
         {
             this.textBoxProveedor.BindTextTo(this.Example, "id_proveedor");
             this.dateTimePickerDesde.BindTextTo(this.Example, "fecha_inicio");
-            this.dateTimePickerHasta.BindTextTo(this.Example, "fecha_fin");
 
             this.cuponesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
             {
