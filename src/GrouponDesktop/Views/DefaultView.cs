@@ -75,7 +75,7 @@ namespace GrouponDesktop.Views
 
         protected void Redirect(Form form, bool closewindow)
         {
-            form.Show();
+            form.ShowDialog();
             if(closewindow)
                 this.Close();
         }
