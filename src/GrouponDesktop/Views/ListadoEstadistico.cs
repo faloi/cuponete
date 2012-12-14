@@ -6,62 +6,86 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GrouponDesktop.DTOs;
+using GrouponDesktop.Helpers;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class ListadoEstadistico : DefaultView
+    public partial class ListadoEstadistico : ListadoView<Estadistica, EstadisticasHome>
     {
-        public ListadoEstadistico()
-        {
-            InitializeComponent();
+        public ListadoEstadistico() : base(HomeFactory.Estadisticas) {}
 
-            this.Setup();
-        }
-
-        private void Setup()
+        protected override void Setup()
         {
+            this.InitializeComponent();
             this.Text = "Listado Estadistico";
-            this.CreateBindings(this.buttonConsultar);
-            this.dataGridViewCuponesDevueltos.AllowUserToAddRows = false;
-            this.dataGridViewGifcardAcreditadas.AllowUserToAddRows = false;
+            
+            this.CreateBindings(this.buttonConsultar,  this.dataGridView);
         }
         
         protected override void CreateSpecificBindings()
         {
-            this.CargarSemestres();
-            this.CargarTiposDeListado();
+            var semestres = new Dictionary<int, string>
+            {
+                {1, "Primero"},
+                {2, "Segundo"}
+            };
+
+            this.comboBoxSemestre.BindSourceTo(semestres);
+            
+            var tiposListado = new Dictionary<TipoListado, string>
+            {
+                {TipoListado.AcreditacionGiftCards, "Acreditación de Giftcards por Usuario"},
+                {TipoListado.PorcentajeDevolucionCompras, "Porcentaje de Devolución de Cupones por proveedor"}
+            };
+
+            this.comboBoxTipoListado.BindSourceTo(tiposListado);
+
+            this.textBoxAno.BindTextTo(this.Example, "Anio", DataType.INTEGER);
+            this.comboBoxSemestre.BindValueTo(this.Example, "Semestre");
+            this.comboBoxTipoListado.BindValueTo(this.Example, "TipoListado");
         }
 
-        private void CargarTiposDeListado()
+        protected override void ExecSubmit()
         {
-            var tiposDeListado = new List<string>
-                                     {"Porcentaje de Devolución de Cupones", "Acreditación de Giftcards por Usuario"};
-            this.comboBoxTipoListado.DataSource = tiposDeListado;
+            if (this.Filter.TipoListado == TipoListado.PorcentajeDevolucionCompras)
+            {
+                var columns = new Dictionary<string, string>
+                 {
+                     {"Razón social", "razon_social"}, 
+                     {"Teléfono", "telefono"}, 
+                     {"Porcentaje devolución", "porcentaje_devolucion"},
+                 };
+
+                var newData = this.home.PorcentajeDevolucionCompras(this.Filter);
+
+                this.ChangeData(newData, columns);
+            }
+            else
+            {
+                var columns = new Dictionary<string, string>
+                {
+                  {"Teléfono", "telefono"},
+                  {"Cantidad GiftCards", "cantidad_gc"},
+                  {"Monto", "monto_total"}
+                };
+
+                var newData = this.home.AcreditacionGiftCards(this.Filter);
+
+                this.ChangeData(newData, columns);
+            }
         }
 
-        private void CargarSemestres()
+        private void ChangeData(object newData, Dictionary<string, string> columns)
         {
-            var semestres = new List<int> {1, 2};
-            this.comboBoxSemestre.DataSource = semestres;
+            this.dataGridView.BindSourceTo(this.Data, columns);
+            this.Data = newData;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void comboBoxTipoListado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(Equals(this.comboBoxTipoListado.Text, "Porcentaje de Devolución de Cupones"))
-            {
-                this.dataGridViewCuponesDevueltos.Visible = true;
-                this.dataGridViewGifcardAcreditadas.Visible = false;
-            }
-            else
-            {
-                this.dataGridViewCuponesDevueltos.Visible = false;
-                this.dataGridViewGifcardAcreditadas.Visible = true;
-            }
         }
     }
 }
