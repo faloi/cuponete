@@ -92,6 +92,17 @@ namespace GrouponDesktop.Homes
             this.Run(procedure);
         }
 
+        public IList<Usuario> ListarUsuarios(Usuario ejemplo)
+        {
+            const string QUERY = "SELECT us.*, rol.descripcion as descripcion_rol FROM RANDOM.Usuario us LEFT JOIN RANDOM.Rol rol on (rol.id_rol = us.id_rol)";
+
+            var filtros = new Filters();
+            if (ejemplo.username != null)
+                filtros.AddLike("username", ejemplo.username);
+
+            return new Adapter().TransformMany<Usuario>(this.sqlRunner.Select(QUERY, filtros));
+        }
+
         public IList<Cliente> ListarClientes(Cliente ejemplo)
         {
             const string QUERY = "SELECT cli.*,us.estado FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario)";
@@ -124,6 +135,12 @@ namespace GrouponDesktop.Homes
             return new Adapter().TransformMany<Proveedor>(this.sqlRunner.Select(QUERY, filtros));
         }
 
+        public Usuario GetUsuarioById(string id_usuario)
+        {
+            const string QUERY = "SELECT * FROM RANDOM.Usuario us WHERE us.id_usuario = {0}";
+            return new Adapter().Transform<Usuario>(this.sqlRunner.Single(QUERY, id_usuario));
+        }
+
         public Cliente GetClienteById(string id_usuario)
         {
             const string QUERY = "SELECT cli.*,us.estado FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) " +
@@ -153,11 +170,11 @@ namespace GrouponDesktop.Homes
            }   
         }
 
-        public void CambiaPassword(string nuevoPass)
+        public void CambiaPassword(Usuario usuario)
         {
-            HomeFactory.Usuario.UsuarioActual.password = nuevoPass.ToSha256();
+            usuario.password = usuario.password.ToSha256();
             var procedure = this.CreateProcedureFrom(
-                "ModificarUsuario", HomeFactory.Usuario.UsuarioActual, "id_usuario", "username", "password");
+                "ModificarUsuario", usuario, "id_usuario", "username", "password");
 
             this.Run(procedure);
         }
@@ -165,6 +182,12 @@ namespace GrouponDesktop.Homes
         public void ReiniciarFallas()
         {
             var procedure = this.CreateProcedureFrom("ReiniciarFallas", HomeFactory.Usuario.UsuarioActual, "id_usuario");
+            this.Run(procedure);
+        }
+
+        public void ReiniciarFallasDeUsuario(Usuario usuario)
+        {
+            var procedure = this.CreateProcedureFrom("ReiniciarFallas", usuario, "id_usuario");
             this.Run(procedure);
         }
 
@@ -179,6 +202,12 @@ namespace GrouponDesktop.Homes
                 "CargarCredito", credito, "id_cliente", "carga_credito", "fecha", "id_forma_pago", "nro_tarjeta", 
                 "cod_seguridad_tarjeta", "fecha_vto_tarjeta");
             
+            this.Run(procedure);
+        }
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            var procedure = this.CreateProcedureFrom("ModificarUsuario", usuario, "id_usuario", "username", "password");   
             this.Run(procedure);
         }
 

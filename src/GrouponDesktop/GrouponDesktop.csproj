@@ -81,6 +81,12 @@
     <Compile Include="Views\ABMRol.Designer.cs">
       <DependentUpon>ABMRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ABMUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMUsuario.Designer.cs">
+      <DependentUpon>ABMUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ArmarCupon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <EmbeddedResource Include="Views\ABMRol.resx">
       <DependentUpon>ABMRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ABMUsuario.resx">
+      <DependentUpon>ABMUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ArmarCupon.resx">
       <DependentUpon>ArmarCupon.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +208,9 @@
     <EmbeddedResource Include="Views\ModificarProveedor.resx">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModificarRolUsuario.resx">
+      <DependentUpon>ModificarRolUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PedirDevolucion.resx">
       <DependentUpon>PedirDevolucion.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ResumenDeFactura.resx">
       <DependentUpon>ResumenDeFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VentanaRolPassword.resx">
+      <DependentUpon>VentanaRolPassword.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -291,6 +306,12 @@
     <Compile Include="Views\ModificarProveedor.Designer.cs">
       <DependentUpon>ModificarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ModificarRolUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModificarRolUsuario.Designer.cs">
+      <DependentUpon>ModificarRolUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PublicarCupon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +365,12 @@
     </Compile>
     <Compile Include="Views\ResumenDeFactura.Designer.cs">
       <DependentUpon>ResumenDeFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VentanaRolPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VentanaRolPassword.Designer.cs">
+      <DependentUpon>VentanaRolPassword.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

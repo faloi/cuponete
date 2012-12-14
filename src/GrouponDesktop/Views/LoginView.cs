@@ -21,6 +21,15 @@ namespace GrouponDesktop.Views
             this.CreateBindings(this.loginButton);
         }
 
+        public LoginView(Usuario usuario)
+        {
+            InitializeComponent();
+            this.home = HomeFactory.Usuario;
+            this.model = usuario;
+            this.Setup();
+            this.CreateBindings(this.loginButton);
+        }
+
         private void Setup()
         {
             this.StartPosition = FormStartPosition.CenterScreen;

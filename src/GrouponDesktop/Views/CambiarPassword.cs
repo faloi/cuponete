@@ -1,5 +1,6 @@
 ﻿using System;
 using GrouponDesktop.DTOs;
+using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
@@ -12,7 +13,15 @@ namespace GrouponDesktop.Views
         {
             InitializeComponent();
             this.home = HomeFactory.Usuario;
-            this.SetBindingSource(new Usuario());
+            this.SetBindingSource(HomeFactory.Usuario.UsuarioActual);
+            this.Setup();
+        }
+
+        public CambiarPassword(Usuario usuario)
+        {
+            InitializeComponent();
+            this.home = HomeFactory.Usuario;
+            this.SetBindingSource(usuario);
             this.Setup();
         }
 
@@ -23,12 +32,13 @@ namespace GrouponDesktop.Views
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.CreateBindings(this.buttonCambiar);
         }
-        
+
         protected override void ExecSubmit()
         {
-            this.home.CambiaPassword(this.textBoxPassword.Text);
-            SuccessMessage("Su Password fue cambiado con éxito");
-            this.Close();
+            var usuario = this.model.DataSource as Usuario;
+            usuario.password = this.textBoxPassword.Text;
+            this.home.CambiaPassword(usuario);
+            SuccessMessage("Password cambiado éxitosamente");
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

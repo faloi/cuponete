@@ -25,27 +25,9 @@ namespace GrouponDesktop.Views
         private void Setup()
         {
             this.tipoUsuarioDisponible = TODOS;
-            this.groupBoxDarDeBaja.Visible = false;
-            this.groupBoxHabilitarDeshabilitar.Visible = true;    
-            this.Text = "Habilitación Usuario";
-            if (this.home.UsuarioActual.id_rol != 1)
-                this.Redraw();
-        }
-
-        private void Redraw()
-        {
-            this.groupBoxDarDeBaja.Visible = true;
-            this.groupBoxHabilitarDeshabilitar.Visible = false;
-            this.Size = new Size(256, 197);
-            this.Text = "Dar De Baja";
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void buttonCancelar2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -56,21 +38,6 @@ namespace GrouponDesktop.Views
             this.SuccessMessage("Su usuario fue dado de baja.");
             this.Close();
         }
-
-        private void buttonConfirmarAdmin_Click(object sender, EventArgs e)
-        {
-            if (Equals(this.comboBoxAccion.Text, "Deshabilitar"))
-            {
-                this.home.DarDeBajaUsuario(this.home.GetClienteByUserName(this.textBoxUsername.Text));
-                this.SuccessMessage("El usuario " + this.textBoxUsername.Text + " fue deshabilitado.");
-            }    
-            else
-            {
-                this.home.DarDeAltaUsuario(this.home.GetClienteByUserName(this.textBoxUsername.Text));
-                this.SuccessMessage("El usuario " + this.textBoxUsername.Text + " fue habilitado.");               
-            }
-        }
-
 
     }
 }

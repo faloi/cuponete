@@ -13,6 +13,9 @@ namespace GrouponDesktop.DTOs
         public int estado { get; set; }
         public string dni_cuit { get; set; }
         public decimal fallas { get; set; }
+        public string descripcion_rol { get; set; }
+        public string descripcion_bloqueado { get { return (this.EstaBloqueado ? "Si" : "No"); } }
+        public string descripcion_estado { get { return ((this.estado == 1) ? "Habilitado" : "Deshabilitado"); } }
 
         public Usuario() {}
 
