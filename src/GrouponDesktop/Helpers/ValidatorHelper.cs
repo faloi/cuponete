@@ -34,6 +34,30 @@ namespace GrouponDesktop.Helpers
 
         }
 
+        public static bool ValidateObligatorio(List<RichTextBox> boxes, ErrorProvider errorProvider)
+        {
+
+            var ret = true;
+            foreach (var textBox in boxes)
+            {
+                if (textBox.Text.Equals("") || textBox.Text.Equals("0"))
+                {
+                    // Set the error if the name is not valid.
+                    errorProvider.SetError(textBox, "Este campo es obligatorio");
+                    ret = false;
+                }
+                else
+                {
+                    // Clear the error, if any, in the error provider.
+                    errorProvider.SetError(textBox, "");
+
+                }
+
+            }
+            return ret;
+
+        }
+
         public static bool ValidateCheckList(CheckedListBox boxes, ErrorProvider errorProvider)
         {
             if(boxes.CheckedItems.Count > 0)

@@ -19,10 +19,11 @@ namespace GrouponDesktop.DTOs
 
         public DateTime FechaDesde { get; set; }
         public DateTime FechaHasta { get; set; }
+        public DateTime fec_venc_consumo { set; get; }
 
         public Cupon_comprado()
         {
-            this.FechaDesde = this.FechaHasta = ControlBindingHelpers.GetFechaSistema();
+             this.FechaDesde = this.FechaHasta = ControlBindingHelpers.GetFechaSistema();
         }
     }
 }

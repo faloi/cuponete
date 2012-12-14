@@ -73,6 +73,14 @@ namespace GrouponDesktop.Views
             form.Show();
         }
 
+        protected void Redirect(Form form, bool closewindow)
+        {
+            form.Show();
+            if(closewindow)
+                this.Close();
+        }
+
+
         protected virtual void ExecSubmit() {}
 
         protected void SetBindingSource(object source)
@@ -82,7 +90,7 @@ namespace GrouponDesktop.Views
 
         protected void MensajeRolNoPermitido()
         {
-            throw new ApplicationException("Con este rol no se puede acceder a esta funcionalidad"); 
+            throw new ApplicationException("El tipo de usuario actual no puede acceder a esta funcionalidad"); 
         }
 
         protected void SuccessMessage(string message)

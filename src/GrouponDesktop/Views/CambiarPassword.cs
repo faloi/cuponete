@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
 using GrouponDesktop.Homes;
@@ -44,6 +46,17 @@ namespace GrouponDesktop.Views
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected override bool Validar()
+        {
+            var fieldsObligatorios = new List<TextBox>
+               {
+                   this.textBoxPassword,
+                
+               };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
+
         }
     }
 }

@@ -22,7 +22,7 @@ namespace GrouponDesktop.Views
             InitializeComponent();
 
             this.IsNew = isNew;
-            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.IsNew;
+            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.direccionGroupBox.Visible = this.IsNew;
 
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(proveedor);
@@ -37,7 +37,6 @@ namespace GrouponDesktop.Views
             this.razonSocial.BindTextTo(this.model, "razon_social");
             this.email.BindTextTo(this.model, "mail");
             this.telefono.BindTextTo(this.model, "telefono", DataType.INTEGER);
-            this.direccion.BindTextTo(this.model, "direccion");
             this.codigoPostal.BindTextTo(this.model, "cod_postal", DataType.INTEGER);
             this.cuit.BindTextTo(this.model, "cuit");
             this.contacto.BindTextTo(this.model, "contacto_nombre");
@@ -46,8 +45,17 @@ namespace GrouponDesktop.Views
             {
                 this.username.BindTextTo(this.model, "username");
                 this.password.BindTextTo(this.model, "password");
+                this.calle.BindTextTo(this.model, "direccionCalle");
+                this.numero.BindTextTo(this.model, "direccionNumero");
+                this.piso.BindTextTo(this.model, "direccionPiso");
+                this.depto.BindTextTo(this.model, "direccionDto");
+                this.localidad.BindTextTo(this.model, "direccionLocalidad");
             }
-            
+            else
+            {
+                this.direccion.BindTextTo(this.model, "direccion");
+            }
+
             this.CargarRubros();
             this.CargarCiudadesProv();
 
@@ -64,7 +72,7 @@ namespace GrouponDesktop.Views
             else
                 this.home.ModificarProveedor(proveedor);
 
-            this.Close();
+            this.SuccessMessage("Los datos se guardaron correctamente");
         }
 
         protected override bool Validar()

@@ -46,7 +46,7 @@ namespace GrouponDesktop.Views
             cuponParaDevolucion.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
             cuponParaDevolucion.fecha_devolucion = ControlBindingHelpers.GetFechaSistema();
             this.home.PedirDevolucion(cuponParaDevolucion);      
-            this.Redirect(new DevolverCupon(cuponParaDevolucion));
+            this.Redirect(new DevolverCupon(cuponParaDevolucion),true);
         }
 
         protected override bool Validar()
