@@ -39,18 +39,16 @@ namespace GrouponDesktop.Homes
             return Runnable.StoreProcedure(procedureName, parameters);
         }
 
-        protected Dictionary<string, string> Run(Runnable procedure)
+        protected IEnumerable<KeyValuePair<string, string>> Run(Runnable procedure)
         {
             return this.Run(new[] { procedure });
         }
 
-        protected Dictionary<string, string> Run(IEnumerable<Runnable> procedures)
+        protected IEnumerable<KeyValuePair<string, string>> Run(IEnumerable<Runnable> procedures)
         {
             try
             {
-                return this.sqlRunner
-                    .Run(procedures)
-                    .ToDictionary(pair => pair.Key, pair => pair.Value);
+                return this.sqlRunner.Run(procedures);
             }
             catch (SqlException e)
             {
