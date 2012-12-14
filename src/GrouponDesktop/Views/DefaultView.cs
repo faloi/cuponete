@@ -76,10 +76,9 @@ namespace GrouponDesktop.Views
         protected void Redirect(Form form, bool closewindow)
         {
             form.Show();
-            if(closewindow)
+            if (closewindow)
                 this.Close();
         }
-
 
         protected virtual void ExecSubmit() {}
 
