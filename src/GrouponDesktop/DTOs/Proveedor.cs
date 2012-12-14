@@ -10,6 +10,7 @@ namespace GrouponDesktop.DTOs
         public Proveedor() {}
         public Proveedor(Usuario usuario) : base(usuario) {}
 
+
         public string razon_social { set; get; }
         public string mail { set; get; }
         public long telefono { set; get; }

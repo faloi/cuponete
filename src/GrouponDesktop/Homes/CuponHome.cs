@@ -94,5 +94,29 @@ namespace GrouponDesktop.Homes
 
             this.Run(procedures);
         }
+
+        public object CuponesParaPublicar(DateTime fecha, long id_proveedor)
+        {
+            const string QUERY = "SELECT cup.id_cupon,prov.razon_social as descripcionProveedor,cup.descripcion,cup.precio_real,cup.cant_disp " +
+                                 "FROM RANDOM.Cupon cup " +
+                                 "INNER JOIN RANDOM.Proveedor prov ON prov.id_usuario=cup.id_proveedor";
+
+            var filtros = new Filters();
+            filtros.AddEqual("publicado", "0");
+            if (id_proveedor != 0)
+                filtros.AddEqual("id_proveedor", id_proveedor.ToString());
+            filtros.AddEqual("fec_publicacion", fecha.ToString(DATE_FORMAT));
+
+            return new Adapter().TransformMany<Cupon>(this.sqlRunner.Select(QUERY, filtros));
+        }
+
+
+        public void Publicar(Cupon filter)
+        {
+            var procedure = this.CreateProcedureFrom("PublicarCupon",filter,"id_cupon");
+
+            this.Run(procedure);
+            
+        }
     }
 }

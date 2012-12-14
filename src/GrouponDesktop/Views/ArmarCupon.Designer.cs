@@ -65,6 +65,7 @@
             // textBoxPrecioReal
             // 
             this.textBoxPrecioReal.Location = new System.Drawing.Point(16, 253);
+            this.textBoxPrecioReal.MaxLength = 10;
             this.textBoxPrecioReal.Name = "textBoxPrecioReal";
             this.textBoxPrecioReal.Size = new System.Drawing.Size(207, 20);
             this.textBoxPrecioReal.TabIndex = 3;
@@ -127,6 +128,7 @@
             // textBoxPrecioFicticio
             // 
             this.textBoxPrecioFicticio.Location = new System.Drawing.Point(16, 300);
+            this.textBoxPrecioFicticio.MaxLength = 10;
             this.textBoxPrecioFicticio.Name = "textBoxPrecioFicticio";
             this.textBoxPrecioFicticio.Size = new System.Drawing.Size(207, 20);
             this.textBoxPrecioFicticio.TabIndex = 4;
@@ -144,6 +146,7 @@
             // textBoxCantDisp
             // 
             this.textBoxCantDisp.Location = new System.Drawing.Point(16, 347);
+            this.textBoxCantDisp.MaxLength = 10;
             this.textBoxCantDisp.Name = "textBoxCantDisp";
             this.textBoxCantDisp.Size = new System.Drawing.Size(207, 20);
             this.textBoxCantDisp.TabIndex = 5;
@@ -161,6 +164,7 @@
             // textBoxMaxCant
             // 
             this.textBoxMaxCant.Location = new System.Drawing.Point(16, 394);
+            this.textBoxMaxCant.MaxLength = 10;
             this.textBoxMaxCant.Name = "textBoxMaxCant";
             this.textBoxMaxCant.Size = new System.Drawing.Size(207, 20);
             this.textBoxMaxCant.TabIndex = 6;

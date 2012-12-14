@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.DTOs
 {
@@ -21,7 +22,7 @@ namespace GrouponDesktop.DTOs
 
         public Cupon_comprado()
         {
-            this.FechaDesde = this.FechaHasta = DateTime.Now;
+            this.FechaDesde = this.FechaHasta = ControlBindingHelpers.GetFechaSistema();
         }
     }
 }

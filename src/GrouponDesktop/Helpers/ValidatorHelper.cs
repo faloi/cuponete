@@ -73,5 +73,28 @@ namespace GrouponDesktop.Helpers
              }
             return true;
         }
+
+        public static bool ValidateMontoPositivo(List<TextBox> boxes, ErrorProvider errorProvider)
+        {
+
+            var ret = true;
+            foreach (var textBox in boxes)
+            {
+                if (Convert.ToDecimal(textBox.Text) <= 0)
+                {
+                    // Set the error if the name is not valid.
+                    errorProvider.SetError(textBox, "El campo debe ser mayor a cero");
+                    ret = false;
+                }
+                else
+                {
+                    // Clear the error, if any, in the error provider.
+                    errorProvider.SetError(textBox, "");
+
+                }
+
+            }
+            return ret;
+        }
     }
 }

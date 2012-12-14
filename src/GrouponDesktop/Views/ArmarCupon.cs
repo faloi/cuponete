@@ -74,8 +74,16 @@ namespace GrouponDesktop.Views
                this.textBoxMaxCant               
             };
 
-
-            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateCheckList(this.checkedListBoxCiudades, this.errorProvider));
+            var fieldsNumericos = new List<TextBox>
+                                      {
+                                          this.textBoxPrecioReal,
+                                          this.textBoxPrecioFicticio,
+                                          this.textBoxCantDisp,
+                                          this.textBoxMaxCant
+                                      };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider)
+                && ValidatorHelper.ValidateCheckList(this.checkedListBoxCiudades, this.errorProvider)
+            && ValidatorHelper.ValidateMontoPositivo(fieldsNumericos,this.errorProvider));
         }
 
     }
