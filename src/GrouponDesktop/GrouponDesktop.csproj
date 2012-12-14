@@ -66,6 +66,7 @@
     <Compile Include="Homes\RolHome.cs" />
     <Compile Include="Sql\TransactionalSqlRunner.cs" />
     <Compile Include="Views\ABMCliente.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ABMCliente.Designer.cs">
       <DependentUpon>ABMCliente.cs</DependentUpon>
@@ -83,6 +84,7 @@
       <DependentUpon>ABMRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ABMUsuario.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ABMUsuario.Designer.cs">
       <DependentUpon>ABMUsuario.cs</DependentUpon>
@@ -265,6 +267,7 @@
       <DependentUpon>DevolverCupon.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FacturarProveedor.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\FacturarProveedor.Designer.cs">
       <DependentUpon>FacturarProveedor.cs</DependentUpon>

@@ -1,7 +1,9 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -35,8 +37,8 @@ namespace GrouponDesktop.Views
             this.textBoxNroTarjeta.BindTextTo(this.model, "nro_tarjeta");
             this.textBoxCodDeSeg.BindTextTo(this.model, "cod_seguridad_tarjeta");
             this.textBoxFechaVto.BindTextTo(this.model, "fecha_vto_tarjeta");
-            this.textBoxMonto.BindTextTo(this.model, "carga_credito", DataType.INTEGER);
             this.CargarFormaPago();
+            this.CargarValoresCredito();
             this.buttonCancelar.Click +=
                 (sender, args) => this.Close();
         }
@@ -62,6 +64,7 @@ namespace GrouponDesktop.Views
             credito.id_forma_pago = Convert.ToInt32(comboBoxFormaPago.SelectedValue);
             credito.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
             credito.fecha_vto_tarjeta = (textBoxFechaVto.Text ?? "");
+            credito.carga_credito = Convert.ToInt32(comboBoxMonto.SelectedValue);
             if(!pagaConTarjeta())
             {
                 credito.nro_tarjeta = 0;
@@ -71,6 +74,14 @@ namespace GrouponDesktop.Views
             
         }
 
+        private void CargarValoresCredito()
+        {
+            List<string> valores = ConfigurationManager.AppSettings["valoresCredito"].Split(',').ToList<string>();
+            var datasource = valores.Select(item => Convert.ToInt32(item)).ToList();
+            this.comboBoxMonto.DataSource = datasource;
+
+
+        }
 
         private void comboBoxFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {  
@@ -79,7 +90,7 @@ namespace GrouponDesktop.Views
             {
                 this.groupBox1.Visible = false;
                 this.labelMonto.Location = new Point(12, 260 - 191);
-                this.textBoxMonto.Location = new Point(16, 284 - 191);
+                this.comboBoxMonto.Location = new Point(16, 284 - 191);
                 this.buttonCargar.Location = new Point(16, 318 - 191);
                 this.buttonCancelar.Location = new Point(80, 369 - 191);
                 this.Size = new Size(281, 438 - 191);
@@ -88,7 +99,7 @@ namespace GrouponDesktop.Views
             {
                 this.groupBox1.Visible = true;
                 this.labelMonto.Location = new Point(12, 260);
-                this.textBoxMonto.Location = new Point(16, 284);
+                this.comboBoxMonto.Location = new Point(16, 284);
                 this.buttonCargar.Location = new Point(16, 318);
                 this.buttonCancelar.Location = new Point(80, 369);
                 this.Size = new Size(281, 438);
@@ -104,8 +115,7 @@ namespace GrouponDesktop.Views
         protected override bool Validar()
         {
             bool ret = true;
-            var fieldsObligatorios = new List<TextBox>
-               {this.textBoxMonto};
+            var fieldsObligatorios = new List<TextBox>();
             if(pagaConTarjeta())
             {
                 fieldsObligatorios.Add(this.textBoxCodDeSeg);
@@ -115,7 +125,6 @@ namespace GrouponDesktop.Views
             }
             return (ret && ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider)
                 && ValidatorHelper.ValidateComboBox(this.comboBoxFormaPago, this.errorProvider)
-                && ValidatorHelper.ValidateMontoPositivo(this.textBoxMonto, this.errorProvider)
                 );
 
         }
