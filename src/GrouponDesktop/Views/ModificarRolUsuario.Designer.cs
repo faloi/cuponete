@@ -48,12 +48,13 @@
             // 
             // comboBoxRol
             // 
+            this.comboBoxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRol.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRol.FormattingEnabled = true;
             this.comboBoxRol.Location = new System.Drawing.Point(12, 28);
             this.comboBoxRol.Name = "comboBoxRol";
             this.comboBoxRol.Size = new System.Drawing.Size(206, 25);
-            this.comboBoxRol.TabIndex = 4;
+            this.comboBoxRol.TabIndex = 0;
             // 
             // guardarButton
             // 
@@ -61,7 +62,7 @@
             this.guardarButton.Location = new System.Drawing.Point(12, 71);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(100, 28);
-            this.guardarButton.TabIndex = 12;
+            this.guardarButton.TabIndex = 1;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
@@ -71,12 +72,12 @@
             this.buttonCancelar.Location = new System.Drawing.Point(118, 71);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(100, 28);
-            this.buttonCancelar.TabIndex = 13;
+            this.buttonCancelar.TabIndex = 2;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // ModificarUsuario
+            // ModificarRolUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -87,7 +88,7 @@
             this.Controls.Add(this.comboBoxRol);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "ModificarUsuario";
+            this.Name = "ModificarRolUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();

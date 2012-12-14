@@ -41,7 +41,7 @@
             this.proveedorButton.Location = new System.Drawing.Point(98, 108);
             this.proveedorButton.Name = "proveedorButton";
             this.proveedorButton.Size = new System.Drawing.Size(223, 38);
-            this.proveedorButton.TabIndex = 8;
+            this.proveedorButton.TabIndex = 1;
             this.proveedorButton.Text = "Proveedor";
             this.proveedorButton.UseVisualStyleBackColor = true;
             // 
@@ -51,7 +51,7 @@
             this.clienteButton.Location = new System.Drawing.Point(98, 64);
             this.clienteButton.Name = "clienteButton";
             this.clienteButton.Size = new System.Drawing.Size(223, 38);
-            this.clienteButton.TabIndex = 7;
+            this.clienteButton.TabIndex = 0;
             this.clienteButton.Text = "Cliente";
             this.clienteButton.UseVisualStyleBackColor = true;
             // 

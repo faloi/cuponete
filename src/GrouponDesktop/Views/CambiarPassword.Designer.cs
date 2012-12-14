@@ -63,7 +63,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(19, 86);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(217, 20);
-            this.textBoxPassword.TabIndex = 6;
+            this.textBoxPassword.TabIndex = 0;
             // 
             // buttonCancelar
             // 
@@ -71,7 +71,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(74, 194);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 9;
+            this.buttonCancelar.TabIndex = 2;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
@@ -82,7 +82,7 @@
             this.buttonCambiar.Location = new System.Drawing.Point(19, 134);
             this.buttonCambiar.Name = "buttonCambiar";
             this.buttonCambiar.Size = new System.Drawing.Size(217, 36);
-            this.buttonCambiar.TabIndex = 8;
+            this.buttonCambiar.TabIndex = 1;
             this.buttonCambiar.Text = "Cambiar";
             this.buttonCambiar.UseVisualStyleBackColor = true;
             // 
