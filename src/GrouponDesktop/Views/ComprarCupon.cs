@@ -52,7 +52,8 @@ namespace GrouponDesktop.Views
             cuponComprado.codigo_compra = "";
             cuponComprado.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
             this.home.ComprarCupon(cuponComprado);
-            this.SuccessMessage("La compra se realizó exitosamente");
+            this.Redirect(new PopUpCuponComprado(cuponComprado));
+            this.Close();
         }
 
         private string IdSeleccionado

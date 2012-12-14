@@ -15,7 +15,7 @@ namespace GrouponDesktop.Homes
         {
             try
             {
-                return sqlRunner.Select("SELECT * FROM RANDOM.Rol WHERE descripcion in ('Cliente','Proveedor')");
+                return sqlRunner.Select("SELECT * FROM RANDOM.Rol");
             }
             catch (NoResultsException e)
             {
