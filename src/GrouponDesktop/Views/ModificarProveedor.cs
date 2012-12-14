@@ -88,14 +88,9 @@ namespace GrouponDesktop.Views
             };
 
             if (this.IsNew)
-            {
-                fieldsObligatorios.AddRange(new[] { this.username, this.password });
-                fieldsObligatorios.AddRange(this.direccionGroupBox.Controls.OfType<TextBox>());
-            }
+                fieldsObligatorios.AddRange(new[] { this.username, this.password, this.calle, this.numero, this.localidad });
             else
-            {
                 fieldsObligatorios.Add(this.direccion);
-            }
 
             return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
         }
