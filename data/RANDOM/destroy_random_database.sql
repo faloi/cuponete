@@ -20,7 +20,6 @@ drop procedure RANDOM.ArmarCupon
 drop procedure RANDOM.ModificarUsuario
 drop procedure RANDOM.HabilitarUsuario
 drop procedure RANDOM.DeshabilitarUsuario
-drop procedure RANDOM.CambiarRol
 drop PROCEDURE RANDOM.IncrementarFallas
 drop procedure RANDOM.AgregarRol
 drop procedure RANDOM.AgregarFuncionalidadPorRol
