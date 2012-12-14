@@ -61,16 +61,24 @@ namespace GrouponDesktop.Views
             if(tipo == CLIENTE)
             {
                 var cliente = HomeFactory.Usuario.GetClienteById(usuario.id_usuario.ToString());
-                if(Equals(cliente.cod_postal, 0))
-                {
+                if (Equals(cliente.cod_postal, 0))
                     falta = true;
-                }
-                if(Equals(cliente.mail, ""))
-                {
+                if (Equals(cliente.mail, ""))
                     falta = true;
-                }
+                if (falta)
+                    new ModificarCliente(cliente).ShowDialog();
             }
-            
+            if(tipo == PROVEEDOR)
+            {
+                var proveedor = HomeFactory.Usuario.GetProveedorById(usuario.id_usuario.ToString());
+                if (Equals(proveedor.cod_postal, 0))
+                    falta = true;
+                if (Equals(proveedor.contacto_nombre, ""))
+                    falta = true;
+                if (falta)
+                    new ModificarProveedor(proveedor).ShowDialog();
+            }
+
         }
     }
 }

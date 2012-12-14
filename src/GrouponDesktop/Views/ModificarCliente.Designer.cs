@@ -88,7 +88,7 @@
             this.nombreCliente.Location = new System.Drawing.Point(9, 35);
             this.nombreCliente.Name = "nombreCliente";
             this.nombreCliente.Size = new System.Drawing.Size(158, 25);
-            this.nombreCliente.TabIndex = 4;
+            this.nombreCliente.TabIndex = 2;
             // 
             // apellidoClienteLabel
             // 
@@ -106,7 +106,7 @@
             this.apellidoCliente.Location = new System.Drawing.Point(236, 40);
             this.apellidoCliente.Name = "apellidoCliente";
             this.apellidoCliente.Size = new System.Drawing.Size(158, 25);
-            this.apellidoCliente.TabIndex = 6;
+            this.apellidoCliente.TabIndex = 3;
             // 
             // dniLabel
             // 
@@ -124,7 +124,7 @@
             this.dniCliente.Location = new System.Drawing.Point(9, 88);
             this.dniCliente.Name = "dniCliente";
             this.dniCliente.Size = new System.Drawing.Size(158, 25);
-            this.dniCliente.TabIndex = 8;
+            this.dniCliente.TabIndex = 5;
             // 
             // emailClienteLabel
             // 
@@ -142,7 +142,7 @@
             this.emailCliente.Location = new System.Drawing.Point(236, 88);
             this.emailCliente.Name = "emailCliente";
             this.emailCliente.Size = new System.Drawing.Size(158, 25);
-            this.emailCliente.TabIndex = 10;
+            this.emailCliente.TabIndex = 6;
             // 
             // telefonoClienteLabel
             // 
@@ -160,7 +160,7 @@
             this.telefonoCliente.Location = new System.Drawing.Point(456, 88);
             this.telefonoCliente.Name = "telefonoCliente";
             this.telefonoCliente.Size = new System.Drawing.Size(200, 25);
-            this.telefonoCliente.TabIndex = 12;
+            this.telefonoCliente.TabIndex = 7;
             // 
             // direccionClienteLabel
             // 
@@ -196,7 +196,7 @@
             this.cpostalCliente.Location = new System.Drawing.Point(560, 147);
             this.cpostalCliente.Name = "cpostalCliente";
             this.cpostalCliente.Size = new System.Drawing.Size(96, 25);
-            this.cpostalCliente.TabIndex = 25;
+            this.cpostalCliente.TabIndex = 13;
             // 
             // ciuPrefClienteLabel
             // 
@@ -215,7 +215,7 @@
             this.ciuPrefClienteBox.Location = new System.Drawing.Point(9, 251);
             this.ciuPrefClienteBox.Name = "ciuPrefClienteBox";
             this.ciuPrefClienteBox.Size = new System.Drawing.Size(619, 148);
-            this.ciuPrefClienteBox.TabIndex = 27;
+            this.ciuPrefClienteBox.TabIndex = 14;
             // 
             // fechaNacCliente
             // 
@@ -224,7 +224,7 @@
             this.fechaNacCliente.Location = new System.Drawing.Point(456, 40);
             this.fechaNacCliente.Name = "fechaNacCliente";
             this.fechaNacCliente.Size = new System.Drawing.Size(200, 25);
-            this.fechaNacCliente.TabIndex = 7;
+            this.fechaNacCliente.TabIndex = 4;
             // 
             // clienteGroupBox
             // 
@@ -279,7 +279,7 @@
             this.localidad.Location = new System.Drawing.Point(343, 33);
             this.localidad.Name = "localidad";
             this.localidad.Size = new System.Drawing.Size(158, 25);
-            this.localidad.TabIndex = 16;
+            this.localidad.TabIndex = 12;
             // 
             // label5
             // 
@@ -297,7 +297,7 @@
             this.depto.Location = new System.Drawing.Point(288, 33);
             this.depto.Name = "depto";
             this.depto.Size = new System.Drawing.Size(46, 25);
-            this.depto.TabIndex = 14;
+            this.depto.TabIndex = 11;
             // 
             // label4
             // 
@@ -315,7 +315,7 @@
             this.piso.Location = new System.Drawing.Point(249, 33);
             this.piso.Name = "piso";
             this.piso.Size = new System.Drawing.Size(33, 25);
-            this.piso.TabIndex = 12;
+            this.piso.TabIndex = 10;
             // 
             // label3
             // 
@@ -333,7 +333,7 @@
             this.numero.Location = new System.Drawing.Point(170, 33);
             this.numero.Name = "numero";
             this.numero.Size = new System.Drawing.Size(73, 25);
-            this.numero.TabIndex = 10;
+            this.numero.TabIndex = 9;
             // 
             // label1
             // 
@@ -392,7 +392,7 @@
             this.password.Location = new System.Drawing.Point(236, 40);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(158, 25);
-            this.password.TabIndex = 3;
+            this.password.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -420,7 +420,7 @@
             this.username.Location = new System.Drawing.Point(10, 40);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(157, 25);
-            this.username.TabIndex = 1;
+            this.username.TabIndex = 0;
             // 
             // guardarButton
             // 
@@ -428,7 +428,7 @@
             this.guardarButton.Location = new System.Drawing.Point(149, 518);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(161, 28);
-            this.guardarButton.TabIndex = 9;
+            this.guardarButton.TabIndex = 15;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
@@ -438,7 +438,7 @@
             this.limpiarButton.Location = new System.Drawing.Point(366, 518);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(161, 28);
-            this.limpiarButton.TabIndex = 8;
+            this.limpiarButton.TabIndex = 16;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Visible = false;

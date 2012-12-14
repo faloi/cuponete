@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.proveedorGroupBox = new System.Windows.Forms.GroupBox();
+            this.ciudadProvCombo = new System.Windows.Forms.ComboBox();
             this.contactoProveedor = new System.Windows.Forms.TextBox();
             this.contactoProveedorLabel = new System.Windows.Forms.Label();
             this.comboRubro = new System.Windows.Forms.ComboBox();
@@ -53,7 +54,6 @@
             this.username = new System.Windows.Forms.TextBox();
             this.guardarButton = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
-            this.ciudadProvCombo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.proveedorGroupBox.SuspendLayout();
@@ -87,13 +87,22 @@
             this.proveedorGroupBox.TabStop = false;
             this.proveedorGroupBox.Text = "Datos Proveedor";
             // 
+            // ciudadProvCombo
+            // 
+            this.ciudadProvCombo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ciudadProvCombo.FormattingEnabled = true;
+            this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
+            this.ciudadProvCombo.Name = "ciudadProvCombo";
+            this.ciudadProvCombo.Size = new System.Drawing.Size(155, 25);
+            this.ciudadProvCombo.TabIndex = 9;
+            // 
             // contactoProveedor
             // 
             this.contactoProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactoProveedor.Location = new System.Drawing.Point(203, 220);
             this.contactoProveedor.Name = "contactoProveedor";
             this.contactoProveedor.Size = new System.Drawing.Size(158, 25);
-            this.contactoProveedor.TabIndex = 33;
+            this.contactoProveedor.TabIndex = 10;
             // 
             // contactoProveedorLabel
             // 
@@ -112,7 +121,7 @@
             this.comboRubro.Location = new System.Drawing.Point(461, 39);
             this.comboRubro.Name = "comboRubro";
             this.comboRubro.Size = new System.Drawing.Size(155, 25);
-            this.comboRubro.TabIndex = 6;
+            this.comboRubro.TabIndex = 4;
             // 
             // rubroProveedorLabel
             // 
@@ -130,7 +139,7 @@
             this.cuitProveedor.Location = new System.Drawing.Point(239, 40);
             this.cuitProveedor.Name = "cuitProveedor";
             this.cuitProveedor.Size = new System.Drawing.Size(158, 25);
-            this.cuitProveedor.TabIndex = 5;
+            this.cuitProveedor.TabIndex = 3;
             // 
             // cuitProveedorLabel
             // 
@@ -158,7 +167,7 @@
             this.cPostalProveedor.Location = new System.Drawing.Point(567, 152);
             this.cPostalProveedor.Name = "cPostalProveedor";
             this.cPostalProveedor.Size = new System.Drawing.Size(96, 25);
-            this.cPostalProveedor.TabIndex = 25;
+            this.cPostalProveedor.TabIndex = 8;
             // 
             // cPostalProveedorLabel
             // 
@@ -176,7 +185,7 @@
             this.direccionProveedor.Location = new System.Drawing.Point(12, 152);
             this.direccionProveedor.Name = "direccionProveedor";
             this.direccionProveedor.Size = new System.Drawing.Size(496, 25);
-            this.direccionProveedor.TabIndex = 15;
+            this.direccionProveedor.TabIndex = 7;
             // 
             // direccionProveedorLabel
             // 
@@ -194,7 +203,7 @@
             this.telefonoProveedor.Location = new System.Drawing.Point(239, 85);
             this.telefonoProveedor.Name = "telefonoProveedor";
             this.telefonoProveedor.Size = new System.Drawing.Size(158, 25);
-            this.telefonoProveedor.TabIndex = 12;
+            this.telefonoProveedor.TabIndex = 6;
             // 
             // telefonoProveedorLabel
             // 
@@ -212,7 +221,7 @@
             this.emailProveedor.Location = new System.Drawing.Point(13, 87);
             this.emailProveedor.Name = "emailProveedor";
             this.emailProveedor.Size = new System.Drawing.Size(158, 25);
-            this.emailProveedor.TabIndex = 7;
+            this.emailProveedor.TabIndex = 5;
             // 
             // emailProveedorLabel
             // 
@@ -230,7 +239,7 @@
             this.razonSocialProveedor.Location = new System.Drawing.Point(12, 40);
             this.razonSocialProveedor.Name = "razonSocialProveedor";
             this.razonSocialProveedor.Size = new System.Drawing.Size(158, 25);
-            this.razonSocialProveedor.TabIndex = 4;
+            this.razonSocialProveedor.TabIndex = 2;
             // 
             // razonSocialProveedorLabel
             // 
@@ -261,7 +270,7 @@
             this.password.Location = new System.Drawing.Point(239, 40);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(158, 25);
-            this.password.TabIndex = 3;
+            this.password.TabIndex = 1;
             // 
             // passwordLabel
             // 
@@ -289,7 +298,7 @@
             this.username.Location = new System.Drawing.Point(12, 40);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(157, 25);
-            this.username.TabIndex = 1;
+            this.username.TabIndex = 0;
             // 
             // guardarButton
             // 
@@ -307,19 +316,10 @@
             this.limpiarButton.Location = new System.Drawing.Point(376, 397);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(161, 28);
-            this.limpiarButton.TabIndex = 10;
+            this.limpiarButton.TabIndex = 12;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Visible = false;
-            // 
-            // ciudadProvCombo
-            // 
-            this.ciudadProvCombo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ciudadProvCombo.FormattingEnabled = true;
-            this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
-            this.ciudadProvCombo.Name = "ciudadProvCombo";
-            this.ciudadProvCombo.Size = new System.Drawing.Size(155, 25);
-            this.ciudadProvCombo.TabIndex = 34;
             // 
             // ModificarProveedor
             // 
