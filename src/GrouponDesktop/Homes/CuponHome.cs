@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Sql;
 
@@ -72,6 +73,26 @@ namespace GrouponDesktop.Homes
                 "monto_total", "nro_factura", "id_proveedor", "fecha", "fecha_inicio", "fecha_fin");
 
             this.Run(procedure);
+        }
+
+        public void ArmarCupon(Cupon cupon, IEnumerable<Ciudad> ciudadesSeleccionadas)
+        {
+
+            var procedures = new List<Runnable>
+            {
+                this.CreateProcedureFrom("ArmarCupon",cupon, "id_cupon",
+                    "id_proveedor","descripcion", "fecha_actual", "fec_publicacion", "fec_venc_publicacion", "fec_venc_consumo",
+                    "precio_real", "precio_ficticio", "cant_disp", "max_compra_por_usuario")
+            };
+
+            var relacionCiudades = ciudadesSeleccionadas
+                .Select(ciudad =>
+                    this.CreateProcedureFrom("AgregarCuponPorCiudad", new[] { "id_cupon" },
+                    new Dictionary<string, object> { { "id_cupon", cupon.id_cupon }, { "id_ciudad", ciudad.id_ciudad } }));
+
+            procedures.AddRange(relacionCiudades);
+
+            this.Run(procedures);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace GrouponDesktop.Views
             this.rolesDataGrid.BindSourceTo(this.Data,"id_rol", new Dictionary<string, string>
             {
                 {"Nombre", "descripcion"},
-                {"Estado", "estado"}
+                {"Estado", "descripcionEstado"}
             });
 
             this.buttonModificar.Click +=

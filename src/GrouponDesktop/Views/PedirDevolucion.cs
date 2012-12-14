@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace GrouponDesktop.Views
 {
-    public partial class PedirDevolucion : Form
+    public partial class PedirDevolucion : DefaultView
     {
         public PedirDevolucion()
         {
