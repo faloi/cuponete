@@ -195,7 +195,7 @@
             this.cpostalCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpostalCliente.Location = new System.Drawing.Point(560, 147);
             this.cpostalCliente.Name = "cpostalCliente";
-            this.cpostalCliente.Size = new System.Drawing.Size(96, 25);
+            this.cpostalCliente.Size = new System.Drawing.Size(52, 25);
             this.cpostalCliente.TabIndex = 25;
             // 
             // ciuPrefClienteLabel
@@ -276,16 +276,16 @@
             // localidad
             // 
             this.localidad.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.localidad.Location = new System.Drawing.Point(343, 33);
+            this.localidad.Location = new System.Drawing.Point(406, 38);
             this.localidad.Name = "localidad";
-            this.localidad.Size = new System.Drawing.Size(158, 25);
+            this.localidad.Size = new System.Drawing.Size(119, 25);
             this.localidad.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(340, 9);
+            this.label5.Location = new System.Drawing.Point(403, 14);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 21);
             this.label5.TabIndex = 15;
@@ -294,7 +294,7 @@
             // depto
             // 
             this.depto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.depto.Location = new System.Drawing.Point(288, 33);
+            this.depto.Location = new System.Drawing.Point(335, 38);
             this.depto.Name = "depto";
             this.depto.Size = new System.Drawing.Size(46, 25);
             this.depto.TabIndex = 14;
@@ -303,7 +303,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(284, 9);
+            this.label4.Location = new System.Drawing.Point(331, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 13;
@@ -312,7 +312,7 @@
             // piso
             // 
             this.piso.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.piso.Location = new System.Drawing.Point(249, 33);
+            this.piso.Location = new System.Drawing.Point(280, 38);
             this.piso.Name = "piso";
             this.piso.Size = new System.Drawing.Size(33, 25);
             this.piso.TabIndex = 12;
@@ -321,7 +321,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(245, 9);
+            this.label3.Location = new System.Drawing.Point(276, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 21);
             this.label3.TabIndex = 11;
@@ -330,7 +330,7 @@
             // numero
             // 
             this.numero.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numero.Location = new System.Drawing.Point(170, 33);
+            this.numero.Location = new System.Drawing.Point(185, 38);
             this.numero.Name = "numero";
             this.numero.Size = new System.Drawing.Size(73, 25);
             this.numero.TabIndex = 10;
@@ -339,7 +339,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(166, 9);
+            this.label1.Location = new System.Drawing.Point(181, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 21);
             this.label1.TabIndex = 9;
@@ -348,7 +348,7 @@
             // calle
             // 
             this.calle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calle.Location = new System.Drawing.Point(6, 33);
+            this.calle.Location = new System.Drawing.Point(12, 38);
             this.calle.Name = "calle";
             this.calle.Size = new System.Drawing.Size(158, 25);
             this.calle.TabIndex = 8;
@@ -357,7 +357,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 14);
+            this.label2.Location = new System.Drawing.Point(8, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 21);
             this.label2.TabIndex = 7;

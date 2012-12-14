@@ -89,11 +89,19 @@ namespace GrouponDesktop.Views
                this.apellidoCliente,
                this.dniCliente,
                this.emailCliente,
-               this.telefonoCliente               
+               this.telefonoCliente,
+               this.cpostalCliente
             };
 
             if (this.IsNew)
-                fieldsObligatorios.AddRange(new[] { this.username, this.password });
+            {
+                fieldsObligatorios.AddRange(new[] {this.username, this.password});
+                fieldsObligatorios.AddRange(this.direccionGroupBox.Controls.OfType<TextBox>());
+            }
+            else
+            {
+                fieldsObligatorios.Add(this.direccionCliente);
+            }
 
             return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider) && ValidatorHelper.ValidateCheckList(this.ciuPrefClienteBox, this.errorProvider));
         }
