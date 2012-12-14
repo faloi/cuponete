@@ -57,7 +57,6 @@ namespace GrouponDesktop.Views
             {
                 checkedListBoxCiudades.SetItemChecked(i, false);
             }
-            //this.checkedListBoxCiudades.ClearSelected();
         }
 
         private void CargarCiudadesPref()
