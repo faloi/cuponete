@@ -65,6 +65,8 @@ namespace GrouponDesktop.Views
                 this.home.DarDeBajaUsuario(proveedor);
                 MessageBox.Show("El proveedor se Deshabilito con éxito");
             }
+
+            this.ExecSubmit();
         }
 
         private void Nuevo()

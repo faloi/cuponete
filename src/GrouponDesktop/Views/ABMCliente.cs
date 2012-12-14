@@ -75,6 +75,8 @@ namespace GrouponDesktop.Views
                 this.home.DarDeBajaUsuario(cliente);
                 MessageBox.Show("El cliente se Deshabilito con éxito");
             }
+
+            this.ExecSubmit();
         }
 
         private void ModificarCliente()
