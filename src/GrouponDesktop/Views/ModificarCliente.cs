@@ -63,6 +63,9 @@ namespace GrouponDesktop.Views
 
             if (!this.IsNew)
                 this.SeleccionarCiudades();
+
+            this.limpiarButton.Click +=
+                (sender, args) => this.SetBindingSource(new Cliente());
         }
 
         protected override void ExecSubmit()
