@@ -33,5 +33,9 @@ namespace GrouponDesktop.DTOs
                 return string.Format("{0} {1} {2} {3} {4}", direccionCalle, direccionNumero, direccionPiso, direccionDto, direccionLocalidad);
             }
         }
+        public string descripcionEstado
+        {
+            get { return (this.estado == 0 ? "Deshabilitado" : "Habilitado"); }
+        }
     }
 }

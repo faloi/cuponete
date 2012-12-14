@@ -122,7 +122,7 @@ namespace GrouponDesktop.Homes
 
         public IList<Proveedor> ListarProveedores(Proveedor ejemplo)
         {
-            const string QUERY = "SELECT * FROM RANDOM.Proveedor";
+            const string QUERY = "SELECT prov.*,us.estado FROM RANDOM.Proveedor prov LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=prov.id_usuario)";
 
             var filtros = new Filters();
             if (ejemplo.razon_social != null)
