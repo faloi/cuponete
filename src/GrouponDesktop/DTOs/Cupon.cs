@@ -25,9 +25,9 @@ namespace GrouponDesktop.DTOs
 
         public Cupon()
         {
-            this.fec_publicacion = ControlBindingHelpers.GetFechaSistema();
-            this.fec_venc_consumo = ControlBindingHelpers.GetFechaSistema();
-            this.fec_venc_publicacion = ControlBindingHelpers.GetFechaSistema();
+            this.fec_publicacion = ControlBindingHelpers.FechaSistema;
+            this.fec_venc_consumo = ControlBindingHelpers.FechaSistema;
+            this.fec_venc_publicacion = ControlBindingHelpers.FechaSistema;
         }
     }
 

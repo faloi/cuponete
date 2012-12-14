@@ -64,7 +64,7 @@ namespace GrouponDesktop.Views
         protected void fillData()
         {
             var credito = this.model.DataSource as Credito;
-            credito.fecha = ControlBindingHelpers.GetFechaSistema();
+            credito.fecha = ControlBindingHelpers.FechaSistema;
             credito.id_forma_pago = Convert.ToInt32(comboBoxFormaPago.SelectedValue);
             credito.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
             credito.fecha_vto_tarjeta = (textBoxFechaVto.Text ?? "");

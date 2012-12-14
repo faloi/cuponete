@@ -34,7 +34,7 @@ namespace GrouponDesktop.Views
                 {"Cantidad", "cant_disp"}
             });
 
-            this.fecActual.Value = ControlBindingHelpers.GetFechaSistema();
+            this.fecActual.Value = ControlBindingHelpers.FechaSistema;
 
             this.cargarProveedores();
 

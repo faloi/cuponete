@@ -38,7 +38,7 @@ namespace GrouponDesktop.Views
         {
             var cupon_canjeado = this.model.DataSource as Cupon_canjeado;
             cupon_canjeado.id_proveedor = HomeFactory.Usuario.UsuarioActual.id_usuario;
-            cupon_canjeado.fecha_canje = ControlBindingHelpers.GetFechaSistema();
+            cupon_canjeado.fecha_canje = ControlBindingHelpers.FechaSistema;
             home.RegistrarConsumo(cupon_canjeado);
             this.SuccessMessage("El canje se registró correctamente");
         }

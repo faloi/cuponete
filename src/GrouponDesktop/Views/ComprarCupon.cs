@@ -22,7 +22,7 @@ namespace GrouponDesktop.Views
 
         private void listaCupones()
         {
-            this.Data = this.home.CuponesDisponibles(ControlBindingHelpers.GetFechaSistema());
+            this.Data = this.home.CuponesDisponibles(ControlBindingHelpers.FechaSistema);
         }
 
         protected override void CreateSpecificBindings()
@@ -43,7 +43,7 @@ namespace GrouponDesktop.Views
             var cupon = this.home.GetCuponById(this.IdSeleccionado);
             var cuponComprado = new Cupon_comprado();
             cuponComprado.id_cupon = cupon.id_cupon;
-            cuponComprado.fecha_compra = ControlBindingHelpers.GetFechaSistema();
+            cuponComprado.fecha_compra = ControlBindingHelpers.FechaSistema;
             cuponComprado.codigo_compra = "";
             cuponComprado.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
             this.home.ComprarCupon(cuponComprado);

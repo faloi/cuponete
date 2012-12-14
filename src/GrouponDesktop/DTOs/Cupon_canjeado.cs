@@ -18,7 +18,7 @@ namespace GrouponDesktop.DTOs
 
         public Cupon_canjeado()
         {
-            this.fecha_canje = ControlBindingHelpers.GetFechaSistema();
+            this.fecha_canje = ControlBindingHelpers.FechaSistema;
         }
     }
 }

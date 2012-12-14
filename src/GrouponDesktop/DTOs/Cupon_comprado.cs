@@ -23,7 +23,7 @@ namespace GrouponDesktop.DTOs
 
         public Cupon_comprado()
         {
-             this.FechaDesde = this.FechaHasta = ControlBindingHelpers.GetFechaSistema();
+             this.FechaDesde = this.FechaHasta = ControlBindingHelpers.FechaSistema;
         }
     }
 }

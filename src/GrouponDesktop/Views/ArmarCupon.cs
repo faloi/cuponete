@@ -67,7 +67,7 @@ namespace GrouponDesktop.Views
         {
             var cupon = this.model.DataSource as Cupon;
             cupon.id_proveedor = HomeFactory.Usuario.UsuarioActual.id_usuario;
-            cupon.fecha_actual = ControlBindingHelpers.GetFechaSistema();
+            cupon.fecha_actual = ControlBindingHelpers.FechaSistema;
             var ciudadesSeleccionadas = this.checkedListBoxCiudades.GetCheckedItems<Ciudad>();
             this.home.ArmarCupon(cupon, ciudadesSeleccionadas);
             this.SuccessMessage("El cupón ser registro correctamente");

@@ -61,7 +61,7 @@ namespace GrouponDesktop.Views
          {
              var gift = this.model.DataSource as Gift_card;
              gift.id_usuario_destino = this.home.GetClienteByUserName(gift.usuario_destino).id_usuario;
-             gift.fecha = ControlBindingHelpers.GetFechaSistema();
+             gift.fecha = ControlBindingHelpers.FechaSistema;
              gift.monto = Convert.ToInt32(comboBoxMontos.SelectedValue);
              gift.id_usuario_origen = this.home.UsuarioActual.id_usuario;
          }

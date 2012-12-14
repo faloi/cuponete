@@ -19,7 +19,7 @@ namespace GrouponDesktop.DTOs
 
         public ProveedorFacturacion()
         {
-            this.fecha = this.fecha_inicio = this.fecha_fin = ControlBindingHelpers.GetFechaSistema();
+            this.fecha = this.fecha_inicio = this.fecha_fin = ControlBindingHelpers.FechaSistema;
         }
     }
 }

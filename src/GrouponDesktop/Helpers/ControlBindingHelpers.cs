@@ -126,10 +126,13 @@ namespace GrouponDesktop.Helpers
             return list.CheckedItems.Cast<T>();
         }
 
-        public static DateTime GetFechaSistema()
+        public static DateTime FechaSistema
         {
-            string fecha = ConfigurationManager.AppSettings["fecha"];
-            return DateTime.ParseExact(fecha,"dd/MM/yyyy",null);
+            get
+            {
+                var fecha = ConfigurationManager.AppSettings["fecha"];
+                return DateTime.ParseExact(fecha, "dd/MM/yyyy", null);
+            }
         }
     }
 }

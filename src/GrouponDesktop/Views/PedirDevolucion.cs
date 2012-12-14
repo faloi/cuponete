@@ -44,7 +44,7 @@ namespace GrouponDesktop.Views
         {
             var cuponParaDevolucion = this.model.DataSource as CuponParaDevolucion;
             cuponParaDevolucion.id_cliente = HomeFactory.Usuario.UsuarioActual.id_usuario;
-            cuponParaDevolucion.fecha_devolucion = ControlBindingHelpers.GetFechaSistema();
+            cuponParaDevolucion.fecha_devolucion = ControlBindingHelpers.FechaSistema;
             this.home.PedirDevolucion(cuponParaDevolucion);      
             this.Redirect(new DevolverCupon(cuponParaDevolucion),true);
         }
