@@ -100,8 +100,13 @@ namespace GrouponDesktop.Views
         private void DisableActionsIfNoResults(object sender, EventArgs eventArgs)
         {
             var source = sender as BindingSource;
-            if (source.Count == 0)
-                this.DisableActions();
+            if (source.Count != 0) 
+                return;
+            
+            this.DisableActions();
+
+            if (source.DataSource != null)
+                MessageFactory.Info("Su búsqueda no produjo ningún resultado");
         }
 
         private void EnableActions()
@@ -125,13 +130,13 @@ namespace GrouponDesktop.Views
             this.Example = Activator.CreateInstance<TModel>();
         }
 
-        protected void PerformLookup()
+        private void PerformLookup()
         {
             if (this.lookupTextbox == null)
                 return;
 
             var selectedItem = this.SelectedItem;
-            ControlBindingHelpers.SetTextFrom(lookupTextbox, selectedItem, lookupProperty);
+            lookupTextbox.SetTextFrom(selectedItem, lookupProperty);
 
             this.Close();
         }

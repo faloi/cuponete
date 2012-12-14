@@ -18,5 +18,10 @@ namespace GrouponDesktop.Helpers
         {
             ReadOnly(template, parameters, MessageBoxIcon.Hand);
         }
+
+        public static void Info(string template, params object[] parameters)
+        {
+            ReadOnly(template, parameters, MessageBoxIcon.Information);
+        }
     }
 }
