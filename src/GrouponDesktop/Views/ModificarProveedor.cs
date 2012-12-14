@@ -22,7 +22,7 @@ namespace GrouponDesktop.Views
             InitializeComponent();
 
             this.IsNew = isNew;
-            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.IsNew;
+            this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.direccionGroupBox.Visible = this.IsNew;
 
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(proveedor);

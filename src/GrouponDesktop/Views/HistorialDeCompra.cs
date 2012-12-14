@@ -24,7 +24,8 @@ namespace GrouponDesktop.Views
 
             this.cuponesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
             {
-                {"Fecha", "fecha_compra"},    
+                {"Fecha", "fecha_compra"}, 
+                {"Fecha Vencimiento Consumo", "fec_venc_consumo"},
                 {"Descripción", "descripcion"},
                 {"Código compra", "codigo_compra"},
                 {"Precio", "precio_real"},

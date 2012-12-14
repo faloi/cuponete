@@ -9,7 +9,7 @@ namespace GrouponDesktop.Homes
 {
     public class CuponHome : Home
     {
-        private const string DATE_FORMAT = "yyyy-MM-dd";
+        private const string DATE_FORMAT = "s";
         
         public CuponHome(string connectionString) : base(connectionString) {}
 
@@ -43,7 +43,7 @@ namespace GrouponDesktop.Homes
         public IList<Cupon_comprado> CuponesComprados(Cupon_comprado example)
         {
             const string QUERY =
-                @"select fecha_compra, descripcion, codigo_compra, precio_real, estado 
+                @"select fecha_compra,fec_venc_consumo, descripcion, codigo_compra, precio_real, estado 
                 from RANDOM.Historial_Compra_Cupones";
 
             var filters = new Filters()

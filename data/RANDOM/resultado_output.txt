@@ -1,3 +1,7 @@
-Changed database context to 'GD2C2012'.
+Se cambió el contexto de la base de datos a 'GD2C2012'.
+Msg 2714, Level 16, State 6, Server 11-076\SQLSERVER2008, Line 7
+Ya hay un objeto con el nombre 'RANDOM' en la base de datos.
+Msg 2759, Level 16, State 1, Server 11-076\SQLSERVER2008, Line 7
+Error en CREATE SCHEMA provocado por los errores anteriores.
 
 (1 rows affected)
