@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
 using GrouponDesktop.Helpers;
@@ -33,13 +34,13 @@ namespace GrouponDesktop.Views
 
         protected override void CreateSpecificBindings()
         {
-            this.razonSocialProveedor.BindTextTo(this.model, "razon_social");
-            this.emailProveedor.BindTextTo(this.model, "mail");
-            this.telefonoProveedor.BindTextTo(this.model, "telefono", DataType.INTEGER);
-            this.direccionProveedor.BindTextTo(this.model, "direccion");
-            this.cPostalProveedor.BindTextTo(this.model, "cod_postal", DataType.INTEGER);
-            this.cuitProveedor.BindTextTo(this.model, "cuit");
-            this.contactoProveedor.BindTextTo(this.model, "contacto_nombre");
+            this.razonSocial.BindTextTo(this.model, "razon_social");
+            this.email.BindTextTo(this.model, "mail");
+            this.telefono.BindTextTo(this.model, "telefono", DataType.INTEGER);
+            this.direccion.BindTextTo(this.model, "direccion");
+            this.codigoPostal.BindTextTo(this.model, "cod_postal", DataType.INTEGER);
+            this.cuit.BindTextTo(this.model, "cuit");
+            this.contacto.BindTextTo(this.model, "contacto_nombre");
 
             if (this.IsNew)
             {
@@ -49,6 +50,9 @@ namespace GrouponDesktop.Views
             
             this.CargarRubros();
             this.CargarCiudadesProv();
+
+            this.limpiarButton.Click +=
+                (sender, args) => this.SetBindingSource(new Proveedor());
         }
 
         protected override void ExecSubmit()
@@ -67,16 +71,23 @@ namespace GrouponDesktop.Views
         {
             var fieldsObligatorios = new List<TextBox>
             {
-               this.razonSocialProveedor,
-               this.telefonoProveedor,
-               this.emailProveedor,
-               this.direccionProveedor,
-               this.cuitProveedor,
-               this.contactoProveedor
+               this.razonSocial,
+               this.telefono,
+               this.email,
+               this.cuit,
+               this.contacto,
+               this.codigoPostal
             };
 
             if (this.IsNew)
+            {
                 fieldsObligatorios.AddRange(new[] { this.username, this.password });
+                fieldsObligatorios.AddRange(this.direccionGroupBox.Controls.OfType<TextBox>());
+            }
+            else
+            {
+                fieldsObligatorios.Add(this.direccion);
+            }
 
             return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
         }

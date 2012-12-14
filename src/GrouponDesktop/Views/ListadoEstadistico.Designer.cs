@@ -64,6 +64,7 @@
             // 
             // comboBoxSemestre
             // 
+            this.comboBoxSemestre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSemestre.FormattingEnabled = true;
             this.comboBoxSemestre.Location = new System.Drawing.Point(19, 144);
             this.comboBoxSemestre.Name = "comboBoxSemestre";
@@ -110,6 +111,7 @@
             // 
             // comboBoxTipoListado
             // 
+            this.comboBoxTipoListado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoListado.FormattingEnabled = true;
             this.comboBoxTipoListado.Location = new System.Drawing.Point(19, 82);
             this.comboBoxTipoListado.Name = "comboBoxTipoListado";
@@ -170,7 +172,7 @@
             this.dataGridViewGifcardAcreditadas.Name = "dataGridViewGifcardAcreditadas";
             this.dataGridViewGifcardAcreditadas.ReadOnly = true;
             this.dataGridViewGifcardAcreditadas.Size = new System.Drawing.Size(252, 223);
-            this.dataGridViewGifcardAcreditadas.TabIndex = 37;
+            this.dataGridViewGifcardAcreditadas.TabIndex = 4;
             // 
             // Usuario
             // 
@@ -190,7 +192,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(64, 452);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(159, 29);
-            this.buttonCancelar.TabIndex = 4;
+            this.buttonCancelar.TabIndex = 5;
             this.buttonCancelar.Text = "Volver";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);

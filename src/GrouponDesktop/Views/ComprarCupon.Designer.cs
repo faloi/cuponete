@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelCuponesDisponibles = new System.Windows.Forms.Label();
             this.cuponDataGrid = new System.Windows.Forms.DataGridView();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,8 +36,6 @@
             this.PrecioReal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonComprarCupon = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,14 +55,14 @@
             this.cuponDataGrid.AllowUserToDeleteRows = false;
             this.cuponDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cuponDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cuponDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cuponDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.cuponDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cuponDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descripcion,
@@ -74,7 +72,7 @@
             this.cuponDataGrid.Name = "cuponDataGrid";
             this.cuponDataGrid.ReadOnly = true;
             this.cuponDataGrid.Size = new System.Drawing.Size(572, 194);
-            this.cuponDataGrid.TabIndex = 1;
+            this.cuponDataGrid.TabIndex = 0;
             // 
             // Descripcion
             // 
@@ -100,7 +98,7 @@
             this.buttonComprarCupon.Location = new System.Drawing.Point(192, 249);
             this.buttonComprarCupon.Name = "buttonComprarCupon";
             this.buttonComprarCupon.Size = new System.Drawing.Size(213, 36);
-            this.buttonComprarCupon.TabIndex = 2;
+            this.buttonComprarCupon.TabIndex = 1;
             this.buttonComprarCupon.Text = "Comprar Cupón";
             this.buttonComprarCupon.UseVisualStyleBackColor = true;
             // 
@@ -110,7 +108,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(246, 304);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 3;
+            this.buttonCancelar.TabIndex = 2;
             this.buttonCancelar.Text = "Volver";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -128,8 +126,6 @@
             this.Name = "ComprarCupon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comprar Cupon";
-            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

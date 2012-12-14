@@ -68,7 +68,7 @@
             this.textBoxPrecioReal.MaxLength = 10;
             this.textBoxPrecioReal.Name = "textBoxPrecioReal";
             this.textBoxPrecioReal.Size = new System.Drawing.Size(207, 20);
-            this.textBoxPrecioReal.TabIndex = 3;
+            this.textBoxPrecioReal.TabIndex = 4;
             // 
             // labelFecVencCanje
             // 
@@ -131,7 +131,7 @@
             this.textBoxPrecioFicticio.MaxLength = 10;
             this.textBoxPrecioFicticio.Name = "textBoxPrecioFicticio";
             this.textBoxPrecioFicticio.Size = new System.Drawing.Size(207, 20);
-            this.textBoxPrecioFicticio.TabIndex = 4;
+            this.textBoxPrecioFicticio.TabIndex = 5;
             // 
             // labelCantDisp
             // 
@@ -149,7 +149,7 @@
             this.textBoxCantDisp.MaxLength = 10;
             this.textBoxCantDisp.Name = "textBoxCantDisp";
             this.textBoxCantDisp.Size = new System.Drawing.Size(207, 20);
-            this.textBoxCantDisp.TabIndex = 5;
+            this.textBoxCantDisp.TabIndex = 6;
             // 
             // labelCantMaxPorUsuario
             // 
@@ -167,7 +167,7 @@
             this.textBoxMaxCant.MaxLength = 10;
             this.textBoxMaxCant.Name = "textBoxMaxCant";
             this.textBoxMaxCant.Size = new System.Drawing.Size(207, 20);
-            this.textBoxMaxCant.TabIndex = 6;
+            this.textBoxMaxCant.TabIndex = 7;
             // 
             // labelCiudades
             // 
@@ -186,7 +186,7 @@
             this.checkedListBoxCiudades.Location = new System.Drawing.Point(16, 442);
             this.checkedListBoxCiudades.Name = "checkedListBoxCiudades";
             this.checkedListBoxCiudades.Size = new System.Drawing.Size(208, 89);
-            this.checkedListBoxCiudades.TabIndex = 7;
+            this.checkedListBoxCiudades.TabIndex = 8;
             // 
             // buttonArmarCupon
             // 
@@ -194,7 +194,7 @@
             this.buttonArmarCupon.Location = new System.Drawing.Point(16, 537);
             this.buttonArmarCupon.Name = "buttonArmarCupon";
             this.buttonArmarCupon.Size = new System.Drawing.Size(208, 36);
-            this.buttonArmarCupon.TabIndex = 8;
+            this.buttonArmarCupon.TabIndex = 9;
             this.buttonArmarCupon.Text = "Armar Cupón";
             this.buttonArmarCupon.UseVisualStyleBackColor = true;
             // 
@@ -204,7 +204,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(64, 590);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 27;
+            this.buttonCancelar.TabIndex = 10;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -213,7 +213,7 @@
             this.fecVencCanjdateTime.Location = new System.Drawing.Point(16, 197);
             this.fecVencCanjdateTime.Name = "fecVencCanjdateTime";
             this.fecVencCanjdateTime.Size = new System.Drawing.Size(207, 20);
-            this.fecVencCanjdateTime.TabIndex = 28;
+            this.fecVencCanjdateTime.TabIndex = 3;
             // 
             // labelFecVtoCanje
             // 
@@ -230,7 +230,7 @@
             this.fecPub.Location = new System.Drawing.Point(17, 85);
             this.fecPub.Name = "fecPub";
             this.fecPub.Size = new System.Drawing.Size(207, 20);
-            this.fecPub.TabIndex = 30;
+            this.fecPub.TabIndex = 1;
             // 
             // ArmarCupon
             // 

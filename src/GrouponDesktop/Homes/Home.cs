@@ -54,7 +54,11 @@ namespace GrouponDesktop.Homes
                 if (e.Class < 16)
                     throw;
 
-                throw new ApplicationException(e.Message, e);
+                var message = e.Message.Contains("\r")
+                    ? e.Message.Split('\r')[0]
+                    : e.Message;
+
+                throw new ApplicationException(message, e);
             }
         }
     }
