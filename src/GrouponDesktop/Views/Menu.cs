@@ -45,8 +45,16 @@ namespace GrouponDesktop.Views
             }
             if(HomeFactory.Usuario.UsuarioActual.id_rol != 1)
             this.menuStrip1.AddItem("Darse de Baja", (sender, args) => FormCreator.Show("DarDeBaja"));
-            
+            this.menuStrip1.AddItem("Desloguear", (sender, args) => this.Redirigir());   
         }
+
+        private void Redirigir()
+        {
+            this.Redirect(new LoginView(new Usuario()));
+            this.Close();
+        }
+            
+        
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {

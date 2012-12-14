@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\CuponParaDevolucion.cs" />
     <Compile Include="DTOs\ProveedorFacturacion.cs" />
     <Compile Include="Helpers\EnumerableHelpers.cs" />
     <Compile Include="Helpers\ReflectionHelpers.cs" />

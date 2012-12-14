@@ -34,9 +34,10 @@ namespace GrouponDesktop.Homes
         public void ComprarCupon(Cupon_comprado cuponComprado)
         {
             var procedure = this.CreateProcedureFrom(
-                "ComprarCupon", cuponComprado, "id_cliente", "id_cupon", "fecha_compra", "codigo_compra");
-            
-            cuponComprado.codigo_compra = this.Run(procedure).GetValue("codigo_compra");
+                "ComprarCupon", cuponComprado, "id_cliente", "id_cupon", "fecha_compra", "id_compra");
+
+            cuponComprado.codigo_compra = this.Run(procedure).GetValue("id_compra");
+
         }
 
         public IList<Cupon_comprado> CuponesComprados(Cupon_comprado example)
@@ -119,6 +120,23 @@ namespace GrouponDesktop.Homes
 
             this.Run(procedure);
             
+        }
+
+        public void PedirDevolucion(CuponParaDevolucion cuponParaDevolucion)
+        {
+            var procedure = this.CreateProcedureFrom("PedirDevolucionCupon", cuponParaDevolucion, "id_cliente", "fecha_devolucion",
+             "id_compra", "codigo_compra", "id_cupon");
+
+           var results =  this.Run(procedure);
+            cuponParaDevolucion.id_cupon = Convert.ToInt32(results.GetValue("id_cupon"));
+            cuponParaDevolucion.id_compra = Convert.ToInt32(results.GetValue("id_compra"));
+
+        }
+
+         public void RegistrarConsumo(Cupon_canjeado cupon)
+        {
+            var procedure = this.CreateProcedureFrom("RegistrarConsumo", cupon, "id_proveedor", "codigo_compra", "fecha_canje");
+            this.Run(procedure);
         }
     }
 }

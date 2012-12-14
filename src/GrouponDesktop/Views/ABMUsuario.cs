@@ -57,6 +57,8 @@ namespace GrouponDesktop.Views
         {
             var usuario = this.home.GetUsuarioById(this.IdSeleccionado);
             this.home.ReiniciarFallasDeUsuario(usuario);
+            MessageBox.Show("El usuario se desbloqueó con éxito");
+
         }
 
         private void ModificarUsuario()

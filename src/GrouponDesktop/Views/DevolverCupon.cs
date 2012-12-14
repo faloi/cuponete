@@ -6,19 +6,36 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GrouponDesktop.DTOs;
+using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class DevolverCupon : Form
+    public partial class DevolverCupon : DefaultView
     {
-        public DevolverCupon()
+        private readonly CuponHome home;
+
+        public DevolverCupon(CuponParaDevolucion cuponParaDevolucion)
         {
             InitializeComponent();
+            this.home = HomeFactory.Cupon;
+            this.SetBindingSource(cuponParaDevolucion);
+            this.tipoUsuarioDisponible = CLIENTE;
+
+            this.Setup();
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+        private void Setup()
         {
-            this.Close();
+            this.Text = "Devolver Cupón";
+            this.CreateBindings(this.buttonSolicitar);
         }
+
+        protected override void CreateSpecificBindings()
+        {
+            this.buttonCancelar.Click +=
+                (sender, args) => this.Close();
+        }
+
     }
 }

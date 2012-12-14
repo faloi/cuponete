@@ -43,7 +43,7 @@ namespace GrouponDesktop.Views
                 {"Apellido", "apellido"},
                 {"DNI", "dni"},
                 {"Email", "mail"},
-                {"Estado", "estado"}
+                {"Estado", "descripcion_estado"}
             });
 
             this.buttonNuevoCliente.Click +=
