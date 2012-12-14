@@ -43,6 +43,7 @@ namespace GrouponDesktop.Views
                 this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
             }
             this.menuStrip1.AddItem("Cambiar Password", (sender, args) => FormCreator.Show("CambiarPassword"));
+            if(HomeFactory.Usuario.UsuarioActual.id_rol != 1)
             this.menuStrip1.AddItem("Darse de Baja", (sender, args) => FormCreator.Show("DarDeBaja"));
             
         }
