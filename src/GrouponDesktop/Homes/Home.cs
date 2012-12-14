@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using GrouponDesktop.Sql;
 
 namespace GrouponDesktop.Homes
@@ -38,16 +39,18 @@ namespace GrouponDesktop.Homes
             return Runnable.StoreProcedure(procedureName, parameters);
         }
 
-        protected void Run(Runnable procedure)
+        protected Dictionary<string, string> Run(Runnable procedure)
         {
-            this.Run(new[] { procedure });
+            return this.Run(new[] { procedure });
         }
 
-        protected void Run(IEnumerable<Runnable> procedures)
+        protected Dictionary<string, string> Run(IEnumerable<Runnable> procedures)
         {
             try
             {
-                this.sqlRunner.Run(procedures);
+                return this.sqlRunner
+                    .Run(procedures)
+                    .ToDictionary(pair => pair.Key, pair => pair.Value);
             }
             catch (SqlException e)
             {

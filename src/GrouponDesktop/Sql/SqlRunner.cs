@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,12 +15,12 @@ namespace GrouponDesktop.Sql
             this.connectionString = connectionString;
         }
 
-        public void Run(IEnumerable<Runnable> runnables)
+        public IEnumerable<KeyValuePair<string, string>> Run(IEnumerable<Runnable> runnables)
         {
-            this.Run(runnables.ToArray());
+            return this.Run(runnables.ToArray());
         }
 
-        public void Run(params Runnable[] runnables)
+        public IEnumerable<KeyValuePair<string, string>> Run(params Runnable[] runnables)
         {
             using (var connection = new SqlConnection(this.connectionString))
             {
@@ -27,7 +28,7 @@ namespace GrouponDesktop.Sql
                 this.PostConnectionAction(connection);
 
                 using (var command = new SqlCommand { Connection = connection })
-                    this.ExecuteCommand(runnables, command);
+                    return this.ExecuteCommand(runnables, command);
             }
         }
 
@@ -74,18 +75,20 @@ namespace GrouponDesktop.Sql
             }
         }
 
-        protected virtual void ExecuteCommand(IEnumerable<Runnable> runnables, SqlCommand command)
+        protected virtual IEnumerable<KeyValuePair<string, string>> ExecuteCommand(IEnumerable<Runnable> runnables, SqlCommand command)
         {
-            this.RunRunnables(runnables, command);
+            return this.RunRunnables(runnables, command);
         }
 
-        protected void RunRunnables(IEnumerable<Runnable> runnables, SqlCommand command)
+        protected IEnumerable<KeyValuePair<string, string>> RunRunnables(IEnumerable<Runnable> runnables, SqlCommand command)
         {
             foreach (var runnable in runnables)
             {
                 runnable.Run(command);
                 this.UpdateParameters(runnable, runnables);
             }
+
+            return runnables.SelectMany(r => r.Values);
         }
 
         private void UpdateParameters(Runnable executed, IEnumerable<Runnable> runnables)

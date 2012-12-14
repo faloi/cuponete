@@ -23,6 +23,11 @@ namespace GrouponDesktop.Sql
 
         public IEnumerable<string> ParametersToReplace { get; set; }
 
+        public IEnumerable<KeyValuePair<string, string>> Values
+        {
+            get { return this.parameters.Select(p => new KeyValuePair<string, string>(p.ParameterName, p.Value.ToString())); }
+        }
+
         public static Runnable Query(string query)
         {
             return new Runnable(CommandType.Text, query);

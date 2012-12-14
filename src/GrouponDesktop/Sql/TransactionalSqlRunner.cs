@@ -14,13 +14,15 @@ namespace GrouponDesktop.Sql
             this.transaction = connection.BeginTransaction();
         }
 
-        protected override void ExecuteCommand(IEnumerable<Runnable> runnables, SqlCommand command)
+        protected override IEnumerable<KeyValuePair<string, string>> ExecuteCommand(IEnumerable<Runnable> runnables, SqlCommand command)
         {
             try
             {
                 command.Transaction = this.transaction;
-                this.RunRunnables(runnables, command);
+                var values = this.RunRunnables(runnables, command);
                 transaction.Commit();
+
+                return values;
             }
             catch (SqlException)
             {
