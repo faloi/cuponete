@@ -10,7 +10,7 @@ namespace GrouponDesktop.DTOs
         public string mail { set; get; }
         public int telefono { set; get; }
         public string direccionCalle { set; get; }
-        public string direccionNumero { set; get; }
+        public int direccionNumero { set; get; }
         public string direccionPiso { set; get; }
         public string direccionDto { set; get; }
         public string direccionLocalidad { set; get; }

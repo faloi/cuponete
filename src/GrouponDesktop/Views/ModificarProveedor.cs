@@ -46,7 +46,7 @@ namespace GrouponDesktop.Views
                 this.username.BindTextTo(this.model, "username");
                 this.password.BindTextTo(this.model, "password");
                 this.calle.BindTextTo(this.model, "direccionCalle");
-                this.numero.BindTextTo(this.model, "direccionNumero");
+                this.numero.BindTextTo(this.model, "direccionNumero", DataType.INTEGER);
                 this.piso.BindTextTo(this.model, "direccionPiso");
                 this.depto.BindTextTo(this.model, "direccionDto");
                 this.localidad.BindTextTo(this.model, "direccionLocalidad");
