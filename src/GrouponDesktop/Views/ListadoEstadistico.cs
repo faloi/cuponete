@@ -77,6 +77,12 @@ namespace GrouponDesktop.Views
             }
         }
 
+        protected override bool Validar()
+        {
+            var fieldsObligatorios = new List<TextBox> { this.textBoxAno };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
+        }
+
         private void ChangeData(object newData, Dictionary<string, string> columns)
         {
             this.dataGridView.BindSourceTo(this.Data, columns);
