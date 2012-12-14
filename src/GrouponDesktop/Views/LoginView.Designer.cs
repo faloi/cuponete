@@ -64,14 +64,14 @@ namespace GrouponDesktop.Views
              this.usernameTextBox.Location = new System.Drawing.Point(96, 89);
              this.usernameTextBox.Name = "usernameTextBox";
              this.usernameTextBox.Size = new System.Drawing.Size(158, 20);
-             this.usernameTextBox.TabIndex = 2;
+             this.usernameTextBox.TabIndex = 0;
              // 
              // passwordTextBox
              // 
              this.passwordTextBox.Location = new System.Drawing.Point(96, 116);
              this.passwordTextBox.Name = "passwordTextBox";
              this.passwordTextBox.Size = new System.Drawing.Size(158, 20);
-             this.passwordTextBox.TabIndex = 3;
+             this.passwordTextBox.TabIndex = 1;
              this.passwordTextBox.UseSystemPasswordChar = true;
              // 
              // loginButton
@@ -80,7 +80,7 @@ namespace GrouponDesktop.Views
              this.loginButton.Location = new System.Drawing.Point(31, 158);
              this.loginButton.Name = "loginButton";
              this.loginButton.Size = new System.Drawing.Size(223, 38);
-             this.loginButton.TabIndex = 4;
+             this.loginButton.TabIndex = 2;
              this.loginButton.Text = "Iniciar sesion";
              this.loginButton.UseVisualStyleBackColor = true;
              // 
@@ -101,7 +101,7 @@ namespace GrouponDesktop.Views
              this.registrarButton.Location = new System.Drawing.Point(305, 158);
              this.registrarButton.Name = "registrarButton";
              this.registrarButton.Size = new System.Drawing.Size(184, 38);
-             this.registrarButton.TabIndex = 6;
+             this.registrarButton.TabIndex = 3;
              this.registrarButton.Text = "Registrarse";
              this.registrarButton.UseVisualStyleBackColor = true;
              // 

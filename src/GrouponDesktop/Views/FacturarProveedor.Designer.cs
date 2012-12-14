@@ -63,7 +63,7 @@
             this.textBoxProveedor.Location = new System.Drawing.Point(16, 33);
             this.textBoxProveedor.Name = "textBoxProveedor";
             this.textBoxProveedor.Size = new System.Drawing.Size(299, 20);
-            this.textBoxProveedor.TabIndex = 27;
+            this.textBoxProveedor.TabIndex = 0;
             // 
             // buttonBuscar
             // 
@@ -71,7 +71,7 @@
             this.buttonBuscar.Location = new System.Drawing.Point(334, 9);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(112, 36);
-            this.buttonBuscar.TabIndex = 29;
+            this.buttonBuscar.TabIndex = 3;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
@@ -80,7 +80,7 @@
             this.dateTimePickerHasta.Location = new System.Drawing.Point(247, 90);
             this.dateTimePickerHasta.Name = "dateTimePickerHasta";
             this.dateTimePickerHasta.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerHasta.TabIndex = 31;
+            this.dateTimePickerHasta.TabIndex = 2;
             // 
             // label1
             // 
@@ -97,7 +97,7 @@
             this.dateTimePickerDesde.Location = new System.Drawing.Point(16, 91);
             this.dateTimePickerDesde.Name = "dateTimePickerDesde";
             this.dateTimePickerDesde.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerDesde.TabIndex = 30;
+            this.dateTimePickerDesde.TabIndex = 1;
             // 
             // labelDesde
             // 
@@ -142,7 +142,7 @@
             this.cuponesDataGrid.Name = "cuponesDataGrid";
             this.cuponesDataGrid.ReadOnly = true;
             this.cuponesDataGrid.Size = new System.Drawing.Size(430, 190);
-            this.cuponesDataGrid.TabIndex = 35;
+            this.cuponesDataGrid.TabIndex = 5;
             // 
             // CodigoCupon
             // 
@@ -168,7 +168,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(158, 392);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(140, 29);
-            this.buttonCancelar.TabIndex = 37;
+            this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -178,7 +178,7 @@
             this.buttonFacturar.Location = new System.Drawing.Point(121, 345);
             this.buttonFacturar.Name = "buttonFacturar";
             this.buttonFacturar.Size = new System.Drawing.Size(213, 36);
-            this.buttonFacturar.TabIndex = 36;
+            this.buttonFacturar.TabIndex = 6;
             this.buttonFacturar.Text = "Facturar";
             this.buttonFacturar.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +188,7 @@
             this.limpiarButton.Location = new System.Drawing.Point(334, 48);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(112, 36);
-            this.limpiarButton.TabIndex = 38;
+            this.limpiarButton.TabIndex = 4;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 

@@ -41,6 +41,7 @@
             // 
             // comboBoxMontos
             // 
+            this.comboBoxMontos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMontos.FormattingEnabled = true;
             this.comboBoxMontos.Location = new System.Drawing.Point(16, 33);
             this.comboBoxMontos.Name = "comboBoxMontos";
@@ -100,7 +101,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(50, 242);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 5;
+            this.buttonCancelar.TabIndex = 3;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 

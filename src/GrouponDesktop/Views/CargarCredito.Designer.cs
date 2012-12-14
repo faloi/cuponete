@@ -48,6 +48,7 @@
             // 
             // comboBoxFormaPago
             // 
+            this.comboBoxFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFormaPago.FormattingEnabled = true;
             this.comboBoxFormaPago.Location = new System.Drawing.Point(16, 33);
             this.comboBoxFormaPago.Name = "comboBoxFormaPago";
@@ -153,7 +154,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(80, 369);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 10;
+            this.buttonCancelar.TabIndex = 6;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 

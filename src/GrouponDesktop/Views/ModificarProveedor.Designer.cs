@@ -102,6 +102,7 @@
             // 
             // ciudadProvCombo
             // 
+            this.ciudadProvCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ciudadProvCombo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ciudadProvCombo.FormattingEnabled = true;
             this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
@@ -129,6 +130,7 @@
             // 
             // comboRubro
             // 
+            this.comboRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboRubro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboRubro.FormattingEnabled = true;
             this.comboRubro.Location = new System.Drawing.Point(461, 39);

@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonPassword = new System.Windows.Forms.Button();
             this.buttonRol = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +51,7 @@
             this.buttonPassword.Location = new System.Drawing.Point(29, 86);
             this.buttonPassword.Name = "buttonPassword";
             this.buttonPassword.Size = new System.Drawing.Size(223, 38);
-            this.buttonPassword.TabIndex = 11;
+            this.buttonPassword.TabIndex = 1;
             this.buttonPassword.Text = "Password";
             this.buttonPassword.UseVisualStyleBackColor = true;
             // 
@@ -59,7 +61,7 @@
             this.buttonRol.Location = new System.Drawing.Point(29, 42);
             this.buttonRol.Name = "buttonRol";
             this.buttonRol.Size = new System.Drawing.Size(223, 38);
-            this.buttonRol.TabIndex = 10;
+            this.buttonRol.TabIndex = 0;
             this.buttonRol.Text = "Rol";
             this.buttonRol.UseVisualStyleBackColor = true;
             // 
@@ -76,6 +78,8 @@
             this.Name = "VentanaRolPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

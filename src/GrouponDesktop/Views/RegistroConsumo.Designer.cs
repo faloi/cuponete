@@ -61,7 +61,7 @@
             this.textBoxNroCupon.Location = new System.Drawing.Point(9, 119);
             this.textBoxNroCupon.Name = "textBoxNroCupon";
             this.textBoxNroCupon.Size = new System.Drawing.Size(207, 20);
-            this.textBoxNroCupon.TabIndex = 1;
+            this.textBoxNroCupon.TabIndex = 0;
             // 
             // buttonRegistrar
             // 
@@ -69,7 +69,7 @@
             this.buttonRegistrar.Location = new System.Drawing.Point(9, 161);
             this.buttonRegistrar.Name = "buttonRegistrar";
             this.buttonRegistrar.Size = new System.Drawing.Size(207, 36);
-            this.buttonRegistrar.TabIndex = 2;
+            this.buttonRegistrar.TabIndex = 1;
             this.buttonRegistrar.Text = "Registrar";
             this.buttonRegistrar.UseVisualStyleBackColor = true;
             // 
@@ -79,7 +79,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(58, 221);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 6;
+            this.buttonCancelar.TabIndex = 2;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
