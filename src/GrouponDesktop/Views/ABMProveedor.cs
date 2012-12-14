@@ -35,7 +35,8 @@ namespace GrouponDesktop.Views
             {
                 {"Razon Social", "razon_social"},
                 {"CUIT", "cuit"},
-                {"Email", "mail"}
+                {"Email", "mail"},
+                {"Estado", "descripcionEstado"}
             });
 
             this.buttonNuevoProveedor.Click +=

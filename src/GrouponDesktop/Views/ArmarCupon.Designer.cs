@@ -48,6 +48,7 @@
             this.fecVencCanjdateTime = new System.Windows.Forms.DateTimePicker();
             this.labelFecVtoCanje = new System.Windows.Forms.Label();
             this.fecPub = new System.Windows.Forms.DateTimePicker();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -201,7 +202,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(64, 590);
+            this.buttonCancelar.Location = new System.Drawing.Point(63, 618);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 10;
@@ -232,11 +233,22 @@
             this.fecPub.Size = new System.Drawing.Size(207, 20);
             this.fecPub.TabIndex = 1;
             // 
+            // buttonLimpiar
+            // 
+            this.buttonLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpiar.Location = new System.Drawing.Point(41, 579);
+            this.buttonLimpiar.Name = "buttonLimpiar";
+            this.buttonLimpiar.Size = new System.Drawing.Size(159, 29);
+            this.buttonLimpiar.TabIndex = 30;
+            this.buttonLimpiar.Text = "Limpiar";
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
+            // 
             // ArmarCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 628);
+            this.ClientSize = new System.Drawing.Size(234, 659);
+            this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.fecPub);
             this.Controls.Add(this.labelFecVtoCanje);
             this.Controls.Add(this.fecVencCanjdateTime);
@@ -291,5 +303,6 @@
         private System.Windows.Forms.DateTimePicker fecVencCanjdateTime;
         private System.Windows.Forms.Label labelFecVtoCanje;
         private System.Windows.Forms.DateTimePicker fecPub;
+        private System.Windows.Forms.Button buttonLimpiar;
     }
 }

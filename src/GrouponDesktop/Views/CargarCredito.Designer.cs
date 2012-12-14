@@ -36,11 +36,12 @@
             this.labelCodDeSeg = new System.Windows.Forms.Label();
             this.labelFechaVto = new System.Windows.Forms.Label();
             this.textBoxFechaVto = new System.Windows.Forms.TextBox();
-            this.textBoxMonto = new System.Windows.Forms.TextBox();
             this.labelMonto = new System.Windows.Forms.Label();
             this.buttonCargar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxMonto = new System.Windows.Forms.ComboBox();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -121,22 +122,15 @@
             this.textBoxFechaVto.Size = new System.Drawing.Size(224, 20);
             this.textBoxFechaVto.TabIndex = 3;
             // 
-            // textBoxMonto
-            // 
-            this.textBoxMonto.Location = new System.Drawing.Point(16, 284);
-            this.textBoxMonto.Name = "textBoxMonto";
-            this.textBoxMonto.Size = new System.Drawing.Size(242, 20);
-            this.textBoxMonto.TabIndex = 4;
-            // 
             // labelMonto
             // 
             this.labelMonto.AutoSize = true;
             this.labelMonto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMonto.Location = new System.Drawing.Point(12, 260);
             this.labelMonto.Name = "labelMonto";
-            this.labelMonto.Size = new System.Drawing.Size(55, 21);
+            this.labelMonto.Size = new System.Drawing.Size(77, 21);
             this.labelMonto.TabIndex = 9;
-            this.labelMonto.Text = "Monto";
+            this.labelMonto.Text = "Monto ($)";
             // 
             // buttonCargar
             // 
@@ -151,7 +145,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(80, 369);
+            this.buttonCancelar.Location = new System.Drawing.Point(81, 411);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 6;
@@ -173,16 +167,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Tarjeta";
             // 
+            // comboBoxMonto
+            // 
+            this.comboBoxMonto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMonto.FormattingEnabled = true;
+            this.comboBoxMonto.Location = new System.Drawing.Point(16, 284);
+            this.comboBoxMonto.Name = "comboBoxMonto";
+            this.comboBoxMonto.Size = new System.Drawing.Size(242, 21);
+            this.comboBoxMonto.TabIndex = 12;
+            // 
+            // buttonLimpiar
+            // 
+            this.buttonLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpiar.Location = new System.Drawing.Point(46, 362);
+            this.buttonLimpiar.Name = "buttonLimpiar";
+            this.buttonLimpiar.Size = new System.Drawing.Size(180, 29);
+            this.buttonLimpiar.TabIndex = 13;
+            this.buttonLimpiar.Text = "Limpiar";
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
+            // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 410);
+            this.ClientSize = new System.Drawing.Size(275, 452);
+            this.Controls.Add(this.buttonLimpiar);
+            this.Controls.Add(this.comboBoxMonto);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonCargar);
             this.Controls.Add(this.labelMonto);
-            this.Controls.Add(this.textBoxMonto);
             this.Controls.Add(this.labelFormaDePago);
             this.Controls.Add(this.comboBoxFormaPago);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -209,10 +223,11 @@
         private System.Windows.Forms.Label labelCodDeSeg;
         private System.Windows.Forms.Label labelFechaVto;
         private System.Windows.Forms.TextBox textBoxFechaVto;
-        private System.Windows.Forms.TextBox textBoxMonto;
         private System.Windows.Forms.Label labelMonto;
         private System.Windows.Forms.Button buttonCargar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBoxMonto;
+        private System.Windows.Forms.Button buttonLimpiar;
     }
 }

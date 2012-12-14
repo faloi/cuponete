@@ -27,12 +27,13 @@ namespace GrouponDesktop.Views
 
         private void CambiarPasswordUsuario(Usuario usuario)
         {
-            new CambiarPassword(usuario).ShowDialog();
+            this.Redirect(new CambiarPassword(usuario),true);
+            
         }
 
         private void ModificarRolUsuario(Usuario usuario)
         {
-            new ModificarRolUsuario(usuario).ShowDialog();
+            this.Redirect(new ModificarRolUsuario(usuario),true);
         }
     }
 }
