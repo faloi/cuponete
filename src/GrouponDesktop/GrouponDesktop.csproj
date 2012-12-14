@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="DTOs\CuponParaDevolucion.cs" />
     <Compile Include="DTOs\ProveedorFacturacion.cs" />
+    <Compile Include="Helpers\DateTimeHelpers.cs" />
     <Compile Include="Helpers\EnumerableHelpers.cs" />
     <Compile Include="Helpers\ReflectionHelpers.cs" />
     <Compile Include="Helpers\MessageFactory.cs" />
