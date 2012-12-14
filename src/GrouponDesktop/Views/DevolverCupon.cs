@@ -52,5 +52,16 @@ namespace GrouponDesktop.Views
             this.SuccessMessage("La devolución se registro correctamente");
         }
 
+        protected override bool Validar()
+        {
+            var fieldsObligatorios = new List<RichTextBox>
+               {
+                   this.richTextBoxMotivo,
+                
+               };
+            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
+
+        }
+
     }
 }

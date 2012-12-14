@@ -81,7 +81,7 @@ namespace GrouponDesktop.Views
                 var ciudadesAgregadas = ciudadesSeleccionadas.Except(this.ciudadesOriginales);
                 this.home.ModificarCliente(cliente, ciudadesAgregadas, ciudadesEliminadas);
             }
-            this.Close();
+            this.SuccessMessage("Los datos se guardaron correctamente");
         }
 
         protected override bool Validar()

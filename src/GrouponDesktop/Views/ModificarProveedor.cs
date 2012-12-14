@@ -72,7 +72,7 @@ namespace GrouponDesktop.Views
             else
                 this.home.ModificarProveedor(proveedor);
 
-            this.Close();
+            this.SuccessMessage("Los datos se guardaron correctamente");
         }
 
         protected override bool Validar()
