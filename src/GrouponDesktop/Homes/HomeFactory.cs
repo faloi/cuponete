@@ -1,4 +1,6 @@
-﻿namespace GrouponDesktop.Homes
+﻿using System.Windows.Forms;
+
+namespace GrouponDesktop.Homes
 {
     public static class HomeFactory
     {
@@ -49,5 +51,10 @@
             get { return formaPagoHome ?? (formaPagoHome = new FormaPagoHome(ConnectionString)); }
         }
 
+        private static EstadisticasHome estadisticasHome;
+        public static EstadisticasHome Estadisticas
+        {
+            get { return estadisticasHome ?? (estadisticasHome = new EstadisticasHome(ConnectionString)); }
+        }
     }
 }

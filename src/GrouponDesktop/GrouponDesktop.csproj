@@ -266,6 +266,8 @@
     <Compile Include="Views\DevolverCupon.Designer.cs">
       <DependentUpon>DevolverCupon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Homes\EstadisticasHome.cs" />
+    <Compile Include="DTOs\Estadistica.cs" />
     <Compile Include="Views\FacturarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
