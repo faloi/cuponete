@@ -39,8 +39,12 @@ namespace GrouponDesktop.Views
             this.textBoxFechaVto.BindTextTo(this.model, "fecha_vto_tarjeta");
             this.CargarFormaPago();
             this.CargarValoresCredito();
+            
             this.buttonCancelar.Click +=
                 (sender, args) => this.Close();
+
+            this.buttonLimpiar.Click +=
+                (sender, args) => this.model.DataSource = new Credito();
         }
 
         private void CargarFormaPago()
@@ -93,16 +97,18 @@ namespace GrouponDesktop.Views
                 this.comboBoxMonto.Location = new Point(16, 284 - 191);
                 this.buttonCargar.Location = new Point(16, 318 - 191);
                 this.buttonCancelar.Location = new Point(80, 369 - 191);
+                this.buttonLimpiar.Visible = false;
                 this.Size = new Size(281, 438 - 191);
             }
             else
             {
                 this.groupBox1.Visible = true;
+                this.buttonLimpiar.Visible = true;
                 this.labelMonto.Location = new Point(12, 260);
                 this.comboBoxMonto.Location = new Point(16, 284);
                 this.buttonCargar.Location = new Point(16, 318);
-                this.buttonCancelar.Location = new Point(80, 369);
-                this.Size = new Size(281, 438);
+                this.buttonCancelar.Location = new Point(81, 411);
+                this.Size = new Size(281, 480);
             }
 
         }

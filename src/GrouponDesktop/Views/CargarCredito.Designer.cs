@@ -41,6 +41,7 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxMonto = new System.Windows.Forms.ComboBox();
+            this.buttonLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -144,7 +145,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(80, 369);
+            this.buttonCancelar.Location = new System.Drawing.Point(81, 411);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
             this.buttonCancelar.TabIndex = 6;
@@ -175,11 +176,22 @@
             this.comboBoxMonto.Size = new System.Drawing.Size(242, 21);
             this.comboBoxMonto.TabIndex = 12;
             // 
+            // buttonLimpiar
+            // 
+            this.buttonLimpiar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimpiar.Location = new System.Drawing.Point(46, 362);
+            this.buttonLimpiar.Name = "buttonLimpiar";
+            this.buttonLimpiar.Size = new System.Drawing.Size(180, 29);
+            this.buttonLimpiar.TabIndex = 13;
+            this.buttonLimpiar.Text = "Limpiar";
+            this.buttonLimpiar.UseVisualStyleBackColor = true;
+            // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 410);
+            this.ClientSize = new System.Drawing.Size(275, 452);
+            this.Controls.Add(this.buttonLimpiar);
             this.Controls.Add(this.comboBoxMonto);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonCancelar);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxMonto;
+        private System.Windows.Forms.Button buttonLimpiar;
     }
 }
