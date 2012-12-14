@@ -32,7 +32,7 @@ namespace GrouponDesktop.Sql
             }
         }
 
-        public DataTable Select(string query, params string[] parameters)
+        public DataTable Select(string query, params object[] parameters)
         {
             using (var connection = new SqlConnection(this.connectionString))
             {
