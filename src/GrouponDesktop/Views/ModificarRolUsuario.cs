@@ -35,7 +35,7 @@ namespace GrouponDesktop.Views
 
         private void CargarRoles()
         {
-            var roles = new Adapter().TransformMany<Rol>(HomeFactory.Rol.RolesDisponibles());
+            var roles = new Adapter().TransformMany<Rol>(HomeFactory.Rol.RolesDisponiblesHabilitados());
             this.comboBoxRol.BindSourceTo(roles, "id_rol", "descripcion");
             this.comboBoxRol.BindValueTo(this.model, "id_rol");
         }
