@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             this.proveedorGroupBox = new System.Windows.Forms.GroupBox();
+            this.direccionGroupBox = new System.Windows.Forms.GroupBox();
+            this.localidad = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.depto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.piso = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numero = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.calle = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.ciudadProvCombo = new System.Windows.Forms.ComboBox();
             this.contacto = new System.Windows.Forms.TextBox();
             this.contactoProveedorLabel = new System.Windows.Forms.Label();
@@ -54,22 +65,12 @@
             this.username = new System.Windows.Forms.TextBox();
             this.guardarButton = new System.Windows.Forms.Button();
             this.limpiarButton = new System.Windows.Forms.Button();
-            this.direccionGroupBox = new System.Windows.Forms.GroupBox();
-            this.localidad = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.depto = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.piso = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numero = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.calle = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelDatosObligatorios = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.proveedorGroupBox.SuspendLayout();
-            this.usuarioGroupBox.SuspendLayout();
             this.direccionGroupBox.SuspendLayout();
+            this.usuarioGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // proveedorGroupBox
@@ -93,248 +94,12 @@
             this.proveedorGroupBox.Controls.Add(this.emailProveedorLabel);
             this.proveedorGroupBox.Controls.Add(this.razonSocial);
             this.proveedorGroupBox.Controls.Add(this.razonSocialProveedorLabel);
-            this.proveedorGroupBox.Location = new System.Drawing.Point(3, 120);
+            this.proveedorGroupBox.Location = new System.Drawing.Point(3, 146);
             this.proveedorGroupBox.Name = "proveedorGroupBox";
             this.proveedorGroupBox.Size = new System.Drawing.Size(673, 261);
             this.proveedorGroupBox.TabIndex = 5;
             this.proveedorGroupBox.TabStop = false;
             this.proveedorGroupBox.Text = "Datos Proveedor";
-            // 
-            // ciudadProvCombo
-            // 
-            this.ciudadProvCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ciudadProvCombo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ciudadProvCombo.FormattingEnabled = true;
-            this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
-            this.ciudadProvCombo.Name = "ciudadProvCombo";
-            this.ciudadProvCombo.Size = new System.Drawing.Size(155, 25);
-            this.ciudadProvCombo.TabIndex = 9;
-            // 
-            // contactoProveedor
-            // 
-            this.contacto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contacto.Location = new System.Drawing.Point(203, 220);
-            this.contacto.Name = "contacto";
-            this.contacto.Size = new System.Drawing.Size(158, 25);
-            this.contacto.TabIndex = 33;
-            // 
-            // contactoProveedorLabel
-            // 
-            this.contactoProveedorLabel.AutoSize = true;
-            this.contactoProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactoProveedorLabel.Location = new System.Drawing.Point(200, 197);
-            this.contactoProveedorLabel.Name = "contactoProveedorLabel";
-            this.contactoProveedorLabel.Size = new System.Drawing.Size(149, 21);
-            this.contactoProveedorLabel.TabIndex = 32;
-            this.contactoProveedorLabel.Text = "Nombre de contacto";
-            // 
-            // comboRubro
-            // 
-            this.comboRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboRubro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboRubro.FormattingEnabled = true;
-            this.comboRubro.Location = new System.Drawing.Point(461, 39);
-            this.comboRubro.Name = "comboRubro";
-            this.comboRubro.Size = new System.Drawing.Size(155, 25);
-            this.comboRubro.TabIndex = 4;
-            // 
-            // rubroProveedorLabel
-            // 
-            this.rubroProveedorLabel.AutoSize = true;
-            this.rubroProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rubroProveedorLabel.Location = new System.Drawing.Point(457, 15);
-            this.rubroProveedorLabel.Name = "rubroProveedorLabel";
-            this.rubroProveedorLabel.Size = new System.Drawing.Size(51, 21);
-            this.rubroProveedorLabel.TabIndex = 30;
-            this.rubroProveedorLabel.Text = "Rubro";
-            // 
-            // cuitProveedor
-            // 
-            this.cuit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuit.Location = new System.Drawing.Point(239, 40);
-            this.cuit.Name = "cuit";
-            this.cuit.Size = new System.Drawing.Size(158, 25);
-            this.cuit.TabIndex = 3;
-            // 
-            // cuitProveedorLabel
-            // 
-            this.cuitProveedorLabel.AutoSize = true;
-            this.cuitProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cuitProveedorLabel.Location = new System.Drawing.Point(235, 16);
-            this.cuitProveedorLabel.Name = "cuitProveedorLabel";
-            this.cuitProveedorLabel.Size = new System.Drawing.Size(42, 21);
-            this.cuitProveedorLabel.TabIndex = 28;
-            this.cuitProveedorLabel.Text = "CUIT";
-            // 
-            // ciudadProveedorLabel
-            // 
-            this.ciudadProveedorLabel.AutoSize = true;
-            this.ciudadProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ciudadProveedorLabel.Location = new System.Drawing.Point(9, 197);
-            this.ciudadProveedorLabel.Name = "ciudadProveedorLabel";
-            this.ciudadProveedorLabel.Size = new System.Drawing.Size(58, 21);
-            this.ciudadProveedorLabel.TabIndex = 26;
-            this.ciudadProveedorLabel.Text = "Ciudad";
-            // 
-            // cPostalProveedor
-            // 
-            this.codigoPostal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.codigoPostal.Location = new System.Drawing.Point(567, 152);
-            this.codigoPostal.Name = "codigoPostal";
-            this.codigoPostal.Size = new System.Drawing.Size(96, 25);
-            this.codigoPostal.TabIndex = 8;
-            // 
-            // cPostalProveedorLabel
-            // 
-            this.cPostalProveedorLabel.AutoSize = true;
-            this.cPostalProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cPostalProveedorLabel.Location = new System.Drawing.Point(564, 129);
-            this.cPostalProveedorLabel.Name = "cPostalProveedorLabel";
-            this.cPostalProveedorLabel.Size = new System.Drawing.Size(103, 21);
-            this.cPostalProveedorLabel.TabIndex = 24;
-            this.cPostalProveedorLabel.Text = "Codigo Postal";
-            // 
-            // direccionProveedor
-            // 
-            this.direccion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccion.Location = new System.Drawing.Point(12, 152);
-            this.direccion.Name = "direccion";
-            this.direccion.Size = new System.Drawing.Size(496, 25);
-            this.direccion.TabIndex = 7;
-            // 
-            // direccionProveedorLabel
-            // 
-            this.direccionProveedorLabel.AutoSize = true;
-            this.direccionProveedorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccionProveedorLabel.Location = new System.Drawing.Point(9, 128);
-            this.direccionProveedorLabel.Name = "direccionProveedorLabel";
-            this.direccionProveedorLabel.Size = new System.Drawing.Size(75, 21);
-            this.direccionProveedorLabel.TabIndex = 13;
-            this.direccionProveedorLabel.Text = "Direccion";
-            // 
-            // telefonoProveedor
-            // 
-            this.telefono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefono.Location = new System.Drawing.Point(239, 85);
-            this.telefono.Name = "telefono";
-            this.telefono.Size = new System.Drawing.Size(158, 25);
-            this.telefono.TabIndex = 6;
-            // 
-            // telefonoProveedorLabel
-            // 
-            this.telefonoProveedorLabel.AutoSize = true;
-            this.telefonoProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefonoProveedorLabel.Location = new System.Drawing.Point(235, 63);
-            this.telefonoProveedorLabel.Name = "telefonoProveedorLabel";
-            this.telefonoProveedorLabel.Size = new System.Drawing.Size(68, 21);
-            this.telefonoProveedorLabel.TabIndex = 11;
-            this.telefonoProveedorLabel.Text = "Telefono";
-            // 
-            // emailProveedor
-            // 
-            this.email.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email.Location = new System.Drawing.Point(13, 87);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(158, 25);
-            this.email.TabIndex = 5;
-            // 
-            // emailProveedorLabel
-            // 
-            this.emailProveedorLabel.AutoSize = true;
-            this.emailProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailProveedorLabel.Location = new System.Drawing.Point(9, 63);
-            this.emailProveedorLabel.Name = "emailProveedorLabel";
-            this.emailProveedorLabel.Size = new System.Drawing.Size(45, 21);
-            this.emailProveedorLabel.TabIndex = 5;
-            this.emailProveedorLabel.Text = "Email";
-            // 
-            // razonSocialProveedor
-            // 
-            this.razonSocial.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.razonSocial.Location = new System.Drawing.Point(12, 40);
-            this.razonSocial.Name = "razonSocial";
-            this.razonSocial.Size = new System.Drawing.Size(158, 25);
-            this.razonSocial.TabIndex = 2;
-            // 
-            // razonSocialProveedorLabel
-            // 
-            this.razonSocialProveedorLabel.AutoSize = true;
-            this.razonSocialProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.razonSocialProveedorLabel.Location = new System.Drawing.Point(9, 16);
-            this.razonSocialProveedorLabel.Name = "razonSocialProveedorLabel";
-            this.razonSocialProveedorLabel.Size = new System.Drawing.Size(94, 21);
-            this.razonSocialProveedorLabel.TabIndex = 3;
-            this.razonSocialProveedorLabel.Text = "Razon Social";
-            // 
-            // usuarioGroupBox
-            // 
-            this.usuarioGroupBox.Controls.Add(this.password);
-            this.usuarioGroupBox.Controls.Add(this.passwordLabel);
-            this.usuarioGroupBox.Controls.Add(this.nombreLabel);
-            this.usuarioGroupBox.Controls.Add(this.username);
-            this.usuarioGroupBox.Location = new System.Drawing.Point(3, 12);
-            this.usuarioGroupBox.Name = "usuarioGroupBox";
-            this.usuarioGroupBox.Size = new System.Drawing.Size(673, 86);
-            this.usuarioGroupBox.TabIndex = 9;
-            this.usuarioGroupBox.TabStop = false;
-            this.usuarioGroupBox.Text = "Datos usuario";
-            // 
-            // password
-            // 
-            this.password.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(239, 40);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(158, 25);
-            this.password.TabIndex = 1;
-            // 
-            // passwordLabel
-            // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(235, 19);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(73, 21);
-            this.passwordLabel.TabIndex = 2;
-            this.passwordLabel.Text = "Password";
-            // 
-            // nombreLabel
-            // 
-            this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreLabel.Location = new System.Drawing.Point(8, 16);
-            this.nombreLabel.Name = "nombreLabel";
-            this.nombreLabel.Size = new System.Drawing.Size(119, 21);
-            this.nombreLabel.TabIndex = 0;
-            this.nombreLabel.Text = "Nombre Usuario";
-            // 
-            // username
-            // 
-            this.username.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(12, 40);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(157, 25);
-            this.username.TabIndex = 0;
-            // 
-            // guardarButton
-            // 
-            this.guardarButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardarButton.Location = new System.Drawing.Point(159, 397);
-            this.guardarButton.Name = "guardarButton";
-            this.guardarButton.Size = new System.Drawing.Size(161, 28);
-            this.guardarButton.TabIndex = 11;
-            this.guardarButton.Text = "Guardar";
-            this.guardarButton.UseVisualStyleBackColor = true;
-            // 
-            // limpiarButton
-            // 
-            this.limpiarButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.limpiarButton.Location = new System.Drawing.Point(376, 397);
-            this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(161, 28);
-            this.limpiarButton.TabIndex = 12;
-            this.limpiarButton.Text = "Limpiar";
-            this.limpiarButton.UseVisualStyleBackColor = true;
-            this.limpiarButton.Visible = false;
             // 
             // direccionGroupBox
             // 
@@ -369,9 +134,9 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(403, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 21);
+            this.label5.Size = new System.Drawing.Size(83, 21);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Localidad";
+            this.label5.Text = "Localidad *";
             // 
             // depto
             // 
@@ -423,9 +188,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(181, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 21);
+            this.label1.Size = new System.Drawing.Size(75, 21);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Numero";
+            this.label1.Text = "Numero *";
             // 
             // calle
             // 
@@ -441,15 +206,262 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(8, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 21);
+            this.label2.Size = new System.Drawing.Size(52, 21);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Calle";
+            this.label2.Text = "Calle *";
+            // 
+            // ciudadProvCombo
+            // 
+            this.ciudadProvCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ciudadProvCombo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ciudadProvCombo.FormattingEnabled = true;
+            this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
+            this.ciudadProvCombo.Name = "ciudadProvCombo";
+            this.ciudadProvCombo.Size = new System.Drawing.Size(155, 25);
+            this.ciudadProvCombo.TabIndex = 9;
+            // 
+            // contacto
+            // 
+            this.contacto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contacto.Location = new System.Drawing.Point(203, 220);
+            this.contacto.Name = "contacto";
+            this.contacto.Size = new System.Drawing.Size(158, 25);
+            this.contacto.TabIndex = 33;
+            // 
+            // contactoProveedorLabel
+            // 
+            this.contactoProveedorLabel.AutoSize = true;
+            this.contactoProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactoProveedorLabel.Location = new System.Drawing.Point(200, 197);
+            this.contactoProveedorLabel.Name = "contactoProveedorLabel";
+            this.contactoProveedorLabel.Size = new System.Drawing.Size(159, 21);
+            this.contactoProveedorLabel.TabIndex = 32;
+            this.contactoProveedorLabel.Text = "Nombre de contacto *";
+            // 
+            // comboRubro
+            // 
+            this.comboRubro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboRubro.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRubro.FormattingEnabled = true;
+            this.comboRubro.Location = new System.Drawing.Point(461, 39);
+            this.comboRubro.Name = "comboRubro";
+            this.comboRubro.Size = new System.Drawing.Size(155, 25);
+            this.comboRubro.TabIndex = 4;
+            // 
+            // rubroProveedorLabel
+            // 
+            this.rubroProveedorLabel.AutoSize = true;
+            this.rubroProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rubroProveedorLabel.Location = new System.Drawing.Point(457, 15);
+            this.rubroProveedorLabel.Name = "rubroProveedorLabel";
+            this.rubroProveedorLabel.Size = new System.Drawing.Size(61, 21);
+            this.rubroProveedorLabel.TabIndex = 30;
+            this.rubroProveedorLabel.Text = "Rubro *";
+            // 
+            // cuit
+            // 
+            this.cuit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuit.Location = new System.Drawing.Point(239, 40);
+            this.cuit.Name = "cuit";
+            this.cuit.Size = new System.Drawing.Size(158, 25);
+            this.cuit.TabIndex = 3;
+            // 
+            // cuitProveedorLabel
+            // 
+            this.cuitProveedorLabel.AutoSize = true;
+            this.cuitProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cuitProveedorLabel.Location = new System.Drawing.Point(235, 16);
+            this.cuitProveedorLabel.Name = "cuitProveedorLabel";
+            this.cuitProveedorLabel.Size = new System.Drawing.Size(52, 21);
+            this.cuitProveedorLabel.TabIndex = 28;
+            this.cuitProveedorLabel.Text = "CUIT *";
+            // 
+            // ciudadProveedorLabel
+            // 
+            this.ciudadProveedorLabel.AutoSize = true;
+            this.ciudadProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ciudadProveedorLabel.Location = new System.Drawing.Point(9, 197);
+            this.ciudadProveedorLabel.Name = "ciudadProveedorLabel";
+            this.ciudadProveedorLabel.Size = new System.Drawing.Size(68, 21);
+            this.ciudadProveedorLabel.TabIndex = 26;
+            this.ciudadProveedorLabel.Text = "Ciudad *";
+            // 
+            // codigoPostal
+            // 
+            this.codigoPostal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codigoPostal.Location = new System.Drawing.Point(568, 157);
+            this.codigoPostal.Name = "codigoPostal";
+            this.codigoPostal.Size = new System.Drawing.Size(96, 25);
+            this.codigoPostal.TabIndex = 8;
+            // 
+            // cPostalProveedorLabel
+            // 
+            this.cPostalProveedorLabel.AutoSize = true;
+            this.cPostalProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cPostalProveedorLabel.Location = new System.Drawing.Point(559, 133);
+            this.cPostalProveedorLabel.Name = "cPostalProveedorLabel";
+            this.cPostalProveedorLabel.Size = new System.Drawing.Size(113, 21);
+            this.cPostalProveedorLabel.TabIndex = 24;
+            this.cPostalProveedorLabel.Text = "Codigo Postal *";
+            // 
+            // direccion
+            // 
+            this.direccion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccion.Location = new System.Drawing.Point(12, 152);
+            this.direccion.Name = "direccion";
+            this.direccion.Size = new System.Drawing.Size(496, 25);
+            this.direccion.TabIndex = 7;
+            // 
+            // direccionProveedorLabel
+            // 
+            this.direccionProveedorLabel.AutoSize = true;
+            this.direccionProveedorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccionProveedorLabel.Location = new System.Drawing.Point(9, 128);
+            this.direccionProveedorLabel.Name = "direccionProveedorLabel";
+            this.direccionProveedorLabel.Size = new System.Drawing.Size(75, 21);
+            this.direccionProveedorLabel.TabIndex = 13;
+            this.direccionProveedorLabel.Text = "Direccion";
+            // 
+            // telefono
+            // 
+            this.telefono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefono.Location = new System.Drawing.Point(239, 85);
+            this.telefono.Name = "telefono";
+            this.telefono.Size = new System.Drawing.Size(158, 25);
+            this.telefono.TabIndex = 6;
+            // 
+            // telefonoProveedorLabel
+            // 
+            this.telefonoProveedorLabel.AutoSize = true;
+            this.telefonoProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoProveedorLabel.Location = new System.Drawing.Point(235, 63);
+            this.telefonoProveedorLabel.Name = "telefonoProveedorLabel";
+            this.telefonoProveedorLabel.Size = new System.Drawing.Size(78, 21);
+            this.telefonoProveedorLabel.TabIndex = 11;
+            this.telefonoProveedorLabel.Text = "Telefono *";
+            // 
+            // email
+            // 
+            this.email.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email.Location = new System.Drawing.Point(13, 87);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(158, 25);
+            this.email.TabIndex = 5;
+            // 
+            // emailProveedorLabel
+            // 
+            this.emailProveedorLabel.AutoSize = true;
+            this.emailProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailProveedorLabel.Location = new System.Drawing.Point(9, 63);
+            this.emailProveedorLabel.Name = "emailProveedorLabel";
+            this.emailProveedorLabel.Size = new System.Drawing.Size(55, 21);
+            this.emailProveedorLabel.TabIndex = 5;
+            this.emailProveedorLabel.Text = "Email *";
+            // 
+            // razonSocial
+            // 
+            this.razonSocial.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.razonSocial.Location = new System.Drawing.Point(12, 40);
+            this.razonSocial.Name = "razonSocial";
+            this.razonSocial.Size = new System.Drawing.Size(158, 25);
+            this.razonSocial.TabIndex = 2;
+            // 
+            // razonSocialProveedorLabel
+            // 
+            this.razonSocialProveedorLabel.AutoSize = true;
+            this.razonSocialProveedorLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.razonSocialProveedorLabel.Location = new System.Drawing.Point(9, 16);
+            this.razonSocialProveedorLabel.Name = "razonSocialProveedorLabel";
+            this.razonSocialProveedorLabel.Size = new System.Drawing.Size(104, 21);
+            this.razonSocialProveedorLabel.TabIndex = 3;
+            this.razonSocialProveedorLabel.Text = "Razon Social *";
+            // 
+            // usuarioGroupBox
+            // 
+            this.usuarioGroupBox.Controls.Add(this.password);
+            this.usuarioGroupBox.Controls.Add(this.passwordLabel);
+            this.usuarioGroupBox.Controls.Add(this.nombreLabel);
+            this.usuarioGroupBox.Controls.Add(this.username);
+            this.usuarioGroupBox.Location = new System.Drawing.Point(3, 38);
+            this.usuarioGroupBox.Name = "usuarioGroupBox";
+            this.usuarioGroupBox.Size = new System.Drawing.Size(673, 86);
+            this.usuarioGroupBox.TabIndex = 9;
+            this.usuarioGroupBox.TabStop = false;
+            this.usuarioGroupBox.Text = "Datos usuario";
+            // 
+            // password
+            // 
+            this.password.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(239, 40);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(158, 25);
+            this.password.TabIndex = 1;
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.Location = new System.Drawing.Point(235, 19);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(83, 21);
+            this.passwordLabel.TabIndex = 2;
+            this.passwordLabel.Text = "Password *";
+            // 
+            // nombreLabel
+            // 
+            this.nombreLabel.AutoSize = true;
+            this.nombreLabel.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreLabel.Location = new System.Drawing.Point(8, 16);
+            this.nombreLabel.Name = "nombreLabel";
+            this.nombreLabel.Size = new System.Drawing.Size(129, 21);
+            this.nombreLabel.TabIndex = 0;
+            this.nombreLabel.Text = "Nombre Usuario *";
+            // 
+            // username
+            // 
+            this.username.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.Location = new System.Drawing.Point(12, 40);
+            this.username.Name = "username";
+            this.username.Size = new System.Drawing.Size(157, 25);
+            this.username.TabIndex = 0;
+            // 
+            // guardarButton
+            // 
+            this.guardarButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardarButton.Location = new System.Drawing.Point(159, 423);
+            this.guardarButton.Name = "guardarButton";
+            this.guardarButton.Size = new System.Drawing.Size(161, 28);
+            this.guardarButton.TabIndex = 11;
+            this.guardarButton.Text = "Guardar";
+            this.guardarButton.UseVisualStyleBackColor = true;
+            // 
+            // limpiarButton
+            // 
+            this.limpiarButton.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.limpiarButton.Location = new System.Drawing.Point(376, 423);
+            this.limpiarButton.Name = "limpiarButton";
+            this.limpiarButton.Size = new System.Drawing.Size(161, 28);
+            this.limpiarButton.TabIndex = 12;
+            this.limpiarButton.Text = "Limpiar";
+            this.limpiarButton.UseVisualStyleBackColor = true;
+            this.limpiarButton.Visible = false;
+            // 
+            // labelDatosObligatorios
+            // 
+            this.labelDatosObligatorios.AutoSize = true;
+            this.labelDatosObligatorios.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDatosObligatorios.Location = new System.Drawing.Point(8, 9);
+            this.labelDatosObligatorios.Name = "labelDatosObligatorios";
+            this.labelDatosObligatorios.Size = new System.Drawing.Size(330, 21);
+            this.labelDatosObligatorios.TabIndex = 13;
+            this.labelDatosObligatorios.Text = "Los datos marcados con * son obligatorios\r\n";
             // 
             // ModificarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 441);
+            this.ClientSize = new System.Drawing.Size(696, 463);
+            this.Controls.Add(this.labelDatosObligatorios);
             this.Controls.Add(this.guardarButton);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.usuarioGroupBox);
@@ -464,11 +476,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.proveedorGroupBox.ResumeLayout(false);
             this.proveedorGroupBox.PerformLayout();
-            this.usuarioGroupBox.ResumeLayout(false);
-            this.usuarioGroupBox.PerformLayout();
             this.direccionGroupBox.ResumeLayout(false);
             this.direccionGroupBox.PerformLayout();
+            this.usuarioGroupBox.ResumeLayout(false);
+            this.usuarioGroupBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -511,5 +524,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox calle;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelDatosObligatorios;
     }
 }

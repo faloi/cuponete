@@ -65,7 +65,14 @@ namespace GrouponDesktop.Views
                 this.SeleccionarCiudades();
 
             this.limpiarButton.Click +=
-                (sender, args) => this.SetBindingSource(new Cliente());
+                (sender, args) => this.Clear();
+        }
+
+        private void Clear()
+        {
+            this.SetBindingSource(new Cliente());
+            for (int i = 0; i < ciuPrefClienteBox.Items.Count; i++)
+                ciuPrefClienteBox.SetItemChecked(i, false);
         }
 
         protected override void ExecSubmit()
