@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
@@ -31,7 +32,6 @@ namespace GrouponDesktop.Views
 
             this.Text = "Modificar Cliente";
             this.CreateBindings(this.guardarButton);
-            this.password.UseSystemPasswordChar = true;
         }
         
         protected override void CreateSpecificBindings()
@@ -77,18 +77,26 @@ namespace GrouponDesktop.Views
 
         protected override void ExecSubmit()
         {
-            var cliente = this.model.DataSource as Cliente;
-            var ciudadesSeleccionadas = this.ciuPrefClienteBox.GetCheckedItems<Ciudad>();
-
-            if (this.IsNew)
-                this.home.RegistrarCliente(cliente, ciudadesSeleccionadas);
-            else
+            try
             {
-                var ciudadesEliminadas = this.ciudadesOriginales.Except(ciudadesSeleccionadas);
-                var ciudadesAgregadas = ciudadesSeleccionadas.Except(this.ciudadesOriginales);
-                this.home.ModificarCliente(cliente, ciudadesAgregadas, ciudadesEliminadas);
+                var cliente = this.model.DataSource as Cliente;
+                var ciudadesSeleccionadas = this.ciuPrefClienteBox.GetCheckedItems<Ciudad>();
+
+                if (this.IsNew)
+                    this.home.RegistrarCliente(cliente, ciudadesSeleccionadas);
+                else
+                {
+                    var ciudadesEliminadas = this.ciudadesOriginales.Except(ciudadesSeleccionadas);
+                    var ciudadesAgregadas = ciudadesSeleccionadas.Except(this.ciudadesOriginales);
+                    this.home.ModificarCliente(cliente, ciudadesAgregadas, ciudadesEliminadas);
+                }
+                this.SuccessMessage("Los datos se guardaron correctamente");
             }
-            this.SuccessMessage("Los datos se guardaron correctamente");
+            catch (Exception)
+            {
+                this.password.Text = null;
+                throw;
+            }
         }
 
         protected override bool Validar()

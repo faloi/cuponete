@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using GrouponDesktop.DTOs;
@@ -65,14 +66,22 @@ namespace GrouponDesktop.Views
 
         protected override void ExecSubmit()
         {
-            var proveedor = this.model.DataSource as Proveedor;
+            try
+            {
+                var proveedor = this.model.DataSource as Proveedor;
 
-            if (this.IsNew)
-                this.home.RegistrarProveedor(proveedor);
-            else
-                this.home.ModificarProveedor(proveedor);
+                if (this.IsNew)
+                    this.home.RegistrarProveedor(proveedor);
+                else
+                    this.home.ModificarProveedor(proveedor);
 
-            this.SuccessMessage("Los datos se guardaron correctamente");
+                this.SuccessMessage("Los datos se guardaron correctamente");
+            }
+            catch(Exception)
+            {
+                this.password.Text = null;
+                throw;
+            }
         }
 
         protected override bool Validar()
