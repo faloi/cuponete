@@ -12,7 +12,7 @@ using GrouponDesktop.Homes;
 
 namespace GrouponDesktop.Views
 {
-    public partial class FacturarProveedor : ListadoView<ProveedorFacturacion, CuponHome>
+    public partial class FacturarProveedor : ListadoView<Factura, CuponHome>
     {
         public FacturarProveedor() : base(HomeFactory.Cupon) {}
 
@@ -25,7 +25,7 @@ namespace GrouponDesktop.Views
 
         protected override void CreateSpecificBindings()
         {
-            this.textBoxProveedor.BindTextTo(this.Example, "id_proveedor");
+            this.textBoxProveedor.BindTextTo(this.Example, "id_proveedor", DataType.INTEGER);
             this.dateTimePickerDesde.BindTextTo(this.Example, "fecha_inicio");
 
             this.cuponesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
