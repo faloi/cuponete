@@ -14,7 +14,7 @@ namespace GrouponDesktop.Views
 {
     public partial class Menu : DefaultView
     {
-        private readonly RolHome home;
+        private readonly UsuarioHome home;
         private readonly Dictionary<string, string> funcionalidades = new Dictionary<string, string> { { "Cargar Crédito", "CargarCredito" },
         { "Comprar GiftCard", "ComprarGiftCard" }, { "Comprar Cupón", "ComprarCupon" }, { "Pedir Devolución", "PedirDevolucion" },
         { "Historial de Compra de Cupones", "HistorialDeCompra" }, { "Armar Cupón", "ArmarCupon" }, { "Registro de consumo de Cupón", "RegistroConsumo" },
@@ -24,7 +24,7 @@ namespace GrouponDesktop.Views
         public Menu()
         {
             InitializeComponent();
-            this.home = HomeFactory.Rol;
+            this.home = HomeFactory.Usuario;
             this.Setup();
         }
 
@@ -33,20 +33,55 @@ namespace GrouponDesktop.Views
             this.ValidarDatos();
             this.Text = "Menu";
             this.LoadFuncionalidades();
+
+            this.RefreshStatus();
+        }
+
+        private void RefreshStatus()
+        {
+            var label = new ToolStripLabel(this.UsuarioActual.WelcomeMessage);
+            
+            this.status.Items.Clear();
+            this.status.Items.Add(label);
+        }
+
+        private Usuario UsuarioActual
+        {
+            get
+            {
+                var usuario = this.home.UsuarioActual;
+
+                switch (usuario.id_tipo_usuario)
+                {
+                    case CLIENTE:
+                        return this.home.GetClienteById(usuario.id_usuario.ToString());
+                    case PROVEEDOR:
+                        return this.home.GetProveedorById(usuario.id_usuario.ToString());
+                    default:
+                        return usuario;
+                }
+            }
         }
 
         private void LoadFuncionalidades()
         {
-            IEnumerable<Funcionalidad> listFuncionalidades = HomeFactory.Funcionalidad.FuncionalidadesPorRol(HomeFactory.Usuario.UsuarioActual.id_rol);
+            var listFuncionalidades = HomeFactory.Funcionalidad.FuncionalidadesPorRol(HomeFactory.Usuario.UsuarioActual.id_rol);
             foreach (var item in listFuncionalidades)
             {
-                string redirect = funcionalidades[item.descripcion];
-                this.menuStrip1.AddItem(item.descripcion, (sender, args) => FormCreator.Show(redirect));
+                var redirect = funcionalidades[item.descripcion];
+                this.menuStrip1.AddItem(item.descripcion, (sender, args) => this.AbrirForm(redirect));
             }
-            if(HomeFactory.Usuario.UsuarioActual.id_rol != 1)
-            this.menuStrip1.AddItem("Darse de Baja", (sender, args) => FormCreator.Show("DarDeBaja"));  
+            
+            if (HomeFactory.Usuario.UsuarioActual.id_rol != 1)
+                this.menuStrip1.AddItem("Darse de Baja", (sender, args) => this.AbrirForm("DarDeBaja"));  
         }
-             
+
+        private void AbrirForm(string formName)
+        {
+            FormCreator.Show(formName);
+            this.RefreshStatus();
+        }
+
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Redirect(new LoginView(new Usuario()));
@@ -57,6 +92,7 @@ namespace GrouponDesktop.Views
             bool falta = false;
             var tipo = HomeFactory.Usuario.UsuarioActual.id_tipo_usuario;
             var usuario = HomeFactory.Usuario.UsuarioActual;
+            
             if(tipo == CLIENTE)
             {
                 var cliente = HomeFactory.Usuario.GetClienteById(usuario.id_usuario.ToString());
@@ -67,6 +103,7 @@ namespace GrouponDesktop.Views
                 if (falta)
                     new ModificarCliente(cliente).ShowDialog();
             }
+            
             if(tipo == PROVEEDOR)
             {
                 var proveedor = HomeFactory.Usuario.GetProveedorById(usuario.id_usuario.ToString());

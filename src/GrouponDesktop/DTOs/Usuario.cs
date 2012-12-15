@@ -17,6 +17,11 @@ namespace GrouponDesktop.DTOs
         public string descripcion_bloqueado { get { return (this.EstaBloqueado ? "Si" : "No"); } }
         public string descripcion_estado { get { return ((this.estado == 1) ? "Habilitado" : "Deshabilitado"); } }
 
+        public virtual string WelcomeMessage
+        {
+            get { return string.Format("USUARIO: {0}", this.username); }
+        }
+
         public Usuario() {}
 
         public Usuario(Usuario usuario)

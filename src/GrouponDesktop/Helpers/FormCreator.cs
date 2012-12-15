@@ -10,7 +10,7 @@ namespace GrouponDesktop.Helpers
             try
             {
                 var form = Activator.CreateInstance("GrouponDesktop", "GrouponDesktop.Views." + formName).Unwrap() as Form;
-                form.Show();
+                form.ShowDialog();
             }
             catch (TypeLoadException)
             {

@@ -143,14 +143,14 @@ namespace GrouponDesktop.Homes
 
         public Cliente GetClienteById(string id_usuario)
         {
-            const string QUERY = "SELECT cli.*,us.estado FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) " +
+            const string QUERY = "SELECT cli.*,us.estado, us.username FROM RANDOM.Cliente cli LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=cli.id_usuario) " +
                                  "where cli.id_usuario = {0}";
             return new Adapter().Transform<Cliente>(this.sqlRunner.Single(QUERY, id_usuario));
         }
 
         public Proveedor GetProveedorById(string id_usuario)
         {
-            const string QUERY = "SELECT prov.*,us.estado FROM RANDOM.Proveedor prov LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=prov.id_usuario) " +
+            const string QUERY = "SELECT prov.*,us.estado, us.username FROM RANDOM.Proveedor prov LEFT JOIN RANDOM.Usuario us ON (us.id_usuario=prov.id_usuario) " +
                                  "where prov.id_usuario = {0}";
             return new Adapter().Transform<Proveedor>(this.sqlRunner.Single(QUERY, id_usuario));
         }

@@ -33,5 +33,10 @@ namespace GrouponDesktop.DTOs
         }
 
         public Cliente(Usuario usuario) : base(usuario) {}
+
+        public override string WelcomeMessage
+        {
+            get { return string.Format("{0} - SALDO: {1:C2}", base.WelcomeMessage, this.saldo_actual); }
+        }
     }
 }
