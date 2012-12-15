@@ -197,7 +197,7 @@
             this.cpostalCliente.Location = new System.Drawing.Point(560, 162);
             this.cpostalCliente.Name = "cpostalCliente";
             this.cpostalCliente.Size = new System.Drawing.Size(52, 25);
-            this.cpostalCliente.TabIndex = 25;
+            this.cpostalCliente.TabIndex = 13;
             // 
             // ciuPrefClienteLabel
             // 

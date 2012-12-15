@@ -126,7 +126,7 @@
             this.localidad.Location = new System.Drawing.Point(406, 38);
             this.localidad.Name = "localidad";
             this.localidad.Size = new System.Drawing.Size(119, 25);
-            this.localidad.TabIndex = 16;
+            this.localidad.TabIndex = 11;
             // 
             // label5
             // 
@@ -144,7 +144,7 @@
             this.depto.Location = new System.Drawing.Point(335, 38);
             this.depto.Name = "depto";
             this.depto.Size = new System.Drawing.Size(46, 25);
-            this.depto.TabIndex = 14;
+            this.depto.TabIndex = 10;
             // 
             // label4
             // 
@@ -162,7 +162,7 @@
             this.piso.Location = new System.Drawing.Point(280, 38);
             this.piso.Name = "piso";
             this.piso.Size = new System.Drawing.Size(33, 25);
-            this.piso.TabIndex = 12;
+            this.piso.TabIndex = 9;
             // 
             // label3
             // 
@@ -180,7 +180,7 @@
             this.numero.Location = new System.Drawing.Point(185, 38);
             this.numero.Name = "numero";
             this.numero.Size = new System.Drawing.Size(73, 25);
-            this.numero.TabIndex = 10;
+            this.numero.TabIndex = 8;
             // 
             // label1
             // 
@@ -198,7 +198,7 @@
             this.calle.Location = new System.Drawing.Point(12, 38);
             this.calle.Name = "calle";
             this.calle.Size = new System.Drawing.Size(158, 25);
-            this.calle.TabIndex = 8;
+            this.calle.TabIndex = 7;
             // 
             // label2
             // 
@@ -218,7 +218,7 @@
             this.ciudadProvCombo.Location = new System.Drawing.Point(12, 221);
             this.ciudadProvCombo.Name = "ciudadProvCombo";
             this.ciudadProvCombo.Size = new System.Drawing.Size(155, 25);
-            this.ciudadProvCombo.TabIndex = 9;
+            this.ciudadProvCombo.TabIndex = 13;
             // 
             // contacto
             // 
@@ -226,7 +226,7 @@
             this.contacto.Location = new System.Drawing.Point(203, 220);
             this.contacto.Name = "contacto";
             this.contacto.Size = new System.Drawing.Size(158, 25);
-            this.contacto.TabIndex = 33;
+            this.contacto.TabIndex = 14;
             // 
             // contactoProveedorLabel
             // 
@@ -292,7 +292,7 @@
             this.codigoPostal.Location = new System.Drawing.Point(568, 157);
             this.codigoPostal.Name = "codigoPostal";
             this.codigoPostal.Size = new System.Drawing.Size(96, 25);
-            this.codigoPostal.TabIndex = 8;
+            this.codigoPostal.TabIndex = 12;
             // 
             // cPostalProveedorLabel
             // 
@@ -431,7 +431,7 @@
             this.guardarButton.Location = new System.Drawing.Point(159, 423);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(161, 28);
-            this.guardarButton.TabIndex = 11;
+            this.guardarButton.TabIndex = 15;
             this.guardarButton.Text = "Guardar";
             this.guardarButton.UseVisualStyleBackColor = true;
             // 
@@ -441,7 +441,7 @@
             this.limpiarButton.Location = new System.Drawing.Point(376, 423);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(161, 28);
-            this.limpiarButton.TabIndex = 12;
+            this.limpiarButton.TabIndex = 16;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             this.limpiarButton.Visible = false;
