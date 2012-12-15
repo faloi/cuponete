@@ -92,7 +92,11 @@ namespace GrouponDesktop.Views
             else
                 fieldsObligatorios.Add(this.direccion);
 
-            return (ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider));
+            var obligatorios = ValidatorHelper.ValidateObligatorio(fieldsObligatorios, this.errorProvider);
+            var rubro = ValidatorHelper.ValidateComboBox(this.comboRubro, this.errorProvider);
+            var ciudad = ValidatorHelper.ValidateComboBox(this.ciudadProvCombo, this.errorProvider);
+            
+            return obligatorios && rubro && ciudad;
         }
 
         private void CargarRubros()
