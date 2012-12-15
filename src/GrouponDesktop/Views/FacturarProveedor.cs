@@ -44,6 +44,11 @@ namespace GrouponDesktop.Views
                 (sender, args) => new ABMProveedor(this.textBoxProveedor, "id_usuario").ShowDialog();
         }
 
+        protected override bool Validar()
+        {
+            return ValidatorHelper.ValidateObligatorio(new[] {this.textBoxProveedor}, this.errorProvider);
+        }
+
         protected override void ExecSubmit()
         {
             this.Data = this.home.CuponesParaFacturar(this.Filter);

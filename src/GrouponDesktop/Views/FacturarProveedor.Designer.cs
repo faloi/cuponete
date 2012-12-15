@@ -63,6 +63,7 @@
             // textBoxProveedor
             // 
             this.textBoxProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxProveedor.Enabled = false;
             this.textBoxProveedor.Location = new System.Drawing.Point(16, 33);
             this.textBoxProveedor.Name = "textBoxProveedor";
             this.textBoxProveedor.Size = new System.Drawing.Size(200, 20);
