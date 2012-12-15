@@ -42,7 +42,7 @@ namespace GrouponDesktop.Views
 
         private void CargarValoresGiftCard()
         {
-            List<string> valores = ConfigurationManager.AppSettings["valores"].Split(',').ToList<string>();
+            List<string> valores = ConfigurationManager.AppSettings["valoresGiftCard"].Split(',').ToList<string>();
             var datasource = valores.Select(item => Convert.ToInt32(item)).ToList();
             this.comboBoxMontos.DataSource = datasource;
             
