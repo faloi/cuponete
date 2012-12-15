@@ -73,7 +73,10 @@ namespace GrouponDesktop.Views
             }
             
             if (HomeFactory.Usuario.UsuarioActual.id_rol != 1)
-                this.menuStrip1.AddItem("Darse de Baja", (sender, args) => this.AbrirForm("DarDeBaja"));  
+                this.menuStrip1.AddItem("Darse de Baja", (sender, args) => this.AbrirForm("DarDeBaja"));
+
+            for (var i = 0; i < 3; i++)
+                this.menuStrip1.AddSeparator();
         }
 
         private void AbrirForm(string formName)
@@ -84,7 +87,7 @@ namespace GrouponDesktop.Views
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Redirect(new LoginView(new Usuario()));
+            new LoginView(new Usuario()).Show();
         }
 
         private void ValidarDatos()

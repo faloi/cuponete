@@ -70,6 +70,11 @@ namespace GrouponDesktop.Helpers
             menu.Items.Add(text, null, onClick);
         }
 
+        public static void AddSeparator(this MenuStrip menu)
+        {
+            menu.Items.Add(new ToolStripSeparator());
+        }
+
         public static void BindSourceTo(this ListControl control, object model, string valueMember, string displayMember)
         {
             control.DataSource = model;
