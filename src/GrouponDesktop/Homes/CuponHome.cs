@@ -75,7 +75,10 @@ namespace GrouponDesktop.Homes
                 example,
                 "monto_total", "nro_factura", "id_proveedor", "fecha", "fecha_inicio", "fecha_fin");
 
-            this.Run(procedure);
+            var values = this.Run(procedure);
+
+            example.nro_factura = Convert.ToInt64(values.GetValue("nro_factura"));
+            example.monto_total = Convert.ToInt64(values.GetValue("monto_total"));
         }
 
         public void ArmarCupon(Cupon cupon, IEnumerable<Ciudad> ciudadesSeleccionadas)
