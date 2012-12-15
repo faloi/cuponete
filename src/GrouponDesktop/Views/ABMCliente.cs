@@ -21,7 +21,7 @@ namespace GrouponDesktop.Views
             this.InitializeComponent();
             this.tipoUsuarioDisponible = TODOS;
             this.Text = "Listado de Clientes";
-            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.clientesDataGrid);
+            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.buttonNuevoCliente, this.clientesDataGrid);
         }
 
         protected override void CreateSpecificBindings()

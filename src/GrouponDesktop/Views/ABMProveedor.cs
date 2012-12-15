@@ -22,7 +22,7 @@ namespace GrouponDesktop.Views
             this.InitializeComponent();
             this.tipoUsuarioDisponible = TODOS;
             this.Text = "Listado de Proveedores";
-            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.proveedoresDataGrid);
+            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.buttonNuevoProveedor, this.proveedoresDataGrid);
         }
 
         protected override void CreateSpecificBindings()

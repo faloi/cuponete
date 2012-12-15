@@ -16,7 +16,7 @@ namespace GrouponDesktop.Views
             this.InitializeComponent();
             this.tipoUsuarioDisponible = TODOS;
             this.Text = "Listado de Roles";
-            this.CreateBindings(this.buttonBuscar, this.buttonLimpiar, this.buttonModificar, this.buttonBajaRestaurar, this.rolesDataGrid);
+            this.CreateBindings(this.buttonBuscar, this.buttonLimpiar, this.buttonModificar, this.buttonBajaRestaurar, this.buttonNuevoRol, this.rolesDataGrid);
         }
 
         protected override void CreateSpecificBindings()

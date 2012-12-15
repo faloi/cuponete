@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
         {
             this.InitializeComponent();
             this.tipoUsuarioDisponible = TODOS;
-            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonFacturar, new Button(), this.cuponesDataGrid);
+            this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonFacturar, new Button(), new Button(), this.cuponesDataGrid);
         }
 
         protected override void CreateSpecificBindings()
