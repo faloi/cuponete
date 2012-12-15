@@ -10,7 +10,7 @@ namespace GrouponDesktop.Helpers
     {
 
 
-        public static bool ValidateObligatorio(List<TextBox> boxes, ErrorProvider errorProvider)
+        public static bool ValidateObligatorio(IEnumerable<TextBox> boxes, ErrorProvider errorProvider)
         {
             
             var ret = true;
@@ -34,7 +34,7 @@ namespace GrouponDesktop.Helpers
 
         }
 
-        public static bool ValidateObligatorio(List<RichTextBox> boxes, ErrorProvider errorProvider)
+        public static bool ValidateObligatorio(IEnumerable<RichTextBox> boxes, ErrorProvider errorProvider)
         {
 
             var ret = true;
