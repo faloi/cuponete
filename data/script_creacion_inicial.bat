@@ -1,1 +1,1 @@
-sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2012 -i generate_random_database.sql -a 32767 -o resultado_output.txt
+sqlcmd -S localhost\SQLSERVER2008 -U gd -P gd2012 -i script_creacion_inicial.sql -a 32767 -o resultado_output.txt
