@@ -78,7 +78,7 @@ namespace GrouponDesktop.Views
 
         private void AbrirForm(string formName)
         {
-            FormCreator.Show(formName);
+            FormCreator.ShowDialog(formName);
             this.RefreshStatus();
         }
 

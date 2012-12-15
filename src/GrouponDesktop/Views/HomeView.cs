@@ -22,7 +22,7 @@ namespace GrouponDesktop.Views
             var entries = this.home.UsuarioActual.Forms;
 
             foreach (var entry in entries)
-                this.mainMenu.AddItem(entry.Key, (sender, args) => FormCreator.Show(entry.Value));
+                this.mainMenu.AddItem(entry.Key, (sender, args) => FormCreator.ShowDialog(entry.Value));
         }
 
         private void mainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

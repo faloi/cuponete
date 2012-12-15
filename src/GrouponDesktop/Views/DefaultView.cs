@@ -70,7 +70,7 @@ namespace GrouponDesktop.Views
 
         protected void Redirect(Form form)
         {
-            form.Show();
+            form.ShowDialog();
         }
 
         protected void Redirect(Form form, bool closewindow)

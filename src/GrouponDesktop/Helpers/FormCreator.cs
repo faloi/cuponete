@@ -5,7 +5,7 @@ namespace GrouponDesktop.Helpers
 {
     public static class FormCreator
     {
-        public static void Show(string formName)
+        public static void ShowDialog(string formName)
         {
             try
             {
