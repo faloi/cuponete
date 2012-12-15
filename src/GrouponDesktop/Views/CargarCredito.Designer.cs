@@ -82,9 +82,9 @@
             this.labelNroDeTarjeta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNroDeTarjeta.Location = new System.Drawing.Point(6, 16);
             this.labelNroDeTarjeta.Name = "labelNroDeTarjeta";
-            this.labelNroDeTarjeta.Size = new System.Drawing.Size(135, 21);
+            this.labelNroDeTarjeta.Size = new System.Drawing.Size(145, 21);
             this.labelNroDeTarjeta.TabIndex = 3;
-            this.labelNroDeTarjeta.Text = "Numero de Tarjeta";
+            this.labelNroDeTarjeta.Text = "Numero de Tarjeta *";
             // 
             // textBoxCodDeSeg
             // 
@@ -100,19 +100,19 @@
             this.labelCodDeSeg.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCodDeSeg.Location = new System.Drawing.Point(6, 68);
             this.labelCodDeSeg.Name = "labelCodDeSeg";
-            this.labelCodDeSeg.Size = new System.Drawing.Size(152, 21);
+            this.labelCodDeSeg.Size = new System.Drawing.Size(162, 21);
             this.labelCodDeSeg.TabIndex = 5;
-            this.labelCodDeSeg.Text = "Codigo de Seguridad";
+            this.labelCodDeSeg.Text = "Codigo de Seguridad *";
             // 
             // labelFechaVto
             // 
             this.labelFechaVto.AutoSize = true;
             this.labelFechaVto.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaVto.Location = new System.Drawing.Point(6, 125);
+            this.labelFechaVto.Location = new System.Drawing.Point(1, 126);
             this.labelFechaVto.Name = "labelFechaVto";
-            this.labelFechaVto.Size = new System.Drawing.Size(236, 21);
+            this.labelFechaVto.Size = new System.Drawing.Size(242, 21);
             this.labelFechaVto.TabIndex = 6;
-            this.labelFechaVto.Text = "Fecha de Vencimiento (mm/aaaa)";
+            this.labelFechaVto.Text = "Fecha de Vencimiento (mm/aaaa)*";
             // 
             // textBoxFechaVto
             // 
@@ -148,7 +148,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(81, 411);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 6;
+            this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -174,7 +174,7 @@
             this.comboBoxMonto.Location = new System.Drawing.Point(16, 284);
             this.comboBoxMonto.Name = "comboBoxMonto";
             this.comboBoxMonto.Size = new System.Drawing.Size(242, 21);
-            this.comboBoxMonto.TabIndex = 12;
+            this.comboBoxMonto.TabIndex = 4;
             // 
             // buttonLimpiar
             // 
@@ -182,7 +182,7 @@
             this.buttonLimpiar.Location = new System.Drawing.Point(46, 362);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(180, 29);
-            this.buttonLimpiar.TabIndex = 13;
+            this.buttonLimpiar.TabIndex = 6;
             this.buttonLimpiar.Text = "Limpiar";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             // 

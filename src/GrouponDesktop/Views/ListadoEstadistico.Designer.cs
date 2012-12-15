@@ -39,8 +39,6 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonConsultar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,8 +168,6 @@
             this.Name = "ListadoEstadistico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado Estadistico";
-            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

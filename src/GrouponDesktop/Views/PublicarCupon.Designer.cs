@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelCuponesDisponibles = new System.Windows.Forms.Label();
             this.cuponDataGrid = new System.Windows.Forms.DataGridView();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,14 +63,14 @@
             this.cuponDataGrid.AllowUserToDeleteRows = false;
             this.cuponDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cuponDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cuponDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cuponDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cuponDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cuponDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Proveedor,
@@ -81,7 +81,7 @@
             this.cuponDataGrid.Name = "cuponDataGrid";
             this.cuponDataGrid.ReadOnly = true;
             this.cuponDataGrid.Size = new System.Drawing.Size(699, 225);
-            this.cuponDataGrid.TabIndex = 1;
+            this.cuponDataGrid.TabIndex = 4;
             // 
             // Proveedor
             // 
@@ -113,8 +113,8 @@
             this.buttonCancelar.Location = new System.Drawing.Point(293, 452);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(140, 29);
-            this.buttonCancelar.TabIndex = 3;
-            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.TabIndex = 6;
+            this.buttonCancelar.Text = "Volver";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // buttonPublicar
@@ -123,7 +123,7 @@
             this.buttonPublicar.Location = new System.Drawing.Point(258, 398);
             this.buttonPublicar.Name = "buttonPublicar";
             this.buttonPublicar.Size = new System.Drawing.Size(213, 36);
-            this.buttonPublicar.TabIndex = 2;
+            this.buttonPublicar.TabIndex = 5;
             this.buttonPublicar.Text = "Publicar";
             this.buttonPublicar.UseVisualStyleBackColor = true;
             // 
@@ -131,24 +131,24 @@
             // 
             this.comboBoxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProveedor.FormattingEnabled = true;
-            this.comboBoxProveedor.Location = new System.Drawing.Point(413, 98);
+            this.comboBoxProveedor.Location = new System.Drawing.Point(427, 87);
             this.comboBoxProveedor.Name = "comboBoxProveedor";
             this.comboBoxProveedor.Size = new System.Drawing.Size(242, 21);
-            this.comboBoxProveedor.TabIndex = 4;
+            this.comboBoxProveedor.TabIndex = 1;
             // 
             // fecActual
             // 
             this.fecActual.Enabled = false;
-            this.fecActual.Location = new System.Drawing.Point(73, 95);
+            this.fecActual.Location = new System.Drawing.Point(87, 84);
             this.fecActual.Name = "fecActual";
             this.fecActual.Size = new System.Drawing.Size(207, 20);
-            this.fecActual.TabIndex = 31;
+            this.fecActual.TabIndex = 0;
             // 
             // labelProveedor
             // 
             this.labelProveedor.AutoSize = true;
             this.labelProveedor.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProveedor.Location = new System.Drawing.Point(409, 74);
+            this.labelProveedor.Location = new System.Drawing.Point(423, 63);
             this.labelProveedor.Name = "labelProveedor";
             this.labelProveedor.Size = new System.Drawing.Size(79, 21);
             this.labelProveedor.TabIndex = 32;
@@ -158,7 +158,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 71);
+            this.label1.Location = new System.Drawing.Point(83, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 21);
             this.label1.TabIndex = 33;
@@ -167,20 +167,20 @@
             // limpiarButton
             // 
             this.limpiarButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.limpiarButton.Location = new System.Drawing.Point(573, 49);
+            this.limpiarButton.Location = new System.Drawing.Point(367, 125);
             this.limpiarButton.Name = "limpiarButton";
-            this.limpiarButton.Size = new System.Drawing.Size(112, 36);
-            this.limpiarButton.TabIndex = 40;
+            this.limpiarButton.Size = new System.Drawing.Size(207, 36);
+            this.limpiarButton.TabIndex = 3;
             this.limpiarButton.Text = "Limpiar";
             this.limpiarButton.UseVisualStyleBackColor = true;
             // 
             // buttonBuscar
             // 
             this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(573, 10);
+            this.buttonBuscar.Location = new System.Drawing.Point(154, 125);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(112, 36);
-            this.buttonBuscar.TabIndex = 39;
+            this.buttonBuscar.Size = new System.Drawing.Size(207, 36);
+            this.buttonBuscar.TabIndex = 2;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 

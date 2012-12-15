@@ -106,7 +106,7 @@
             this.buttonSolicitar.Location = new System.Drawing.Point(65, 423);
             this.buttonSolicitar.Name = "buttonSolicitar";
             this.buttonSolicitar.Size = new System.Drawing.Size(173, 41);
-            this.buttonSolicitar.TabIndex = 0;
+            this.buttonSolicitar.TabIndex = 2;
             this.buttonSolicitar.Text = "Solicitar";
             this.buttonSolicitar.UseVisualStyleBackColor = true;
             // 
@@ -116,7 +116,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(96, 479);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.TabIndex = 3;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -125,7 +125,7 @@
             this.richTextBoxMotivo.Location = new System.Drawing.Point(11, 308);
             this.richTextBoxMotivo.Name = "richTextBoxMotivo";
             this.richTextBoxMotivo.Size = new System.Drawing.Size(296, 96);
-            this.richTextBoxMotivo.TabIndex = 8;
+            this.richTextBoxMotivo.TabIndex = 1;
             this.richTextBoxMotivo.Text = "";
             // 
             // labelMotivo
@@ -134,9 +134,9 @@
             this.labelMotivo.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMotivo.Location = new System.Drawing.Point(7, 284);
             this.labelMotivo.Name = "labelMotivo";
-            this.labelMotivo.Size = new System.Drawing.Size(56, 21);
+            this.labelMotivo.Size = new System.Drawing.Size(66, 21);
             this.labelMotivo.TabIndex = 9;
-            this.labelMotivo.Text = "Motivo";
+            this.labelMotivo.Text = "Motivo *";
             // 
             // fecVencimientoCanje
             // 
@@ -144,7 +144,7 @@
             this.fecVencimientoCanje.Location = new System.Drawing.Point(11, 211);
             this.fecVencimientoCanje.Name = "fecVencimientoCanje";
             this.fecVencimientoCanje.Size = new System.Drawing.Size(207, 20);
-            this.fecVencimientoCanje.TabIndex = 32;
+            this.fecVencimientoCanje.TabIndex = 0;
             // 
             // DevolverCupon
             // 

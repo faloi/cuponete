@@ -59,9 +59,9 @@
             this.labelPrecioReal.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecioReal.Location = new System.Drawing.Point(12, 229);
             this.labelPrecioReal.Name = "labelPrecioReal";
-            this.labelPrecioReal.Size = new System.Drawing.Size(83, 21);
+            this.labelPrecioReal.Size = new System.Drawing.Size(93, 21);
             this.labelPrecioReal.TabIndex = 17;
-            this.labelPrecioReal.Text = "Precio Real";
+            this.labelPrecioReal.Text = "Precio Real *";
             // 
             // textBoxPrecioReal
             // 
@@ -75,11 +75,11 @@
             // 
             this.labelFecVencCanje.AutoSize = true;
             this.labelFecVencCanje.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecVencCanje.Location = new System.Drawing.Point(12, 118);
+            this.labelFecVencCanje.Location = new System.Drawing.Point(8, 119);
             this.labelFecVencCanje.Name = "labelFecVencCanje";
-            this.labelFecVencCanje.Size = new System.Drawing.Size(217, 21);
+            this.labelFecVencCanje.Size = new System.Drawing.Size(227, 21);
             this.labelFecVencCanje.TabIndex = 14;
-            this.labelFecVencCanje.Text = "Fecha Vencimiento Publicación";
+            this.labelFecVencCanje.Text = "Fecha Vencimiento Publicación *";
             // 
             // labelFecPubOferta
             // 
@@ -87,9 +87,9 @@
             this.labelFecPubOferta.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecPubOferta.Location = new System.Drawing.Point(12, 61);
             this.labelFecPubOferta.Name = "labelFecPubOferta";
-            this.labelFecPubOferta.Size = new System.Drawing.Size(150, 21);
+            this.labelFecPubOferta.Size = new System.Drawing.Size(160, 21);
             this.labelFecPubOferta.TabIndex = 13;
-            this.labelFecPubOferta.Text = "Fecha de Publicación";
+            this.labelFecPubOferta.Text = "Fecha de Publicación *";
             // 
             // labelDescripcion
             // 
@@ -97,9 +97,9 @@
             this.labelDescripcion.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescripcion.Location = new System.Drawing.Point(12, 9);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(87, 21);
+            this.labelDescripcion.Size = new System.Drawing.Size(97, 21);
             this.labelDescripcion.TabIndex = 11;
-            this.labelDescripcion.Text = "Descripción";
+            this.labelDescripcion.Text = "Descripción *";
             // 
             // textBoxDescripcion
             // 
@@ -122,9 +122,9 @@
             this.labelPrecioFicticio.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrecioFicticio.Location = new System.Drawing.Point(12, 276);
             this.labelPrecioFicticio.Name = "labelPrecioFicticio";
-            this.labelPrecioFicticio.Size = new System.Drawing.Size(103, 21);
+            this.labelPrecioFicticio.Size = new System.Drawing.Size(109, 21);
             this.labelPrecioFicticio.TabIndex = 21;
-            this.labelPrecioFicticio.Text = "Precio Ficticio ";
+            this.labelPrecioFicticio.Text = "Precio Ficticio *";
             // 
             // textBoxPrecioFicticio
             // 
@@ -140,9 +140,9 @@
             this.labelCantDisp.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCantDisp.Location = new System.Drawing.Point(12, 323);
             this.labelCantDisp.Name = "labelCantDisp";
-            this.labelCantDisp.Size = new System.Drawing.Size(145, 21);
+            this.labelCantDisp.Size = new System.Drawing.Size(155, 21);
             this.labelCantDisp.TabIndex = 23;
-            this.labelCantDisp.Text = "Cantidad Disponible";
+            this.labelCantDisp.Text = "Cantidad Disponible *";
             // 
             // textBoxCantDisp
             // 
@@ -158,9 +158,9 @@
             this.labelCantMaxPorUsuario.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCantMaxPorUsuario.Location = new System.Drawing.Point(12, 370);
             this.labelCantMaxPorUsuario.Name = "labelCantMaxPorUsuario";
-            this.labelCantMaxPorUsuario.Size = new System.Drawing.Size(212, 21);
+            this.labelCantMaxPorUsuario.Size = new System.Drawing.Size(218, 21);
             this.labelCantMaxPorUsuario.TabIndex = 25;
-            this.labelCantMaxPorUsuario.Text = "Cantidad Máxima Por Usuario ";
+            this.labelCantMaxPorUsuario.Text = "Cantidad Máxima Por Usuario *";
             // 
             // textBoxMaxCant
             // 
@@ -176,9 +176,9 @@
             this.labelCiudades.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCiudades.Location = new System.Drawing.Point(12, 417);
             this.labelCiudades.Name = "labelCiudades";
-            this.labelCiudades.Size = new System.Drawing.Size(72, 21);
+            this.labelCiudades.Size = new System.Drawing.Size(82, 21);
             this.labelCiudades.TabIndex = 26;
-            this.labelCiudades.Text = "Ciudades";
+            this.labelCiudades.Text = "Ciudades *";
             // 
             // checkedListBoxCiudades
             // 
@@ -205,7 +205,7 @@
             this.buttonCancelar.Location = new System.Drawing.Point(63, 618);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(108, 29);
-            this.buttonCancelar.TabIndex = 10;
+            this.buttonCancelar.TabIndex = 11;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
@@ -222,9 +222,9 @@
             this.labelFecVtoCanje.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFecVtoCanje.Location = new System.Drawing.Point(11, 173);
             this.labelFecVtoCanje.Name = "labelFecVtoCanje";
-            this.labelFecVtoCanje.Size = new System.Drawing.Size(179, 21);
+            this.labelFecVtoCanje.Size = new System.Drawing.Size(189, 21);
             this.labelFecVtoCanje.TabIndex = 29;
-            this.labelFecVtoCanje.Text = "Fecha Vencimiento Canje";
+            this.labelFecVtoCanje.Text = "Fecha Vencimiento Canje *";
             // 
             // fecPub
             // 
@@ -239,7 +239,7 @@
             this.buttonLimpiar.Location = new System.Drawing.Point(41, 579);
             this.buttonLimpiar.Name = "buttonLimpiar";
             this.buttonLimpiar.Size = new System.Drawing.Size(159, 29);
-            this.buttonLimpiar.TabIndex = 30;
+            this.buttonLimpiar.TabIndex = 10;
             this.buttonLimpiar.Text = "Limpiar";
             this.buttonLimpiar.UseVisualStyleBackColor = true;
             // 
