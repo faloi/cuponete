@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
         private ModificarProveedor(Proveedor proveedor, bool isNew)
         {
             InitializeComponent();
-
+            this.tipoUsuarioDisponible = TODOS;
             this.IsNew = isNew;
             this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.direccionGroupBox.Visible = this.IsNew;
 

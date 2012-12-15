@@ -19,6 +19,7 @@ namespace GrouponDesktop.Views
         protected override void Setup()
         {
             this.InitializeComponent();
+            this.tipoUsuarioDisponible = TODOS;
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonFacturar, new Button(), this.cuponesDataGrid);
         }
 

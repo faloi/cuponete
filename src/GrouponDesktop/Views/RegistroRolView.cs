@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
             InitializeComponent();
             this.home = HomeFactory.Rol;
             this.SetBindingSource(rol);
-
+            this.tipoUsuarioDisponible = TODOS;
             this.Text = "Registro de Rol";
             this.CreateBindings(this.buttonAceptar);
         }

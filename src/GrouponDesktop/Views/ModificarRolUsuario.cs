@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
         public ModificarRolUsuario(Usuario usuario)
         {
             InitializeComponent();
-
+            this.tipoUsuarioDisponible = TODOS;
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(usuario);
 

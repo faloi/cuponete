@@ -13,6 +13,7 @@ namespace GrouponDesktop.Views
         protected override void Setup()
         {
             this.InitializeComponent();
+            this.tipoUsuarioDisponible = CLIENTE;
             this.CreateBindings(buttonBuscar, cuponesDataGrid);
         }
 

@@ -25,7 +25,7 @@ namespace GrouponDesktop.Views
 
             this.IsNew = isNew;
             this.usuarioGroupBox.Visible = this.limpiarButton.Visible = this.direccionGroupBox.Visible = this.IsNew;
-
+            this.tipoUsuarioDisponible = TODOS;
             this.home = HomeFactory.Usuario;
             this.SetBindingSource(cliente);
 

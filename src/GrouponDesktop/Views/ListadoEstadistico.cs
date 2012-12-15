@@ -20,7 +20,7 @@ namespace GrouponDesktop.Views
         {
             this.InitializeComponent();
             this.Text = "Listado Estadistico";
-            
+            this.tipoUsuarioDisponible = TODOS;
             this.CreateBindings(this.buttonConsultar,  this.dataGridView);
         }
         

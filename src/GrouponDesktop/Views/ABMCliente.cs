@@ -19,7 +19,7 @@ namespace GrouponDesktop.Views
         protected override void Setup()
         {
             this.InitializeComponent();
-            this.tipoUsuarioDisponible = ADMINISTRADOR;
+            this.tipoUsuarioDisponible = TODOS;
             this.Text = "Listado de Clientes";
             this.CreateBindings(this.buttonBuscar, this.limpiarButton, this.buttonModificar, this.buttonBajaRestaurar, this.clientesDataGrid);
         }
