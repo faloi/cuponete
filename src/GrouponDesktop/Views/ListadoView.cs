@@ -85,28 +85,34 @@ namespace GrouponDesktop.Views
             dataGrid.AllowUserToAddRows = false;
             this.DisableActions();
 
-            this.data.DataSourceChanged += this.DisableActionsIfNoResults;
+            this.data.DataSourceChanged += this.DisableActionsOrFocus;
 
             dataGrid.SelectionChanged +=
                 (sender, args) => this.EnableActions();
 
             dataGrid.CellDoubleClick +=
                 (sender, args) => this.PerformLookup();
+
+            dataGrid.KeyDown +=
+                (sender, args) => { if (args.KeyCode == Keys.Enter) this.PerformLookup(); };
             
             limpiarButton.Click +=
                 (sender, args) => this.ResetExample();
         }
 
-        private void DisableActionsIfNoResults(object sender, EventArgs eventArgs)
+        private void DisableActionsOrFocus(object sender, EventArgs eventArgs)
         {
             var source = sender as BindingSource;
-            if (source.Count != 0) 
-                return;
-            
-            this.DisableActions();
 
-            if (source.DataSource != null)
-                MessageFactory.Info("Su búsqueda no produjo ningún resultado");
+            if (source.Count != 0)
+                this.dataGrid.Focus();
+            else
+            {
+                this.DisableActions();
+
+                if (source.DataSource != null)
+                    MessageFactory.Info("Su búsqueda no produjo ningún resultado");    
+            }
         }
 
         private void EnableActions()
