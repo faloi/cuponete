@@ -70,7 +70,7 @@ namespace GrouponDesktop.Views
             cupon.fecha_actual = ControlBindingHelpers.FechaSistema;
             var ciudadesSeleccionadas = this.checkedListBoxCiudades.GetCheckedItems<Ciudad>();
             this.home.ArmarCupon(cupon, ciudadesSeleccionadas);
-            this.SuccessMessage("El cupón ser registro correctamente");
+            this.SuccessMessage("El cupón se registro correctamente");
         }
 
         protected override bool Validar()

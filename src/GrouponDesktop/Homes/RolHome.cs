@@ -23,6 +23,18 @@ namespace GrouponDesktop.Homes
             }
         }
 
+        public DataTable RolesDisponiblesHabilitados()
+        {
+            try
+            {
+                return sqlRunner.Select("SELECT * FROM RANDOM.Rol WHERE estado=1");
+            }
+            catch (NoResultsException e)
+            {
+                throw new ApplicationException("No hay roles Disponibles", e);
+            }
+        }
+
         public void RegistrarRol(Rol rol, IEnumerable<Funcionalidad> funcionalidades)
         {
             var procedures = new List<Runnable>
