@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelProveedor = new System.Windows.Forms.Label();
-            this.textBoxProveedor = new System.Windows.Forms.TextBox();
+            this.idProveedor = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.dateTimePickerHasta = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,12 +62,12 @@
             // 
             // textBoxProveedor
             // 
-            this.textBoxProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxProveedor.Enabled = false;
-            this.textBoxProveedor.Location = new System.Drawing.Point(16, 33);
-            this.textBoxProveedor.Name = "textBoxProveedor";
-            this.textBoxProveedor.Size = new System.Drawing.Size(200, 20);
-            this.textBoxProveedor.TabIndex = 0;
+            this.idProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idProveedor.Enabled = false;
+            this.idProveedor.Location = new System.Drawing.Point(16, 33);
+            this.idProveedor.Name = "idProveedor";
+            this.idProveedor.Size = new System.Drawing.Size(200, 20);
+            this.idProveedor.TabIndex = 0;
             // 
             // buttonBuscar
             // 
@@ -222,7 +222,7 @@
             this.Controls.Add(this.labelDesde);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.labelProveedor);
-            this.Controls.Add(this.textBoxProveedor);
+            this.Controls.Add(this.idProveedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FacturarProveedor";
@@ -239,7 +239,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelProveedor;
-        private System.Windows.Forms.TextBox textBoxProveedor;
+        private System.Windows.Forms.TextBox idProveedor;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.DateTimePicker dateTimePickerHasta;
         private System.Windows.Forms.Label label1;

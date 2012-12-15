@@ -25,7 +25,7 @@ namespace GrouponDesktop.Views
 
         protected override void CreateSpecificBindings()
         {
-            this.textBoxProveedor.BindTextTo(this.Example, "id_proveedor", DataType.INTEGER);
+            this.idProveedor.BindTextTo(this.Example, "id_proveedor", DataType.INTEGER);
             this.dateTimePickerDesde.BindTextTo(this.Example, "fecha_inicio");
 
             this.cuponesDataGrid.BindSourceTo(this.Data, new Dictionary<string, string>
@@ -38,16 +38,23 @@ namespace GrouponDesktop.Views
             this.buttonCancelar.Click +=
                 (sender, args) => this.Close();
 
-            this.buttonFacturar.Click +=
-                (sender, args) => this.home.Facturar(this.Filter);
+            this.buttonFacturar.Click += this.Facturar;
 
             this.lookupButton.Click +=
-                (sender, args) => new ABMProveedor(this.textBoxProveedor, "id_usuario").ShowDialog();
+                (sender, args) => new ABMProveedor(this.idProveedor, "id_usuario").ShowDialog();
+        }
+
+        private void Facturar(object sender, EventArgs eventArgs)
+        {
+            this.home.Facturar(this.Filter);
+            new ResumenDeFactura(this.Filter).ShowDialog();
+
+            this.Close();
         }
 
         protected override bool Validar()
         {
-            return ValidatorHelper.ValidateObligatorio(new[] {this.textBoxProveedor}, this.errorProvider);
+            return ValidatorHelper.ValidateObligatorio(new[] {this.idProveedor}, this.errorProvider);
         }
 
         protected override void ExecSubmit()
