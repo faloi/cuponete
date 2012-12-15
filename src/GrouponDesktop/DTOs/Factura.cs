@@ -2,14 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GrouponDesktop.Helpers;
 
 namespace GrouponDesktop.DTOs
 {
-    class Factura
+    public class Factura
     {
-        public long id_factura { set; get; }
-        public long nro_factura { set; get; }
-        public DateTime fecha { set; get; }
-        public long id_proveedor { set; get; }
+        public string codigo_compra { get; set; }
+        public DateTime fecha_canje { get; set; }
+        public decimal precio_real { get; set; }
+        public long id_proveedor { get; set; }
+
+        public DateTime fecha { get; set; }
+        public DateTime fecha_inicio { get; set; }
+        public DateTime fecha_fin { get; set; }
+
+        public Factura()
+        {
+            this.fecha = this.fecha_inicio = this.fecha_fin = ControlBindingHelpers.FechaSistema;
+        }
     }
 }
