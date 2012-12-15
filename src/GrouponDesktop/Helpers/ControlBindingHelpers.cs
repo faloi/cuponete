@@ -10,7 +10,7 @@ namespace GrouponDesktop.Helpers
     {
         private readonly string format;
 
-        public static DataType INTEGER = new DataType("N0");
+        public static DataType INTEGER = new DataType("0;;''");
         public static DataType NUMBER = new DataType("N2");
         public static DataType CURRENCY = new DataType("C2");
 
