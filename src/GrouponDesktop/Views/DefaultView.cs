@@ -19,6 +19,7 @@ namespace GrouponDesktop.Views
         protected DefaultView()
         {
             this.model = new BindingSource();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         protected void CreateBindings(Button submitButton)
