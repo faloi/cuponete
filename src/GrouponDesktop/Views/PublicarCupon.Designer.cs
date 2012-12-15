@@ -43,6 +43,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.buttonBuscar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.descripcionTextBox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.model)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +135,7 @@
             // 
             this.comboBoxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProveedor.FormattingEnabled = true;
-            this.comboBoxProveedor.Location = new System.Drawing.Point(427, 87);
+            this.comboBoxProveedor.Location = new System.Drawing.Point(465, 84);
             this.comboBoxProveedor.Name = "comboBoxProveedor";
             this.comboBoxProveedor.Size = new System.Drawing.Size(242, 21);
             this.comboBoxProveedor.TabIndex = 1;
@@ -139,7 +143,7 @@
             // fecActual
             // 
             this.fecActual.Enabled = false;
-            this.fecActual.Location = new System.Drawing.Point(87, 84);
+            this.fecActual.Location = new System.Drawing.Point(10, 84);
             this.fecActual.Name = "fecActual";
             this.fecActual.Size = new System.Drawing.Size(207, 20);
             this.fecActual.TabIndex = 0;
@@ -148,7 +152,7 @@
             // 
             this.labelProveedor.AutoSize = true;
             this.labelProveedor.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProveedor.Location = new System.Drawing.Point(423, 63);
+            this.labelProveedor.Location = new System.Drawing.Point(461, 60);
             this.labelProveedor.Name = "labelProveedor";
             this.labelProveedor.Size = new System.Drawing.Size(79, 21);
             this.labelProveedor.TabIndex = 32;
@@ -158,7 +162,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 60);
+            this.label1.Location = new System.Drawing.Point(6, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 21);
             this.label1.TabIndex = 33;
@@ -184,11 +188,30 @@
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(231, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 21);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Descripcion";
+            // 
+            // descripcionTextBox
+            // 
+            this.descripcionTextBox.Location = new System.Drawing.Point(235, 84);
+            this.descripcionTextBox.Name = "descripcionTextBox";
+            this.descripcionTextBox.Size = new System.Drawing.Size(210, 20);
+            this.descripcionTextBox.TabIndex = 36;
+            // 
             // PublicarCupon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 505);
+            this.Controls.Add(this.descripcionTextBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.limpiarButton);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.label1);
@@ -204,6 +227,8 @@
             this.Name = "PublicarCupon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Publicar Cupon";
+            ((System.ComponentModel.ISupportInitialize)(this.model)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuponDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,5 +251,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button limpiarButton;
         private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox descripcionTextBox;
     }
 }

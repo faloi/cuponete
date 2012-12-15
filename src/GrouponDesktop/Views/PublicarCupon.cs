@@ -34,9 +34,11 @@ namespace GrouponDesktop.Views
                 {"Cantidad", "cant_disp"}
             });
 
-            this.fecActual.Value = ControlBindingHelpers.FechaSistema;
+            this.CargarProveedores();
 
-            this.cargarProveedores();
+            this.comboBoxProveedor.BindValueTo(this.Example, "id_proveedor");
+            this.descripcionTextBox.BindTextTo(this.Example, "descripcion");
+            this.fecActual.BindTextTo(this.Example, "fec_publicacion");
 
             this.buttonCancelar.Click +=
                 (sender, args) => this.Close();
@@ -54,16 +56,13 @@ namespace GrouponDesktop.Views
 
         }
 
-        private void cargarProveedores()
+        private void CargarProveedores()
         {
             var proveedores = HomeFactory.Usuario.ListarProveedores(new Proveedor());
             var todos = new Proveedor {id_rol = 0, razon_social = "Todos"};
             proveedores.Insert(0,todos);
             this.comboBoxProveedor.BindSourceTo(proveedores, "id_usuario", "razon_social");
-            
-
         }
-
 
         private string IdSeleccionado
         {
@@ -72,7 +71,7 @@ namespace GrouponDesktop.Views
 
         protected override void  ExecSubmit()
         {
-            this.Data = this.home.CuponesParaPublicar(fecActual.Value,(comboBoxProveedor.SelectedItem as Proveedor).id_usuario);
+            this.Data = this.home.CuponesParaPublicar(this.Filter);
         }
         
 

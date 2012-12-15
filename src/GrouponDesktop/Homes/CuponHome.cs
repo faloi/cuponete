@@ -61,7 +61,7 @@ namespace GrouponDesktop.Homes
                 from RANDOM.Facturacion_Proveedor";
 
             var filters = new Filters()
-                .AddEqual("id_proveedor", filter.id_proveedor)
+                .AddEqual("id_proveedor", filter.id_proveedor.ToString())
                 .AddGreaterThanOrEqual("fecha_canje", filter.fecha_inicio.ToString(DATE_FORMAT))
                 .AddLessThanOrEqual("fecha_canje", filter.fecha_fin.ToString(DATE_FORMAT));
 
@@ -98,17 +98,21 @@ namespace GrouponDesktop.Homes
             this.Run(procedures);
         }
 
-        public object CuponesParaPublicar(DateTime fecha, long id_proveedor)
+        public IList<Cupon> CuponesParaPublicar(Cupon cupon)
         {
             const string QUERY = "SELECT cup.id_cupon,prov.razon_social as descripcionProveedor,cup.descripcion,cup.precio_real,cup.cant_disp " +
                                  "FROM RANDOM.Cupon cup " +
                                  "INNER JOIN RANDOM.Proveedor prov ON prov.id_usuario=cup.id_proveedor";
 
-            var filtros = new Filters();
-            filtros.AddEqual("publicado", "0");
-            if (id_proveedor != 0)
-                filtros.AddEqual("id_proveedor", id_proveedor.ToString());
-            filtros.AddEqual("fec_publicacion", fecha.ToString(DATE_FORMAT));
+            var filtros = new Filters()
+                .AddEqual("publicado", "0")
+                .AddEqual("fec_publicacion", cupon.fec_publicacion.ToString(DATE_FORMAT));
+            
+            if (cupon.id_proveedor != 0)
+                filtros.AddEqual("id_proveedor", cupon.id_proveedor.ToString());
+
+            if (cupon.descripcion != null)
+                filtros.AddLike("descripcion", cupon.descripcion);
 
             return new Adapter().TransformMany<Cupon>(this.sqlRunner.Select(QUERY, filtros));
         }
